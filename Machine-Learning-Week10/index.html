@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xuj14.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Large Scale Machine Learning Gradient Descent with Large Datasets Learning with large datasets 如何知道小m（size of dataset）也能产生很好的结果？绘制learning curve（error关于m的曲线） 左图为high variance，说明增加m有助于结果变好；右图为high bias">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Week10">
+<meta property="og:url" content="https://xuj14.github.io/Machine-Learning-Week10/index.html">
+<meta property="og:site_name" content="Jun&#39;s Blog">
+<meta property="og:description" content="Large Scale Machine Learning Gradient Descent with Large Datasets Learning with large datasets 如何知道小m（size of dataset）也能产生很好的结果？绘制learning curve（error关于m的曲线） 左图为high variance，说明增加m有助于结果变好；右图为high bias">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png">
+<meta property="article:published_time" content="2021-04-18T19:25:01.000Z">
+<meta property="article:modified_time" content="2022-07-29T00:46:56.007Z">
+<meta property="article:author" content="Jun XU">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png">
+
+
+<link rel="canonical" href="https://xuj14.github.io/Machine-Learning-Week10/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xuj14.github.io/Machine-Learning-Week10/","path":"Machine-Learning-Week10/","title":"Machine Learning Week10"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Machine Learning Week10 | Jun's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end -->
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jun's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#large-scale-machine-learning"><span class="nav-number">1.</span> <span class="nav-text">Large Scale Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient-descent-with-large-datasets"><span class="nav-number">1.1.</span> <span class="nav-text">Gradient Descent with
+Large Datasets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-with-large-datasets"><span class="nav-number">1.1.1.</span> <span class="nav-text">Learning with large datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stochastic-gradient-descent-%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="nav-number">1.1.2.</span> <span class="nav-text">Stochastic gradient
+descent 随机梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mini-batch-gradient-descent"><span class="nav-number">1.1.3.</span> <span class="nav-text">Mini-Batch gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stochastic-gradient-descent-convergence"><span class="nav-number">1.1.4.</span> <span class="nav-text">Stochastic gradient
+descent convergence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#advanced-topics"><span class="nav-number">1.2.</span> <span class="nav-text">Advanced Topics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#map-reduce-and-data-parallelism"><span class="nav-number">1.2.1.</span> <span class="nav-text">Map reduce and data
+parallelism</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jun XU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xuJ14" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xuJ14" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/jun.xu14@gmail.com" title="E-Mail → jun.xu14@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xuj14.github.io/Machine-Learning-Week10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jun XU">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Machine Learning Week10 | Jun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning Week10
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-18 15:25:01" itemprop="dateCreated datePublished" datetime="2021-04-18T15:25:01-04:00">2021-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-28 20:46:56" itemprop="dateModified" datetime="2022-07-28T20:46:56-04:00">2022-07-28</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
+<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
+Large Datasets</h2>
+<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
+<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
+curve（error关于m的曲线）</p>
+<p>左图为high variance，说明增加m有助于结果变好；右图为high
+bias，说明增加m无助于结果变好</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
+<figcaption aria-hidden="true">左：high variance；右: high
+bias</figcaption>
+</figure>
+<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
+descent 随机梯度下降</h3>
+<p>Batch gradient descent:
+前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
+<p>Stochastic gradient descent：每次iteration用1个例子</p>
+<ol type="1">
+<li><p>Randomly shuffle dataset</p></li>
+<li><p>Repeat：</p>
+<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
+}</p>
+<blockquote>
+<p>Note: 和Batch gradient
+descent不同的是，无需每一步都要计算全部的training example</p>
+</blockquote></li>
+</ol>
+<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
+<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
+<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
+<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
+<p>第i个例子，直到第i+b-1个例子</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
+<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
+</figure>
+<p>只有当have a good vetorized implementation
+，mini-batch才能比stochastic表现得更好。（并行运算）</p>
+<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
+descent convergence</h3>
+<p>收敛性：</p>
+<ul>
+<li><figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
+<figcaption aria-hidden="true">Algorithm</figcaption>
+</figure></li>
+<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
+better结果。（cost关于no. of iteration 的曲线）</p></li>
+<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
+<li><p>如果学习曲线在上升，就要用更小的α</p></li>
+<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
+<li><p>关于学习速率的选择：</p>
+<ul>
+<li>Learning rate α is typically held constant 在随机梯度下降中</li>
+<li>Can slowly decrease α over time if we want θ to converge.
+（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
+Number+const2}\)</span>）
+<ul>
+<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<p>### Online Learning</p>
+<ul>
+<li><p>连续的数据流：用户进入离开</p></li>
+<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
+regression或者神经网络</p></li>
+<li><p>这里考虑逻辑回归：</p>
+<p>Repeat forever {</p>
+<p>​ Get (x,y) corresponding to user.</p>
+<p>​ Update θ using (x,y):</p>
+<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
+(j=0, ..., n)</p>
+<p>}</p></li>
+<li><p>这个算法可以用于学习用户喜好</p>
+<ul>
+<li>Choosing special offers to show user</li>
+<li>Customized selection of news articles</li>
+<li>product recommendation/search</li>
+</ul></li>
+</ul>
+<h3 id="map-reduce-and-data-parallelism">Map reduce and data
+parallelism</h3>
+<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
+Ghemawat。summation over the training set。即并行处理</p>
+<ul>
+<li>神经网络也同样可以并行计算前向和后向propagation</li>
+<li>有时只需要向量化实现算法，不需要多核并行</li>
+<li>Hadoop是开源map reduce</li>
+<li>由于并行的latency，速度会少于N倍 的单核心</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Reading-List/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Citadel-Central-Datathon-2021/" rel="next" title="Citadel Central Regional Datathon 2021">
+                  Citadel Central Regional Datathon 2021 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun XU</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">33k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">30 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

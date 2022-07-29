@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xuj14.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="This section is about the introduction to machine learning.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Week01">
+<meta property="og:url" content="https://xuj14.github.io/Machine-Learning-Week01/index.html">
+<meta property="og:site_name" content="Jun&#39;s Blog">
+<meta property="og:description" content="This section is about the introduction to machine learning.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-25T05:00:33.000Z">
+<meta property="article:modified_time" content="2022-07-29T00:45:33.901Z">
+<meta property="article:author" content="Jun XU">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xuj14.github.io/Machine-Learning-Week01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xuj14.github.io/Machine-Learning-Week01/","path":"Machine-Learning-Week01/","title":"Machine Learning Week01"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Machine Learning Week01 | Jun's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end -->
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jun's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#matrices-and-vectors"><span class="nav-number"></span> <span class="nav-text">Matrices and Vectors</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jun XU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xuJ14" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xuJ14" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/jun.xu14@gmail.com" title="E-Mail → jun.xu14@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xuj14.github.io/Machine-Learning-Week01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jun XU">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Machine Learning Week01 | Jun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning Week01
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-25 01:00:33" itemprop="dateCreated datePublished" datetime="2021-03-25T01:00:33-04:00">2021-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-28 20:45:33" itemprop="dateModified" datetime="2022-07-28T20:45:33-04:00">2022-07-28</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="week-1">Week 1</h2>
+<ol type="1">
+<li><p><strong>Supervised Learning 监督学习</strong></p>
+<ul>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
+<ol type="1">
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/This-is-my-first-bolg/" rel="prev" title="This is my first blog!">
+                  <i class="fa fa-chevron-left"></i> This is my first blog!
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun XU</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">33k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">30 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
