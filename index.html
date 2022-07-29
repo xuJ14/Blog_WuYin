@@ -135,7 +135,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-29 01:50:04" itemprop="dateModified" datetime="2022-07-29T01:50:04-04:00">2022-07-29</time>
+      <time title="Modified: 2022-07-29 16:41:03" itemprop="dateModified" datetime="2022-07-29T16:41:03-04:00">2022-07-29</time>
     </span>
 
   
@@ -315,7 +315,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-28 20:46:56" itemprop="dateModified" datetime="2022-07-28T20:46:56-04:00">2022-07-28</time>
+      <time title="Modified: 2022-07-29 16:43:26" itemprop="dateModified" datetime="2022-07-29T16:43:26-04:00">2022-07-29</time>
     </span>
 
   
@@ -343,100 +343,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
-<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
-Large Datasets</h2>
-<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
-<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
-curve（error关于m的曲线）</p>
-<p>左图为high variance，说明增加m有助于结果变好；右图为high
-bias，说明增加m无助于结果变好</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
-<figcaption aria-hidden="true">左：high variance；右: high
-bias</figcaption>
-</figure>
-<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
-descent 随机梯度下降</h3>
-<p>Batch gradient descent:
-前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
-<p>Stochastic gradient descent：每次iteration用1个例子</p>
-<ol type="1">
-<li><p>Randomly shuffle dataset</p></li>
-<li><p>Repeat：</p>
-<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
-}</p>
-<blockquote>
-<p>Note: 和Batch gradient
-descent不同的是，无需每一步都要计算全部的training example</p>
-</blockquote></li>
-</ol>
-<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
-<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
-<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
-<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
-<p>第i个例子，直到第i+b-1个例子</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
-<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
-</figure>
-<p>只有当have a good vetorized implementation
-，mini-batch才能比stochastic表现得更好。（并行运算）</p>
-<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
-descent convergence</h3>
-<p>收敛性：</p>
-<ul>
-<li><figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
-<figcaption aria-hidden="true">Algorithm</figcaption>
-</figure></li>
-<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
-better结果。（cost关于no. of iteration 的曲线）</p></li>
-<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
-<li><p>如果学习曲线在上升，就要用更小的α</p></li>
-<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
-<li><p>关于学习速率的选择：</p>
-<ul>
-<li>Learning rate α is typically held constant 在随机梯度下降中</li>
-<li>Can slowly decrease α over time if we want θ to converge.
-（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
-Number+const2}\)</span>）
-<ul>
-<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<p>### Online Learning</p>
-<ul>
-<li><p>连续的数据流：用户进入离开</p></li>
-<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
-regression或者神经网络</p></li>
-<li><p>这里考虑逻辑回归：</p>
-<p>Repeat forever {</p>
-<p>​ Get (x,y) corresponding to user.</p>
-<p>​ Update θ using (x,y):</p>
-<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
-(j=0, ..., n)</p>
-<p>}</p></li>
-<li><p>这个算法可以用于学习用户喜好</p>
-<ul>
-<li>Choosing special offers to show user</li>
-<li>Customized selection of news articles</li>
-<li>product recommendation/search</li>
-</ul></li>
-</ul>
-<h3 id="map-reduce-and-data-parallelism">Map reduce and data
-parallelism</h3>
-<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
-Ghemawat。summation over the training set。即并行处理</p>
-<ul>
-<li>神经网络也同样可以并行计算前向和后向propagation</li>
-<li>有时只需要向量化实现算法，不需要多核并行</li>
-<li>Hadoop是开源map reduce</li>
-<li>由于并行的latency，速度会少于N倍 的单核心</li>
-</ul>
-
+          Large scale machine learning
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Machine-Learning-Week10/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -737,7 +652,7 @@ Elements of Statistical Learning</li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-28 20:46:49" itemprop="dateModified" datetime="2022-07-28T20:46:49-04:00">2022-07-28</time>
+      <time title="Modified: 2022-07-29 16:43:05" itemprop="dateModified" datetime="2022-07-29T16:43:05-04:00">2022-07-29</time>
     </span>
 
   
@@ -765,251 +680,15 @@ Elements of Statistical Learning</li>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="anomaly-detection-异常检测">Anomaly Detection 异常检测</h1>
-<h2 id="density-estimation">Density Estimation</h2>
-<h3 id="problem-motivation">Problem Motivation</h3>
-<p>异常检测主要用于unsupervised learning</p>
-<p>Model：<span class="math inline">\(P(x_{test}&lt;\epsilon)\rightarrow
-anomaly\)</span></p>
-<p>​ <span class="math inline">\(P(x_{test}\ge \epsilon)\rightarrow
-OK\)</span></p>
-<p>也被用于检测账号被盗、生产、数据中心的电脑</p>
-<h3 id="gaussian-distribution">Gaussian Distribution</h3>
-<p>=Normal distribution</p>
-<p>X ～ N (0, 1)，“distributed as”, 这里N的符号为"script N"</p>
-<p>给定dataset，参数估计：via Maximum likelihood estimation
-通常是m-1，对大数据集没影响 <span class="math display">\[
-\mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
-\sigma^2=\frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)^2
-\]</span></p>
-<h3 id="algorithm">Algorithm</h3>
-<p>基本假设，各特征间相互独立 <span class="math display">\[
-P(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)
-\]</span> <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210404220930233.png" alt="Anomaly detection algorithm"></p>
-<h2 id="building-an-anomaly-detection-system">Building an Anomaly
-Detection System</h2>
-<h3 id="developing-and-evaluating-an-anomaly-detection-system">Developing
-and Evaluating an Anomaly Detection System</h3>
-<p>Training set: normal examples (可以有少量异常的混进来)</p>
-<p>然后应用于cross calidation set 和 test set</p>
-<ul>
-<li><p>10000正常，20异常：</p>
-<p>​ 训练集：6000正常</p>
-<p>​ CV：2000正常，10异常</p>
-<p>​ Test：2000正常，10异常</p></li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405114004132.png" alt="Algorithm evaluation">
-<figcaption aria-hidden="true">Algorithm evaluation</figcaption>
-</figure>
-<p>由于normal是0，所以预测0常常有更高的准确率，是skew的偏斜的。因此查准率accuracy不是很好的分析指标。</p>
-<ul>
-<li>选择ε时，可以试几个不同的，然后选择使得Cross
-validation集中F1-score最大的，或者效果最好的。</li>
-<li>有时还需要决定用什么特征</li>
-</ul>
-<h3 id="anomaly-detection-vs.-supervised-learning">Anomaly detection vs.
-Supervised learning</h3>
-<p>Anomaly detection:</p>
-<ul>
-<li>y=1非常少(0-20常见), y=0占比更大</li>
-<li>有大量不同的异常类型，其他算法难于分辨各种类型</li>
-<li>有未知异常类型</li>
-</ul>
-<p>supervised learning：</p>
-<ul>
-<li>大量的positive 和negative examples</li>
-<li>有足够positive examples，并且未来的positive
-example和训练集的相似</li>
-<li>Spam</li>
-</ul>
-<h3 id="choosing-what-features-to-use">Choosing what features to
-use</h3>
-<ul>
-<li>Non-gaussian feature</li>
-</ul>
-<p>绘制特征的直方图，看是否大致是个bell shaped
-curve，如果不是，运用一些变换使得其看起来更加gaussian</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405203939050.png" alt="take a log transformation">
-<figcaption aria-hidden="true">take a log transformation</figcaption>
-</figure>
-<ul>
-<li><p>Error analysis for anomaly detection</p>
-<p>甄别失败时，new feature
-可能有帮助，例如组合现有的特征形成新特征</p></li>
-</ul>
-<h2 id="multivariate-gaussian-distribution">Multivariate Gaussian
-Distribution</h2>
-<h3 id="multivariate-gaussian-distribution-1">Multivariate Gaussian
-Distribution</h3>
-<p>不同于之前的是，p(x)不再是各个特征概率的乘积。</p>
-<p>Parameters: <span class="math inline">\(\mu \in \R^n\)</span>, <span class="math inline">\(\Sigma \in \R^{n\times n}\)</span> <span class="math display">\[
-p(x;\mu,\Sigma)=
-\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^2}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))
-\]</span> <span class="math inline">\(|\Sigma|\)</span>=determinant of
-Σ</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405214331278.png" alt="examples"> <span class="math display">\[
-\mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
-\Sigma = \frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)(x^{(i)}-\mu)^T
-\]</span></p>
-<h3 id="anomaly-detection-using-the-multivariate-gaussian-distribution">Anomaly
-Detection using the multivariate Gaussian distribution</h3>
-<p>首先计算μ和Σ，然后计算p(x)，最后根据ε判断是否异常</p>
-<ul>
-<li><p>优点：自动捕捉特征间的相关性。m&gt;10n用起来才比较好，必须要m&gt;n，否则协方差矩阵不可逆。</p></li>
-<li><p>缺点：计算量比较大。如果某个特征是其他的线性组合，那么协方差矩阵也不可逆，要注意避免。</p></li>
-</ul>
-<p>前述的模型：优点在于计算量小，但是要人工创造一些新特征来更好地分辨。m&lt;n的时候也能用。</p>
-<p>若出现协方差矩阵不可逆：</p>
-<ul>
-<li>首先检查m, n大小</li>
-<li>检查是否有redundant features，就是特征间是否线性独立</li>
-</ul>
-<h2 id="predicting-movie-ratings-recommendation-system">Predicting Movie
-Ratings ——Recommendation System</h2>
-<h3 id="problem-formulation">Problem Formulation</h3>
-<p>r(i,j) 表示第i个电影，j用户是否打分；</p>
-<p>y(i,j) 表示该用户对该电影的打分值 ；</p>
-<h3 id="content-based-recommendations">Content Based
-Recommendations</h3>
-<p>设电影特征n个</p>
-<p>For each user j, learn a parameter <span class="math inline">\(\theta^{(j)}\in\R^{n+1}\)</span>. Predict user j
-as rating movie i with <span class="math inline">\((\theta^{(j)})^Tx^{(i)}\)</span> stars. （注意
-<span class="math inline">\(x_0=1\)</span>）。用线性回归</p>
-<p>To learn <span class="math inline">\(\theta^{(j)}\)</span>： <span class="math display">\[
-\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
-\]</span> Note: 这里 <span class="math inline">\(m^{(j)}\)</span>可以去掉，对结果没有任何影响</p>
-<p>优化目标也可以为： <span class="math display">\[
-J(\Theta^{(1)},...,\Theta^{(n_u)})=\min_{\Theta^{(1)},...,\Theta^{(n_u)}}\frac{1}{2}\sum_{j=1}^{n_u}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2}\sum_{j=1}^{n_u}\sum_{k=1}^{n}(\theta_k^{(j)})^2
-\]</span> Gradient descent update: <span class="math display">\[
-\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha \sum_{i: r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
-x_{k}^{(i)}\ (\text { for } k=0)
-\]</span></p>
-<p><span class="math display">\[
-\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha\left(\sum_{i: r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
-x_{k}^{(i)}+\lambda \theta_{k}^{(j)}\right)\ (\text { for } k \neq 0)
-\]</span></p>
-<p>k=0的时候不加正则项</p>
-<h2 id="collaborative-filtering">Collaborative Filtering</h2>
-<h3 id="collaborative-filtering-1">Collaborative Filtering</h3>
-<ul>
-<li><p>feature learning</p></li>
-<li><p>Given <span class="math inline">\(\Theta^{(1)},...,\Theta^{(n_u)}\)</span>，to learn
-<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>;</p></li>
-<li><p>算法类似7、8式</p></li>
-<li><p><span class="math inline">\(用户的\Theta\rightarrow
-电影特征x\rightarrow \Theta\rightarrow x\rightarrow...\)</span></p></li>
-<li><p>每个用户都在帮助这个推荐系统更好地分类电影，从而更好地预测评分</p></li>
-<li><p>算法：同时实现：</p>
-<ol type="1">
-<li><p>Given <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>，estimate <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>： <span class="math display">\[
-\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
-\]</span></p></li>
-<li><p>Given <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>，estimate
-<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>： <span class="math display">\[
-\min _{x^{(1)}, \ldots, x^{\left(n_{m}\right)}} \frac{1}{2}
-\sum_{i=1}^{n_{m}} \sum_{j: r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
-j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
-\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}
-\]</span></p></li>
-</ol>
-<p>即：</p>
-<p>Minimizing <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>
-and <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>
-simultaneously： <span class="math display">\[
-\min_{x^{(1)},...,x^{(n_m)}\\\theta^{(1)},...,\theta^{(n_u)}}J\left(x^{(1)},
-\ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
-\theta^{\left(n_{u}\right)}\right)
-\]</span></p>
-<p><span class="math display">\[
-J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
-\theta^{\left(n_{u}\right)}\right)=\frac{1}{2} \sum_{(i, j): r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
-j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
-\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}+\frac{\lambda}{2}
-\sum_{j=1}^{n_{u}} \sum_{k=1}^{n}\left(\theta_{k}^{(j)}\right)^{2}
-\]</span></p>
-<blockquote>
-<p>该算法下，无需设定 <span class="math inline">\(x_0=1\)</span>,
-也没有<span class="math inline">\(\theta_0\)</span>，因为算法会自行选择参数。该算法下：<span class="math inline">\(\theta\in\R^n\)</span>，<span class="math inline">\(x\in\R^n\)</span>，n是特征数</p>
-</blockquote></li>
-<li><p>算法实现：</p>
-<ol type="1">
-<li>Initialize <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>， <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span> to small
-random values</li>
-<li>Minimize J using gradient descent (or an advanced optimization
-algorithm)</li>
-<li>For a user with parameters <span class="math inline">\(\theta\)</span> and a movie with (learned)
-features x, predict a star rating of <span class="math inline">\(\theta^Tx\)</span></li>
-</ol></li>
-</ul>
-<h2 id="low-rank-matrix-factorization">Low Rank Matrix
-Factorization</h2>
-<p>### Vectorization</p>
-<ul>
-<li><p>Given matrices X (each row containing features of a particular
-movie) and Θ (each row containing the weights for those features for a
-given user), then the full matrix Y of all predicted ratings of all
-movies by all users is given simply by: <span class="math inline">\(Y =
-X\Theta^T\)</span>.</p></li>
-<li><p>Predicting how similar two movies i and j are can be done using
-the distance between their respective feature vectors x. Specifically,
-we are looking for a small value of <span class="math inline">\(||x^{(i)} - x^{(j)}||\)</span>.</p></li>
-</ul>
-<h3 id="mean-normalization">Mean Normalization</h3>
-<p>If the ranking system for movies is used from the previous lectures,
-then new users (who have watched no movies), will be assigned new movies
-incorrectly. Specifically, they will be assigned θ with all components
-equal to zero due to the minimization of the regularization term. That
-is, we assume that the new user will rank all movies 0, which does not
-seem intuitively correct. 新用户会被预测为0</p>
-<p>We rectify this problem by normalizing the data relative to the mean.
-First, we use a matrix Y to store the data from previous ratings, where
-the ith row of Y is the ratings for the ith movie and the jth column
-corresponds to the ratings for the jth user.</p>
-<p>We can now define a vector <span class="math display">\[
-\mu  = [\mu_1, \mu_2, \dots , \mu_{n_m}]
-\]</span> such that <span class="math display">\[
-\mu_i = \frac{\sum_{j:r(i,j)=1}{Y_{i,j}}}{\sum_{j}{r(i,j)}}
-\]</span> Which is effectively the mean of the previous ratings for the
-ith movie (where only movies that have been watched by users are
-counted). We now can normalize the data by subtracting u, the mean
-rating, from the actual ratings for each user (column in matrix Y):</p>
-<p>As an example, consider the following matrix Y and mean ratings μ:
-<span class="math display">\[
-Y=\left[\begin{array}{cccc}
-5 &amp; 5 &amp; 0 &amp; 0 \\
-4 &amp; ? &amp; ? &amp; 0 \\
-0 &amp; 0 &amp; 5 &amp; 4 \\
-0 &amp; 0 &amp; 5 &amp; 0
-\end{array}\right], \quad \mu=\left[\begin{array}{c}
-2.5 \\
-2 \\
-2.25 \\
-1.25
-\end{array}\right]
-\]</span> The resulting Y′ vector is: <span class="math display">\[
-Y^{\prime}=\left[\begin{array}{cccc}
-2.5 &amp; 2.5 &amp; -2.5 &amp; -2.5 \\
-2 &amp; ? &amp; ? &amp; -2 \\
--2 .25 &amp; -2.25 &amp; 3.75 &amp; 1.25 \\
--1.25 &amp; -1.25 &amp; 3.75 &amp; -1.25
-\end{array}\right]
-\]</span> Now we must slightly modify the linear regression prediction
-to include the mean normalization term: <span class="math display">\[
-(\theta^{(j)})^T x^{(i)} + \mu_i
-\]</span> Now, for a new user, the initial predicted values will be
-equal to the μ term instead of simply being initialized to zero, which
-is more accurate.</p>
-<blockquote>
-<p>Note:
-一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
-</blockquote>
-
+          Anomaly Detection
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Machine-Learning-Week09/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
