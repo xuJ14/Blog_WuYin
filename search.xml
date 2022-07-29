@@ -18,42 +18,6 @@ Place Winner of Central Regional Datathon 2021</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
-<ul>
-<li>每次上传都需要密码 _config.yml中将仓库地址改为：git@github.com:
-yourname/yourname.github.io.git</li>
-</ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
-<ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
-</ul>
-<h2 id="formula">Formula</h2>
-<ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Issues</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week01</title>
     <url>/Machine-Learning-Week01/</url>
     <content><![CDATA[<h2 id="week-1">Week 1</h2>
@@ -184,6 +148,42 @@ A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Issues</tag>
       </tags>
   </entry>
   <entry>
@@ -347,176 +347,162 @@ a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week06</title>
-    <url>/Machine-Learning-Week06/</url>
-    <content><![CDATA[<h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
-<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
-Algorithm</h3>
+    <title>Machine Learning Week05</title>
+    <url>/Machine-Learning-Week05/</url>
+    <content><![CDATA[<h2 id="neural-networks-learning">Neural Networks Learning</h2>
+<h3 id="cost-function-and-propagation">Cost Function and
+Propagation</h3>
 <ol type="1">
-<li><p>误差大的改进方法：</p>
+<li><p>Cost Function</p>
 <ul>
-<li>更多数据</li>
-<li>更少特征集避免过拟合</li>
-<li>更多特征</li>
-<li>增加多项式特征</li>
-<li>减少或增大正则化参数值</li>
-</ul></li>
-<li><p>评估假设函数Evaluating a Hypothesis</p>
-<ul>
-<li><p>如何判断过拟合？</p>
-<ul>
-<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
-<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
-<li><p>计算测试集误差</p>
-<ul>
-<li><p>线性回归中计算测试集的 J(θ)</p></li>
-<li><p>逻辑回归中可以用误分类率来计算error：</p>
-<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
-h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
-&amp;otherwise\end{cases}\)</span></p>
-<p><span class="math inline">\(Test\
-error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
-<ul>
-<li>将数据分为三段：训练集（60%），交叉验证集（cross
-validation）（20%），测试集（20%）</li>
-<li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
-<li>最后计算测试集误差评价模型表现</li>
-</ul></li>
-</ol>
-<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
-<ol type="1">
-<li><p>分析bias和variance</p>
-<ul>
-<li>高偏差：欠拟合；高方差：过拟合</li>
-<li>高偏差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
-the same as <span class="math inline">\(J_{CV}(\theta)\approx
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li>高方差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
-<span class="math inline">\(J_{CV}(\theta)\gg
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
-</ul></li>
-<li><p>正则化与方差、偏差的关系</p>
-<ul>
-<li><p>正则化可以有效防止过拟合</p></li>
-<li><p>选择λ的过程：</p>
-<ul>
-<li>Create a list of lambdas (i.e.
-λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
-<li>Create a set of models with different degrees or any other
-variants.</li>
-<li>Iterate through the λs and for each λ go through all the models to
-learn some Θ.</li>
-<li>Compute the cross validation error using the learned Θ (computed
-with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
-0.</li>
-<li>Select the best combo that produces the lowest error on the cross
-validation set.</li>
-<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
-has a good generalization of the problem.</li>
-</ul></li>
-<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
-J_{train}(\theta)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
+<li><p>L 神经网络的层数</p></li>
+<li><p><span class="math inline">\(s_l\)</span>第l层的神经元个数，不包括bias
+unit</p></li>
+<li><p>K输出层的神经元个数（即种类）</p></li>
+<li><p>binary classification二元分类</p></li>
+<li><p>Logistic regression的代价函数： <span class="math display">\[
+J(\theta)=-\frac {1}{m}\sum \limits_{i=1}^m\bigg
+[y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))\bigg
+]+\frac{\lambda}{2m}\sum \limits_{j=1}^n\theta_j^2
 \]</span></p></li>
-</ul></li>
-<li><p>学习曲线（error-训练集的大小）</p>
+<li><p>神经网络的代价函数： <span class="math display">\[
+J(\Theta)=-\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K}\left[y_{k}^{(i)}
+\log \left((h_{\Theta}(x^{(i)}))_{k}\right)+\left(1-y_{k}^{(i)}\right)
+\log \left(1-(h_{\Theta}(x^{(i)}))_{k}\right)\right]+\frac{\lambda}{2 m}
+\sum_{l=1}^{L-1} \sum_{i=1}^{s_l}
+\sum_{j=1}^{s_{l+1}}(\theta_{j,i}^{(l)})^2
+\]</span></p>
 <ul>
-<li>高偏差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
-<li>高偏差，更多训练数据不会有很大帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
-</ul></li>
-<li>高方差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
-set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
-continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
-the difference between them remains significant.</li>
-<li>高方差，更多训练数据可能有帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
+<li>两个求和符号部分只是将输出层中每个单元的逻辑回归代价函数相加</li>
+<li>三个求和符号部分只是将整个网络中所有单个θ的平方相加，其中i并不指代训练实例i</li>
 </ul></li>
 </ul></li>
-<li><p>诊断法则如何判断</p>
+<li><p>反向传播算法Backpropagation Algorithm</p>
 <ul>
-<li>更多训练数据——高方差，画学习曲线</li>
-<li>更少特征集避免过拟合——高方差</li>
-<li>更多特征——高偏差</li>
-<li>增加多项式特征——高偏差</li>
-<li>减少（高偏差）或增大正则化参数值（高方差）
+<li><p>梯度下降计算</p>
 <ul>
-<li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
+<li><p>min J（θ）就需要计算：J（θ）；J（θ）关于各个θ的偏导</p></li>
+<li><p>计算过程：先forward propagation；再反向</p></li>
+<li><p><span class="math inline">\(\delta_j^{l}="error"\ of\
+node\ j\ in\ layer\ l\)</span>用于改变activation激励值, Formally, <span class="math inline">\(\delta_j^{(l)}=\frac \partial {\partial
+z_{j}^{(l)}} cost(j)\)</span>, 其中<span class="math inline">\(cost(i)=y^{(i)}log(h_\Theta(x^{(i)}))-(1-y^{(i)})log(1-h_\Theta(x^{(i)}))\)</span>,
+求导后易得<span class="math inline">\(\delta_j^{(l)}=y_j^{(l)}-a_j^{(l)}\)</span>(为什么符号是相反的？答：这里cost错误，和前文代价函数符号相反，应该要变号)</p></li>
+<li><p>计算过程：</p>
+<ul>
+<li><p>令<span class="math inline">\(\Delta_{i,j}^{l}:=0\)</span></p></li>
+<li><p>For training example t =1 to m:</p>
+<ol type="1">
+<li><p>Set <span class="math inline">\(a^{(1)} :=
+x^{(t)}\)</span></p></li>
+<li><p>Perform forward propagation to compute <span class="math inline">\(a^{(l)}\ for\ l=2,3,…,L\)</span></p>
+<p>(此处失效图片链接)img
+(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bYLgwteoEeaX9Qr89uJd1A_73f280ff78695f84ae512f19acfa29a3_Screenshot-2017-01-10-18.16.50.png?expiry=1606176000000&amp;hmac=9aVGT1io0l-sybFSrc1stejo_L0d7hzlNXbQIt47h2Y)</p></li>
+<li><p>Using <span class="math inline">\(y^{(t)}\)</span>, compute$
+^{(L)} = a^{(L)} - y^{(t)}$</p>
+<p>Where L is our total number of layers and
+a^{(L)}<em>a</em>(<em>L</em>) is the vector of outputs of the activation
+units for the last layer. So our "error values" for the last layer are
+simply the differences of our actual results in the last layer and the
+correct outputs in y. To get the delta values of the layers before the
+last layer, we can use an equation that steps us back from right to
+left:</p></li>
+<li><p>Compute$ ^{(L-1)}, <sup>{(L-2)},,</sup>{(2)}<span class="math inline">\(using\)</span>$ ^{(l)} = ((<sup>{(l)})</sup>T
+^{(l+1)})&nbsp;.<em>&nbsp;a^{(l)}&nbsp;.</em>&nbsp;(1 - a^{(l)}) $$</p>
+<p>The delta values of layer l are calculated by multiplying the delta
+values in the next layer with the theta matrix of layer l. We then
+element-wise multiply that with a function called g', or g-prime, which
+is the derivative of the activation function g evaluated with the input
+values given by <span class="math inline">\(z^{(l)}\)</span>.</p>
+<p>The g-prime derivative terms can also be written out as:</p>
+<p><span class="math inline">\(g′(z^{(l)})=a^{(l)} .∗
+(1−a^{(l)})\)</span></p></li>
+<li><p><span class="math inline">\(Δ_{i,j}^{(l)}:=Δ_{i,j}^{(l)}+a_j^{(l)}δ_i^{(l+1)}\)</span>,
+or with vectorization, <span class="math inline">\(Δ^{(l)}:=Δ^{(l)}+δ^{(l+1)}(a^{(l)})^T\)</span></p>
+<p>Hence we update our new <span class="math inline">\(\Delta\)</span>
+matrix.</p>
+<ul>
+<li><p><span class="math inline">\(D_{i,
+j}^{(l)}:=\frac{1}{m}\left(\Delta_{i, j}^{(l)}+\lambda \Theta_{i,
+j}^{(l)}\right), \text { if } j \neq 0\)</span></p></li>
+<li><p><span class="math inline">\(D_{i, j}^{(l)}:=\frac{1}{m}\Delta_{i,
+j}^{(l)}, \text { if } j = 0\)</span></p>
+<p>The capital-delta matrix D is used as an "accumulator" to add up our
+values as we go along and eventually compute our partial derivative.
+Thus we get$ J()= D_{ij}^{(l)}$</p></li>
 </ul></li>
-<li>神经网络很容易过拟合，正则化项非常有用
-<ul>
-<li>如何选择几层隐藏层：
-<ul>
-<li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
+</ol></li>
 </ul></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26765585">上述计算过程的中文推导</a></p></li>
 </ul></li>
 </ul></li>
 </ol>
-<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
+<h3 id="backpropagation-in-practice">Backpropagation in practice</h3>
 <ol type="1">
-<li>做法：
+<li><p>系数展开到向量：</p>
 <ul>
-<li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
-<li>列出可能的做法，讨论可行性，然后选择一个方向</li>
+<li><p>M(a,b)，既取a，也取b，从1开始</p></li>
+<li><p>优化算法（如：fminunc）默认将参数整合到一个向量中</p>
+
+
+   - 
+   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">%代码过程</span><br><span class="line">thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]</span><br><span class="line">deltaVector = [ D1(:); D2(:); D3(:) ]</span><br><span class="line"></span><br><span class="line">Theta1 = reshape(thetaVector(1:110),10,11)</span><br><span class="line">Theta2 = reshape(thetaVector(111:220),10,11)</span><br><span class="line">Theta3 = reshape(thetaVector(221:231),1,11)</span><br></pre></td></tr></tbody></table></figure>
+
+     </li>
+<li><p>过程：(此处失效图片链接)img(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kdK7ubT2EeajLxLfjQiSjg_d35545b8d6b6940e8577b5a8d75c8657_Screenshot-2016-11-27-15.09.24.png?expiry=1606348800000&amp;hmac=bH794vb16zxSOiqZRj2Pe0PyuaYNbZ8tDQZlnGSoM18)</p></li>
 </ul></li>
-<li>误差分析
+<li><p>梯度检验gradient checking</p>
 <ul>
-<li>推荐做法：
-<ul>
-<li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
-<li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
-<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
-<ul>
-<li>手动对错误的部分分类</li>
-<li>发现特征</li>
-<li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
+<li><p><span class="math inline">\(\frac{d}{d\Theta}J(\Theta)\approx
+\frac{J(\Theta+\epsilon)+J(\Theta-\epsilon)}{2\epsilon}\)</span>，ε =
+<span class="math inline">\(10^{-4}\)</span></p></li>
+<li><p><span class="math display">\[
+\dfrac{\partial}{\partial\Theta_j}J(\Theta) \approx \dfrac{J(\Theta_1,
+\dots, \Theta_j + \epsilon, \dots, \Theta_n) - J(\Theta_1, \dots,
+\Theta_j - \epsilon, \dots, \Theta_n)}{2\epsilon}
+\]</span></p></li>
+<li><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">epsilon = 1e-4;</span><br><span class="line">for i = 1:n,</span><br><span class="line">  thetaPlus = theta;</span><br><span class="line">  thetaPlus(i) += epsilon;</span><br><span class="line">  thetaMinus = theta;</span><br><span class="line">  thetaMinus(i) -= epsilon;</span><br><span class="line">  gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*epsilon)</span><br><span class="line">end;</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Check: gradApprox ≈
+deltaVector，只需要验证一次即可，否则这种方法会非常慢</p></li>
 </ul></li>
-</ul></li>
-</ul></li>
-<li>stem词干提取（porter stemmer）</li>
-<li>skewed classes 偏斜类问题
+<li><p>Random Initialization随机初始化</p>
 <ul>
-<li>癌症的比例非常非常低</li>
-<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{predicted\
-positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
+<li><p>Symmetry
+breaking，因为如果设为一样的会使得梯度下降后参数也一样</p></li>
+<li><p>将每一个<span class="math inline">\(\Theta_{ij}^{(l)}\)</span>设为在[-ε，ε]之间的随机数，但要同时设置，以防出现相同，例：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Theta1 = rand(10,11)*2*init_epsilon-init_epsilon;</span><br></pre></td></tr></tbody></table></figure>
+<p>(Note: the epsilon used above is unrelated to the epsilon from
+Gradient Checking)</p></li>
 </ul></li>
-<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
+<li><p>总体回顾</p>
 <ul>
-<li><span class="math inline">\(=\frac{True\ positives}{actual\
-positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
-</ul></li>
-<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
-<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
-<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
-<li>绘制查准率-召回率曲线</li>
-<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
+<li>一般默认隐藏层每层神经元数量一致</li>
+<li>构建一个模型的过程：
+<ol type="1">
+<li>初始化模型
 <ul>
-<li>评估选择算法或者不同临界值的量化标准</li>
+<li>Number of input units = dimension of features
+x^{(i)}<em>x</em>(<em>i</em>)</li>
+<li>Number of output units = number of classes</li>
+<li>Number of hidden units per layer = usually more the better (must
+balance with cost of computation as it increases with more hidden
+units)</li>
+<li>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then
+it is recommended that you have the same number of units in every hidden
+layer.</li>
 </ul></li>
-</ul></li>
-<li>Data For Machine Learning
-<ul>
-<li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
-<li>多项式参数对大训练集没有帮助</li>
+<li><strong>Training a Neural Network</strong>
+<ol type="1">
+<li>Randomly initialize the weights</li>
+<li>Implement forward propagation to get <span class="math inline">\(h_\Theta(x^{(i)})\)</span> for any <span class="math inline">\(x^{(i)}\)</span></li>
+<li>Implement the cost function</li>
+<li>Implement backpropagation to compute partial derivatives</li>
+<li>Use gradient checking to confirm that your backpropagation works.
+Then disable gradient checking.</li>
+<li>Use gradient descent or a built-in optimization function to minimize
+the cost function with the weights in theta.</li>
+<li>对每一个训练样例循环上述步骤（有可能得到局部最优，因为J（θ）是非凸函数）</li>
+</ol></li>
+</ol></li>
 </ul></li>
 </ol>
 ]]></content>
@@ -689,309 +675,6 @@ n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-
 但是加入λL
 后，解决了上述问题，公式（9）括号内的矩阵是可逆的（前提是λ&gt;0）</li>
 </ul></li>
-</ul></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week07</title>
-    <url>/Machine-Learning-Week07/</url>
-    <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
-支持向量机</h2>
-<h3 id="large-margin-classification">Large Margin Classification</h3>
-<ol type="1">
-<li><p>Optimization Objective 优化目标</p>
-<ul>
-<li><p>在复杂非线性方程的学习上有优势。</p></li>
-<li><figure>
-<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206123628670.png" alt="image-20201206123628670">
-<figcaption aria-hidden="true">image-20201206123628670</figcaption>
-</figure></li>
-<li><figure>
-<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206124245802.png" alt="image-20201206124245802">
-<figcaption aria-hidden="true">image-20201206124245802</figcaption>
-</figure>
-<p>注：实际上在训练代价函数时，分界线为-1，1</p></li>
-</ul></li>
-<li><p>Large Margin Intuition</p>
-<ul>
-<li><p>代价函数： <span class="math display">\[
-\min _{\theta} C \sum_{i=1}^{m}\left[y^{(i)}
-{\operatorname{cost}_{1}\left(\theta^{T}
-x^{(i)}\right)}+\left(1-y^{(i)}\right)
-\operatorname{cost}_{0}\left(\theta^{T}
-x^{(i)}\right)\right]+\frac{1}{2} \sum_{i=1}^{n} \theta_{j}^{2}\\
-if\ y=1, we\ want\ \theta^{T} x \geq 1\ (not\ just \left.\geq 0\right)\\
-if\ y=0, we\ want\ \theta^{T} x \leq-1\ (not\ just&lt;0 )
-\]</span></p></li>
-<li><p>SVM也被叫做大间距分类器，因为它尽量用最大间距分类样本，使得SVM更具有鲁棒性</p></li>
-<li><p>其中正则化参数C不适合设置得过大，因为这会使得一些异常值（outliner)
-会使得分类向异常值产生比较大得偏差，这就类似与逻辑回归里过小的λ
-。</p></li>
-</ul></li>
-<li><p>Mathematics Behind Large Margin Classification</p>
-<ul>
-<li><p>向量内积：<span class="math inline">\(\lVert u
-\rVert\)</span>表明u的范数，即u向量的长度。<span class="math inline">\(u^Tv=p\cdot\lVert u \rVert\)</span>, p
-是v在u上的投影长度</p></li>
-<li><p>本图演示了为什么这种方式可以最小化θ<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206171424283.png" alt="image-20201206171424283"></p>
-<p>注：这里决策边界和θ是具有垂直关系的</p></li>
-<li><p>这里最小化θ范数等价于最大化所有的p，即最大化所有点到决策边界的margin。</p></li>
-<li><p>即使<span class="math inline">\(\theta_0\ne0\)</span>推理过程也和上述类似</p></li>
-</ul></li>
-</ol>
-<h3 id="kernels">Kernels</h3>
-<ol type="1">
-<li><p>非线性决策边界</p>
-<ul>
-<li><p>用相似度函数similarity
-function代替高阶项，度量样本x和第一个标记的相似度，即核函数，例如：高斯核函数：<span class="math inline">\(f_1=similarity(x,l^{(1)})=exp(-\frac{\lVert
-x-l^{(1)}
-\rVert^2}{2\sigma^2})=exp(-\frac{\Sigma_{j=1}^{n}(x_j-l_j^{(i)})^2}{2\sigma^2})\)</span></p>
-<p>==问：这里σ是什么，如何计算？==</p></li>
-<li><p>通过用f替代特征，可以训练出复杂的非线性边界：例如：预测y=1，当<span class="math inline">\(\theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3\ge0\)</span></p></li>
-</ul></li>
-<li><p>选择landmark标记点 l :</p>
-<ul>
-<li>Given一系列x，令<span class="math inline">\(l^1=x^1\)</span>, <span class="math inline">\(f_{m}^{(i)}=similarity(x^{(i)},l^{(m)})\)</span></li>
-<li>将<span class="math inline">\(x^{(i)}\in
-\mathbb{R}^{n+1}\)</span>，转变为<span class="math inline">\(f^{(i)}=\begin{bmatrix}f_0^{(i)}\\f_0^{(i)}\\
-\vdots \\ f_m^{(i)} \end{bmatrix}\)</span>，<span class="math inline">\(f_0^{(i)}=1\)</span>。<span class="math inline">\(f\in \mathbb{R}^{m+1}\)</span></li>
-</ul></li>
-<li><p>Hypothesis：Given x ， compute features f</p>
-<p>Predict "y=1" if <span class="math inline">\(\theta^Tf\ge0\)</span></p></li>
-<li><p>代价函数： <span class="math display">\[
-\min _{\theta} C \sum_{i=1}^{m} y^{(i)}
-\operatorname{cost}_{1}\left(\theta^{T}
-f^{(i)}\right)+\left(1-y^{(i)}\right)
-\operatorname{cost}_{0}\left(\theta^{T} f^{(i)}\right)+\frac{1}{2}
-\sum_{j=1}^{m } \theta_{j}^{2}
-\]</span> 在SVM的实际应用中，最后一项通常会用<span class="math inline">\(\theta^TM\theta\)</span>，其中M和核函数有关，是为了提高计算效率</p></li>
-<li><p>参数的选择：</p>
-<ul>
-<li><p>C(=<span class="math inline">\(\frac{1}{\lambda}\)</span>)</p>
-<ul>
-<li>Large C：Lower bias；High variance</li>
-<li>Small C：Higher bias；Low variance</li>
-</ul></li>
-<li><p><span class="math inline">\(\sigma^2\)</span></p>
-<ul>
-<li><p>Large <span class="math inline">\(\sigma^2\)</span>: Fearures fi
-vary more smoothly.</p>
-<p>​ Higher bias; Lower variance</p></li>
-<li><p>Small <span class="math inline">\(\sigma^2\)</span>: Features fi
-vary less smoothly.</p>
-<p>​ Lower bias, Higher variance.</p></li>
-</ul></li>
-<li><p><strong>方差（variance）：</strong>方差描述的是训练数据在不同迭代阶段的训练模型中，预测值的变化波动情况（或称之为离散情况）。</p></li>
-<li><p><strong>偏差（bias）：</strong>偏差衡量了模型的预测值与实际值之间的偏离关系。</p></li>
-<li><p>低偏差高方差：过拟合；</p></li>
-<li><p>You want to train C and the parameters for the kernel function
-using the training and cross-validation datasets.</p></li>
-</ul></li>
-</ol>
-<h3 id="svms-in-practice">SVMs in Practice</h3>
-<ol type="1">
-<li><p>应用SVM</p>
-<ul>
-<li><p>选择C和σ</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[C, sigma]</span> = <span class="title">dataset3Params</span><span class="params">(X, y, Xval, yval)</span></span></span><br><span class="line"><span class="comment">% 这里x是训练集，xval是验证集</span></span><br><span class="line">value = [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">minC = <span class="number">0</span>;</span><br><span class="line">minSigma = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% 最小值设为交叉验证集的用例数</span></span><br><span class="line">minError = <span class="built_in">size</span>(Xval,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">        model= svmTrain(X, y, value(<span class="built_in">i</span>), @(x1, x2) gaussianKernel(x1, x2, value(<span class="built_in">j</span>)));</span><br><span class="line">        predictions = svmPredict(model,Xval);</span><br><span class="line">        error = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> minError &gt; error</span><br><span class="line">            minError = error;</span><br><span class="line">            minC = value(<span class="built_in">i</span>);</span><br><span class="line">            minSigma = value(<span class="built_in">j</span>);</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">C = minC;</span><br><span class="line">sigma = minSigma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>选择核函数（相似度函数）</p>
-<ul>
-<li>线性核函数（=没有核函数）</li>
-</ul></li>
-<li><p><strong>需要对特征向量归一化</strong>，否则一个特征会占据主要位置</p></li>
-<li><p>不是所有函数都能作为核函数，需要满足Mercer‘s
-Theorem莫塞尔定理，来确保SVM优化包能够正确运行</p></li>
-<li><p>其他核函数：</p>
-<ul>
-<li>多项式核函数</li>
-<li>字符串核函数string kernel；</li>
-<li>卡方核函数chi-square kernel</li>
-<li>直方图交叉核函数histogram intersection kernel</li>
-</ul></li>
-<li><p>多类别分类</p>
-<ul>
-<li>svm包多数内置了</li>
-<li>否则用one-vs-all
-：训练得到K组θ的值，然后选择θx最大的那一组作为分类结果</li>
-</ul></li>
-<li><p>逻辑回归和SVM，什么时候用？</p>
-<ul>
-<li>n为特征数，m为训练集样本数。如果n相对于m来说比较大，使用逻辑回归或者没有核函数的SVM（linear
-kernel）</li>
-<li>n小，m中等大。使用高斯核函数</li>
-<li>n小，m很大。运行很慢，逻辑回归或没有核函数的SVM</li>
-<li>神经网络上面都适用，但有时可能会比SVM慢很多</li>
-</ul></li>
-<li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
-</ul></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week05</title>
-    <url>/Machine-Learning-Week05/</url>
-    <content><![CDATA[<h2 id="neural-networks-learning">Neural Networks Learning</h2>
-<h3 id="cost-function-and-propagation">Cost Function and
-Propagation</h3>
-<ol type="1">
-<li><p>Cost Function</p>
-<ul>
-<li><p>L 神经网络的层数</p></li>
-<li><p><span class="math inline">\(s_l\)</span>第l层的神经元个数，不包括bias
-unit</p></li>
-<li><p>K输出层的神经元个数（即种类）</p></li>
-<li><p>binary classification二元分类</p></li>
-<li><p>Logistic regression的代价函数： <span class="math display">\[
-J(\theta)=-\frac {1}{m}\sum \limits_{i=1}^m\bigg
-[y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))\bigg
-]+\frac{\lambda}{2m}\sum \limits_{j=1}^n\theta_j^2
-\]</span></p></li>
-<li><p>神经网络的代价函数： <span class="math display">\[
-J(\Theta)=-\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K}\left[y_{k}^{(i)}
-\log \left((h_{\Theta}(x^{(i)}))_{k}\right)+\left(1-y_{k}^{(i)}\right)
-\log \left(1-(h_{\Theta}(x^{(i)}))_{k}\right)\right]+\frac{\lambda}{2 m}
-\sum_{l=1}^{L-1} \sum_{i=1}^{s_l}
-\sum_{j=1}^{s_{l+1}}(\theta_{j,i}^{(l)})^2
-\]</span></p>
-<ul>
-<li>两个求和符号部分只是将输出层中每个单元的逻辑回归代价函数相加</li>
-<li>三个求和符号部分只是将整个网络中所有单个θ的平方相加，其中i并不指代训练实例i</li>
-</ul></li>
-</ul></li>
-<li><p>反向传播算法Backpropagation Algorithm</p>
-<ul>
-<li><p>梯度下降计算</p>
-<ul>
-<li><p>min J（θ）就需要计算：J（θ）；J（θ）关于各个θ的偏导</p></li>
-<li><p>计算过程：先forward propagation；再反向</p></li>
-<li><p><span class="math inline">\(\delta_j^{l}="error"\ of\
-node\ j\ in\ layer\ l\)</span>用于改变activation激励值, Formally, <span class="math inline">\(\delta_j^{(l)}=\frac \partial {\partial
-z_{j}^{(l)}} cost(j)\)</span>, 其中<span class="math inline">\(cost(i)=y^{(i)}log(h_\Theta(x^{(i)}))-(1-y^{(i)})log(1-h_\Theta(x^{(i)}))\)</span>,
-求导后易得<span class="math inline">\(\delta_j^{(l)}=y_j^{(l)}-a_j^{(l)}\)</span>(为什么符号是相反的？答：这里cost错误，和前文代价函数符号相反，应该要变号)</p></li>
-<li><p>计算过程：</p>
-<ul>
-<li><p>令<span class="math inline">\(\Delta_{i,j}^{l}:=0\)</span></p></li>
-<li><p>For training example t =1 to m:</p>
-<ol type="1">
-<li><p>Set <span class="math inline">\(a^{(1)} :=
-x^{(t)}\)</span></p></li>
-<li><p>Perform forward propagation to compute <span class="math inline">\(a^{(l)}\ for\ l=2,3,…,L\)</span></p>
-<p>(此处失效图片链接)img
-(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bYLgwteoEeaX9Qr89uJd1A_73f280ff78695f84ae512f19acfa29a3_Screenshot-2017-01-10-18.16.50.png?expiry=1606176000000&amp;hmac=9aVGT1io0l-sybFSrc1stejo_L0d7hzlNXbQIt47h2Y)</p></li>
-<li><p>Using <span class="math inline">\(y^{(t)}\)</span>, compute$
-^{(L)} = a^{(L)} - y^{(t)}$</p>
-<p>Where L is our total number of layers and
-a^{(L)}<em>a</em>(<em>L</em>) is the vector of outputs of the activation
-units for the last layer. So our "error values" for the last layer are
-simply the differences of our actual results in the last layer and the
-correct outputs in y. To get the delta values of the layers before the
-last layer, we can use an equation that steps us back from right to
-left:</p></li>
-<li><p>Compute$ ^{(L-1)}, <sup>{(L-2)},,</sup>{(2)}<span class="math inline">\(using\)</span>$ ^{(l)} = ((<sup>{(l)})</sup>T
-^{(l+1)})&nbsp;.<em>&nbsp;a^{(l)}&nbsp;.</em>&nbsp;(1 - a^{(l)}) $$</p>
-<p>The delta values of layer l are calculated by multiplying the delta
-values in the next layer with the theta matrix of layer l. We then
-element-wise multiply that with a function called g', or g-prime, which
-is the derivative of the activation function g evaluated with the input
-values given by <span class="math inline">\(z^{(l)}\)</span>.</p>
-<p>The g-prime derivative terms can also be written out as:</p>
-<p><span class="math inline">\(g′(z^{(l)})=a^{(l)} .∗
-(1−a^{(l)})\)</span></p></li>
-<li><p><span class="math inline">\(Δ_{i,j}^{(l)}:=Δ_{i,j}^{(l)}+a_j^{(l)}δ_i^{(l+1)}\)</span>,
-or with vectorization, <span class="math inline">\(Δ^{(l)}:=Δ^{(l)}+δ^{(l+1)}(a^{(l)})^T\)</span></p>
-<p>Hence we update our new <span class="math inline">\(\Delta\)</span>
-matrix.</p>
-<ul>
-<li><p><span class="math inline">\(D_{i,
-j}^{(l)}:=\frac{1}{m}\left(\Delta_{i, j}^{(l)}+\lambda \Theta_{i,
-j}^{(l)}\right), \text { if } j \neq 0\)</span></p></li>
-<li><p><span class="math inline">\(D_{i, j}^{(l)}:=\frac{1}{m}\Delta_{i,
-j}^{(l)}, \text { if } j = 0\)</span></p>
-<p>The capital-delta matrix D is used as an "accumulator" to add up our
-values as we go along and eventually compute our partial derivative.
-Thus we get$ J()= D_{ij}^{(l)}$</p></li>
-</ul></li>
-</ol></li>
-</ul></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/26765585">上述计算过程的中文推导</a></p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="backpropagation-in-practice">Backpropagation in practice</h3>
-<ol type="1">
-<li><p>系数展开到向量：</p>
-<ul>
-<li><p>M(a,b)，既取a，也取b，从1开始</p></li>
-<li><p>优化算法（如：fminunc）默认将参数整合到一个向量中</p>
-
-
-   - 
-   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">%代码过程</span><br><span class="line">thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]</span><br><span class="line">deltaVector = [ D1(:); D2(:); D3(:) ]</span><br><span class="line"></span><br><span class="line">Theta1 = reshape(thetaVector(1:110),10,11)</span><br><span class="line">Theta2 = reshape(thetaVector(111:220),10,11)</span><br><span class="line">Theta3 = reshape(thetaVector(221:231),1,11)</span><br></pre></td></tr></tbody></table></figure>
-
-     </li>
-<li><p>过程：(此处失效图片链接)img(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kdK7ubT2EeajLxLfjQiSjg_d35545b8d6b6940e8577b5a8d75c8657_Screenshot-2016-11-27-15.09.24.png?expiry=1606348800000&amp;hmac=bH794vb16zxSOiqZRj2Pe0PyuaYNbZ8tDQZlnGSoM18)</p></li>
-</ul></li>
-<li><p>梯度检验gradient checking</p>
-<ul>
-<li><p><span class="math inline">\(\frac{d}{d\Theta}J(\Theta)\approx
-\frac{J(\Theta+\epsilon)+J(\Theta-\epsilon)}{2\epsilon}\)</span>，ε =
-<span class="math inline">\(10^{-4}\)</span></p></li>
-<li><p><span class="math display">\[
-\dfrac{\partial}{\partial\Theta_j}J(\Theta) \approx \dfrac{J(\Theta_1,
-\dots, \Theta_j + \epsilon, \dots, \Theta_n) - J(\Theta_1, \dots,
-\Theta_j - \epsilon, \dots, \Theta_n)}{2\epsilon}
-\]</span></p></li>
-<li><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">epsilon = 1e-4;</span><br><span class="line">for i = 1:n,</span><br><span class="line">  thetaPlus = theta;</span><br><span class="line">  thetaPlus(i) += epsilon;</span><br><span class="line">  thetaMinus = theta;</span><br><span class="line">  thetaMinus(i) -= epsilon;</span><br><span class="line">  gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*epsilon)</span><br><span class="line">end;</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Check: gradApprox ≈
-deltaVector，只需要验证一次即可，否则这种方法会非常慢</p></li>
-</ul></li>
-<li><p>Random Initialization随机初始化</p>
-<ul>
-<li><p>Symmetry
-breaking，因为如果设为一样的会使得梯度下降后参数也一样</p></li>
-<li><p>将每一个<span class="math inline">\(\Theta_{ij}^{(l)}\)</span>设为在[-ε，ε]之间的随机数，但要同时设置，以防出现相同，例：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Theta1 = rand(10,11)*2*init_epsilon-init_epsilon;</span><br></pre></td></tr></tbody></table></figure>
-<p>(Note: the epsilon used above is unrelated to the epsilon from
-Gradient Checking)</p></li>
-</ul></li>
-<li><p>总体回顾</p>
-<ul>
-<li>一般默认隐藏层每层神经元数量一致</li>
-<li>构建一个模型的过程：
-<ol type="1">
-<li>初始化模型
-<ul>
-<li>Number of input units = dimension of features
-x^{(i)}<em>x</em>(<em>i</em>)</li>
-<li>Number of output units = number of classes</li>
-<li>Number of hidden units per layer = usually more the better (must
-balance with cost of computation as it increases with more hidden
-units)</li>
-<li>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then
-it is recommended that you have the same number of units in every hidden
-layer.</li>
-</ul></li>
-<li><strong>Training a Neural Network</strong>
-<ol type="1">
-<li>Randomly initialize the weights</li>
-<li>Implement forward propagation to get <span class="math inline">\(h_\Theta(x^{(i)})\)</span> for any <span class="math inline">\(x^{(i)}\)</span></li>
-<li>Implement the cost function</li>
-<li>Implement backpropagation to compute partial derivatives</li>
-<li>Use gradient checking to confirm that your backpropagation works.
-Then disable gradient checking.</li>
-<li>Use gradient descent or a built-in optimization function to minimize
-the cost function with the weights in theta.</li>
-<li>对每一个训练样例循环上述步骤（有可能得到局部最优，因为J（θ）是非凸函数）</li>
-</ol></li>
-</ol></li>
 </ul></li>
 </ol>
 ]]></content>
@@ -1252,155 +935,6 @@ is more accurate.</p>
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
-</ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
-</ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
-</ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week10</title>
-    <url>/Machine-Learning-Week10/</url>
-    <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
-<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
-Large Datasets</h2>
-<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
-<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
-curve（error关于m的曲线）</p>
-<p>左图为high variance，说明增加m有助于结果变好；右图为high
-bias，说明增加m无助于结果变好</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
-<figcaption aria-hidden="true">左：high variance；右: high
-bias</figcaption>
-</figure>
-<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
-descent 随机梯度下降</h3>
-<p>Batch gradient descent:
-前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
-<p>Stochastic gradient descent：每次iteration用1个例子</p>
-<ol type="1">
-<li><p>Randomly shuffle dataset</p></li>
-<li><p>Repeat：</p>
-<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
-}</p>
-<blockquote>
-<p>Note: 和Batch gradient
-descent不同的是，无需每一步都要计算全部的training example</p>
-</blockquote></li>
-</ol>
-<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
-<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
-<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
-<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
-<p>第i个例子，直到第i+b-1个例子</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
-<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
-</figure>
-<p>只有当have a good vetorized implementation
-，mini-batch才能比stochastic表现得更好。（并行运算）</p>
-<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
-descent convergence</h3>
-<p>收敛性：</p>
-<ul>
-<li><figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
-<figcaption aria-hidden="true">Algorithm</figcaption>
-</figure></li>
-<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
-better结果。（cost关于no. of iteration 的曲线）</p></li>
-<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
-<li><p>如果学习曲线在上升，就要用更小的α</p></li>
-<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
-<li><p>关于学习速率的选择：</p>
-<ul>
-<li>Learning rate α is typically held constant 在随机梯度下降中</li>
-<li>Can slowly decrease α over time if we want θ to converge.
-（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
-Number+const2}\)</span>）
-<ul>
-<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<p>### Online Learning</p>
-<ul>
-<li><p>连续的数据流：用户进入离开</p></li>
-<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
-regression或者神经网络</p></li>
-<li><p>这里考虑逻辑回归：</p>
-<p>Repeat forever {</p>
-<p>​ Get (x,y) corresponding to user.</p>
-<p>​ Update θ using (x,y):</p>
-<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
-(j=0, ..., n)</p>
-<p>}</p></li>
-<li><p>这个算法可以用于学习用户喜好</p>
-<ul>
-<li>Choosing special offers to show user</li>
-<li>Customized selection of news articles</li>
-<li>product recommendation/search</li>
-</ul></li>
-</ul>
-<h3 id="map-reduce-and-data-parallelism">Map reduce and data
-parallelism</h3>
-<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
-Ghemawat。summation over the training set。即并行处理</p>
-<ul>
-<li>神经网络也同样可以并行计算前向和后向propagation</li>
-<li>有时只需要向量化实现算法，不需要多核并行</li>
-<li>Hadoop是开源map reduce</li>
-<li>由于并行的latency，速度会少于N倍 的单核心</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week08</title>
     <url>/Machine-Learning-Week08/</url>
     <content><![CDATA[<h1 id="unsupervised-learning-无监督学习">Unsupervised learning
@@ -1598,16 +1132,469 @@ regularization instead!)</p>
       </tags>
   </entry>
   <entry>
-    <title>This is my first blog!</title>
-    <url>/This-is-my-first-bolg/</url>
-    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
-<p>My major is <strong>Engineering Physics</strong> and
-<strong>Financial Engineering</strong>.</p>
-<p>Hope to share my experiences with you!</p>
-<p><strong>Thank you</strong> for following my blog!</p>
+    <title>Machine Learning Week06</title>
+    <url>/Machine-Learning-Week06/</url>
+    <content><![CDATA[<h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
+<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
+Algorithm</h3>
+<ol type="1">
+<li><p>误差大的改进方法：</p>
+<ul>
+<li>更多数据</li>
+<li>更少特征集避免过拟合</li>
+<li>更多特征</li>
+<li>增加多项式特征</li>
+<li>减少或增大正则化参数值</li>
+</ul></li>
+<li><p>评估假设函数Evaluating a Hypothesis</p>
+<ul>
+<li><p>如何判断过拟合？</p>
+<ul>
+<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
+<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
+<li><p>计算测试集误差</p>
+<ul>
+<li><p>线性回归中计算测试集的 J(θ)</p></li>
+<li><p>逻辑回归中可以用误分类率来计算error：</p>
+<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
+h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
+&amp;otherwise\end{cases}\)</span></p>
+<p><span class="math inline">\(Test\
+error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
+<ul>
+<li>将数据分为三段：训练集（60%），交叉验证集（cross
+validation）（20%），测试集（20%）</li>
+<li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
+<li>最后计算测试集误差评价模型表现</li>
+</ul></li>
+</ol>
+<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
+<ol type="1">
+<li><p>分析bias和variance</p>
+<ul>
+<li>高偏差：欠拟合；高方差：过拟合</li>
+<li>高偏差：
+<ul>
+<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
+the same as <span class="math inline">\(J_{CV}(\theta)\approx
+J_{train}(\theta)\)</span></li>
+</ul></li>
+<li>高方差：
+<ul>
+<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
+<span class="math inline">\(J_{CV}(\theta)\gg
+J_{train}(\theta)\)</span></li>
+</ul></li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
+</ul></li>
+<li><p>正则化与方差、偏差的关系</p>
+<ul>
+<li><p>正则化可以有效防止过拟合</p></li>
+<li><p>选择λ的过程：</p>
+<ul>
+<li>Create a list of lambdas (i.e.
+λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
+<li>Create a set of models with different degrees or any other
+variants.</li>
+<li>Iterate through the λs and for each λ go through all the models to
+learn some Θ.</li>
+<li>Compute the cross validation error using the learned Θ (computed
+with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
+0.</li>
+<li>Select the best combo that produces the lowest error on the cross
+validation set.</li>
+<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
+has a good generalization of the problem.</li>
+</ul></li>
+<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
+J_{train}(\theta)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
+\]</span></p></li>
+</ul></li>
+<li><p>学习曲线（error-训练集的大小）</p>
+<ul>
+<li>高偏差
+<ul>
+<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
+<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
+<li>高偏差，更多训练数据不会有很大帮助</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
+</ul></li>
+<li>高方差
+<ul>
+<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
+<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
+set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
+continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
+the difference between them remains significant.</li>
+<li>高方差，更多训练数据可能有帮助</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
+</ul></li>
+</ul></li>
+<li><p>诊断法则如何判断</p>
+<ul>
+<li>更多训练数据——高方差，画学习曲线</li>
+<li>更少特征集避免过拟合——高方差</li>
+<li>更多特征——高偏差</li>
+<li>增加多项式特征——高偏差</li>
+<li>减少（高偏差）或增大正则化参数值（高方差）
+<ul>
+<li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
+</ul></li>
+<li>神经网络很容易过拟合，正则化项非常有用
+<ul>
+<li>如何选择几层隐藏层：
+<ul>
+<li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
+<ol type="1">
+<li>做法：
+<ul>
+<li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
+<li>列出可能的做法，讨论可行性，然后选择一个方向</li>
+</ul></li>
+<li>误差分析
+<ul>
+<li>推荐做法：
+<ul>
+<li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
+<li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
+<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
+<ul>
+<li>手动对错误的部分分类</li>
+<li>发现特征</li>
+<li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>stem词干提取（porter stemmer）</li>
+<li>skewed classes 偏斜类问题
+<ul>
+<li>癌症的比例非常非常低</li>
+<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
+<ul>
+<li><span class="math inline">\(=\frac{True\ positives}{predicted\
+positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
+</ul></li>
+<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
+<ul>
+<li><span class="math inline">\(=\frac{True\ positives}{actual\
+positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
+</ul></li>
+<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
+<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
+<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
+<li>绘制查准率-召回率曲线</li>
+<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
+<ul>
+<li>评估选择算法或者不同临界值的量化标准</li>
+</ul></li>
+</ul></li>
+<li>Data For Machine Learning
+<ul>
+<li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
+<li>多项式参数对大训练集没有帮助</li>
+</ul></li>
+</ol>
 ]]></content>
       <tags>
-        <tag>Essay</tag>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week07</title>
+    <url>/Machine-Learning-Week07/</url>
+    <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
+支持向量机</h2>
+<h3 id="large-margin-classification">Large Margin Classification</h3>
+<ol type="1">
+<li><p>Optimization Objective 优化目标</p>
+<ul>
+<li><p>在复杂非线性方程的学习上有优势。</p></li>
+<li><figure>
+<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206123628670.png" alt="image-20201206123628670">
+<figcaption aria-hidden="true">image-20201206123628670</figcaption>
+</figure></li>
+<li><figure>
+<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206124245802.png" alt="image-20201206124245802">
+<figcaption aria-hidden="true">image-20201206124245802</figcaption>
+</figure>
+<p>注：实际上在训练代价函数时，分界线为-1，1</p></li>
+</ul></li>
+<li><p>Large Margin Intuition</p>
+<ul>
+<li><p>代价函数： <span class="math display">\[
+\min _{\theta} C \sum_{i=1}^{m}\left[y^{(i)}
+{\operatorname{cost}_{1}\left(\theta^{T}
+x^{(i)}\right)}+\left(1-y^{(i)}\right)
+\operatorname{cost}_{0}\left(\theta^{T}
+x^{(i)}\right)\right]+\frac{1}{2} \sum_{i=1}^{n} \theta_{j}^{2}\\
+if\ y=1, we\ want\ \theta^{T} x \geq 1\ (not\ just \left.\geq 0\right)\\
+if\ y=0, we\ want\ \theta^{T} x \leq-1\ (not\ just&lt;0 )
+\]</span></p></li>
+<li><p>SVM也被叫做大间距分类器，因为它尽量用最大间距分类样本，使得SVM更具有鲁棒性</p></li>
+<li><p>其中正则化参数C不适合设置得过大，因为这会使得一些异常值（outliner)
+会使得分类向异常值产生比较大得偏差，这就类似与逻辑回归里过小的λ
+。</p></li>
+</ul></li>
+<li><p>Mathematics Behind Large Margin Classification</p>
+<ul>
+<li><p>向量内积：<span class="math inline">\(\lVert u
+\rVert\)</span>表明u的范数，即u向量的长度。<span class="math inline">\(u^Tv=p\cdot\lVert u \rVert\)</span>, p
+是v在u上的投影长度</p></li>
+<li><p>本图演示了为什么这种方式可以最小化θ<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206171424283.png" alt="image-20201206171424283"></p>
+<p>注：这里决策边界和θ是具有垂直关系的</p></li>
+<li><p>这里最小化θ范数等价于最大化所有的p，即最大化所有点到决策边界的margin。</p></li>
+<li><p>即使<span class="math inline">\(\theta_0\ne0\)</span>推理过程也和上述类似</p></li>
+</ul></li>
+</ol>
+<h3 id="kernels">Kernels</h3>
+<ol type="1">
+<li><p>非线性决策边界</p>
+<ul>
+<li><p>用相似度函数similarity
+function代替高阶项，度量样本x和第一个标记的相似度，即核函数，例如：高斯核函数：<span class="math inline">\(f_1=similarity(x,l^{(1)})=exp(-\frac{\lVert
+x-l^{(1)}
+\rVert^2}{2\sigma^2})=exp(-\frac{\Sigma_{j=1}^{n}(x_j-l_j^{(i)})^2}{2\sigma^2})\)</span></p>
+<p>==问：这里σ是什么，如何计算？==</p></li>
+<li><p>通过用f替代特征，可以训练出复杂的非线性边界：例如：预测y=1，当<span class="math inline">\(\theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3\ge0\)</span></p></li>
+</ul></li>
+<li><p>选择landmark标记点 l :</p>
+<ul>
+<li>Given一系列x，令<span class="math inline">\(l^1=x^1\)</span>, <span class="math inline">\(f_{m}^{(i)}=similarity(x^{(i)},l^{(m)})\)</span></li>
+<li>将<span class="math inline">\(x^{(i)}\in
+\mathbb{R}^{n+1}\)</span>，转变为<span class="math inline">\(f^{(i)}=\begin{bmatrix}f_0^{(i)}\\f_0^{(i)}\\
+\vdots \\ f_m^{(i)} \end{bmatrix}\)</span>，<span class="math inline">\(f_0^{(i)}=1\)</span>。<span class="math inline">\(f\in \mathbb{R}^{m+1}\)</span></li>
+</ul></li>
+<li><p>Hypothesis：Given x ， compute features f</p>
+<p>Predict "y=1" if <span class="math inline">\(\theta^Tf\ge0\)</span></p></li>
+<li><p>代价函数： <span class="math display">\[
+\min _{\theta} C \sum_{i=1}^{m} y^{(i)}
+\operatorname{cost}_{1}\left(\theta^{T}
+f^{(i)}\right)+\left(1-y^{(i)}\right)
+\operatorname{cost}_{0}\left(\theta^{T} f^{(i)}\right)+\frac{1}{2}
+\sum_{j=1}^{m } \theta_{j}^{2}
+\]</span> 在SVM的实际应用中，最后一项通常会用<span class="math inline">\(\theta^TM\theta\)</span>，其中M和核函数有关，是为了提高计算效率</p></li>
+<li><p>参数的选择：</p>
+<ul>
+<li><p>C(=<span class="math inline">\(\frac{1}{\lambda}\)</span>)</p>
+<ul>
+<li>Large C：Lower bias；High variance</li>
+<li>Small C：Higher bias；Low variance</li>
+</ul></li>
+<li><p><span class="math inline">\(\sigma^2\)</span></p>
+<ul>
+<li><p>Large <span class="math inline">\(\sigma^2\)</span>: Fearures fi
+vary more smoothly.</p>
+<p>​ Higher bias; Lower variance</p></li>
+<li><p>Small <span class="math inline">\(\sigma^2\)</span>: Features fi
+vary less smoothly.</p>
+<p>​ Lower bias, Higher variance.</p></li>
+</ul></li>
+<li><p><strong>方差（variance）：</strong>方差描述的是训练数据在不同迭代阶段的训练模型中，预测值的变化波动情况（或称之为离散情况）。</p></li>
+<li><p><strong>偏差（bias）：</strong>偏差衡量了模型的预测值与实际值之间的偏离关系。</p></li>
+<li><p>低偏差高方差：过拟合；</p></li>
+<li><p>You want to train C and the parameters for the kernel function
+using the training and cross-validation datasets.</p></li>
+</ul></li>
+</ol>
+<h3 id="svms-in-practice">SVMs in Practice</h3>
+<ol type="1">
+<li><p>应用SVM</p>
+<ul>
+<li><p>选择C和σ</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[C, sigma]</span> = <span class="title">dataset3Params</span><span class="params">(X, y, Xval, yval)</span></span></span><br><span class="line"><span class="comment">% 这里x是训练集，xval是验证集</span></span><br><span class="line">value = [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">minC = <span class="number">0</span>;</span><br><span class="line">minSigma = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% 最小值设为交叉验证集的用例数</span></span><br><span class="line">minError = <span class="built_in">size</span>(Xval,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">        model= svmTrain(X, y, value(<span class="built_in">i</span>), @(x1, x2) gaussianKernel(x1, x2, value(<span class="built_in">j</span>)));</span><br><span class="line">        predictions = svmPredict(model,Xval);</span><br><span class="line">        error = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> minError &gt; error</span><br><span class="line">            minError = error;</span><br><span class="line">            minC = value(<span class="built_in">i</span>);</span><br><span class="line">            minSigma = value(<span class="built_in">j</span>);</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">C = minC;</span><br><span class="line">sigma = minSigma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>选择核函数（相似度函数）</p>
+<ul>
+<li>线性核函数（=没有核函数）</li>
+</ul></li>
+<li><p><strong>需要对特征向量归一化</strong>，否则一个特征会占据主要位置</p></li>
+<li><p>不是所有函数都能作为核函数，需要满足Mercer‘s
+Theorem莫塞尔定理，来确保SVM优化包能够正确运行</p></li>
+<li><p>其他核函数：</p>
+<ul>
+<li>多项式核函数</li>
+<li>字符串核函数string kernel；</li>
+<li>卡方核函数chi-square kernel</li>
+<li>直方图交叉核函数histogram intersection kernel</li>
+</ul></li>
+<li><p>多类别分类</p>
+<ul>
+<li>svm包多数内置了</li>
+<li>否则用one-vs-all
+：训练得到K组θ的值，然后选择θx最大的那一组作为分类结果</li>
+</ul></li>
+<li><p>逻辑回归和SVM，什么时候用？</p>
+<ul>
+<li>n为特征数，m为训练集样本数。如果n相对于m来说比较大，使用逻辑回归或者没有核函数的SVM（linear
+kernel）</li>
+<li>n小，m中等大。使用高斯核函数</li>
+<li>n小，m很大。运行很慢，逻辑回归或没有核函数的SVM</li>
+<li>神经网络上面都适用，但有时可能会比SVM慢很多</li>
+</ul></li>
+<li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
+</ul></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week10</title>
+    <url>/Machine-Learning-Week10/</url>
+    <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
+<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
+Large Datasets</h2>
+<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
+<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
+curve（error关于m的曲线）</p>
+<p>左图为high variance，说明增加m有助于结果变好；右图为high
+bias，说明增加m无助于结果变好</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
+<figcaption aria-hidden="true">左：high variance；右: high
+bias</figcaption>
+</figure>
+<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
+descent 随机梯度下降</h3>
+<p>Batch gradient descent:
+前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
+<p>Stochastic gradient descent：每次iteration用1个例子</p>
+<ol type="1">
+<li><p>Randomly shuffle dataset</p></li>
+<li><p>Repeat：</p>
+<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
+}</p>
+<blockquote>
+<p>Note: 和Batch gradient
+descent不同的是，无需每一步都要计算全部的training example</p>
+</blockquote></li>
+</ol>
+<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
+<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
+<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
+<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
+<p>第i个例子，直到第i+b-1个例子</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
+<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
+</figure>
+<p>只有当have a good vetorized implementation
+，mini-batch才能比stochastic表现得更好。（并行运算）</p>
+<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
+descent convergence</h3>
+<p>收敛性：</p>
+<ul>
+<li><figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
+<figcaption aria-hidden="true">Algorithm</figcaption>
+</figure></li>
+<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
+better结果。（cost关于no. of iteration 的曲线）</p></li>
+<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
+<li><p>如果学习曲线在上升，就要用更小的α</p></li>
+<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
+<li><p>关于学习速率的选择：</p>
+<ul>
+<li>Learning rate α is typically held constant 在随机梯度下降中</li>
+<li>Can slowly decrease α over time if we want θ to converge.
+（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
+Number+const2}\)</span>）
+<ul>
+<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<p>### Online Learning</p>
+<ul>
+<li><p>连续的数据流：用户进入离开</p></li>
+<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
+regression或者神经网络</p></li>
+<li><p>这里考虑逻辑回归：</p>
+<p>Repeat forever {</p>
+<p>​ Get (x,y) corresponding to user.</p>
+<p>​ Update θ using (x,y):</p>
+<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
+(j=0, ..., n)</p>
+<p>}</p></li>
+<li><p>这个算法可以用于学习用户喜好</p>
+<ul>
+<li>Choosing special offers to show user</li>
+<li>Customized selection of news articles</li>
+<li>product recommendation/search</li>
+</ul></li>
+</ul>
+<h3 id="map-reduce-and-data-parallelism">Map reduce and data
+parallelism</h3>
+<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
+Ghemawat。summation over the training set。即并行处理</p>
+<ul>
+<li>神经网络也同样可以并行计算前向和后向propagation</li>
+<li>有时只需要向量化实现算法，不需要多核并行</li>
+<li>Hadoop是开源map reduce</li>
+<li>由于并行的latency，速度会少于N倍 的单核心</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
+]]></content>
+      <tags>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -1633,5 +1620,18 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>This is my first blog!</title>
+    <url>/This-is-my-first-bolg/</url>
+    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
+<p>My major is <strong>Engineering Physics</strong> and
+<strong>Financial Engineering</strong>.</p>
+<p>Hope to share my experiences with you!</p>
+<p><strong>Thank you</strong> for following my blog!</p>
+]]></content>
+      <tags>
+        <tag>Essay</tag>
+      </tags>
   </entry>
 </search>
