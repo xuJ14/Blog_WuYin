@@ -182,84 +182,6 @@ Place Winner of Central Regional Datathon 2021</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week02</title>
-    <url>/Machine-Learning-Week02/</url>
-    <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
-<h2 id="multivariate-linear-regression">Multivariate Linear
-Regression</h2>
-<ol type="1">
-<li><p><span class="math inline">\(h_{\theta}(x)=\theta^{T}X\)</span></p>
-<p><span class="math inline">\(h_θ(x)=\begin{bmatrix}θ_0&amp;θ_1&amp;...&amp;θ_n\end{bmatrix}\begin{bmatrix}x_0\\x_1\\⋮\\x_n\end{bmatrix}=θ^Tx\)</span></p></li>
-<li><p>Gradient Descent for Multiple Variables</p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\
-j=0...n)\]</span></p></li>
-<li><p>Feature Scaling</p>
-<p>Make sure features are on a similar scale</p>
-<p>避免梯度下降一个维度值过大导致下降速率很慢</p>
-<ul>
-<li>Get every feature into approximately a <span class="math inline">\(-1\le x_i\le 1\)</span> range</li>
-<li>大约在这个范围附近就行，例如: <span class="math inline">\(-2\le
-x_i\le 2\)</span>也可以</li>
-<li>方法一：都除以最大值<span class="math inline">\(x_{max}\)</span></li>
-<li>均值归一化 Mean normalization：
-<ul>
-<li><span class="math display">\[\frac{x_i-\mu_i}{s_{i}}\]</span></li>
-<li>使得均值为0</li>
-<li><span class="math inline">\(\mu\)</span>是训练集x某特征的均值，s可以是标准差，一般<span class="math inline">\(s=max-min\)</span>即可</li>
-<li>特征缩放不用太精确，只是为了让梯度下降更快而已</li>
-</ul></li>
-</ul></li>
-<li><p>确定α</p>
-<ul>
-<li>如果α过大，则可能出现 J 值增大或者不收敛</li>
-<li>让α尽量小，使得每次迭代 J 值都在减小</li>
-<li>自动收敛测试：可以设定一个值比如0.001，如果每一步J变化小于这个值即可认为收敛，但是选择合适的值很困难</li>
-<li>所以可以采用：代价函数 J
-随迭代步数变化曲线，可以帮助判断梯度下降算法是否收敛</li>
-</ul></li>
-<li><p>多项式回归 Polynomial Regression</p>
-<ul>
-<li>拟合复杂函数</li>
-<li>将x进行平方、开根等处理。例如：<span class="math inline">\(x_3=x_1^3\)</span></li>
-<li>注意新特征要进行均值归一化使得各个特征之间差距不至于过大</li>
-</ul></li>
-<li><p>Normal equation 正规方程</p>
-<ul>
-<li>solve for θ analytically，θ的解析解法</li>
-<li><span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac
-{1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span>
-，令<span class="math inline">\(\frac {\partial} {\partial
-\theta_j}J(\theta)=0\)</span>(偏微分)
-<ul>
-<li><span class="math inline">\(X=\begin{bmatrix}x_0&amp;x_1&amp;...&amp;x_n\end{bmatrix}\)</span>，x代表特征的列向量集合</li>
-<li>则可以推出：<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span>，即正规方程</li>
-</ul></li>
-<li>matlab：pinv(X‘*X)*X'*y</li>
-<li>用正规方程就不用变量归一化</li>
-<li>优点：不用选择α；不用迭代</li>
-<li>缺点：n较大时，算逆矩阵会比较慢，n&gt;10000，复杂度大约在<span class="math inline">\(O(n^3)\)</span></li>
-<li>正规方程的不可逆性 Normal Equation Non-invertibility
-<ul>
-<li>pinv可以求伪逆，inv求逆</li>
-<li>如果<span class="math inline">\(X^TX\)</span>是不可逆的：
-<ul>
-<li>特征之间是相关的</li>
-<li>特征多于样本数</li>
-<li>解决方法：删除多余特征或正则化</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week01</title>
     <url>/Machine-Learning-Week01/</url>
     <content><![CDATA[<h2 id="week-1">Week 1</h2>
@@ -386,6 +308,84 @@ A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
 <li>QR分解法</li>
 </ul></li>
 <li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week02</title>
+    <url>/Machine-Learning-Week02/</url>
+    <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
+<h2 id="multivariate-linear-regression">Multivariate Linear
+Regression</h2>
+<ol type="1">
+<li><p><span class="math inline">\(h_{\theta}(x)=\theta^{T}X\)</span></p>
+<p><span class="math inline">\(h_θ(x)=\begin{bmatrix}θ_0&amp;θ_1&amp;...&amp;θ_n\end{bmatrix}\begin{bmatrix}x_0\\x_1\\⋮\\x_n\end{bmatrix}=θ^Tx\)</span></p></li>
+<li><p>Gradient Descent for Multiple Variables</p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\
+j=0...n)\]</span></p></li>
+<li><p>Feature Scaling</p>
+<p>Make sure features are on a similar scale</p>
+<p>避免梯度下降一个维度值过大导致下降速率很慢</p>
+<ul>
+<li>Get every feature into approximately a <span class="math inline">\(-1\le x_i\le 1\)</span> range</li>
+<li>大约在这个范围附近就行，例如: <span class="math inline">\(-2\le
+x_i\le 2\)</span>也可以</li>
+<li>方法一：都除以最大值<span class="math inline">\(x_{max}\)</span></li>
+<li>均值归一化 Mean normalization：
+<ul>
+<li><span class="math display">\[\frac{x_i-\mu_i}{s_{i}}\]</span></li>
+<li>使得均值为0</li>
+<li><span class="math inline">\(\mu\)</span>是训练集x某特征的均值，s可以是标准差，一般<span class="math inline">\(s=max-min\)</span>即可</li>
+<li>特征缩放不用太精确，只是为了让梯度下降更快而已</li>
+</ul></li>
+</ul></li>
+<li><p>确定α</p>
+<ul>
+<li>如果α过大，则可能出现 J 值增大或者不收敛</li>
+<li>让α尽量小，使得每次迭代 J 值都在减小</li>
+<li>自动收敛测试：可以设定一个值比如0.001，如果每一步J变化小于这个值即可认为收敛，但是选择合适的值很困难</li>
+<li>所以可以采用：代价函数 J
+随迭代步数变化曲线，可以帮助判断梯度下降算法是否收敛</li>
+</ul></li>
+<li><p>多项式回归 Polynomial Regression</p>
+<ul>
+<li>拟合复杂函数</li>
+<li>将x进行平方、开根等处理。例如：<span class="math inline">\(x_3=x_1^3\)</span></li>
+<li>注意新特征要进行均值归一化使得各个特征之间差距不至于过大</li>
+</ul></li>
+<li><p>Normal equation 正规方程</p>
+<ul>
+<li>solve for θ analytically，θ的解析解法</li>
+<li><span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac
+{1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span>
+，令<span class="math inline">\(\frac {\partial} {\partial
+\theta_j}J(\theta)=0\)</span>(偏微分)
+<ul>
+<li><span class="math inline">\(X=\begin{bmatrix}x_0&amp;x_1&amp;...&amp;x_n\end{bmatrix}\)</span>，x代表特征的列向量集合</li>
+<li>则可以推出：<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span>，即正规方程</li>
+</ul></li>
+<li>matlab：pinv(X‘*X)*X'*y</li>
+<li>用正规方程就不用变量归一化</li>
+<li>优点：不用选择α；不用迭代</li>
+<li>缺点：n较大时，算逆矩阵会比较慢，n&gt;10000，复杂度大约在<span class="math inline">\(O(n^3)\)</span></li>
+<li>正规方程的不可逆性 Normal Equation Non-invertibility
+<ul>
+<li>pinv可以求伪逆，inv求逆</li>
+<li>如果<span class="math inline">\(X^TX\)</span>是不可逆的：
+<ul>
+<li>特征之间是相关的</li>
+<li>特征多于样本数</li>
+<li>解决方法：删除多余特征或正则化</li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ol>
 ]]></content>
       <tags>
@@ -1298,306 +1298,6 @@ regularization instead!)</p>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week09</title>
-    <url>/Machine-Learning-Week09/</url>
-    <content><![CDATA[<h1 id="anomaly-detection-异常检测">Anomaly Detection 异常检测</h1>
-<h2 id="density-estimation">Density Estimation</h2>
-<h3 id="problem-motivation">Problem Motivation</h3>
-<p>异常检测主要用于unsupervised learning</p>
-<p>Model：<span class="math inline">\(P(x_{test}&lt;\epsilon)\rightarrow
-anomaly\)</span></p>
-<p>​ <span class="math inline">\(P(x_{test}\ge \epsilon)\rightarrow
-OK\)</span></p>
-<p>也被用于检测账号被盗、生产、数据中心的电脑</p>
-<h3 id="gaussian-distribution">Gaussian Distribution</h3>
-<p>=Normal distribution</p>
-<p>X ～ N (0, 1)，“distributed as”, 这里N的符号为"script N"</p>
-<p>给定dataset，参数估计：via Maximum likelihood estimation
-通常是m-1，对大数据集没影响 <span class="math display">\[
-\mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
-\sigma^2=\frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)^2
-\]</span></p>
-<h3 id="algorithm">Algorithm</h3>
-<p>基本假设，各特征间相互独立 <span class="math display">\[
-P(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)
-\]</span> <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210404220930233.png" alt="Anomaly detection algorithm"></p>
-<h2 id="building-an-anomaly-detection-system">Building an Anomaly
-Detection System</h2>
-<h3 id="developing-and-evaluating-an-anomaly-detection-system">Developing
-and Evaluating an Anomaly Detection System</h3>
-<p>Training set: normal examples (可以有少量异常的混进来)</p>
-<p>然后应用于cross calidation set 和 test set</p>
-<ul>
-<li><p>10000正常，20异常：</p>
-<p>​ 训练集：6000正常</p>
-<p>​ CV：2000正常，10异常</p>
-<p>​ Test：2000正常，10异常</p></li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405114004132.png" alt="Algorithm evaluation">
-<figcaption aria-hidden="true">Algorithm evaluation</figcaption>
-</figure>
-<p>由于normal是0，所以预测0常常有更高的准确率，是skew的偏斜的。因此查准率accuracy不是很好的分析指标。</p>
-<ul>
-<li>选择ε时，可以试几个不同的，然后选择使得Cross
-validation集中F1-score最大的，或者效果最好的。</li>
-<li>有时还需要决定用什么特征</li>
-</ul>
-<h3 id="anomaly-detection-vs.-supervised-learning">Anomaly detection vs.
-Supervised learning</h3>
-<p>Anomaly detection:</p>
-<ul>
-<li>y=1非常少(0-20常见), y=0占比更大</li>
-<li>有大量不同的异常类型，其他算法难于分辨各种类型</li>
-<li>有未知异常类型</li>
-</ul>
-<p>supervised learning：</p>
-<ul>
-<li>大量的positive 和negative examples</li>
-<li>有足够positive examples，并且未来的positive
-example和训练集的相似</li>
-<li>Spam</li>
-</ul>
-<h3 id="choosing-what-features-to-use">Choosing what features to
-use</h3>
-<ul>
-<li>Non-gaussian feature</li>
-</ul>
-<p>绘制特征的直方图，看是否大致是个bell shaped
-curve，如果不是，运用一些变换使得其看起来更加gaussian</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405203939050.png" alt="take a log transformation">
-<figcaption aria-hidden="true">take a log transformation</figcaption>
-</figure>
-<ul>
-<li><p>Error analysis for anomaly detection</p>
-<p>甄别失败时，new feature
-可能有帮助，例如组合现有的特征形成新特征</p></li>
-</ul>
-<h2 id="multivariate-gaussian-distribution">Multivariate Gaussian
-Distribution</h2>
-<h3 id="multivariate-gaussian-distribution-1">Multivariate Gaussian
-Distribution</h3>
-<p>不同于之前的是，p(x)不再是各个特征概率的乘积。</p>
-<p>Parameters: <span class="math inline">\(\mu \in \R^n\)</span>, <span class="math inline">\(\Sigma \in \R^{n\times n}\)</span> <span class="math display">\[
-p(x;\mu,\Sigma)=
-\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^2}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))
-\]</span> <span class="math inline">\(|\Sigma|\)</span>=determinant of
-Σ</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405214331278.png" alt="examples"> <span class="math display">\[
-\mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
-\Sigma = \frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)(x^{(i)}-\mu)^T
-\]</span></p>
-<h3 id="anomaly-detection-using-the-multivariate-gaussian-distribution">Anomaly
-Detection using the multivariate Gaussian distribution</h3>
-<p>首先计算μ和Σ，然后计算p(x)，最后根据ε判断是否异常</p>
-<ul>
-<li><p>优点：自动捕捉特征间的相关性。m&gt;10n用起来才比较好，必须要m&gt;n，否则协方差矩阵不可逆。</p></li>
-<li><p>缺点：计算量比较大。如果某个特征是其他的线性组合，那么协方差矩阵也不可逆，要注意避免。</p></li>
-</ul>
-<p>前述的模型：优点在于计算量小，但是要人工创造一些新特征来更好地分辨。m&lt;n的时候也能用。</p>
-<p>若出现协方差矩阵不可逆：</p>
-<ul>
-<li>首先检查m, n大小</li>
-<li>检查是否有redundant features，就是特征间是否线性独立</li>
-</ul>
-<h2 id="predicting-movie-ratings-recommendation-system">Predicting Movie
-Ratings ——Recommendation System</h2>
-<h3 id="problem-formulation">Problem Formulation</h3>
-<p>r(i,j) 表示第i个电影，j用户是否打分；</p>
-<p>y(i,j) 表示该用户对该电影的打分值 ；</p>
-<h3 id="content-based-recommendations">Content Based
-Recommendations</h3>
-<p>设电影特征n个</p>
-<p>For each user j, learn a parameter <span class="math inline">\(\theta^{(j)}\in\R^{n+1}\)</span>. Predict user j
-as rating movie i with <span class="math inline">\((\theta^{(j)})^Tx^{(i)}\)</span> stars. （注意
-<span class="math inline">\(x_0=1\)</span>）。用线性回归</p>
-<p>To learn <span class="math inline">\(\theta^{(j)}\)</span>： <span class="math display">\[
-\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
-\]</span> Note: 这里 <span class="math inline">\(m^{(j)}\)</span>可以去掉，对结果没有任何影响</p>
-<p>优化目标也可以为： <span class="math display">\[
-J(\Theta^{(1)},...,\Theta^{(n_u)})=\min_{\Theta^{(1)},...,\Theta^{(n_u)}}\frac{1}{2}\sum_{j=1}^{n_u}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2}\sum_{j=1}^{n_u}\sum_{k=1}^{n}(\theta_k^{(j)})^2
-\]</span> Gradient descent update: <span class="math display">\[
-\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha \sum_{i: r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
-x_{k}^{(i)}\ (\text { for } k=0)
-\]</span></p>
-<p><span class="math display">\[
-\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha\left(\sum_{i: r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
-x_{k}^{(i)}+\lambda \theta_{k}^{(j)}\right)\ (\text { for } k \neq 0)
-\]</span></p>
-<p>k=0的时候不加正则项</p>
-<h2 id="collaborative-filtering">Collaborative Filtering</h2>
-<h3 id="collaborative-filtering-1">Collaborative Filtering</h3>
-<ul>
-<li><p>feature learning</p></li>
-<li><p>Given <span class="math inline">\(\Theta^{(1)},...,\Theta^{(n_u)}\)</span>，to learn
-<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>;</p></li>
-<li><p>算法类似7、8式</p></li>
-<li><p><span class="math inline">\(用户的\Theta\rightarrow
-电影特征x\rightarrow \Theta\rightarrow x\rightarrow...\)</span></p></li>
-<li><p>每个用户都在帮助这个推荐系统更好地分类电影，从而更好地预测评分</p></li>
-<li><p>算法：同时实现：</p>
-<ol type="1">
-<li><p>Given <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>，estimate <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>： <span class="math display">\[
-\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
-\]</span></p></li>
-<li><p>Given <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>，estimate
-<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>： <span class="math display">\[
-\min _{x^{(1)}, \ldots, x^{\left(n_{m}\right)}} \frac{1}{2}
-\sum_{i=1}^{n_{m}} \sum_{j: r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
-j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
-\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}
-\]</span></p></li>
-</ol>
-<p>即：</p>
-<p>Minimizing <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>
-and <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>
-simultaneously： <span class="math display">\[
-\min_{x^{(1)},...,x^{(n_m)}\\\theta^{(1)},...,\theta^{(n_u)}}J\left(x^{(1)},
-\ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
-\theta^{\left(n_{u}\right)}\right)
-\]</span></p>
-<p><span class="math display">\[
-J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
-\theta^{\left(n_{u}\right)}\right)=\frac{1}{2} \sum_{(i, j): r(i,
-j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
-j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
-\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}+\frac{\lambda}{2}
-\sum_{j=1}^{n_{u}} \sum_{k=1}^{n}\left(\theta_{k}^{(j)}\right)^{2}
-\]</span></p>
-<blockquote>
-<p>该算法下，无需设定 <span class="math inline">\(x_0=1\)</span>,
-也没有<span class="math inline">\(\theta_0\)</span>，因为算法会自行选择参数。该算法下：<span class="math inline">\(\theta\in\R^n\)</span>，<span class="math inline">\(x\in\R^n\)</span>，n是特征数</p>
-</blockquote></li>
-<li><p>算法实现：</p>
-<ol type="1">
-<li>Initialize <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>， <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span> to small
-random values</li>
-<li>Minimize J using gradient descent (or an advanced optimization
-algorithm)</li>
-<li>For a user with parameters <span class="math inline">\(\theta\)</span> and a movie with (learned)
-features x, predict a star rating of <span class="math inline">\(\theta^Tx\)</span></li>
-</ol></li>
-</ul>
-<h2 id="low-rank-matrix-factorization">Low Rank Matrix
-Factorization</h2>
-<p>### Vectorization</p>
-<ul>
-<li><p>Given matrices X (each row containing features of a particular
-movie) and Θ (each row containing the weights for those features for a
-given user), then the full matrix Y of all predicted ratings of all
-movies by all users is given simply by: <span class="math inline">\(Y =
-X\Theta^T\)</span>.</p></li>
-<li><p>Predicting how similar two movies i and j are can be done using
-the distance between their respective feature vectors x. Specifically,
-we are looking for a small value of <span class="math inline">\(||x^{(i)} - x^{(j)}||\)</span>.</p></li>
-</ul>
-<h3 id="mean-normalization">Mean Normalization</h3>
-<p>If the ranking system for movies is used from the previous lectures,
-then new users (who have watched no movies), will be assigned new movies
-incorrectly. Specifically, they will be assigned θ with all components
-equal to zero due to the minimization of the regularization term. That
-is, we assume that the new user will rank all movies 0, which does not
-seem intuitively correct. 新用户会被预测为0</p>
-<p>We rectify this problem by normalizing the data relative to the mean.
-First, we use a matrix Y to store the data from previous ratings, where
-the ith row of Y is the ratings for the ith movie and the jth column
-corresponds to the ratings for the jth user.</p>
-<p>We can now define a vector <span class="math display">\[
-\mu  = [\mu_1, \mu_2, \dots , \mu_{n_m}]
-\]</span> such that <span class="math display">\[
-\mu_i = \frac{\sum_{j:r(i,j)=1}{Y_{i,j}}}{\sum_{j}{r(i,j)}}
-\]</span> Which is effectively the mean of the previous ratings for the
-ith movie (where only movies that have been watched by users are
-counted). We now can normalize the data by subtracting u, the mean
-rating, from the actual ratings for each user (column in matrix Y):</p>
-<p>As an example, consider the following matrix Y and mean ratings μ:
-<span class="math display">\[
-Y=\left[\begin{array}{cccc}
-5 &amp; 5 &amp; 0 &amp; 0 \\
-4 &amp; ? &amp; ? &amp; 0 \\
-0 &amp; 0 &amp; 5 &amp; 4 \\
-0 &amp; 0 &amp; 5 &amp; 0
-\end{array}\right], \quad \mu=\left[\begin{array}{c}
-2.5 \\
-2 \\
-2.25 \\
-1.25
-\end{array}\right]
-\]</span> The resulting Y′ vector is: <span class="math display">\[
-Y^{\prime}=\left[\begin{array}{cccc}
-2.5 &amp; 2.5 &amp; -2.5 &amp; -2.5 \\
-2 &amp; ? &amp; ? &amp; -2 \\
--2 .25 &amp; -2.25 &amp; 3.75 &amp; 1.25 \\
--1.25 &amp; -1.25 &amp; 3.75 &amp; -1.25
-\end{array}\right]
-\]</span> Now we must slightly modify the linear regression prediction
-to include the mean normalization term: <span class="math display">\[
-(\theta^{(j)})^T x^{(i)} + \mu_i
-\]</span> Now, for a new user, the initial predicted values will be
-equal to the μ term instead of simply being initialized to zero, which
-is more accurate.</p>
-<blockquote>
-<p>Note:
-一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reading List</title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
-</ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
-</ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
-</ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week10</title>
     <url>/Machine-Learning-Week10/</url>
     <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
@@ -1699,40 +1399,51 @@ Ghemawat。summation over the training set。即并行处理</p>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>This is my first blog!</title>
-    <url>/This-is-my-first-bolg/</url>
-    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
-<p>My major is <strong>Engineering Physics</strong> and
-<strong>Financial Engineering</strong>.</p>
-<p>Hope to share my experiences with you!</p>
-<p><strong>Thank you</strong> for following my blog!</p>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
 ]]></content>
       <tags>
-        <tag>Essay</tag>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -1988,5 +1699,294 @@ weight spanning tree)</h3>
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>This is my first blog!</title>
+    <url>/This-is-my-first-bolg/</url>
+    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
+<p>My major is <strong>Engineering Physics</strong> and
+<strong>Financial Engineering</strong>.</p>
+<p>Hope to share my experiences with you!</p>
+<p><strong>Thank you</strong> for following my blog!</p>
+]]></content>
+      <tags>
+        <tag>Essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week09</title>
+    <url>/Machine-Learning-Week09/</url>
+    <content><![CDATA[<h1 id="anomaly-detection-异常检测">Anomaly Detection 异常检测</h1>
+<h2 id="density-estimation">Density Estimation</h2>
+<h3 id="problem-motivation">Problem Motivation</h3>
+<p>异常检测主要用于unsupervised learning</p>
+<p>Model：<span class="math inline">\(P(x_{test}&lt;\epsilon)\rightarrow
+anomaly\)</span></p>
+<p>​ <span class="math inline">\(P(x_{test}\ge \epsilon)\rightarrow
+OK\)</span></p>
+<p>也被用于检测账号被盗、生产、数据中心的电脑</p>
+<h3 id="gaussian-distribution">Gaussian Distribution</h3>
+<p>=Normal distribution</p>
+<p>X ～ N (0, 1)，“distributed as”, 这里N的符号为"script N"</p>
+<p>给定dataset，参数估计：via Maximum likelihood estimation
+通常是m-1，对大数据集没影响 <span class="math display">\[
+\mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
+\sigma^2=\frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)^2
+\]</span></p>
+<h3 id="algorithm">Algorithm</h3>
+<p>基本假设，各特征间相互独立 <span class="math display">\[
+P(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)
+\]</span> <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210404220930233.png" alt="Anomaly detection algorithm"></p>
+<h2 id="building-an-anomaly-detection-system">Building an Anomaly
+Detection System</h2>
+<h3 id="developing-and-evaluating-an-anomaly-detection-system">Developing
+and Evaluating an Anomaly Detection System</h3>
+<p>Training set: normal examples (可以有少量异常的混进来)</p>
+<p>然后应用于cross calidation set 和 test set</p>
+<ul>
+<li><p>10000正常，20异常：</p>
+<p>​ 训练集：6000正常</p>
+<p>​ CV：2000正常，10异常</p>
+<p>​ Test：2000正常，10异常</p></li>
+</ul>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405114004132.png" alt="Algorithm evaluation">
+<figcaption aria-hidden="true">Algorithm evaluation</figcaption>
+</figure>
+<p>由于normal是0，所以预测0常常有更高的准确率，是skew的偏斜的。因此查准率accuracy不是很好的分析指标。</p>
+<ul>
+<li>选择ε时，可以试几个不同的，然后选择使得Cross
+validation集中F1-score最大的，或者效果最好的。</li>
+<li>有时还需要决定用什么特征</li>
+</ul>
+<h3 id="anomaly-detection-vs.-supervised-learning">Anomaly detection vs.
+Supervised learning</h3>
+<p>Anomaly detection:</p>
+<ul>
+<li>y=1非常少(0-20常见), y=0占比更大</li>
+<li>有大量不同的异常类型，其他算法难于分辨各种类型</li>
+<li>有未知异常类型</li>
+</ul>
+<p>supervised learning：</p>
+<ul>
+<li>大量的positive 和negative examples</li>
+<li>有足够positive examples，并且未来的positive
+example和训练集的相似</li>
+<li>Spam</li>
+</ul>
+<h3 id="choosing-what-features-to-use">Choosing what features to
+use</h3>
+<ul>
+<li>Non-gaussian feature</li>
+</ul>
+<p>绘制特征的直方图，看是否大致是个bell shaped
+curve，如果不是，运用一些变换使得其看起来更加gaussian</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405203939050.png" alt="take a log transformation">
+<figcaption aria-hidden="true">take a log transformation</figcaption>
+</figure>
+<ul>
+<li><p>Error analysis for anomaly detection</p>
+<p>甄别失败时，new feature
+可能有帮助，例如组合现有的特征形成新特征</p></li>
+</ul>
+<h2 id="multivariate-gaussian-distribution">Multivariate Gaussian
+Distribution</h2>
+<h3 id="multivariate-gaussian-distribution-1">Multivariate Gaussian
+Distribution</h3>
+<p>不同于之前的是，p(x)不再是各个特征概率的乘积。</p>
+<p>Parameters: <span class="math inline">\(\mu \in \R^n\)</span>, <span class="math inline">\(\Sigma \in \R^{n\times n}\)</span> <span class="math display">\[
+p(x;\mu,\Sigma)=
+\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^2}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))
+\]</span> <span class="math inline">\(|\Sigma|\)</span>=determinant of
+Σ</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405214331278.png" alt="examples"> <span class="math display">\[
+\mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
+\Sigma = \frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)(x^{(i)}-\mu)^T
+\]</span></p>
+<h3 id="anomaly-detection-using-the-multivariate-gaussian-distribution">Anomaly
+Detection using the multivariate Gaussian distribution</h3>
+<p>首先计算μ和Σ，然后计算p(x)，最后根据ε判断是否异常</p>
+<ul>
+<li><p>优点：自动捕捉特征间的相关性。m&gt;10n用起来才比较好，必须要m&gt;n，否则协方差矩阵不可逆。</p></li>
+<li><p>缺点：计算量比较大。如果某个特征是其他的线性组合，那么协方差矩阵也不可逆，要注意避免。</p></li>
+</ul>
+<p>前述的模型：优点在于计算量小，但是要人工创造一些新特征来更好地分辨。m&lt;n的时候也能用。</p>
+<p>若出现协方差矩阵不可逆：</p>
+<ul>
+<li>首先检查m, n大小</li>
+<li>检查是否有redundant features，就是特征间是否线性独立</li>
+</ul>
+<h2 id="predicting-movie-ratings-recommendation-system">Predicting Movie
+Ratings ——Recommendation System</h2>
+<h3 id="problem-formulation">Problem Formulation</h3>
+<p>r(i,j) 表示第i个电影，j用户是否打分；</p>
+<p>y(i,j) 表示该用户对该电影的打分值 ；</p>
+<h3 id="content-based-recommendations">Content Based
+Recommendations</h3>
+<p>设电影特征n个</p>
+<p>For each user j, learn a parameter <span class="math inline">\(\theta^{(j)}\in\R^{n+1}\)</span>. Predict user j
+as rating movie i with <span class="math inline">\((\theta^{(j)})^Tx^{(i)}\)</span> stars. （注意
+<span class="math inline">\(x_0=1\)</span>）。用线性回归</p>
+<p>To learn <span class="math inline">\(\theta^{(j)}\)</span>： <span class="math display">\[
+\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
+\]</span> Note: 这里 <span class="math inline">\(m^{(j)}\)</span>可以去掉，对结果没有任何影响</p>
+<p>优化目标也可以为： <span class="math display">\[
+J(\Theta^{(1)},...,\Theta^{(n_u)})=\min_{\Theta^{(1)},...,\Theta^{(n_u)}}\frac{1}{2}\sum_{j=1}^{n_u}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2}\sum_{j=1}^{n_u}\sum_{k=1}^{n}(\theta_k^{(j)})^2
+\]</span> Gradient descent update: <span class="math display">\[
+\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha \sum_{i: r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
+x_{k}^{(i)}\ (\text { for } k=0)
+\]</span></p>
+<p><span class="math display">\[
+\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha\left(\sum_{i: r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
+x_{k}^{(i)}+\lambda \theta_{k}^{(j)}\right)\ (\text { for } k \neq 0)
+\]</span></p>
+<p>k=0的时候不加正则项</p>
+<h2 id="collaborative-filtering">Collaborative Filtering</h2>
+<h3 id="collaborative-filtering-1">Collaborative Filtering</h3>
+<ul>
+<li><p>feature learning</p></li>
+<li><p>Given <span class="math inline">\(\Theta^{(1)},...,\Theta^{(n_u)}\)</span>，to learn
+<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>;</p></li>
+<li><p>算法类似7、8式</p></li>
+<li><p><span class="math inline">\(用户的\Theta\rightarrow
+电影特征x\rightarrow \Theta\rightarrow x\rightarrow...\)</span></p></li>
+<li><p>每个用户都在帮助这个推荐系统更好地分类电影，从而更好地预测评分</p></li>
+<li><p>算法：同时实现：</p>
+<ol type="1">
+<li><p>Given <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>，estimate <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>： <span class="math display">\[
+\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
+\]</span></p></li>
+<li><p>Given <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>，estimate
+<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>： <span class="math display">\[
+\min _{x^{(1)}, \ldots, x^{\left(n_{m}\right)}} \frac{1}{2}
+\sum_{i=1}^{n_{m}} \sum_{j: r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
+j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
+\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}
+\]</span></p></li>
+</ol>
+<p>即：</p>
+<p>Minimizing <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>
+and <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>
+simultaneously： <span class="math display">\[
+\min_{x^{(1)},...,x^{(n_m)}\\\theta^{(1)},...,\theta^{(n_u)}}J\left(x^{(1)},
+\ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
+\theta^{\left(n_{u}\right)}\right)
+\]</span></p>
+<p><span class="math display">\[
+J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
+\theta^{\left(n_{u}\right)}\right)=\frac{1}{2} \sum_{(i, j): r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
+j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
+\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}+\frac{\lambda}{2}
+\sum_{j=1}^{n_{u}} \sum_{k=1}^{n}\left(\theta_{k}^{(j)}\right)^{2}
+\]</span></p>
+<blockquote>
+<p>该算法下，无需设定 <span class="math inline">\(x_0=1\)</span>,
+也没有<span class="math inline">\(\theta_0\)</span>，因为算法会自行选择参数。该算法下：<span class="math inline">\(\theta\in\R^n\)</span>，<span class="math inline">\(x\in\R^n\)</span>，n是特征数</p>
+</blockquote></li>
+<li><p>算法实现：</p>
+<ol type="1">
+<li>Initialize <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>， <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span> to small
+random values</li>
+<li>Minimize J using gradient descent (or an advanced optimization
+algorithm)</li>
+<li>For a user with parameters <span class="math inline">\(\theta\)</span> and a movie with (learned)
+features x, predict a star rating of <span class="math inline">\(\theta^Tx\)</span></li>
+</ol></li>
+</ul>
+<h2 id="low-rank-matrix-factorization">Low Rank Matrix
+Factorization</h2>
+<p>### Vectorization</p>
+<ul>
+<li><p>Given matrices X (each row containing features of a particular
+movie) and Θ (each row containing the weights for those features for a
+given user), then the full matrix Y of all predicted ratings of all
+movies by all users is given simply by: <span class="math inline">\(Y =
+X\Theta^T\)</span>.</p></li>
+<li><p>Predicting how similar two movies i and j are can be done using
+the distance between their respective feature vectors x. Specifically,
+we are looking for a small value of <span class="math inline">\(||x^{(i)} - x^{(j)}||\)</span>.</p></li>
+</ul>
+<h3 id="mean-normalization">Mean Normalization</h3>
+<p>If the ranking system for movies is used from the previous lectures,
+then new users (who have watched no movies), will be assigned new movies
+incorrectly. Specifically, they will be assigned θ with all components
+equal to zero due to the minimization of the regularization term. That
+is, we assume that the new user will rank all movies 0, which does not
+seem intuitively correct. 新用户会被预测为0</p>
+<p>We rectify this problem by normalizing the data relative to the mean.
+First, we use a matrix Y to store the data from previous ratings, where
+the ith row of Y is the ratings for the ith movie and the jth column
+corresponds to the ratings for the jth user.</p>
+<p>We can now define a vector <span class="math display">\[
+\mu  = [\mu_1, \mu_2, \dots , \mu_{n_m}]
+\]</span> such that <span class="math display">\[
+\mu_i = \frac{\sum_{j:r(i,j)=1}{Y_{i,j}}}{\sum_{j}{r(i,j)}}
+\]</span> Which is effectively the mean of the previous ratings for the
+ith movie (where only movies that have been watched by users are
+counted). We now can normalize the data by subtracting u, the mean
+rating, from the actual ratings for each user (column in matrix Y):</p>
+<p>As an example, consider the following matrix Y and mean ratings μ:
+<span class="math display">\[
+Y=\left[\begin{array}{cccc}
+5 &amp; 5 &amp; 0 &amp; 0 \\
+4 &amp; ? &amp; ? &amp; 0 \\
+0 &amp; 0 &amp; 5 &amp; 4 \\
+0 &amp; 0 &amp; 5 &amp; 0
+\end{array}\right], \quad \mu=\left[\begin{array}{c}
+2.5 \\
+2 \\
+2.25 \\
+1.25
+\end{array}\right]
+\]</span> The resulting Y′ vector is: <span class="math display">\[
+Y^{\prime}=\left[\begin{array}{cccc}
+2.5 &amp; 2.5 &amp; -2.5 &amp; -2.5 \\
+2 &amp; ? &amp; ? &amp; -2 \\
+-2 .25 &amp; -2.25 &amp; 3.75 &amp; 1.25 \\
+-1.25 &amp; -1.25 &amp; 3.75 &amp; -1.25
+\end{array}\right]
+\]</span> Now we must slightly modify the linear regression prediction
+to include the mean normalization term: <span class="math display">\[
+(\theta^{(j)})^T x^{(i)} + \mu_i
+\]</span> Now, for a new user, the initial predicted values will be
+equal to the μ term instead of simply being initialized to zero, which
+is more accurate.</p>
+<blockquote>
+<p>Note:
+一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>
