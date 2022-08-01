@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
-]]></content>
-      <tags>
-        <tag>Project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Caculus Review</title>
     <url>/Caculus-Review/</url>
     <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
@@ -146,6 +129,464 @@ xlna(a&gt;0)\)</span></p>
       </tags>
   </entry>
   <entry>
+    <title>How to Win a Data Science Competition</title>
+    <url>/How-to-Win-a-Data-Science-Competition-Learn-from-Top-Kagglers/</url>
+    <content><![CDATA[<h1 id="how-to-win-a-data-science-competition-learn-from-top-kagglers">How
+to Win a Data Science Competition: Learn from Top Kagglers</h1>
+<p>linear model：适合高维稀疏线性可分空间</p>
+<p>decision tree: 难以捕捉线性相关性，分成boxes</p>
+<p>k-NN：</p>
+<p>NN：非线性边界</p>
+<h2 id="tips">Tips</h2>
+<h3 id="feature-preprocessing">1. feature preprocessing</h3>
+<ul>
+<li><p>类别数据：</p>
+<ul>
+<li>one hot encoding</li>
+<li>随机森林不用transform类别数据</li>
+</ul></li>
+<li><p>numeric features：</p></li>
+<li><p>scale</p>
+<ul>
+<li>tree model不用变形数据</li>
+<li>其他可能要变
+<ul>
+<li>scale可能影响梯度下降有效性</li>
+<li>minmaxscaling</li>
+<li>standardscaler</li>
+<li>有时可以适当放缩feature，来看模型有没有变好，这样使得那个feature更重要</li>
+</ul></li>
+</ul></li>
+<li><p>outlier：</p>
+<ul>
+<li>可以选择上下界（按照百分比）
+<ul>
+<li>winsorization：对financial data</li>
+<li>可以看直方图</li>
+</ul></li>
+</ul></li>
+<li><p>rank</p>
+<ul>
+<li>线性模型、knn、nn对于这个处理方式有效</li>
+<li>scipy.stats.rankdata</li>
+</ul></li>
+<li><p>对于non-tree based models：</p>
+<ul>
+<li>log transform</li>
+<li>开根号：np.sqrt(x+2/3)</li>
+<li>减少异常值，增大0附近差异</li>
+<li>可以混合不同模型（基于不同的处理方法）</li>
+</ul></li>
+<li><p>feature generation：</p>
+<ul>
+<li>加减乘除</li>
+<li>取小数部分</li>
+<li>要理解数据</li>
+</ul></li>
+<li><p>categorical features/ ordinal features</p>
+<ul>
+<li><p>label encoding</p>
+<ul>
+<li><p>对tree友好</p></li>
+<li><p>要转化为数字</p>
+<ul>
+<li><p>按字母排序：sklearn.preprocessing.LabelEncode</p></li>
+<li><p>按出现顺序：pandas.factorize</p></li>
+<li><p>转化为出现频率作为特征（常用于tree）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">encoding = titanic.groupby('Embarked').size()</span><br><span class="line">encoding = encoding/len(titanic)</span><br><span class="line">titanic['enc'] = titanic.Embarked.map(encoding)</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>rank</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">from scipy.stats import rankdata</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>one hot encoding:常用于non-tree</p>
+<ul>
+<li>pandas.get_dummies</li>
+<li>sklearn.preprocessing.OneHotEncoder</li>
+<li>可能对tree不友好</li>
+<li>需要稀疏矩阵（word）</li>
+<li>组合各种类别，形成多种类：如等级加性别</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Datetime</p>
+<ul>
+<li>周期</li>
+<li>时间点</li>
+<li>时间跨度（距离过去，距离未来）</li>
+</ul></li>
+<li><p>坐标coordination</p>
+<ul>
+<li>单坐标
+<ul>
+<li>区域中心</li>
+<li>特殊位置</li>
+</ul></li>
+<li>统计值
+<ul>
+<li>区域统计值</li>
+<li>距离</li>
+</ul></li>
+<li>旋转坐标可能有奇效</li>
+</ul></li>
+<li><p>missing values</p>
+<ul>
+<li>fillna
+<ul>
+<li>-999，-1
+<ul>
+<li>注意在后面均一化时会有重大影响</li>
+<li>feature generation前 fillna可能有问题</li>
+</ul></li>
+<li>中位数、均值</li>
+<li>reconstruct value
+<ul>
+<li>时间序列：estimation</li>
+<li>其他的很难估计</li>
+</ul></li>
+</ul></li>
+<li>添加一个isNull的feature，神经网络和tree</li>
+<li>可以把outlier as missing values</li>
+<li>xgboost可以处理nan</li>
+</ul></li>
+<li><p>text</p>
+<ul>
+<li><p>bag of words</p></li>
+<li><p>sklearn.feature_extraction.text.CountVectorizer</p></li>
+<li><p>TF-iDF</p>
+<ul>
+<li><p>term frequency</p></li>
+<li><p>inverse document frequency</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">tf = <span class="number">1</span>/x.<span class="built_in">sum</span>(axis=<span class="number">1</span>)[:,<span class="literal">None</span>]</span><br><span class="line">x = x*tf</span><br><span class="line">idf = np.log(x.shape[<span class="number">0</span>]/(x&gt;<span class="number">0</span>).<span class="built_in">sum</span>(<span class="number">0</span>))</span><br><span class="line">x = x*idf</span><br><span class="line"><span class="comment"># sklearn.feature_extraction.text.TfidfVectorizer</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可以降低高频词比重</p></li>
+</ul></li>
+<li><p>N-grams</p>
+<ul>
+<li>n个字符组合</li>
+<li>sklearn.feature_extraction.text.CountVectorizer: Ngram_range,
+analyzer</li>
+</ul></li>
+<li><p>lowercase</p></li>
+<li><p>lemmatization: car = cars转换为基本形式</p></li>
+<li><p>stemming: 取词干</p></li>
+<li><p>stopwords：</p>
+<ul>
+<li>NLTK: natural language toolkit library</li>
+<li>sklearn.feature_extraction.text.CountVectorizer:
+max_df(按频率删除)</li>
+</ul></li>
+<li><p>embedding(word2vec)</p>
+<ul>
+<li>邻近的词向量相近：向量相加减, 几百个维度</li>
+<li>Word2vec, Glove, FastText</li>
+<li>Doc2vec</li>
+<li>pretrained model</li>
+</ul></li>
+</ul></li>
+<li><p>image</p>
+<ul>
+<li>CNN</li>
+<li>预先训练好的模型微调fine-tuning再训练对小数据集有时候很有效
+<ul>
+<li>keras等库有</li>
+</ul></li>
+<li>image augmentation：
+<ul>
+<li>旋转图像，增加样本</li>
+<li>加噪音</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="eda">2. EDA</h3>
+<ul>
+<li>查看数据逻辑，检查是否有error，探究error原因</li>
+<li>了解数据如何被采集，可以有效设置validation scheme</li>
+<li>plt.hist(x)</li>
+<li>plt.plot(x)</li>
+<li>plt.scatter(len(x), x, c=y)</li>
+<li>x.describe</li>
+<li>look at pairs/groups</li>
+<li>检查train test是否分布相同</li>
+<li>根据eda结果生成新feature</li>
+<li>pd.scatter_matrix(df)</li>
+<li>plt.matshow()</li>
+<li>sort_values</li>
+<li>检查重复的特征或常数特征（drop_duplicate）</li>
+<li>traintest[f] = traintest[f].factorize()</li>
+<li>.select_dtypes(include=['object'])可以选择不同类型columns</li>
+</ul>
+<h3 id="validation-and-overfitting">3. Validation and overfitting</h3>
+<ul>
+<li><p>validation：</p>
+<ul>
+<li><p>holdout: sklearn.model_selection.ShuffleSplit</p></li>
+<li><p>k fold: sklearn.model_selection.Kfold</p></li>
+<li><p>leave one out: sklearn.model_selection.LeaveOneOut</p></li>
+</ul></li>
+<li><p>Stratification: 分层，保留相同分布</p></li>
+<li><p>Data splitting：</p>
+<ul>
+<li>random: row independent</li>
+<li>time-based splits
+<ul>
+<li>moving window validation:
+sklearn.model_selection.TimeSeriesSplit</li>
+</ul></li>
+<li>by id</li>
+<li>combined
+<ul>
+<li>https://medium.com/<span class="citation" data-cites="soumyachess1496/cross-validation-in-time-series-566ae4981ce4">@soumyachess1496/cross-validation-in-time-series-566ae4981ce4</span></li>
+</ul></li>
+<li>有时需要看test set和train的分布差异</li>
+</ul></li>
+<li><p>data leak:</p>
+<ul>
+<li>time series</li>
+</ul></li>
+</ul>
+<h3 id="metrics-evaluation">4. metrics evaluation</h3>
+<ul>
+<li><p>regression metrics：</p>
+<ul>
+<li><p>可以改loss function：</p></li>
+<li><figure>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220623215750485.png" alt="image-20220623215750485">
+<figcaption aria-hidden="true">image-20220623215750485</figcaption>
+</figure></li>
+<li><p>MSE： 常数的最优估计是均值</p></li>
+<li><p>RMSE：root mean square error</p></li>
+<li><p>R-squared</p></li>
+<li><p>MAE: mean average error: not sensetive than mse to outlier</p>
+<ul>
+<li>常数的最优估计是median
+<ul>
+<li>对outlier友好</li>
+</ul></li>
+<li>XGBoost不能用，因为二阶导为0</li>
+<li>LightGBM可以用</li>
+<li>类似huber loss：特别是当error比较大</li>
+</ul></li>
+<li><p>MSPE：</p>
+<ul>
+<li>常数的最优估计是weighted target mean</li>
+</ul></li>
+<li><p>MAPE:</p>
+<ul>
+<li>常数最优估计：weighted target median</li>
+<li>outlier会有很高权重，很少用</li>
+</ul></li>
+<li><p>RMSLE：log space</p></li>
+</ul></li>
+<li><p>classification metric：</p>
+<ul>
+<li>accuracy</li>
+<li>log loss
+<ul>
+<li>binary</li>
+<li>multi loss</li>
+</ul></li>
+<li>AUC：area under curve，包括order</li>
+<li>ROC</li>
+<li>cohen‘s Kappa</li>
+<li>confusion matrix</li>
+<li>weighted error</li>
+<li>quadratic and linear weighted kappa：多用于医学</li>
+</ul></li>
+<li><p>optimization</p>
+<ul>
+<li><p>有的模型不能用一些loss function来优化：</p>
+<ul>
+<li><p>XGBoost不能用MSPE</p></li>
+<li><p>custom loss for XGBoost:</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">logregobj</span>(<span class="params">preds,dtrains</span>):</span><br><span class="line">    labels = dtrain.get_label()</span><br><span class="line">    preds = <span class="number">1.0</span>/(<span class="number">1.0</span>+np.exp(-preds))<span class="comment"># 有时要处理pred</span></span><br><span class="line">    grad = preds - labels</span><br><span class="line">    hess = preds * (<span class="number">1.0</span>-preds)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul></li>
+<li><p>early stopping: 防止overfitting</p></li>
+<li><p>变换target：比如指数、log等</p></li>
+<li><p>calibrate prediction</p>
+<ul>
+<li>plat scaling: fit logistic regression to predictions(stacking)</li>
+<li>isotonic regression: fit isotonic regression to predictions</li>
+<li>stacking: fit XGBoost or neural net to predictions</li>
+</ul></li>
+<li><p>AUC(ROC) optimization:</p>
+<ul>
+<li><p>pointwise loss: <span class="math inline">\(\min \Sigma
+L_{point}(\hat y_i;y_i)\)</span></p></li>
+<li><p>pairwise loss:</p>
+<ul>
+<li><p><span class="math inline">\(\min \Sigma L_{pair}(\hat y_i,\hat
+y_j:y_i,y_j)\)</span></p></li>
+<li></li>
+<li><p><span class="math display">\[
+\operatorname{Loss}=-\frac{1}{N_{0} N_{2}} \sum_{j: y_{j}=1}^{N_{1}}
+\sum_{i: y_{i}=0}^{N_{0}} \log
+\left(\operatorname{prob}\left(\hat{y}_{j}-\hat{y}_{i}\right)\right)
+\]</span></p></li>
+</ul></li>
+<li><p>xgboost, lightboom可行</p></li>
+</ul></li>
+<li><p>quadratic weighted Kappa:</p>
+<ul>
+<li><p>optimize MSE</p></li>
+<li><p><span class="math display">\[
+\begin{aligned}
+\operatorname{Kappa}(y, \hat{y}) &amp; \approx 1-\frac{\frac{1}{N}
+\sum_{i=1}^{N}\left(\hat{y}_{i}-y_{i}\right)^{2}}{\text { hard to deal
+with part }} \\
+&amp;=1-\frac{\operatorname{MSE}(y, \hat{y})}{\text { hard to deal with
+part }}
+\end{aligned}
+\]</span></p></li>
+</ul></li>
+<li><p>optimize thresholds</p></li>
+</ul></li>
+<li><p>mean encoding: 有很多分类特征</p>
+<ul>
+<li><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624111932610.png" title="fig:" alt="image-20220624111932610"></li>
+</ul></li>
+<li><p>StratifiedKFold</p></li>
+<li><p>分析树可能有新发现</p></li>
+</ul>
+<h3 id="hyper-parameter-tuning">5. hyper parameter tuning</h3>
+<ul>
+<li>libraries:
+<ul>
+<li>hyperopt</li>
+<li>scikit-optimize</li>
+<li>spearmint</li>
+<li>gpyopt</li>
+<li>robo</li>
+<li>smac3</li>
+</ul></li>
+<li>GBDT
+<ul>
+<li><p>绿色提升fit，红色降低fit</p></li>
+<li><p>min_child_weight很重要，increase
+model变保守（0，5，15，300……）</p></li>
+<li><figure>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624114638662.png" alt="image-20220624114638662">
+<figcaption aria-hidden="true">image-20220624114638662</figcaption>
+</figure></li>
+<li><p>sklearn.randomforest/ExtraTrees</p>
+<ul>
+<li>N_estimators(higher the better)</li>
+<li><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624115132530.png" title="fig:" alt="image-20220624115132530"></li>
+</ul></li>
+</ul></li>
+<li>neural networks
+<ul>
+<li><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624120041719.png" title="fig:" alt="image-20220624120041719"></li>
+</ul></li>
+<li>可以将数据存储为HDF5或MPI格式，或cpickle</li>
+</ul>
+<h3 id="pipeline">6. pipeline</h3>
+<ul>
+<li>EDA:
+<ul>
+<li>histgram</li>
+<li>feature vs target</li>
+<li>univariate predictability metrics（IV，R，auc）</li>
+<li>bining numerical features and correlation matrices</li>
+</ul></li>
+<li>Decide the CV strategy</li>
+<li>feature engineering:</li>
+<li>Modeling
+<ul>
+<li><figure>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624160045769.png" alt="image-20220624160045769">
+<figcaption aria-hidden="true">image-20220624160045769</figcaption>
+</figure></li>
+<li><p>看文献</p></li>
+</ul></li>
+<li>Ensemble</li>
+</ul>
+<h3 id="feaure">7. feaure</h3>
+<ul>
+<li>bray-curtis metric</li>
+<li>KNN features</li>
+<li>matrix factorization: 利用矩阵分解、加减乘除来增加、减少feature</li>
+<li>feature interactions:
+<ul>
+<li>f1 and f2: 组合形成one hot矩阵：先各自one hot，再pairwise相乘</li>
+<li>积分、微分</li>
+<li>可以用random forest来选择feature importance</li>
+<li>分析树的结构创造新特征：
+<ul>
+<li>xgboost：predict（pred_leaf=True）</li>
+<li>sklearn: apply()</li>
+</ul></li>
+</ul></li>
+<li>tSNE
+<ul>
+<li>常用于EDA</li>
+<li>great tool for visualization</li>
+<li>但是要调参</li>
+<li>dstill.pub 学习网站</li>
+<li>library: tsne, sklearn(慢)</li>
+<li>结果可能不容易理解</li>
+</ul></li>
+</ul>
+<h3 id="ensemble">8. Ensemble</h3>
+<ul>
+<li>bagging：
+<ul>
+<li>sklearn: baggingClassifier, BaggingRegressor</li>
+</ul></li>
+<li>boosting:
+<ul>
+<li>weight based boosting: 关注错的更厉害的
+<ul>
+<li>adaboost</li>
+</ul></li>
+<li>residual based boosting
+<ul>
+<li>learning rate</li>
+<li>num of estimator</li>
+<li>models：
+<ul>
+<li>dart：只用之前一部分模型的预测结果</li>
+<li>fully gradient based</li>
+<li>xgboost</li>
+<li>lightgbm</li>
+<li>catboost</li>
+<li>sklearn GBM</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>stacking：
+<ul>
+<li><p>用所有模型的predict输入到新模型<br>
+</p></li>
+<li><p>注意time</p></li>
+<li><p>stacknet</p>
+<ul>
+<li>可以用Kfold形式训练各个模型</li>
+<li>可以把原始feature加入stacking</li>
+</ul></li>
+<li><figure>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624193839550.png" alt="image-20220624193839550">
+<figcaption aria-hidden="true">image-20220624193839550</figcaption>
+</figure></li>
+<li><figure>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20220624194034207.png" alt="image-20220624194034207">
+<figcaption aria-hidden="true">image-20220624194034207</figcaption>
+</figure></li>
+<li><p>小心data leakage</p></li>
+<li><p>stacknet：可用从说明文档中学习到各个模型哪些参数重要</p></li>
+<li><p>xcessiv</p></li>
+<li><p>stacked ensembles from h2o</p></li>
+</ul></li>
+<li>catboost
+<ul>
+<li>快，预制了很多函数</li>
+<li>overfiting detector</li>
+<li></li>
+</ul></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Issues of Icarus</title>
     <url>/Issues-of-Icarus/</url>
     <content><![CDATA[<h1 id="upload">Upload</h1>
@@ -179,6 +620,139 @@ error"错误 尽量不要用#符号</p></li>
 ]]></content>
       <tags>
         <tag>Issues</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week01</title>
+    <url>/Machine-Learning-Week01/</url>
+    <content><![CDATA[<h2 id="week-1">Week 1</h2>
+<ol type="1">
+<li><p><strong>Supervised Learning 监督学习</strong></p>
+<ul>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
+<ol type="1">
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -432,136 +1006,20 @@ n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week01</title>
-    <url>/Machine-Learning-Week01/</url>
-    <content><![CDATA[<h2 id="week-1">Week 1</h2>
-<ol type="1">
-<li><p><strong>Supervised Learning 监督学习</strong></p>
-<ul>
-<li>分类问题 classification problem
-<ul>
-<li>discrete output（0，1）</li>
-<li>features</li>
-<li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
-<ul>
-<li>continuous output</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
-<ul>
-<li><p><strong>clustering algorithm 聚类算法</strong></p>
-<ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
-<ul>
-<li><p><strong>线性回归算法 linear regression</strong></p>
-<ul>
-<li><p>training set 训练集</p></li>
-<li><p>m - 训练样本数</p>
-<p>x - 输入变量</p>
-<p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
-<li><p><strong>Cost Function 成本函数</strong></p>
-<ul>
-<li><p>度量函数拟合的程度</p></li>
-<li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Parameter Learning</strong></p>
-<ul>
-<li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
-<ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
-<li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
-<li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
-<li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
-<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
-<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
-<li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
-<li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
-<li>SVD分解法</li>
-<li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
-</ol>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
 ]]></content>
       <tags>
-        <tag>Machine Learning</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -1699,6 +2157,19 @@ Elements of Statistical Learning</li>
       </tags>
   </entry>
   <entry>
+    <title>This is my first blog!</title>
+    <url>/This-is-my-first-bolg/</url>
+    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
+<p>My major is <strong>Engineering Physics</strong> and
+<strong>Financial Engineering</strong>.</p>
+<p>Hope to share my experiences with you!</p>
+<p><strong>Thank you</strong> for following my blog!</p>
+]]></content>
+      <tags>
+        <tag>Essay</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python Algorithm and Data Structure</title>
     <url>/Python-Algorithm-and-Data-Structure/</url>
     <content><![CDATA[<h1 id="python-数据结构与算法分析">Python 数据结构与算法分析</h1>
@@ -1975,18 +2446,5 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>This is my first blog!</title>
-    <url>/This-is-my-first-bolg/</url>
-    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
-<p>My major is <strong>Engineering Physics</strong> and
-<strong>Financial Engineering</strong>.</p>
-<p>Hope to share my experiences with you!</p>
-<p><strong>Thank you</strong> for following my blog!</p>
-]]></content>
-      <tags>
-        <tag>Essay</tag>
-      </tags>
   </entry>
 </search>
