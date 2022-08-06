@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/gallery/avator.svg">
   <link rel="icon" type="image/png" sizes="16x16" href="/gallery/avator.svg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="google-site-verification" content="NgFq858mc61GVXVhz9J-Gw2smqS_Eqstq29Q6qU4grg">
+  <meta name="google-site-verification" content="Lr_u9ltNAl44yHB3jiDZo_D4g7u1IrCztvoySOZJeis">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -160,8 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#deciding-what-to-try-next"><span class="nav-number">1.</span> <span class="nav-text">Deciding What to Try Next</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#evaluating-a-learning-algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Learning
-Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bias-vs.-variance"><span class="nav-number">1.2.</span> <span class="nav-text">Bias vs. Variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build-a-spam-classifier"><span class="nav-number">1.3.</span> <span class="nav-text">Build a Spam Classifier</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deciding-What-to-Try-Next"><span class="nav-number">1.</span> <span class="nav-text">Deciding What to Try Next</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluating-a-Learning-Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Learning Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-vs-Variance"><span class="nav-number">1.2.</span> <span class="nav-text">Bias vs. Variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-a-Spam-Classifier"><span class="nav-number">1.3.</span> <span class="nav-text">Build a Spam Classifier</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -302,10 +301,7 @@ Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" hr
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
-<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
-Algorithm</h3>
-<ol type="1">
+        <h2 id="Deciding-What-to-Try-Next"><a href="#Deciding-What-to-Try-Next" class="headerlink" title="Deciding What to Try Next"></a>Deciding What to Try Next</h2><h3 id="Evaluating-a-Learning-Algorithm"><a href="#Evaluating-a-Learning-Algorithm" class="headerlink" title="Evaluating a Learning Algorithm"></a>Evaluating a Learning Algorithm</h3><ol>
 <li><p>误差大的改进方法：</p>
 <ul>
 <li>更多数据</li>
@@ -313,164 +309,156 @@ Algorithm</h3>
 <li>更多特征</li>
 <li>增加多项式特征</li>
 <li>减少或增大正则化参数值</li>
-</ul></li>
+</ul>
+</li>
 <li><p>评估假设函数Evaluating a Hypothesis</p>
 <ul>
 <li><p>如何判断过拟合？</p>
 <ul>
-<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
-<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
+<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p>
+</li>
+<li><p>学习训练集的参数θ（即最小化训练误差J ）</p>
+</li>
 <li><p>计算测试集误差</p>
 <ul>
-<li><p>线性回归中计算测试集的 J(θ)</p></li>
+<li><p>线性回归中计算测试集的 J(θ)</p>
+</li>
 <li><p>逻辑回归中可以用误分类率来计算error：</p>
-<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
-h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
-&amp;otherwise\end{cases}\)</span></p>
-<p><span class="math inline">\(Test\
-error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
-</ul></li>
-</ul></li>
-</ul></li>
+<p>$err(h_\theta(x),y)=\begin{cases}1,&amp;if\ h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0, &amp;otherwise\end{cases}$</p>
+<p>$Test\ error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
 <ul>
-<li>将数据分为三段：训练集（60%），交叉验证集（cross
-validation）（20%），测试集（20%）</li>
+<li>将数据分为三段：训练集（60%），交叉验证集（cross validation）（20%），测试集（20%）</li>
 <li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
 <li>最后计算测试集误差评价模型表现</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
-<ol type="1">
+<h3 id="Bias-vs-Variance"><a href="#Bias-vs-Variance" class="headerlink" title="Bias vs. Variance"></a>Bias vs. Variance</h3><ol>
 <li><p>分析bias和variance</p>
 <ul>
 <li>高偏差：欠拟合；高方差：过拟合</li>
-<li>高偏差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
-the same as <span class="math inline">\(J_{CV}(\theta)\approx
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li>高方差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
-<span class="math inline">\(J_{CV}(\theta)\gg
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
-</ul></li>
+<li>高偏差：<ul>
+<li>$J_{train}(\theta)$will be high, the same as $J_{CV}(\theta)\approx J_{train}(\theta)$</li>
+</ul>
+</li>
+<li>高方差：<ul>
+<li>$J_{train}(\theta)$will be low,  $J_{CV}(\theta)\gg J_{train}(\theta)$</li>
+</ul>
+</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" alt="img"></li>
+</ul>
+</li>
 <li><p>正则化与方差、偏差的关系</p>
 <ul>
-<li><p>正则化可以有效防止过拟合</p></li>
+<li><p>正则化可以有效防止过拟合</p>
+</li>
 <li><p>选择λ的过程：</p>
 <ul>
-<li>Create a list of lambdas (i.e.
-λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
-<li>Create a set of models with different degrees or any other
-variants.</li>
-<li>Iterate through the λs and for each λ go through all the models to
-learn some Θ.</li>
-<li>Compute the cross validation error using the learned Θ (computed
-with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
-0.</li>
-<li>Select the best combo that produces the lowest error on the cross
-validation set.</li>
-<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
-has a good generalization of the problem.</li>
-</ul></li>
-<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
-J_{train}(\theta)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
-\]</span></p></li>
-</ul></li>
+<li>Create a list of lambdas (i.e. λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
+<li>Create a set of models with different degrees or any other variants.</li>
+<li>Iterate through the λs and for each λ go through all the models to learn some Θ.</li>
+<li>Compute the cross validation error using the learned Θ (computed with λ) on the$ J_{CV}(\Theta)$ <strong>without</strong> regularization or λ = 0.</li>
+<li>Select the best combo that produces the lowest error on the cross validation set.</li>
+<li>Using the best combo Θ and λ, apply it on$ J_{test}(\Theta)$ to see if it has a good generalization of the problem.</li>
+</ul>
+</li>
+<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即$J_{train}(\theta)$、$J_{CV}(\theta)$、$J_{test}(\theta)$都不包含正则项</p>
+<script type="math/tex; mode=display">
+J_{train}(\theta)=\frac {1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script></li>
+</ul>
+</li>
 <li><p>学习曲线（error-训练集的大小）</p>
 <ul>
-<li>高偏差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
+<li>高偏差<ul>
+<li><strong>Low training set size</strong>: causes $J_{train}(\Theta)$ to be low and $J_{CV}(\Theta)$ to be high.</li>
+<li><strong>Large training set size</strong>: causes both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ to be high with $J_{train}(\Theta)≈J_{CV}(\Theta)$.</li>
 <li>高偏差，更多训练数据不会有很大帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
-</ul></li>
-<li>高方差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
-set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
-continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
-the difference between them remains significant.</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" alt="img"></li>
+</ul>
+</li>
+<li>高方差<ul>
+<li><strong>Low training set size</strong>: causes $J_{train}(\Theta)$ to be low and $J_{CV}(\Theta)$ to be high.</li>
+<li><strong>Large training set size</strong>: $J_{train}(\Theta)$ increases with training set size and $J_{CV}(\Theta)$ continues to decrease without leveling off. Also, $J_{train}(\Theta) &lt; J_{CV}(\Theta)$ but the difference between them remains significant.</li>
 <li>高方差，更多训练数据可能有帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
-</ul></li>
-</ul></li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>诊断法则如何判断</p>
 <ul>
 <li>更多训练数据——高方差，画学习曲线</li>
 <li>更少特征集避免过拟合——高方差</li>
 <li>更多特征——高偏差</li>
 <li>增加多项式特征——高偏差</li>
-<li>减少（高偏差）或增大正则化参数值（高方差）
-<ul>
+<li>减少（高偏差）或增大正则化参数值（高方差）<ul>
 <li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
-</ul></li>
-<li>神经网络很容易过拟合，正则化项非常有用
-<ul>
-<li>如何选择几层隐藏层：
-<ul>
+</ul>
+</li>
+<li>神经网络很容易过拟合，正则化项非常有用<ul>
+<li>如何选择几层隐藏层：<ul>
 <li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
-<ol type="1">
-<li>做法：
-<ul>
+<h3 id="Build-a-Spam-Classifier"><a href="#Build-a-Spam-Classifier" class="headerlink" title="Build a Spam Classifier"></a>Build a Spam Classifier</h3><ol>
+<li>做法：<ul>
 <li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
 <li>列出可能的做法，讨论可行性，然后选择一个方向</li>
-</ul></li>
-<li>误差分析
-<ul>
-<li>推荐做法：
-<ul>
+</ul>
+</li>
+<li>误差分析<ul>
+<li>推荐做法：<ul>
 <li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
 <li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
-<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
-<ul>
+<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征<ul>
 <li>手动对错误的部分分类</li>
 <li>发现特征</li>
 <li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>stem词干提取（porter stemmer）</li>
-<li>skewed classes 偏斜类问题
-<ul>
+<li>skewed classes 偏斜类问题<ul>
 <li>癌症的比例非常非常低</li>
-<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{predicted\
-positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
-</ul></li>
-<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{actual\
-positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
-</ul></li>
-<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
-<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
-<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
+<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的<ul>
+<li>$=\frac{True\ positives}{predicted\ positives}=\frac{True\ positives}{True\ pos+False\ pos}$</li>
+</ul>
+</li>
+<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的<ul>
+<li>$=\frac{True\ positives}{actual\ positives}=\frac{True\ positives}{True\ pos+False\ neg}$</li>
+</ul>
+</li>
+<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png" alt=""></li>
+<li>假设现在想要预测y=1，当非常自信的情况下（修改$h_\theta(x)$分类临界值threshold0.5为0.9）：高查准，低召回</li>
+<li>假设想要避免错过癌症案例，（修改$h_\theta(x)$分类临界值0.5为0.3）：高召回，低查准</li>
 <li>绘制查准率-召回率曲线</li>
-<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
-<ul>
+<li>$F_1$Score $=\frac{2PR}{P+R}$:<ul>
 <li>评估选择算法或者不同临界值的量化标准</li>
-</ul></li>
-</ul></li>
-<li>Data For Machine Learning
-<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data For Machine Learning<ul>
 <li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
 <li>多项式参数对大训练集没有帮助</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 
     </div>
@@ -562,14 +550,14 @@ positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">76k</span>
+    <span title="Symbols count total">72k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:09</span>
+    <span title="Reading time total">1:05</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>

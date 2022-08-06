@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/gallery/avator.svg">
   <link rel="icon" type="image/png" sizes="16x16" href="/gallery/avator.svg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="google-site-verification" content="NgFq858mc61GVXVhz9J-Gw2smqS_Eqstq29Q6qU4grg">
+  <meta name="google-site-verification" content="Lr_u9ltNAl44yHB3jiDZo_D4g7u1IrCztvoySOZJeis">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -155,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#matrices-and-vectors"><span class="nav-number"></span> <span class="nav-text">Matrices and Vectors</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week-1"><span class="nav-number">1.</span> <span class="nav-text">Week 1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrices-and-Vectors"><span class="nav-number"></span> <span class="nav-text">Matrices and Vectors</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -296,130 +296,127 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="week-1">Week 1</h2>
-<ol type="1">
+        <h2 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h2><ol>
 <li><p><strong>Supervised Learning 监督学习</strong></p>
 <ul>
-<li>分类问题 classification problem
-<ul>
+<li>分类问题 classification problem<ul>
 <li>discrete output（0，1）</li>
 <li>features</li>
 <li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
-<ul>
+</ul>
+</li>
+<li>回归问题 regression problem<ul>
 <li>continuous output</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p><strong>Unsupervised Learning 无监督学习</strong></p>
 <ul>
 <li><p><strong>clustering algorithm 聚类算法</strong></p>
 <ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p>
+</li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market segmentation；Astronomical data analysis</p>
+</li>
+<li><p><strong>Cocktail party problem</strong>：混杂的声音中分离出两种声音</p>
 <figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>   *SVD: singular value decomposition 奇异值分解，求解线性方程
+
+   octave做原型，然后迁移到C或JAVA
+</code></pre><ol>
 <li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
 <ul>
 <li><p><strong>线性回归算法 linear regression</strong></p>
 <ul>
-<li><p>training set 训练集</p></li>
+<li><p>training set 训练集</p>
+</li>
 <li><p>m - 训练样本数</p>
 <p>x - 输入变量</p>
 <p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
+<p>$(x^{i},y^{i})$ - i training example</p>
+<p>$\theta$ - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：$h_{\theta}(x)=\theta_0+\theta_1x$；缩写即$h(x)$</p>
+<p>不一定都是线性方程</p>
+</li>
+</ul>
+</li>
 <li><p><strong>Cost Function 成本函数</strong></p>
 <ul>
-<li><p>度量函数拟合的程度</p></li>
+<li><p>度量函数拟合的程度</p>
+</li>
 <li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
+<p>Hypothesis: <script type="math/tex">\min \limits_{\theta_0\theta_1}\frac {1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script></p>
+<p>Cost function: <script type="math/tex">J(\theta_0,\theta_1)=\frac {1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script> ——- (Squared Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p><strong>Parameter Learning</strong></p>
 <ul>
 <li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
+<p>不断改变$\theta$使得J函数变小，得到局部最优点local optimum，convergence收敛</p>
+<script type="math/tex; mode=display">\theta_j:=\theta_j-\alpha\frac {\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\ j=1)</script><p>$\alpha$是学习速率 learning rate</p>
 <ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
+<li>注意编程中的赋值后会覆盖，所以要桥接一下</li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p>
+</li>
+<li><p>不需要调整α因为导数值越来越小</p>
+</li>
+<li>Batch Gradient Descent 批量梯度下降：每step都用到全部的训练样本</li>
+<li>高等线性代数：normal equations method正规方程，大数据时梯度下降更好用</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<h1 id="Matrices-and-Vectors"><a href="#Matrices-and-Vectors" class="headerlink" title="Matrices and Vectors"></a>Matrices and Vectors</h1><ol>
+<li>Matrix: rows*columns<ul>
+<li>$\mathbb{R} ^{2\times3}$ , $A_{ij}$, </li>
+</ul>
+</li>
+<li>Vector: n*1 matrix<ul>
+<li>$\mathbb{R}^4$</li>
+</ul>
+</li>
+<li>$A\times B\ne B\times A$</li>
 <li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>Identity Matrix： $I$, $n\times n$<ul>
+<li>$\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}$</li>
+<li>$A\cdot I=I\cdot A$</li>
 <li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
+</ul>
+</li>
+<li>Inverse 矩阵的逆：$A(A^{-1})=A^{-1}A=I$<ul>
 <li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>$A_{m\times m}$</li>
 <li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
+<li>高斯消元法求逆：<ul>
 <li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
 <li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
+<li>增广矩阵$B=[A|I]=\begin{vmatrix} A_{11} &amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp; A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp; A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix} 1&amp;0&amp;0&amp;A_{11}^{‘} &amp; A_{12}^{‘} &amp; A_{13}^{‘} \\0&amp;1&amp;0&amp;A_{21}^{‘} &amp; A_{22}^{‘} &amp; A_{23}^{‘}\\0&amp;0&amp;1&amp;A_{31}^{‘} &amp; A_{32}^{‘} &amp; A_{33}^{‘} \end{vmatrix}$</li>
+</ul>
+</li>
 <li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>伴随矩阵法$A^* $，$A^{-1}=\frac {A^*}{|A|}$<ul>
+<li>将矩阵A元素$a_{ij}$所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素$a_{ij}$的余子式，记为$M_{ij}$，称$A_{ij}=(-1)^{i+j}M_{ij}$为元素$a_{ij}$的代数余子式</li>
+<li>$A^*$的第i行j列元素为上面的$A_{ij}$</li>
+</ul>
+</li>
+<li>LU分解法A=LU，$A^{-1}=U^{-1}L^{-1}$</li>
 <li>SVD分解法</li>
 <li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ul>
+</li>
+<li>Transpose 矩阵的转置：$A^T$</li>
 </ol>
 
     </div>
@@ -511,14 +508,14 @@ A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">76k</span>
+    <span title="Symbols count total">72k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:09</span>
+    <span title="Reading time total">1:05</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
