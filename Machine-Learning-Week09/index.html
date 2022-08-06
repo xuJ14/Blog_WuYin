@@ -159,7 +159,17 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anomaly-Detection-%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">Anomaly Detection 异常检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Density-Estimation"><span class="nav-number">1.1.</span> <span class="nav-text">Density Estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-Motivation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Problem Motivation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussian-Distribution"><span class="nav-number">1.1.2.</span> <span class="nav-text">Gaussian Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.1.3.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-an-Anomaly-Detection-System"><span class="nav-number">1.2.</span> <span class="nav-text">Building an Anomaly Detection System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Developing-and-Evaluating-an-Anomaly-Detection-System"><span class="nav-number">1.2.1.</span> <span class="nav-text">Developing and Evaluating an Anomaly Detection System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anomaly-detection-vs-Supervised-learning"><span class="nav-number">1.2.2.</span> <span class="nav-text">Anomaly detection vs. Supervised learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Choosing-what-features-to-use"><span class="nav-number">1.2.3.</span> <span class="nav-text">Choosing what features to use</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Gaussian-Distribution"><span class="nav-number">1.3.</span> <span class="nav-text">Multivariate Gaussian Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Multivariate-Gaussian-Distribution-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Multivariate Gaussian Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anomaly-Detection-using-the-multivariate-Gaussian-distribution"><span class="nav-number">1.3.2.</span> <span class="nav-text">Anomaly Detection using the multivariate Gaussian distribution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Predicting-Movie-Ratings-%E2%80%94%E2%80%94Recommendation-System"><span class="nav-number">1.4.</span> <span class="nav-text">Predicting Movie Ratings ——Recommendation System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-Formulation"><span class="nav-number">1.4.1.</span> <span class="nav-text">Problem Formulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Based-Recommendations"><span class="nav-number">1.4.2.</span> <span class="nav-text">Content Based Recommendations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative-Filtering"><span class="nav-number">1.5.</span> <span class="nav-text">Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collaborative-Filtering-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">Collaborative Filtering</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Low-Rank-Matrix-Factorization"><span class="nav-number">1.6.</span> <span class="nav-text">Low Rank Matrix Factorization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vectorization"><span class="nav-number">1.6.1.</span> <span class="nav-text">Vectorization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mean-Normalization"><span class="nav-number">1.6.2.</span> <span class="nav-text">Mean Normalization</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#anomaly-detection-%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">Anomaly Detection 异常检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#density-estimation"><span class="nav-number">1.1.</span> <span class="nav-text">Density Estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-motivation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Problem Motivation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gaussian-distribution"><span class="nav-number">1.1.2.</span> <span class="nav-text">Gaussian Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#algorithm"><span class="nav-number">1.1.3.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#building-an-anomaly-detection-system"><span class="nav-number">1.2.</span> <span class="nav-text">Building an Anomaly
+Detection System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#developing-and-evaluating-an-anomaly-detection-system"><span class="nav-number">1.2.1.</span> <span class="nav-text">Developing
+and Evaluating an Anomaly Detection System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anomaly-detection-vs.-supervised-learning"><span class="nav-number">1.2.2.</span> <span class="nav-text">Anomaly detection vs.
+Supervised learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#choosing-what-features-to-use"><span class="nav-number">1.2.3.</span> <span class="nav-text">Choosing what features to
+use</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multivariate-gaussian-distribution"><span class="nav-number">1.3.</span> <span class="nav-text">Multivariate Gaussian
+Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#multivariate-gaussian-distribution-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Multivariate Gaussian
+Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anomaly-detection-using-the-multivariate-gaussian-distribution"><span class="nav-number">1.3.2.</span> <span class="nav-text">Anomaly
+Detection using the multivariate Gaussian distribution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predicting-movie-ratings-recommendation-system"><span class="nav-number">1.4.</span> <span class="nav-text">Predicting Movie
+Ratings ——Recommendation System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-formulation"><span class="nav-number">1.4.1.</span> <span class="nav-text">Problem Formulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#content-based-recommendations"><span class="nav-number">1.4.2.</span> <span class="nav-text">Content Based
+Recommendations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collaborative-filtering"><span class="nav-number">1.5.</span> <span class="nav-text">Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#collaborative-filtering-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">Collaborative Filtering</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#low-rank-matrix-factorization"><span class="nav-number">1.6.</span> <span class="nav-text">Low Rank Matrix
+Factorization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mean-normalization"><span class="nav-number">1.6.1.</span> <span class="nav-text">Mean Normalization</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -280,7 +290,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>6.5k</span>
+      <span>6.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -298,34 +308,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Anomaly-Detection-异常检测"><a href="#Anomaly-Detection-异常检测" class="headerlink" title="Anomaly Detection 异常检测"></a>Anomaly Detection 异常检测</h1><h2 id="Density-Estimation"><a href="#Density-Estimation" class="headerlink" title="Density Estimation"></a>Density Estimation</h2><h3 id="Problem-Motivation"><a href="#Problem-Motivation" class="headerlink" title="Problem Motivation"></a>Problem Motivation</h3><p>异常检测主要用于unsupervised learning</p>
-<p>Model：$P(x_{test}&lt;\epsilon)\rightarrow anomaly$</p>
-<p>​                $P(x_{test}\ge \epsilon)\rightarrow OK$</p>
+        <h1 id="anomaly-detection-异常检测">Anomaly Detection 异常检测</h1>
+<h2 id="density-estimation">Density Estimation</h2>
+<h3 id="problem-motivation">Problem Motivation</h3>
+<p>异常检测主要用于unsupervised learning</p>
+<p>Model：<span class="math inline">\(P(x_{test}&lt;\epsilon)\rightarrow
+anomaly\)</span></p>
+<p>​ <span class="math inline">\(P(x_{test}\ge \epsilon)\rightarrow
+OK\)</span></p>
 <p>也被用于检测账号被盗、生产、数据中心的电脑</p>
-<h3 id="Gaussian-Distribution"><a href="#Gaussian-Distribution" class="headerlink" title="Gaussian Distribution"></a>Gaussian Distribution</h3><p>=Normal distribution</p>
-<p>X ～ N (0, 1)，“distributed as”, 这里N的符号为”script N”</p>
-<p>给定dataset，参数估计：via Maximum likelihood estimation 通常是m-1，对大数据集没影响</p>
-<script type="math/tex; mode=display">
+<h3 id="gaussian-distribution">Gaussian Distribution</h3>
+<p>=Normal distribution</p>
+<p>X ～ N (0, 1)，“distributed as”, 这里N的符号为"script N"</p>
+<p>给定dataset，参数估计：via Maximum likelihood estimation
+通常是m-1，对大数据集没影响 <span class="math display">\[
 \mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
-\sigma^2=\frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)^2</script><h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>基本假设，各特征间相互独立</p>
-<script type="math/tex; mode=display">
-P(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)</script><p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210404220930233.png" alt="Anomaly detection algorithm"></p>
-<h2 id="Building-an-Anomaly-Detection-System"><a href="#Building-an-Anomaly-Detection-System" class="headerlink" title="Building an Anomaly Detection System"></a>Building an Anomaly Detection System</h2><h3 id="Developing-and-Evaluating-an-Anomaly-Detection-System"><a href="#Developing-and-Evaluating-an-Anomaly-Detection-System" class="headerlink" title="Developing and Evaluating an Anomaly Detection System"></a>Developing and Evaluating an Anomaly Detection System</h3><p>Training set: normal examples (可以有少量异常的混进来)</p>
+\sigma^2=\frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)^2
+\]</span></p>
+<h3 id="algorithm">Algorithm</h3>
+<p>基本假设，各特征间相互独立 <span class="math display">\[
+P(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)
+\]</span> <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210404220930233.png" alt="Anomaly detection algorithm"></p>
+<h2 id="building-an-anomaly-detection-system">Building an Anomaly
+Detection System</h2>
+<h3 id="developing-and-evaluating-an-anomaly-detection-system">Developing
+and Evaluating an Anomaly Detection System</h3>
+<p>Training set: normal examples (可以有少量异常的混进来)</p>
 <p>然后应用于cross calidation set 和 test set</p>
 <ul>
 <li><p>10000正常，20异常：</p>
-<p>​    训练集：6000正常</p>
-<p>​    CV：2000正常，10异常</p>
-<p>​    Test：2000正常，10异常</p>
-</li>
+<p>​ 训练集：6000正常</p>
+<p>​ CV：2000正常，10异常</p>
+<p>​ Test：2000正常，10异常</p></li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405114004132.png" alt="Algorithm evaluation"></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405114004132.png" alt="Algorithm evaluation">
+<figcaption aria-hidden="true">Algorithm evaluation</figcaption>
+</figure>
 <p>由于normal是0，所以预测0常常有更高的准确率，是skew的偏斜的。因此查准率accuracy不是很好的分析指标。</p>
 <ul>
-<li>选择ε时，可以试几个不同的，然后选择使得Cross validation集中F1-score最大的，或者效果最好的。</li>
+<li>选择ε时，可以试几个不同的，然后选择使得Cross
+validation集中F1-score最大的，或者效果最好的。</li>
 <li>有时还需要决定用什么特征</li>
 </ul>
-<h3 id="Anomaly-detection-vs-Supervised-learning"><a href="#Anomaly-detection-vs-Supervised-learning" class="headerlink" title="Anomaly detection vs. Supervised learning"></a>Anomaly detection vs. Supervised learning</h3><p>Anomaly detection:</p>
+<h3 id="anomaly-detection-vs.-supervised-learning">Anomaly detection vs.
+Supervised learning</h3>
+<p>Anomaly detection:</p>
 <ul>
 <li>y=1非常少(0-20常见), y=0占比更大</li>
 <li>有大量不同的异常类型，其他算法难于分辨各种类型</li>
@@ -334,32 +362,46 @@ P(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)</script><p><img src="https://cdn.jsdel
 <p>supervised learning：</p>
 <ul>
 <li>大量的positive 和negative examples</li>
-<li>有足够positive examples，并且未来的positive example和训练集的相似</li>
+<li>有足够positive examples，并且未来的positive
+example和训练集的相似</li>
 <li>Spam</li>
 </ul>
-<h3 id="Choosing-what-features-to-use"><a href="#Choosing-what-features-to-use" class="headerlink" title="Choosing what features to use"></a>Choosing what features to use</h3><ul>
+<h3 id="choosing-what-features-to-use">Choosing what features to
+use</h3>
+<ul>
 <li>Non-gaussian feature</li>
 </ul>
-<p>绘制特征的直方图，看是否大致是个bell shaped curve，如果不是，运用一些变换使得其看起来更加gaussian</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405203939050.png" alt="take a log transformation"></p>
+<p>绘制特征的直方图，看是否大致是个bell shaped
+curve，如果不是，运用一些变换使得其看起来更加gaussian</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405203939050.png" alt="take a log transformation">
+<figcaption aria-hidden="true">take a log transformation</figcaption>
+</figure>
 <ul>
 <li><p>Error analysis for anomaly detection</p>
-<p>甄别失败时，new feature 可能有帮助，例如组合现有的特征形成新特征</p>
-</li>
+<p>甄别失败时，new feature
+可能有帮助，例如组合现有的特征形成新特征</p></li>
 </ul>
-<h2 id="Multivariate-Gaussian-Distribution"><a href="#Multivariate-Gaussian-Distribution" class="headerlink" title="Multivariate Gaussian Distribution"></a>Multivariate Gaussian Distribution</h2><h3 id="Multivariate-Gaussian-Distribution-1"><a href="#Multivariate-Gaussian-Distribution-1" class="headerlink" title="Multivariate Gaussian Distribution"></a>Multivariate Gaussian Distribution</h3><p>不同于之前的是，p(x)不再是各个特征概率的乘积。</p>
-<p>Parameters: $\mu \in \R^n$, $\Sigma \in \R^{n\times n}$</p>
-<script type="math/tex; mode=display">
-p(x;\mu,\Sigma)= \frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^2}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))</script><p>$|\Sigma|$=determinant of Σ </p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405214331278.png" alt="examples"></p>
-<script type="math/tex; mode=display">
+<h2 id="multivariate-gaussian-distribution">Multivariate Gaussian
+Distribution</h2>
+<h3 id="multivariate-gaussian-distribution-1">Multivariate Gaussian
+Distribution</h3>
+<p>不同于之前的是，p(x)不再是各个特征概率的乘积。</p>
+<p>Parameters: <span class="math inline">\(\mu \in \R^n\)</span>, <span class="math inline">\(\Sigma \in \R^{n\times n}\)</span> <span class="math display">\[
+p(x;\mu,\Sigma)=
+\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^2}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))
+\]</span> <span class="math inline">\(|\Sigma|\)</span>=determinant of
+Σ</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210405214331278.png" alt="examples"> <span class="math display">\[
 \mu = \frac{1}{m}\sum_{i=1}^mx^{(i)}\\
-\Sigma = \frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)(x^{(i)}-\mu)^T</script><h3 id="Anomaly-Detection-using-the-multivariate-Gaussian-distribution"><a href="#Anomaly-Detection-using-the-multivariate-Gaussian-distribution" class="headerlink" title="Anomaly Detection using the multivariate Gaussian distribution"></a>Anomaly Detection using the multivariate Gaussian distribution</h3><p>首先计算μ和Σ，然后计算p(x)，最后根据ε判断是否异常</p>
+\Sigma = \frac{1}{m}\sum_{i=1}^m(x^{(i)}-\mu)(x^{(i)}-\mu)^T
+\]</span></p>
+<h3 id="anomaly-detection-using-the-multivariate-gaussian-distribution">Anomaly
+Detection using the multivariate Gaussian distribution</h3>
+<p>首先计算μ和Σ，然后计算p(x)，最后根据ε判断是否异常</p>
 <ul>
-<li><p>优点：自动捕捉特征间的相关性。m&gt;10n用起来才比较好，必须要m&gt;n，否则协方差矩阵不可逆。</p>
-</li>
-<li><p>缺点：计算量比较大。如果某个特征是其他的线性组合，那么协方差矩阵也不可逆，要注意避免。</p>
-</li>
+<li><p>优点：自动捕捉特征间的相关性。m&gt;10n用起来才比较好，必须要m&gt;n，否则协方差矩阵不可逆。</p></li>
+<li><p>缺点：计算量比较大。如果某个特征是其他的线性组合，那么协方差矩阵也不可逆，要注意避免。</p></li>
 </ul>
 <p>前述的模型：优点在于计算量小，但是要人工创造一些新特征来更好地分辨。m&lt;n的时候也能用。</p>
 <p>若出现协方差矩阵不可逆：</p>
@@ -367,88 +409,148 @@ p(x;\mu,\Sigma)= \frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^2}exp(-\frac{1}{2}(x-\mu)
 <li>首先检查m, n大小</li>
 <li>检查是否有redundant features，就是特征间是否线性独立</li>
 </ul>
-<h2 id="Predicting-Movie-Ratings-——Recommendation-System"><a href="#Predicting-Movie-Ratings-——Recommendation-System" class="headerlink" title="Predicting Movie Ratings ——Recommendation System"></a>Predicting Movie Ratings ——Recommendation System</h2><h3 id="Problem-Formulation"><a href="#Problem-Formulation" class="headerlink" title="Problem Formulation"></a>Problem Formulation</h3><p>r(i,j) 表示第i个电影，j用户是否打分；</p>
+<h2 id="predicting-movie-ratings-recommendation-system">Predicting Movie
+Ratings ——Recommendation System</h2>
+<h3 id="problem-formulation">Problem Formulation</h3>
+<p>r(i,j) 表示第i个电影，j用户是否打分；</p>
 <p>y(i,j) 表示该用户对该电影的打分值 ；</p>
-<h3 id="Content-Based-Recommendations"><a href="#Content-Based-Recommendations" class="headerlink" title="Content Based Recommendations"></a>Content Based Recommendations</h3><p>设电影特征n个</p>
-<p>For each user j, learn a parameter $\theta^{(j)}\in\R^{n+1}$. Predict user j as rating movie i with $(\theta^{(j)})^Tx^{(i)}$ stars. （注意 $x_0=1$）。用线性回归</p>
-<p>To learn $\theta^{(j)}$：</p>
-<script type="math/tex; mode=display">
-\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2</script><p>Note: 这里 $m^{(j)}$可以去掉，对结果没有任何影响</p>
-<p>优化目标也可以为：</p>
-<script type="math/tex; mode=display">
-J(\Theta^{(1)},...,\Theta^{(n_u)})=\min_{\Theta^{(1)},...,\Theta^{(n_u)}}\frac{1}{2}\sum_{j=1}^{n_u}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2}\sum_{j=1}^{n_u}\sum_{k=1}^{n}(\theta_k^{(j)})^2</script><p>Gradient descent update:</p>
-<script type="math/tex; mode=display">
-\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha \sum_{i: r(i, j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right) x_{k}^{(i)}\ (\text { for } k=0)</script><script type="math/tex; mode=display">
-\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha\left(\sum_{i: r(i, j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right) x_{k}^{(i)}+\lambda \theta_{k}^{(j)}\right)\ (\text { for } k \neq 0)</script><p>k=0的时候不加正则项</p>
-<h2 id="Collaborative-Filtering"><a href="#Collaborative-Filtering" class="headerlink" title="Collaborative Filtering"></a>Collaborative Filtering</h2><h3 id="Collaborative-Filtering-1"><a href="#Collaborative-Filtering-1" class="headerlink" title="Collaborative Filtering"></a>Collaborative Filtering</h3><ul>
-<li>feature learning</li>
-<li>Given $\Theta^{(1)},…,\Theta^{(n_u)}$，to learn $x^{(1)},…,x^{(n_m)}$;</li>
-<li>算法类似7、8式</li>
-<li>$用户的\Theta\rightarrow 电影特征x\rightarrow \Theta\rightarrow x\rightarrow…$</li>
-<li><p>每个用户都在帮助这个推荐系统更好地分类电影，从而更好地预测评分</p>
-</li>
+<h3 id="content-based-recommendations">Content Based
+Recommendations</h3>
+<p>设电影特征n个</p>
+<p>For each user j, learn a parameter <span class="math inline">\(\theta^{(j)}\in\R^{n+1}\)</span>. Predict user j
+as rating movie i with <span class="math inline">\((\theta^{(j)})^Tx^{(i)}\)</span> stars. （注意
+<span class="math inline">\(x_0=1\)</span>）。用线性回归</p>
+<p>To learn <span class="math inline">\(\theta^{(j)}\)</span>： <span class="math display">\[
+\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
+\]</span> Note: 这里 <span class="math inline">\(m^{(j)}\)</span>可以去掉，对结果没有任何影响</p>
+<p>优化目标也可以为： <span class="math display">\[
+J(\Theta^{(1)},...,\Theta^{(n_u)})=\min_{\Theta^{(1)},...,\Theta^{(n_u)}}\frac{1}{2}\sum_{j=1}^{n_u}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2}\sum_{j=1}^{n_u}\sum_{k=1}^{n}(\theta_k^{(j)})^2
+\]</span> Gradient descent update: <span class="math display">\[
+\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha \sum_{i: r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
+x_{k}^{(i)}\ (\text { for } k=0)
+\]</span></p>
+<p><span class="math display">\[
+\theta_{k}^{(j)}:=\theta_{k}^{(j)}-\alpha\left(\sum_{i: r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)
+x_{k}^{(i)}+\lambda \theta_{k}^{(j)}\right)\ (\text { for } k \neq 0)
+\]</span></p>
+<p>k=0的时候不加正则项</p>
+<h2 id="collaborative-filtering">Collaborative Filtering</h2>
+<h3 id="collaborative-filtering-1">Collaborative Filtering</h3>
+<ul>
+<li><p>feature learning</p></li>
+<li><p>Given <span class="math inline">\(\Theta^{(1)},...,\Theta^{(n_u)}\)</span>，to learn
+<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>;</p></li>
+<li><p>算法类似7、8式</p></li>
+<li><p><span class="math inline">\(用户的\Theta\rightarrow
+电影特征x\rightarrow \Theta\rightarrow x\rightarrow...\)</span></p></li>
+<li><p>每个用户都在帮助这个推荐系统更好地分类电影，从而更好地预测评分</p></li>
 <li><p>算法：同时实现：</p>
-<ol>
-<li><p>Given $x^{(1)},…,x^{(n_m)}$，estimate $\theta^{(1)},…,\theta^{(n_u)}$：</p>
-<script type="math/tex; mode=display">
-\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2</script></li>
-<li><p>Given $\theta^{(1)},…,\theta^{(n_u)}$，estimate $x^{(1)},…,x^{(n_m)}$：</p>
-<script type="math/tex; mode=display">
-\min _{x^{(1)}, \ldots, x^{\left(n_{m}\right)}} \frac{1}{2} \sum_{i=1}^{n_{m}} \sum_{j: r(i, j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}} \sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}</script></li>
+<ol type="1">
+<li><p>Given <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>，estimate <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>： <span class="math display">\[
+\min_{\Theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i,j)=1}((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})^2+\frac{\lambda}{2m^{(j)}}\sum_{k=1}^{n}(\theta_k^{(j)})^2
+\]</span></p></li>
+<li><p>Given <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>，estimate
+<span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>： <span class="math display">\[
+\min _{x^{(1)}, \ldots, x^{\left(n_{m}\right)}} \frac{1}{2}
+\sum_{i=1}^{n_{m}} \sum_{j: r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
+j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
+\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}
+\]</span></p></li>
 </ol>
 <p>即：</p>
-<p>Minimizing $x^{(1)},…,x^{(n_m)}$ and $\theta^{(1)},…,\theta^{(n_u)}$ simultaneously：</p>
-<script type="math/tex; mode=display">
-\min_{x^{(1)},...,x^{(n_m)}\\\theta^{(1)},...,\theta^{(n_u)}}J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots, \theta^{\left(n_{u}\right)}\right)</script><script type="math/tex; mode=display">
-J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots, \theta^{\left(n_{u}\right)}\right)=\frac{1}{2} \sum_{(i, j): r(i, j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i, j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}} \sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}+\frac{\lambda}{2} \sum_{j=1}^{n_{u}} \sum_{k=1}^{n}\left(\theta_{k}^{(j)}\right)^{2}</script><blockquote>
-<p>该算法下，无需设定 $x_0=1$, 也没有$\theta_0$，因为算法会自行选择参数。该算法下：$\theta\in\R^n$，$x\in\R^n$，n是特征数</p>
-</blockquote>
-</li>
+<p>Minimizing <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>
+and <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span>
+simultaneously： <span class="math display">\[
+\min_{x^{(1)},...,x^{(n_m)}\\\theta^{(1)},...,\theta^{(n_u)}}J\left(x^{(1)},
+\ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
+\theta^{\left(n_{u}\right)}\right)
+\]</span></p>
+<p><span class="math display">\[
+J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots,
+\theta^{\left(n_{u}\right)}\right)=\frac{1}{2} \sum_{(i, j): r(i,
+j)=1}\left(\left(\theta^{(j)}\right)^{T} x^{(i)}-y^{(i,
+j)}\right)^{2}+\frac{\lambda}{2} \sum_{i=1}^{n_{m}}
+\sum_{k=1}^{n}\left(x_{k}^{(i)}\right)^{2}+\frac{\lambda}{2}
+\sum_{j=1}^{n_{u}} \sum_{k=1}^{n}\left(\theta_{k}^{(j)}\right)^{2}
+\]</span></p>
+<blockquote>
+<p>该算法下，无需设定 <span class="math inline">\(x_0=1\)</span>,
+也没有<span class="math inline">\(\theta_0\)</span>，因为算法会自行选择参数。该算法下：<span class="math inline">\(\theta\in\R^n\)</span>，<span class="math inline">\(x\in\R^n\)</span>，n是特征数</p>
+</blockquote></li>
 <li><p>算法实现：</p>
-<ol>
-<li>Initialize $x^{(1)},…,x^{(n_m)}$， $\theta^{(1)},…,\theta^{(n_u)}$ to small random values</li>
-<li>Minimize J using gradient descent (or an advanced optimization algorithm)</li>
-<li>For a user with parameters $\theta$ and a movie with (learned) features x, predict a star rating of $\theta^Tx$</li>
-</ol>
-</li>
+<ol type="1">
+<li>Initialize <span class="math inline">\(x^{(1)},...,x^{(n_m)}\)</span>， <span class="math inline">\(\theta^{(1)},...,\theta^{(n_u)}\)</span> to small
+random values</li>
+<li>Minimize J using gradient descent (or an advanced optimization
+algorithm)</li>
+<li>For a user with parameters <span class="math inline">\(\theta\)</span> and a movie with (learned)
+features x, predict a star rating of <span class="math inline">\(\theta^Tx\)</span></li>
+</ol></li>
 </ul>
-<h2 id="Low-Rank-Matrix-Factorization"><a href="#Low-Rank-Matrix-Factorization" class="headerlink" title="Low Rank Matrix Factorization"></a>Low Rank Matrix Factorization</h2><h3 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h3><ul>
-<li><p>Given matrices X (each row containing features of a particular movie) and Θ (each row containing the weights for those features for a given user), then the full matrix Y of all predicted ratings of all movies by all users is given simply by: $Y = X\Theta^T$.</p>
-</li>
-<li><p>Predicting how similar two movies i and j are can be done using the distance between their respective feature vectors x. Specifically, we are looking for a small value of $||x^{(i)} - x^{(j)}||$.</p>
-</li>
+<h2 id="low-rank-matrix-factorization">Low Rank Matrix
+Factorization</h2>
+<p>### Vectorization</p>
+<ul>
+<li><p>Given matrices X (each row containing features of a particular
+movie) and Θ (each row containing the weights for those features for a
+given user), then the full matrix Y of all predicted ratings of all
+movies by all users is given simply by: <span class="math inline">\(Y =
+X\Theta^T\)</span>.</p></li>
+<li><p>Predicting how similar two movies i and j are can be done using
+the distance between their respective feature vectors x. Specifically,
+we are looking for a small value of <span class="math inline">\(||x^{(i)} - x^{(j)}||\)</span>.</p></li>
 </ul>
-<h3 id="Mean-Normalization"><a href="#Mean-Normalization" class="headerlink" title="Mean Normalization"></a>Mean Normalization</h3><p>If the ranking system for movies is used from the previous lectures, then new users (who have watched no movies), will be assigned new movies incorrectly. Specifically, they will be assigned θ with all components equal to zero due to the minimization of the regularization term. That is, we assume that the new user will rank all movies 0, which does not seem intuitively correct. 新用户会被预测为0</p>
-<p>We rectify this problem by normalizing the data relative to the mean. First, we use a matrix Y to store the data from previous ratings, where the ith row of Y is the ratings for the ith movie and the jth column corresponds to the ratings for the jth user.</p>
-<p>We can now define a vector</p>
-<script type="math/tex; mode=display">
-\mu  = [\mu_1, \mu_2, \dots , \mu_{n_m}]</script><p>such that</p>
-<script type="math/tex; mode=display">
-\mu_i = \frac{\sum_{j:r(i,j)=1}{Y_{i,j}}}{\sum_{j}{r(i,j)}}</script><p>Which is effectively the mean of the previous ratings for the ith movie (where only movies that have been watched by users are counted). We now can normalize the data by subtracting u, the mean rating, from the actual ratings for each user (column in matrix Y):</p>
-<p>As an example, consider the following matrix Y and mean ratings μ:</p>
-<script type="math/tex; mode=display">
+<h3 id="mean-normalization">Mean Normalization</h3>
+<p>If the ranking system for movies is used from the previous lectures,
+then new users (who have watched no movies), will be assigned new movies
+incorrectly. Specifically, they will be assigned θ with all components
+equal to zero due to the minimization of the regularization term. That
+is, we assume that the new user will rank all movies 0, which does not
+seem intuitively correct. 新用户会被预测为0</p>
+<p>We rectify this problem by normalizing the data relative to the mean.
+First, we use a matrix Y to store the data from previous ratings, where
+the ith row of Y is the ratings for the ith movie and the jth column
+corresponds to the ratings for the jth user.</p>
+<p>We can now define a vector <span class="math display">\[
+\mu  = [\mu_1, \mu_2, \dots , \mu_{n_m}]
+\]</span> such that <span class="math display">\[
+\mu_i = \frac{\sum_{j:r(i,j)=1}{Y_{i,j}}}{\sum_{j}{r(i,j)}}
+\]</span> Which is effectively the mean of the previous ratings for the
+ith movie (where only movies that have been watched by users are
+counted). We now can normalize the data by subtracting u, the mean
+rating, from the actual ratings for each user (column in matrix Y):</p>
+<p>As an example, consider the following matrix Y and mean ratings μ:
+<span class="math display">\[
 Y=\left[\begin{array}{cccc}
-5 & 5 & 0 & 0 \\
-4 & ? & ? & 0 \\
-0 & 0 & 5 & 4 \\
-0 & 0 & 5 & 0
+5 &amp; 5 &amp; 0 &amp; 0 \\
+4 &amp; ? &amp; ? &amp; 0 \\
+0 &amp; 0 &amp; 5 &amp; 4 \\
+0 &amp; 0 &amp; 5 &amp; 0
 \end{array}\right], \quad \mu=\left[\begin{array}{c}
 2.5 \\
 2 \\
 2.25 \\
 1.25
-\end{array}\right]</script><p>The resulting Y′ vector is:</p>
-<script type="math/tex; mode=display">
+\end{array}\right]
+\]</span> The resulting Y′ vector is: <span class="math display">\[
 Y^{\prime}=\left[\begin{array}{cccc}
-2.5 & 2.5 & -2.5 & -2.5 \\
-2 & ? & ? & -2 \\
--2 .25 & -2.25 & 3.75 & 1.25 \\
--1.25 & -1.25 & 3.75 & -1.25
-\end{array}\right]</script><p>Now we must slightly modify the linear regression prediction to include the mean normalization term:</p>
-<script type="math/tex; mode=display">
-(\theta^{(j)})^T x^{(i)} + \mu_i</script><p>Now, for a new user, the initial predicted values will be equal to the μ term instead of simply being initialized to zero, which is more accurate.</p>
+2.5 &amp; 2.5 &amp; -2.5 &amp; -2.5 \\
+2 &amp; ? &amp; ? &amp; -2 \\
+-2 .25 &amp; -2.25 &amp; 3.75 &amp; 1.25 \\
+-1.25 &amp; -1.25 &amp; 3.75 &amp; -1.25
+\end{array}\right]
+\]</span> Now we must slightly modify the linear regression prediction
+to include the mean normalization term: <span class="math display">\[
+(\theta^{(j)})^T x^{(i)} + \mu_i
+\]</span> Now, for a new user, the initial predicted values will be
+equal to the μ term instead of simply being initialized to zero, which
+is more accurate.</p>
 <blockquote>
-<p>Note: 一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
+<p>Note:
+一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
 </blockquote>
 
     </div>
@@ -523,14 +625,14 @@ Y^{\prime}=\left[\begin{array}{cccc}
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">72k</span>
+    <span title="Symbols count total">76k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:05</span>
+    <span title="Reading time total">1:09</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
