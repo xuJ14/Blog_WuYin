@@ -18,33 +18,6 @@ Place Winner of Central Regional Datathon 2021</a></p>
       </tags>
   </entry>
   <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to Win a Data Science Competition</title>
     <url>/How-to-Win-a-Data-Science-Competition-Learn-from-Top-Kagglers/</url>
     <content><![CDATA[<h1 id="how-to-win-a-data-science-competition-learn-from-top-kagglers">How
@@ -729,6 +702,202 @@ f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
       </tags>
   </entry>
   <entry>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Issues</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week01</title>
+    <url>/Machine-Learning-Week01/</url>
+    <content><![CDATA[<h2 id="week-1">Week 1</h2>
+<ol type="1">
+<li><p><strong>Supervised Learning 监督学习</strong></p>
+<ul>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
+<ol type="1">
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
+<ul>
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Machine Learning Week02</title>
     <url>/Machine-Learning-Week02/</url>
     <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
@@ -979,175 +1148,6 @@ n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week01</title>
-    <url>/Machine-Learning-Week01/</url>
-    <content><![CDATA[<h2 id="week-1">Week 1</h2>
-<ol type="1">
-<li><p><strong>Supervised Learning 监督学习</strong></p>
-<ul>
-<li>分类问题 classification problem
-<ul>
-<li>discrete output（0，1）</li>
-<li>features</li>
-<li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
-<ul>
-<li>continuous output</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
-<ul>
-<li><p><strong>clustering algorithm 聚类算法</strong></p>
-<ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
-<ul>
-<li><p><strong>线性回归算法 linear regression</strong></p>
-<ul>
-<li><p>training set 训练集</p></li>
-<li><p>m - 训练样本数</p>
-<p>x - 输入变量</p>
-<p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
-<li><p><strong>Cost Function 成本函数</strong></p>
-<ul>
-<li><p>度量函数拟合的程度</p></li>
-<li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Parameter Learning</strong></p>
-<ul>
-<li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
-<ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
-<li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
-<li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
-<li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
-<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
-<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
-<li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
-<li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
-<li>SVD分解法</li>
-<li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
-<ul>
-<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
-<p>git@github.com: yourname/yourname.github.io.git</p></li>
-</ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
-<ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
-</ul>
-<h2 id="formula">Formula</h2>
-<ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Issues</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week04</title>
     <url>/Machine-Learning-Week04/</url>
     <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
@@ -1197,170 +1197,6 @@ a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
 <li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
 </ol>
 <p>​</p>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week05</title>
-    <url>/Machine-Learning-Week05/</url>
-    <content><![CDATA[<h2 id="neural-networks-learning">Neural Networks Learning</h2>
-<h3 id="cost-function-and-propagation">Cost Function and
-Propagation</h3>
-<ol type="1">
-<li><p>Cost Function</p>
-<ul>
-<li><p>L 神经网络的层数</p></li>
-<li><p><span class="math inline">\(s_l\)</span>第l层的神经元个数，不包括bias
-unit</p></li>
-<li><p>K输出层的神经元个数（即种类）</p></li>
-<li><p>binary classification二元分类</p></li>
-<li><p>Logistic regression的代价函数： <span class="math display">\[
-J(\theta)=-\frac {1}{m}\sum \limits_{i=1}^m\bigg
-[y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))\bigg
-]+\frac{\lambda}{2m}\sum \limits_{j=1}^n\theta_j^2
-\]</span></p></li>
-<li><p>神经网络的代价函数： <span class="math display">\[
-J(\Theta)=-\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K}\left[y_{k}^{(i)}
-\log \left((h_{\Theta}(x^{(i)}))_{k}\right)+\left(1-y_{k}^{(i)}\right)
-\log \left(1-(h_{\Theta}(x^{(i)}))_{k}\right)\right]+\frac{\lambda}{2 m}
-\sum_{l=1}^{L-1} \sum_{i=1}^{s_l}
-\sum_{j=1}^{s_{l+1}}(\theta_{j,i}^{(l)})^2
-\]</span></p>
-<ul>
-<li>两个求和符号部分只是将输出层中每个单元的逻辑回归代价函数相加</li>
-<li>三个求和符号部分只是将整个网络中所有单个θ的平方相加，其中i并不指代训练实例i</li>
-</ul></li>
-</ul></li>
-<li><p>反向传播算法Backpropagation Algorithm</p>
-<ul>
-<li><p>梯度下降计算</p>
-<ul>
-<li><p>min J（θ）就需要计算：J（θ）；J（θ）关于各个θ的偏导</p></li>
-<li><p>计算过程：先forward propagation；再反向</p></li>
-<li><p><span class="math inline">\(\delta_j^{l}="error"\ of\
-node\ j\ in\ layer\ l\)</span>用于改变activation激励值, Formally, <span class="math inline">\(\delta_j^{(l)}=\frac \partial {\partial
-z_{j}^{(l)}} cost(j)\)</span>, 其中<span class="math inline">\(cost(i)=y^{(i)}log(h_\Theta(x^{(i)}))-(1-y^{(i)})log(1-h_\Theta(x^{(i)}))\)</span>,
-求导后易得<span class="math inline">\(\delta_j^{(l)}=y_j^{(l)}-a_j^{(l)}\)</span>(为什么符号是相反的？答：这里cost错误，和前文代价函数符号相反，应该要变号)</p></li>
-<li><p>计算过程：</p>
-<ul>
-<li><p>令<span class="math inline">\(\Delta_{i,j}^{l}:=0\)</span></p></li>
-<li><p>For training example t =1 to m:</p>
-<ol type="1">
-<li><p>Set <span class="math inline">\(a^{(1)} :=
-x^{(t)}\)</span></p></li>
-<li><p>Perform forward propagation to compute <span class="math inline">\(a^{(l)}\ for\ l=2,3,…,L\)</span></p>
-<p>(此处失效图片链接)img
-(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bYLgwteoEeaX9Qr89uJd1A_73f280ff78695f84ae512f19acfa29a3_Screenshot-2017-01-10-18.16.50.png?expiry=1606176000000&amp;hmac=9aVGT1io0l-sybFSrc1stejo_L0d7hzlNXbQIt47h2Y)</p></li>
-<li><p>Using <span class="math inline">\(y^{(t)}\)</span>, compute$
-^{(L)} = a^{(L)} - y^{(t)}$</p>
-<p>Where L is our total number of layers and
-a^{(L)}<em>a</em>(<em>L</em>) is the vector of outputs of the activation
-units for the last layer. So our "error values" for the last layer are
-simply the differences of our actual results in the last layer and the
-correct outputs in y. To get the delta values of the layers before the
-last layer, we can use an equation that steps us back from right to
-left:</p></li>
-<li><p>Compute$ ^{(L-1)}, <sup>{(L-2)},,</sup>{(2)}<span class="math inline">\(using\)</span>$ ^{(l)} = ((<sup>{(l)})</sup>T
-^{(l+1)})&nbsp;.<em>&nbsp;a^{(l)}&nbsp;.</em>&nbsp;(1 - a^{(l)}) $$</p>
-<p>The delta values of layer l are calculated by multiplying the delta
-values in the next layer with the theta matrix of layer l. We then
-element-wise multiply that with a function called g', or g-prime, which
-is the derivative of the activation function g evaluated with the input
-values given by <span class="math inline">\(z^{(l)}\)</span>.</p>
-<p>The g-prime derivative terms can also be written out as:</p>
-<p><span class="math inline">\(g′(z^{(l)})=a^{(l)} .∗
-(1−a^{(l)})\)</span></p></li>
-<li><p><span class="math inline">\(Δ_{i,j}^{(l)}:=Δ_{i,j}^{(l)}+a_j^{(l)}δ_i^{(l+1)}\)</span>,
-or with vectorization, <span class="math inline">\(Δ^{(l)}:=Δ^{(l)}+δ^{(l+1)}(a^{(l)})^T\)</span></p>
-<p>Hence we update our new <span class="math inline">\(\Delta\)</span>
-matrix.</p>
-<ul>
-<li><p><span class="math inline">\(D_{i,
-j}^{(l)}:=\frac{1}{m}\left(\Delta_{i, j}^{(l)}+\lambda \Theta_{i,
-j}^{(l)}\right), \text { if } j \neq 0\)</span></p></li>
-<li><p><span class="math inline">\(D_{i, j}^{(l)}:=\frac{1}{m}\Delta_{i,
-j}^{(l)}, \text { if } j = 0\)</span></p>
-<p>The capital-delta matrix D is used as an "accumulator" to add up our
-values as we go along and eventually compute our partial derivative.
-Thus we get$ J()= D_{ij}^{(l)}$</p></li>
-</ul></li>
-</ol></li>
-</ul></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/26765585">上述计算过程的中文推导</a></p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="backpropagation-in-practice">Backpropagation in practice</h3>
-<ol type="1">
-<li><p>系数展开到向量：</p>
-<ul>
-<li><p>M(a,b)，既取a，也取b，从1开始</p></li>
-<li><p>优化算法（如：fminunc）默认将参数整合到一个向量中</p>
-
-
-   - 
-   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">%代码过程</span><br><span class="line">thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]</span><br><span class="line">deltaVector = [ D1(:); D2(:); D3(:) ]</span><br><span class="line"></span><br><span class="line">Theta1 = reshape(thetaVector(1:110),10,11)</span><br><span class="line">Theta2 = reshape(thetaVector(111:220),10,11)</span><br><span class="line">Theta3 = reshape(thetaVector(221:231),1,11)</span><br></pre></td></tr></tbody></table></figure>
-
-     </li>
-<li><p>过程：(此处失效图片链接)img(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kdK7ubT2EeajLxLfjQiSjg_d35545b8d6b6940e8577b5a8d75c8657_Screenshot-2016-11-27-15.09.24.png?expiry=1606348800000&amp;hmac=bH794vb16zxSOiqZRj2Pe0PyuaYNbZ8tDQZlnGSoM18)</p></li>
-</ul></li>
-<li><p>梯度检验gradient checking</p>
-<ul>
-<li><p><span class="math inline">\(\frac{d}{d\Theta}J(\Theta)\approx
-\frac{J(\Theta+\epsilon)+J(\Theta-\epsilon)}{2\epsilon}\)</span>，ε =
-<span class="math inline">\(10^{-4}\)</span></p></li>
-<li><p><span class="math display">\[
-\dfrac{\partial}{\partial\Theta_j}J(\Theta) \approx \dfrac{J(\Theta_1,
-\dots, \Theta_j + \epsilon, \dots, \Theta_n) - J(\Theta_1, \dots,
-\Theta_j - \epsilon, \dots, \Theta_n)}{2\epsilon}
-\]</span></p></li>
-<li><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">epsilon = 1e-4;</span><br><span class="line">for i = 1:n,</span><br><span class="line">  thetaPlus = theta;</span><br><span class="line">  thetaPlus(i) += epsilon;</span><br><span class="line">  thetaMinus = theta;</span><br><span class="line">  thetaMinus(i) -= epsilon;</span><br><span class="line">  gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*epsilon)</span><br><span class="line">end;</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Check: gradApprox ≈
-deltaVector，只需要验证一次即可，否则这种方法会非常慢</p></li>
-</ul></li>
-<li><p>Random Initialization随机初始化</p>
-<ul>
-<li><p>Symmetry
-breaking，因为如果设为一样的会使得梯度下降后参数也一样</p></li>
-<li><p>将每一个<span class="math inline">\(\Theta_{ij}^{(l)}\)</span>设为在[-ε，ε]之间的随机数，但要同时设置，以防出现相同，例：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Theta1 = rand(10,11)*2*init_epsilon-init_epsilon;</span><br></pre></td></tr></tbody></table></figure>
-<p>(Note: the epsilon used above is unrelated to the epsilon from
-Gradient Checking)</p></li>
-</ul></li>
-<li><p>总体回顾</p>
-<ul>
-<li>一般默认隐藏层每层神经元数量一致</li>
-<li>构建一个模型的过程：
-<ol type="1">
-<li>初始化模型
-<ul>
-<li>Number of input units = dimension of features
-x^{(i)}<em>x</em>(<em>i</em>)</li>
-<li>Number of output units = number of classes</li>
-<li>Number of hidden units per layer = usually more the better (must
-balance with cost of computation as it increases with more hidden
-units)</li>
-<li>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then
-it is recommended that you have the same number of units in every hidden
-layer.</li>
-</ul></li>
-<li><strong>Training a Neural Network</strong>
-<ol type="1">
-<li>Randomly initialize the weights</li>
-<li>Implement forward propagation to get <span class="math inline">\(h_\Theta(x^{(i)})\)</span> for any <span class="math inline">\(x^{(i)}\)</span></li>
-<li>Implement the cost function</li>
-<li>Implement backpropagation to compute partial derivatives</li>
-<li>Use gradient checking to confirm that your backpropagation works.
-Then disable gradient checking.</li>
-<li>Use gradient descent or a built-in optimization function to minimize
-the cost function with the weights in theta.</li>
-<li>对每一个训练样例循环上述步骤（有可能得到局部最优，因为J（θ）是非凸函数）</li>
-</ol></li>
-</ol></li>
-</ul></li>
-</ol>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
@@ -1545,6 +1381,170 @@ positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
       </tags>
   </entry>
   <entry>
+    <title>Machine Learning Week05</title>
+    <url>/Machine-Learning-Week05/</url>
+    <content><![CDATA[<h2 id="neural-networks-learning">Neural Networks Learning</h2>
+<h3 id="cost-function-and-propagation">Cost Function and
+Propagation</h3>
+<ol type="1">
+<li><p>Cost Function</p>
+<ul>
+<li><p>L 神经网络的层数</p></li>
+<li><p><span class="math inline">\(s_l\)</span>第l层的神经元个数，不包括bias
+unit</p></li>
+<li><p>K输出层的神经元个数（即种类）</p></li>
+<li><p>binary classification二元分类</p></li>
+<li><p>Logistic regression的代价函数： <span class="math display">\[
+J(\theta)=-\frac {1}{m}\sum \limits_{i=1}^m\bigg
+[y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))\bigg
+]+\frac{\lambda}{2m}\sum \limits_{j=1}^n\theta_j^2
+\]</span></p></li>
+<li><p>神经网络的代价函数： <span class="math display">\[
+J(\Theta)=-\frac{1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K}\left[y_{k}^{(i)}
+\log \left((h_{\Theta}(x^{(i)}))_{k}\right)+\left(1-y_{k}^{(i)}\right)
+\log \left(1-(h_{\Theta}(x^{(i)}))_{k}\right)\right]+\frac{\lambda}{2 m}
+\sum_{l=1}^{L-1} \sum_{i=1}^{s_l}
+\sum_{j=1}^{s_{l+1}}(\theta_{j,i}^{(l)})^2
+\]</span></p>
+<ul>
+<li>两个求和符号部分只是将输出层中每个单元的逻辑回归代价函数相加</li>
+<li>三个求和符号部分只是将整个网络中所有单个θ的平方相加，其中i并不指代训练实例i</li>
+</ul></li>
+</ul></li>
+<li><p>反向传播算法Backpropagation Algorithm</p>
+<ul>
+<li><p>梯度下降计算</p>
+<ul>
+<li><p>min J（θ）就需要计算：J（θ）；J（θ）关于各个θ的偏导</p></li>
+<li><p>计算过程：先forward propagation；再反向</p></li>
+<li><p><span class="math inline">\(\delta_j^{l}="error"\ of\
+node\ j\ in\ layer\ l\)</span>用于改变activation激励值, Formally, <span class="math inline">\(\delta_j^{(l)}=\frac \partial {\partial
+z_{j}^{(l)}} cost(j)\)</span>, 其中<span class="math inline">\(cost(i)=y^{(i)}log(h_\Theta(x^{(i)}))-(1-y^{(i)})log(1-h_\Theta(x^{(i)}))\)</span>,
+求导后易得<span class="math inline">\(\delta_j^{(l)}=y_j^{(l)}-a_j^{(l)}\)</span>(为什么符号是相反的？答：这里cost错误，和前文代价函数符号相反，应该要变号)</p></li>
+<li><p>计算过程：</p>
+<ul>
+<li><p>令<span class="math inline">\(\Delta_{i,j}^{l}:=0\)</span></p></li>
+<li><p>For training example t =1 to m:</p>
+<ol type="1">
+<li><p>Set <span class="math inline">\(a^{(1)} :=
+x^{(t)}\)</span></p></li>
+<li><p>Perform forward propagation to compute <span class="math inline">\(a^{(l)}\ for\ l=2,3,…,L\)</span></p>
+<p>(此处失效图片链接)img
+(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bYLgwteoEeaX9Qr89uJd1A_73f280ff78695f84ae512f19acfa29a3_Screenshot-2017-01-10-18.16.50.png?expiry=1606176000000&amp;hmac=9aVGT1io0l-sybFSrc1stejo_L0d7hzlNXbQIt47h2Y)</p></li>
+<li><p>Using <span class="math inline">\(y^{(t)}\)</span>, compute$
+^{(L)} = a^{(L)} - y^{(t)}$</p>
+<p>Where L is our total number of layers and
+a^{(L)}<em>a</em>(<em>L</em>) is the vector of outputs of the activation
+units for the last layer. So our "error values" for the last layer are
+simply the differences of our actual results in the last layer and the
+correct outputs in y. To get the delta values of the layers before the
+last layer, we can use an equation that steps us back from right to
+left:</p></li>
+<li><p>Compute$ ^{(L-1)}, <sup>{(L-2)},,</sup>{(2)}<span class="math inline">\(using\)</span>$ ^{(l)} = ((<sup>{(l)})</sup>T
+^{(l+1)})&nbsp;.<em>&nbsp;a^{(l)}&nbsp;.</em>&nbsp;(1 - a^{(l)}) $$</p>
+<p>The delta values of layer l are calculated by multiplying the delta
+values in the next layer with the theta matrix of layer l. We then
+element-wise multiply that with a function called g', or g-prime, which
+is the derivative of the activation function g evaluated with the input
+values given by <span class="math inline">\(z^{(l)}\)</span>.</p>
+<p>The g-prime derivative terms can also be written out as:</p>
+<p><span class="math inline">\(g′(z^{(l)})=a^{(l)} .∗
+(1−a^{(l)})\)</span></p></li>
+<li><p><span class="math inline">\(Δ_{i,j}^{(l)}:=Δ_{i,j}^{(l)}+a_j^{(l)}δ_i^{(l+1)}\)</span>,
+or with vectorization, <span class="math inline">\(Δ^{(l)}:=Δ^{(l)}+δ^{(l+1)}(a^{(l)})^T\)</span></p>
+<p>Hence we update our new <span class="math inline">\(\Delta\)</span>
+matrix.</p>
+<ul>
+<li><p><span class="math inline">\(D_{i,
+j}^{(l)}:=\frac{1}{m}\left(\Delta_{i, j}^{(l)}+\lambda \Theta_{i,
+j}^{(l)}\right), \text { if } j \neq 0\)</span></p></li>
+<li><p><span class="math inline">\(D_{i, j}^{(l)}:=\frac{1}{m}\Delta_{i,
+j}^{(l)}, \text { if } j = 0\)</span></p>
+<p>The capital-delta matrix D is used as an "accumulator" to add up our
+values as we go along and eventually compute our partial derivative.
+Thus we get$ J()= D_{ij}^{(l)}$</p></li>
+</ul></li>
+</ol></li>
+</ul></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26765585">上述计算过程的中文推导</a></p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="backpropagation-in-practice">Backpropagation in practice</h3>
+<ol type="1">
+<li><p>系数展开到向量：</p>
+<ul>
+<li><p>M(a,b)，既取a，也取b，从1开始</p></li>
+<li><p>优化算法（如：fminunc）默认将参数整合到一个向量中</p>
+
+
+   - 
+   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">%代码过程</span><br><span class="line">thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]</span><br><span class="line">deltaVector = [ D1(:); D2(:); D3(:) ]</span><br><span class="line"></span><br><span class="line">Theta1 = reshape(thetaVector(1:110),10,11)</span><br><span class="line">Theta2 = reshape(thetaVector(111:220),10,11)</span><br><span class="line">Theta3 = reshape(thetaVector(221:231),1,11)</span><br></pre></td></tr></tbody></table></figure>
+
+     </li>
+<li><p>过程：(此处失效图片链接)img(https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kdK7ubT2EeajLxLfjQiSjg_d35545b8d6b6940e8577b5a8d75c8657_Screenshot-2016-11-27-15.09.24.png?expiry=1606348800000&amp;hmac=bH794vb16zxSOiqZRj2Pe0PyuaYNbZ8tDQZlnGSoM18)</p></li>
+</ul></li>
+<li><p>梯度检验gradient checking</p>
+<ul>
+<li><p><span class="math inline">\(\frac{d}{d\Theta}J(\Theta)\approx
+\frac{J(\Theta+\epsilon)+J(\Theta-\epsilon)}{2\epsilon}\)</span>，ε =
+<span class="math inline">\(10^{-4}\)</span></p></li>
+<li><p><span class="math display">\[
+\dfrac{\partial}{\partial\Theta_j}J(\Theta) \approx \dfrac{J(\Theta_1,
+\dots, \Theta_j + \epsilon, \dots, \Theta_n) - J(\Theta_1, \dots,
+\Theta_j - \epsilon, \dots, \Theta_n)}{2\epsilon}
+\]</span></p></li>
+<li><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">epsilon = 1e-4;</span><br><span class="line">for i = 1:n,</span><br><span class="line">  thetaPlus = theta;</span><br><span class="line">  thetaPlus(i) += epsilon;</span><br><span class="line">  thetaMinus = theta;</span><br><span class="line">  thetaMinus(i) -= epsilon;</span><br><span class="line">  gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*epsilon)</span><br><span class="line">end;</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Check: gradApprox ≈
+deltaVector，只需要验证一次即可，否则这种方法会非常慢</p></li>
+</ul></li>
+<li><p>Random Initialization随机初始化</p>
+<ul>
+<li><p>Symmetry
+breaking，因为如果设为一样的会使得梯度下降后参数也一样</p></li>
+<li><p>将每一个<span class="math inline">\(\Theta_{ij}^{(l)}\)</span>设为在[-ε，ε]之间的随机数，但要同时设置，以防出现相同，例：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Theta1 = rand(10,11)*2*init_epsilon-init_epsilon;</span><br></pre></td></tr></tbody></table></figure>
+<p>(Note: the epsilon used above is unrelated to the epsilon from
+Gradient Checking)</p></li>
+</ul></li>
+<li><p>总体回顾</p>
+<ul>
+<li>一般默认隐藏层每层神经元数量一致</li>
+<li>构建一个模型的过程：
+<ol type="1">
+<li>初始化模型
+<ul>
+<li>Number of input units = dimension of features
+x^{(i)}<em>x</em>(<em>i</em>)</li>
+<li>Number of output units = number of classes</li>
+<li>Number of hidden units per layer = usually more the better (must
+balance with cost of computation as it increases with more hidden
+units)</li>
+<li>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then
+it is recommended that you have the same number of units in every hidden
+layer.</li>
+</ul></li>
+<li><strong>Training a Neural Network</strong>
+<ol type="1">
+<li>Randomly initialize the weights</li>
+<li>Implement forward propagation to get <span class="math inline">\(h_\Theta(x^{(i)})\)</span> for any <span class="math inline">\(x^{(i)}\)</span></li>
+<li>Implement the cost function</li>
+<li>Implement backpropagation to compute partial derivatives</li>
+<li>Use gradient checking to confirm that your backpropagation works.
+Then disable gradient checking.</li>
+<li>Use gradient descent or a built-in optimization function to minimize
+the cost function with the weights in theta.</li>
+<li>对每一个训练样例循环上述步骤（有可能得到局部最优，因为J（θ）是非凸函数）</li>
+</ol></li>
+</ol></li>
+</ul></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Machine Learning Week07</title>
     <url>/Machine-Learning-Week07/</url>
     <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
@@ -1677,6 +1677,203 @@ kernel）</li>
 </ul></li>
 <li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
 </ul></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week08</title>
+    <url>/Machine-Learning-Week08/</url>
+    <content><![CDATA[<h1 id="unsupervised-learning-无监督学习">Unsupervised learning
+无监督学习</h1>
+<h2 id="clustering-聚类">Clustering 聚类</h2>
+<p>无监督学习是不给分类标签y</p>
+<h3 id="应用">1. 应用：</h3>
+<ul>
+<li>对消费者市场划分</li>
+<li>社交网络分析</li>
+<li>管理计算机</li>
+<li>获取星系信息</li>
+</ul>
+<h3 id="k-means-algorithm-k均值算法">2. K-means algorithm K均值算法</h3>
+<ul>
+<li><p>随机选择两个点作为聚类中心(分两类)，然后进行下面两步</p>
+<ul>
+<li>簇分配，遍历每个点，和哪个cluster centroid更近</li>
+<li>移动聚类中心到上面分配的簇的均值</li>
+</ul></li>
+<li><p>Input:</p>
+<ul>
+<li>K - number of clusters</li>
+<li>training set</li>
+</ul></li>
+<li><p>algorithm</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"> repeat{</span><br><span class="line">	for i=1 to m</span><br><span class="line">		c_i := index (from 1 to K) of cluster centroid closest to x_i</span><br><span class="line">    for k=1 to K</span><br><span class="line">    	u_k := average (mean) of points assigned to cluster k</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>如果有中心没有被分配到任何点，可以删去这个分类，也可以reinitialize
+the cluster centroid</p></li>
+</ul>
+<h3 id="k-means-for-non-sperated-clusters">3. K-means for non-sperated
+clusters</h3>
+<ul>
+<li>根据身高体重分类T恤大小</li>
+</ul>
+<h3 id="optimization-objective">4. Optimization Objective</h3>
+<ul>
+<li><p><span class="math display">\[
+\begin{array}{l}
+J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots,
+\mu_{K}\right)=\frac{1}{m}
+\sum_{i=1}\left\|x^{(i)}-\mu_{c^{(i)}}\right\|^{2} \\
+\min _{c^{(1)}, \ldots, c^{(m)},\mu_{1}, \ldots, \mu_{K}}
+J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots, \mu_{K}\right)
+\end{array}
+\]</span></p></li>
+<li><p>also called distortion of K-means algorithm</p></li>
+<li><p>cost function 关于iteration的曲线</p></li>
+</ul>
+<h3 id="random-initialization">5. Random Initialization</h3>
+<p>随机初始化聚类中心</p>
+<p>随机选k个个例本身，作为中心，但是容易陷入Local
+optima。解决方案：多次随机，选择cost function最小的</p>
+<h3 id="choosing-the-number-of-clusters">6. Choosing the Number of
+Clusters</h3>
+<p>Elbow Method:</p>
+<p>绘制J关于K的曲线，找到“Elbow”的节点，作为分类个数</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331185002558.png" alt="image-20210331185002558">
+<figcaption aria-hidden="true">image-20210331185002558</figcaption>
+</figure>
+<p>用途之一：later/downstream purpose</p>
+<h2 id="motivation">Motivation</h2>
+<h3 id="data-compression------dimensionality-reduction降维">1. Data
+Compression ---- Dimensionality Reduction降维</h3>
+<p>压缩数据，减少内存占用加快运算</p>
+<h3 id="data-visualization">2. Data Visualization</h3>
+<p>降维可以便于数据可视化</p>
+<h2 id="principal-component-analysis主成分分析">Principal Component
+Analysis主成分分析</h2>
+<h3 id="problem-formulation">1. Problem formulation</h3>
+<p>PCA：To find a surface onto which to project the data so as to
+minimize the the projection error
+(线性拟合中就是使得离某条直线的距离最小).</p>
+<ul>
+<li>先mean normalization（feature scaling）</li>
+<li>Reduce from 2-dimension to 1-dimension: Find a direction (a vector
+<span class="math inline">\(u_i\in \R^n\)</span>) onto which to project
+the data so as to minimize the projection error.
+该向量的正负没有关系。</li>
+<li>Reduce from n-dimension to k-dimension: Find k vectors <span class="math inline">\(u^{(1)}\)</span>,<span class="math inline">\(u^{(2)}\)</span>, ... , <span class="math inline">\(u^{(k)}\)</span> onto which to project the data so
+as to minimize the projection error.</li>
+<li>注：PCA is not linear
+regression。注意看下图区别，线性回归是和预期值的差最小，PCA是到直线距离最小</li>
+</ul>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331214953585.png" alt="image-20210331214953585">
+<figcaption aria-hidden="true">image-20210331214953585</figcaption>
+</figure>
+<h3 id="pca-algorithm">2. PCA Algorithm</h3>
+<p>PCA的目标：</p>
+<ul>
+<li>maximize variance perspective 最大投影方差</li>
+<li>minimize error perspective 最小重构代价</li>
+</ul>
+<p>Step1: mean normalization.
+根据数据(有不同的scales)，可能还需要feature
+scaling。均值归一化是特征缩放的一种方法。（除以标准差）</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331224012613.png" alt="image-20210331224012613">
+<figcaption aria-hidden="true">image-20210331224012613</figcaption>
+</figure>
+<p>Step2: Reduce data from n-dimensions to k-dimensions：</p>
+<ul>
+<li><p>Compute "covariance matrix": <span class="math inline">\(\Sigma =
+\frac{1}{m}\sum_{i=1}^{n}{(x^{(i)})(x^{(i)})^T}\)</span>，xi是n*1的列向量，symmetric
+positive definite</p></li>
+<li><p>Compute "eigenvectors" of matrix <span class="math inline">\(\Sigma\)</span>: [U, S, V] = svd(Sigma) ;或者
+eig(Sigma)</p>
+<p>svd: Singular value decomposition <a href="https://zhuanlan.zhihu.com/p/29846048">奇异值分解</a></p>
+<p>其中U是我们需要的，
+列向量为各个特征向量，压缩到k个向量只需要取前k个列向量（对称矩阵的特征向量是正交的）</p></li>
+</ul>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401221235384.png" alt="image-20210401221235384">
+<figcaption aria-hidden="true">image-20210401221235384</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401222501123.png" alt="image-20210401222501123">
+<figcaption aria-hidden="true">image-20210401222501123</figcaption>
+</figure>
+<p>注：PCA算法中，没有x0=1这一项<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-a00e6519ce24ea2b151c8bece4226d95_720w.jpg" alt="img"><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-ddbf215dce156564852941f7294c7431_720w.jpg" alt="img"></p>
+<p><strong>疑问：</strong></p>
+<ol type="1">
+<li><p><strong>为什么不直接用X进行SVD，而要算协方差的SVD？</strong></p>
+<p><strong>Answer：</strong><a href="https://www.coursera.org/learn/machine-learning/discussions/weeks/8/threads/kk41Fe5OEeqnzBL0ZMnGMw">协方差的U和X的V是相等的，其实都可以</a></p>
+<p>理解：<span class="math inline">\(X=U'S'V'^T\)</span>,
+<span class="math inline">\(X^TX=USV^T\)</span>，现要说明 <span class="math inline">\(V'=U\)</span>, 只需要 <span class="math inline">\(X^TX=V'S'^2V'^T=USV^T\)</span>，所以
+<span class="math inline">\(V'=U\)</span>。</p></li>
+<li><p><strong>为什么要取协方差矩阵SVD后的左奇异矩阵来压缩特征维度？</strong></p>
+<p>首先易证一个SPD矩阵通过SVD得到的U和V是相等的。</p>
+<p>其次，通常我们用XV=YU来表示坐标变换。</p>
+<p><span class="math inline">\(\Sigma = X^TX\)</span>，又有 <span class="math inline">\(\Sigma = USV^T\)</span>，可以得到 <span class="math inline">\(\Sigma V =
+US\)</span>，这里实际上是将covariance矩阵变化为对角线矩阵，即互不相关（其中U=V，即U为协方差矩阵的特征向量，S为其特征值）。那么这时，我们令XI=UZ，I是X坐标系下的正交基，即
+<span class="math inline">\(Z=U^TX\)</span>。此时Z的协方差 <span class="math inline">\(Z^TZ=\Sigma\)</span>。</p></li>
+</ol>
+<h2 id="applying-pca">Applying PCA</h2>
+<h3 id="reconstruction-from-compressed-representation">Reconstruction
+from compressed representation</h3>
+<p><span class="math display">\[
+z=U_{reduce}^Tx
+\]</span></p>
+<p>可以得到： <span class="math display">\[
+x_{approx}=U_{reduce}z
+\]</span></p>
+<h3 id="choosing-the-number-k-of-principal-component">Choosing the
+number k of principal component</h3>
+<ul>
+<li>Average squared projection error：</li>
+</ul>
+<p><span class="math display">\[
+\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}-x_{approx}^{(i)}\parallel ^2
+\]</span></p>
+<ul>
+<li><p>Tptal variation in the data: <span class="math display">\[
+\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}\parallel ^2
+\]</span></p></li>
+<li><p>Choose k to be smallest value so that <span class="math display">\[
+\frac{\frac{1}{m}\Sigma_{i=1}^m\parallel
+x^{(i)}-x_{approx}^{(i)}\parallel ^2}{\frac{1}{m}\Sigma_{i=1}^m\parallel
+x^{(i)}\parallel ^2}\le0.01
+\]</span> "99% of variance is
+retained"。这个数值可以根据需求不同更换。</p></li>
+<li><p>算法：</p>
+<p>SVD函数返回的S矩阵为diagonal matrix。</p>
+<p>For given k: k 递增，使得 <span class="math display">\[
+1-\frac{\Sigma_{i=1}^{k}S_{ii}}{\Sigma_{i=1}^{n}S_{ii}}\le0.01
+\]</span></p>
+<p>选择最小的K满足上式。</p>
+<p>根据性质：矩阵特征值之和等于主对角线元素之和，易证(6)式等价于(7)式。</p></li>
+</ul>
+<h3 id="advice-for-applying-pca">Advice for applying PCA</h3>
+<ol type="1">
+<li><p>Supervised learning speedup</p>
+<p>压缩原始训练集数据的维度</p>
+<p>Mapping <span class="math inline">\(x^{(i)}\rightarrow
+z^{(i)}\)</span>should be defined by running PCA only on the trainning
+set. This mapping can be applied as well to the examples <span class="math inline">\(x_{CV}^{(i)}\)</span> and <span class="math inline">\(x_{test}^{(i)}\)</span> in the cross validation
+and test sets.</p></li>
+<li><p>Compression</p>
+<ul>
+<li>Reduce memory/disk needed to store data</li>
+<li>speed up learning algorithm</li>
+</ul></li>
+<li><p>Visualization</p></li>
+<li><p>Bad use of PCA: To prevent overfitting</p>
+<p>可能确实可以避免过拟合，但是不是解决过拟合的好方法。正确方法式加正则项(Use
+regularization instead!)</p>
+<p>For example: <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210403175514854.png" alt="image-20210403175514854"></p></li>
+<li><p>正确做法是先不用PCA，在原始数据跑一遍，如果不符合期望，再用PCA</p></li>
 </ol>
 ]]></content>
       <tags>
@@ -1936,203 +2133,6 @@ is more accurate.</p>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week08</title>
-    <url>/Machine-Learning-Week08/</url>
-    <content><![CDATA[<h1 id="unsupervised-learning-无监督学习">Unsupervised learning
-无监督学习</h1>
-<h2 id="clustering-聚类">Clustering 聚类</h2>
-<p>无监督学习是不给分类标签y</p>
-<h3 id="应用">1. 应用：</h3>
-<ul>
-<li>对消费者市场划分</li>
-<li>社交网络分析</li>
-<li>管理计算机</li>
-<li>获取星系信息</li>
-</ul>
-<h3 id="k-means-algorithm-k均值算法">2. K-means algorithm K均值算法</h3>
-<ul>
-<li><p>随机选择两个点作为聚类中心(分两类)，然后进行下面两步</p>
-<ul>
-<li>簇分配，遍历每个点，和哪个cluster centroid更近</li>
-<li>移动聚类中心到上面分配的簇的均值</li>
-</ul></li>
-<li><p>Input:</p>
-<ul>
-<li>K - number of clusters</li>
-<li>training set</li>
-</ul></li>
-<li><p>algorithm</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"> repeat{</span><br><span class="line">	for i=1 to m</span><br><span class="line">		c_i := index (from 1 to K) of cluster centroid closest to x_i</span><br><span class="line">    for k=1 to K</span><br><span class="line">    	u_k := average (mean) of points assigned to cluster k</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>如果有中心没有被分配到任何点，可以删去这个分类，也可以reinitialize
-the cluster centroid</p></li>
-</ul>
-<h3 id="k-means-for-non-sperated-clusters">3. K-means for non-sperated
-clusters</h3>
-<ul>
-<li>根据身高体重分类T恤大小</li>
-</ul>
-<h3 id="optimization-objective">4. Optimization Objective</h3>
-<ul>
-<li><p><span class="math display">\[
-\begin{array}{l}
-J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots,
-\mu_{K}\right)=\frac{1}{m}
-\sum_{i=1}\left\|x^{(i)}-\mu_{c^{(i)}}\right\|^{2} \\
-\min _{c^{(1)}, \ldots, c^{(m)},\mu_{1}, \ldots, \mu_{K}}
-J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots, \mu_{K}\right)
-\end{array}
-\]</span></p></li>
-<li><p>also called distortion of K-means algorithm</p></li>
-<li><p>cost function 关于iteration的曲线</p></li>
-</ul>
-<h3 id="random-initialization">5. Random Initialization</h3>
-<p>随机初始化聚类中心</p>
-<p>随机选k个个例本身，作为中心，但是容易陷入Local
-optima。解决方案：多次随机，选择cost function最小的</p>
-<h3 id="choosing-the-number-of-clusters">6. Choosing the Number of
-Clusters</h3>
-<p>Elbow Method:</p>
-<p>绘制J关于K的曲线，找到“Elbow”的节点，作为分类个数</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331185002558.png" alt="image-20210331185002558">
-<figcaption aria-hidden="true">image-20210331185002558</figcaption>
-</figure>
-<p>用途之一：later/downstream purpose</p>
-<h2 id="motivation">Motivation</h2>
-<h3 id="data-compression------dimensionality-reduction降维">1. Data
-Compression ---- Dimensionality Reduction降维</h3>
-<p>压缩数据，减少内存占用加快运算</p>
-<h3 id="data-visualization">2. Data Visualization</h3>
-<p>降维可以便于数据可视化</p>
-<h2 id="principal-component-analysis主成分分析">Principal Component
-Analysis主成分分析</h2>
-<h3 id="problem-formulation">1. Problem formulation</h3>
-<p>PCA：To find a surface onto which to project the data so as to
-minimize the the projection error
-(线性拟合中就是使得离某条直线的距离最小).</p>
-<ul>
-<li>先mean normalization（feature scaling）</li>
-<li>Reduce from 2-dimension to 1-dimension: Find a direction (a vector
-<span class="math inline">\(u_i\in \R^n\)</span>) onto which to project
-the data so as to minimize the projection error.
-该向量的正负没有关系。</li>
-<li>Reduce from n-dimension to k-dimension: Find k vectors <span class="math inline">\(u^{(1)}\)</span>,<span class="math inline">\(u^{(2)}\)</span>, ... , <span class="math inline">\(u^{(k)}\)</span> onto which to project the data so
-as to minimize the projection error.</li>
-<li>注：PCA is not linear
-regression。注意看下图区别，线性回归是和预期值的差最小，PCA是到直线距离最小</li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331214953585.png" alt="image-20210331214953585">
-<figcaption aria-hidden="true">image-20210331214953585</figcaption>
-</figure>
-<h3 id="pca-algorithm">2. PCA Algorithm</h3>
-<p>PCA的目标：</p>
-<ul>
-<li>maximize variance perspective 最大投影方差</li>
-<li>minimize error perspective 最小重构代价</li>
-</ul>
-<p>Step1: mean normalization.
-根据数据(有不同的scales)，可能还需要feature
-scaling。均值归一化是特征缩放的一种方法。（除以标准差）</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331224012613.png" alt="image-20210331224012613">
-<figcaption aria-hidden="true">image-20210331224012613</figcaption>
-</figure>
-<p>Step2: Reduce data from n-dimensions to k-dimensions：</p>
-<ul>
-<li><p>Compute "covariance matrix": <span class="math inline">\(\Sigma =
-\frac{1}{m}\sum_{i=1}^{n}{(x^{(i)})(x^{(i)})^T}\)</span>，xi是n*1的列向量，symmetric
-positive definite</p></li>
-<li><p>Compute "eigenvectors" of matrix <span class="math inline">\(\Sigma\)</span>: [U, S, V] = svd(Sigma) ;或者
-eig(Sigma)</p>
-<p>svd: Singular value decomposition <a href="https://zhuanlan.zhihu.com/p/29846048">奇异值分解</a></p>
-<p>其中U是我们需要的，
-列向量为各个特征向量，压缩到k个向量只需要取前k个列向量（对称矩阵的特征向量是正交的）</p></li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401221235384.png" alt="image-20210401221235384">
-<figcaption aria-hidden="true">image-20210401221235384</figcaption>
-</figure>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401222501123.png" alt="image-20210401222501123">
-<figcaption aria-hidden="true">image-20210401222501123</figcaption>
-</figure>
-<p>注：PCA算法中，没有x0=1这一项<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-a00e6519ce24ea2b151c8bece4226d95_720w.jpg" alt="img"><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-ddbf215dce156564852941f7294c7431_720w.jpg" alt="img"></p>
-<p><strong>疑问：</strong></p>
-<ol type="1">
-<li><p><strong>为什么不直接用X进行SVD，而要算协方差的SVD？</strong></p>
-<p><strong>Answer：</strong><a href="https://www.coursera.org/learn/machine-learning/discussions/weeks/8/threads/kk41Fe5OEeqnzBL0ZMnGMw">协方差的U和X的V是相等的，其实都可以</a></p>
-<p>理解：<span class="math inline">\(X=U'S'V'^T\)</span>,
-<span class="math inline">\(X^TX=USV^T\)</span>，现要说明 <span class="math inline">\(V'=U\)</span>, 只需要 <span class="math inline">\(X^TX=V'S'^2V'^T=USV^T\)</span>，所以
-<span class="math inline">\(V'=U\)</span>。</p></li>
-<li><p><strong>为什么要取协方差矩阵SVD后的左奇异矩阵来压缩特征维度？</strong></p>
-<p>首先易证一个SPD矩阵通过SVD得到的U和V是相等的。</p>
-<p>其次，通常我们用XV=YU来表示坐标变换。</p>
-<p><span class="math inline">\(\Sigma = X^TX\)</span>，又有 <span class="math inline">\(\Sigma = USV^T\)</span>，可以得到 <span class="math inline">\(\Sigma V =
-US\)</span>，这里实际上是将covariance矩阵变化为对角线矩阵，即互不相关（其中U=V，即U为协方差矩阵的特征向量，S为其特征值）。那么这时，我们令XI=UZ，I是X坐标系下的正交基，即
-<span class="math inline">\(Z=U^TX\)</span>。此时Z的协方差 <span class="math inline">\(Z^TZ=\Sigma\)</span>。</p></li>
-</ol>
-<h2 id="applying-pca">Applying PCA</h2>
-<h3 id="reconstruction-from-compressed-representation">Reconstruction
-from compressed representation</h3>
-<p><span class="math display">\[
-z=U_{reduce}^Tx
-\]</span></p>
-<p>可以得到： <span class="math display">\[
-x_{approx}=U_{reduce}z
-\]</span></p>
-<h3 id="choosing-the-number-k-of-principal-component">Choosing the
-number k of principal component</h3>
-<ul>
-<li>Average squared projection error：</li>
-</ul>
-<p><span class="math display">\[
-\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}-x_{approx}^{(i)}\parallel ^2
-\]</span></p>
-<ul>
-<li><p>Tptal variation in the data: <span class="math display">\[
-\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}\parallel ^2
-\]</span></p></li>
-<li><p>Choose k to be smallest value so that <span class="math display">\[
-\frac{\frac{1}{m}\Sigma_{i=1}^m\parallel
-x^{(i)}-x_{approx}^{(i)}\parallel ^2}{\frac{1}{m}\Sigma_{i=1}^m\parallel
-x^{(i)}\parallel ^2}\le0.01
-\]</span> "99% of variance is
-retained"。这个数值可以根据需求不同更换。</p></li>
-<li><p>算法：</p>
-<p>SVD函数返回的S矩阵为diagonal matrix。</p>
-<p>For given k: k 递增，使得 <span class="math display">\[
-1-\frac{\Sigma_{i=1}^{k}S_{ii}}{\Sigma_{i=1}^{n}S_{ii}}\le0.01
-\]</span></p>
-<p>选择最小的K满足上式。</p>
-<p>根据性质：矩阵特征值之和等于主对角线元素之和，易证(6)式等价于(7)式。</p></li>
-</ul>
-<h3 id="advice-for-applying-pca">Advice for applying PCA</h3>
-<ol type="1">
-<li><p>Supervised learning speedup</p>
-<p>压缩原始训练集数据的维度</p>
-<p>Mapping <span class="math inline">\(x^{(i)}\rightarrow
-z^{(i)}\)</span>should be defined by running PCA only on the trainning
-set. This mapping can be applied as well to the examples <span class="math inline">\(x_{CV}^{(i)}\)</span> and <span class="math inline">\(x_{test}^{(i)}\)</span> in the cross validation
-and test sets.</p></li>
-<li><p>Compression</p>
-<ul>
-<li>Reduce memory/disk needed to store data</li>
-<li>speed up learning algorithm</li>
-</ul></li>
-<li><p>Visualization</p></li>
-<li><p>Bad use of PCA: To prevent overfitting</p>
-<p>可能确实可以避免过拟合，但是不是解决过拟合的好方法。正确方法式加正则项(Use
-regularization instead!)</p>
-<p>For example: <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210403175514854.png" alt="image-20210403175514854"></p></li>
-<li><p>正确做法是先不用PCA，在原始数据跑一遍，如果不符合期望，再用PCA</p></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week10</title>
     <url>/Machine-Learning-Week10/</url>
     <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
@@ -2231,6 +2231,54 @@ Ghemawat。summation over the training set。即并行处理</p>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
+]]></content>
+      <tags>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -2485,54 +2533,6 @@ weight spanning tree)</h3>
 ]]></content>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reading List</title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
-</ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
-</ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
-</ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>

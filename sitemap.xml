@@ -225,13 +225,6 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
-    <lastmod>2022-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
     <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -247,6 +240,13 @@
   
   <url>
     <loc>https://xuj14.github.io/tags/Issues/</loc>
+    <lastmod>2022-08-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
     <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
