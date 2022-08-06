@@ -18,229 +18,30 @@ Place Winner of Central Regional Datathon 2021</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Caculus Review</title>
-    <url>/Caculus-Review/</url>
-    <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
-<p>Text Book: 《高等微积分教程》上下册.清华大学出版社</p>
-<h2 id="基础知识">基础知识</h2>
-<h3 id="第一章-实数列">第一章 实数列</h3>
-<blockquote>
-<p><strong>Definition 1 </strong>
-数集A的上界、下界；有界的、无界的；上确界sup、下确界inf</p>
-</blockquote>
-<blockquote>
-<p><strong>Definition 2</strong> 数列<span class="math inline">\(\{a_n\}\)</span>，如果 <span class="math inline">\(\forall\epsilon&gt;0\)</span>,<span class="math inline">\(\exists N\in \mathbb{N}\)</span>,使得当<span class="math inline">\(n&gt;N\)</span>时，就有<span class="math inline">\(|a_n-A|&lt;\epsilon\)</span>,则称数列<span class="math inline">\(\{a_n\}\)</span>有极限A,也称<span class="math inline">\(\{a_n\}\)</span>收敛于A，记为$_{n }{a_n}=A $</p>
-</blockquote>
-<ol type="1">
-<li><p>收敛数列的性质：</p>
-<blockquote>
-<p>若数列收敛，则极限唯一</p>
-</blockquote>
-<blockquote>
-<p>在一个收敛数列中任意添加或删去有限项，或者改变有限项的值，不会改变该数列的收敛性与极限值。</p>
-</blockquote>
-<blockquote>
-<p>若数列收敛于A，则它的任何子列都收敛于A</p>
-</blockquote>
-<blockquote>
-<p>收敛数列一定有界</p>
-</blockquote>
-<blockquote>
-<p><strong>极限的保序性：</strong>若a数列收敛于A，b数列收敛于B，若A&gt;B，则存在N，使得当n&gt;N时，就有<span class="math inline">\(a_n&gt;b_n\)</span>。</p>
-</blockquote>
-<blockquote>
-<p>极限的四则运算：</p>
-</blockquote>
-<blockquote>
-<p><strong>夹逼原理</strong>（求极限）</p>
-</blockquote></li>
-<li><p>单调数列</p>
-<blockquote>
-<p><strong>单调收敛定理：</strong>(1)单调递增且有上界的数列必收敛。(2)单调递减且有下界的数列必收敛。`</p>
-</blockquote>
-<blockquote>
-<p><strong>Stolz定理：</strong>(1)设数列{<span class="math inline">\(b_n\)</span>}严格单调递增且<span class="math inline">\(b_n\rightarrow +\infty\)</span>。如果<span class="math inline">\(\lim_{n\rightarrow \infty} \frac
-{a_n-a_{n-1}}{b_n-b{n-1}}=A\)</span>，则<span class="math inline">\(\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=A\)</span>；(2)设数列{<span class="math inline">\(b_n\)</span>}严格单调递减且<span class="math inline">\(\lim_{n\rightarrow\infty}b_n=\lim_{n\rightarrow\infty}a_n=0\)</span>。如果<span class="math inline">\(\lim_{n\rightarrow \infty} \frac
-{a_n-a_{n-1}}{b_n-b{n-1}}=A\)</span>，则<span class="math inline">\(\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=A\)</span>；</p>
-</blockquote>
-<blockquote>
-<p><strong>欧拉常数：</strong><span class="math inline">\(\lim_{n\rightarrow\infty}(1+\frac{1}{2}+...+\frac{1}{n}-lnn)=\gamma\)</span>，γ=0.577...为欧拉常数</p>
-</blockquote>
-<blockquote>
-<p><strong>柯西收敛原理：</strong>数列<span class="math inline">\(\{a_n\}\)</span>，如果 <span class="math inline">\(\forall\epsilon&gt;0\)</span>,<span class="math inline">\(\exists N\in \mathbb{N}\)</span>,使得对所有的<span class="math inline">\(n,m&gt;N\)</span>，都有<span class="math inline">\(|a_n-a_m|&lt;\epsilon\)</span>，称该数列为柯西列。数列收敛的充分必要条件是其为柯西列。</p>
-</blockquote></li>
-</ol>
-<h3 id="第二章-函数">第二章 函数</h3>
-<blockquote>
-<p><strong>Definition：</strong>对于每个x，都有唯一的y与之对应，记为y=f(x)，把这个对应规则称为一个从X到Y的映射，记为<span class="math inline">\(f:X\rightarrow
-Y\)</span>。X称之为定义域，Y称为值域</p>
-</blockquote>
-<blockquote>
-<p><strong>邻域；空心邻域</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>函数极限的保序性</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>夹逼原理</strong>：若<span class="math inline">\(f(x)\le
-g(x)\le h(x),x\in U(x_0,\rho)\)</span>，如果<span class="math inline">\(\lim_{x\rightarrow x_0}f(x)=\lim_{x\rightarrow
-x_0}h(x)=A\)</span>，则<span class="math inline">\(\lim_{x\rightarrow
-x_0}g(x)=A\)</span>。如果</p>
-</blockquote>
-<blockquote>
-<p><strong>复合函数极限</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>函数极限的柯西收敛原理</strong></p>
-</blockquote>
-<blockquote>
-<p>(1)f(x)是g(x)的<strong>高阶无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow
-x_0}\frac{f(x)}{g(x)}=0\)</span>，记作 <span class="math inline">\(f(x)=o(g(x))\ (x\rightarrow x_0)\)</span></p>
-<p>(2)f(x)是g(x)的<strong>同阶无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow x_0}\frac{f(x)}{g(x)}=c,\ c\ne
-0\)</span></p>
-<p>(3)f(x)是g(x)的<strong>等价无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow
-x_0}\frac{f(x)}{g(x)}=1\)</span>，记作 <span class="math inline">\(f(x)\sim o(g(x))\ (x\rightarrow x_0)\)</span></p>
-<p>(4)f(x)是<strong>k阶无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow
-x_0}\frac{f(x)}{(x-x_0)^k}=c\)</span></p>
-<p>Note: 无穷大量的定义同前三条。</p>
-</blockquote>
-<blockquote>
-<p><strong>无穷小量间的等价关系：</strong></p>
-<p>(1)<span class="math inline">\(sinx\sim x\)</span>，<span class="math inline">\(tanx\sim x\)</span></p>
-<p>(2)<span class="math inline">\(1-cosx\sim \frac{1}{2}x^2\)</span></p>
-<p>(3)<span class="math inline">\(ln(1+x)\sim x\)</span></p>
-<p>(4)<span class="math inline">\(e^x-1\sim x, a^x-1\sim
-xlna(a&gt;0)\)</span></p>
-<p>(5)<span class="math inline">\((1+x)^n-1\sim ax\)</span></p>
-</blockquote>
-<blockquote>
-<p>若 <span class="math inline">\(\lim_{x\rightarrow
-x_0}f(x)=f(x_0)\)</span>，则称f在点 <span class="math inline">\(x_0\)</span>处连续。</p>
-</blockquote>
-<blockquote>
-<p>若<span class="math inline">\(\lim_{x\rightarrow
-x_0^+}f(x)=f(x_0)\)</span>，则称f在点 <span class="math inline">\(x_0\)</span>处右连续。</p>
-</blockquote>
-<blockquote>
-<p>若<span class="math inline">\(\lim_{x\rightarrow
-x_0^-}f(x)=f(x_0)\)</span>，则称f在点 <span class="math inline">\(x_0\)</span>处右连续。</p>
-</blockquote>
-<blockquote>
-<p>f在点 <span class="math inline">\(x_0\)</span>处连续的充分必要条件是f在点 <span class="math inline">\(x_0\)</span>处既右连续又左连续。</p>
-</blockquote>
-<blockquote>
-<p>f在点 <span class="math inline">\(x_0\)</span>处不连续，则称间断。三种情形：</p>
-<p>1）可去间断点：极限存在，但在该点处没有定义或者<span class="math inline">\(\lim_{x\rightarrow x_0}f(x)\ne
-f(x_0)\)</span>，即可以令该点的值等于极限，变为一个连续点</p>
-<p>2）第一类间断点：左右极限都存在，但二者不相等。也包括可去间断点。</p>
-<p>3）第二类间断点：至少有一个单侧极限不存在。</p>
-</blockquote>
-<blockquote>
-<p>介值定理：设 <span class="math inline">\(f\in
-C[a,b]\)</span>（f在闭区间上连续），<span class="math inline">\(f(a)\ne
-f(b)\)</span>，则对介于f(a)与f(b)之间的每个数c，都存在 <span class="math inline">\(\xi\in (a,b)\)</span>，使 <span class="math inline">\(f(\xi)=c\)</span></p>
-</blockquote>
-<blockquote>
-<p>闭区间上连续函数的有界性定理与最大最小值定理</p>
-</blockquote>
-<h3 id="第三章-函数的导数">第三章 函数的导数</h3>
-<blockquote>
-<p>导数的定义：设函数 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点的某个领域内定义，如果 <span class="math inline">\(\lim_{\Delta x\to 0}\frac{f(x_0)+\Delta
-x)-f(x_0)}{\Delta x}\)</span>存在，则称 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点可导，称这个极限值为 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点的导数，记作 <span class="math inline">\(f'(x_0)\)</span>。</p>
-</blockquote>
-<blockquote>
-<p>可导则连续</p>
-</blockquote>
-<blockquote>
-<p>右导数</p>
-<p>左导数</p>
-<p>导数存在的充分必要条件是左导数和右导数存在且相等</p>
-</blockquote>
-<blockquote>
-<p>微分的定义：设函数 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点的某个领域内定义，如果当自变量的增量
-<span class="math inline">\(\Delta
-x\)</span>充分小时，相应的函数值的增量 <span class="math inline">\(\Delta f(x_0)=f(x_0+\Delta
-x)-f(x_0)\)</span>可以表示为：<span class="math inline">\(\Delta
-f(x_0)=a\Delta x+o(\Delta x)(\Delta x \to \ 0)\)</span>，其中 <span class="math inline">\(a\)</span>为常数，则称 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点可微，并称 <span class="math inline">\(df(x_0)=a\cdot\Delta x\)</span>为<span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点处的微分。</p>
-</blockquote>
-<blockquote>
-<p>可微的充要条件是可导</p>
-</blockquote>
-<blockquote>
-<p>求导法则：</p>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
 <ul>
-<li>导数的四则运算</li>
-<li>复合函数求导数的链式法则：<span class="math inline">\(h'(x_0)=f'(\varphi(x_0))\varphi'(x_0)\)</span></li>
-<li>反函数求导法则：设 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>内严格单调且连续，<span class="math inline">\(x_0\in (a,b)\)</span>，<span class="math inline">\(f'(x_0)\ne 0\)</span>，则反函数 <span class="math inline">\(x=f^{-1}(y)\)</span>在 <span class="math inline">\(y_0=f(x_0)\)</span>处可导，并且 <span class="math inline">\((f^{-1})'(y_0)=\frac{1}{f'(x_0)}\)</span>。</li>
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
 </ul>
-</blockquote>
-<blockquote>
-<p>常见函数的导数</p>
-</blockquote>
-<figure>
-<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20210531112117849.png" alt="常见函数的导数">
-<figcaption aria-hidden="true">常见函数的导数</figcaption>
-</figure>
-<blockquote>
-<p>隐函数求导：对于 <span class="math inline">\(F(x,y)=0\)</span>方程两边同时对x求导，解出 <span class="math inline">\(y'\)</span>即可。</p>
-</blockquote>
-<blockquote>
-<p>由参数方程形成的函数的求导方法：<span class="math inline">\(\frac{dy}{dx}=\frac{dy}{dt}\frac{dt}{dx}=\frac{dy}{dt}\frac{1}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}=\frac{y'(t)}{x'(t)}\)</span></p>
-</blockquote>
-<blockquote>
-<p>高阶导数：若 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>上n阶可导，则称 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>上n阶可导；而当 <span class="math inline">\(f^{(n)}(x)在（a,b）\)</span>上连续时，称 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>上为n阶连续可导（连续可微）。</p>
+<h2 id="prepare">Prepare</h2>
 <ul>
-<li><span class="math inline">\((f\cdot
-g)^{(n)}(x)=\sum^{n}_{k=0}C_{n}^{k}f^{(k)}(x)g^{(n-k)}(x)\)</span>，莱布尼茨公式</li>
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
 </ul>
-</blockquote>
-<h3 id="第四章-导数应用">第四章 导数应用</h3>
-<blockquote>
-<p>局部极值的定义：设函数<span class="math inline">\(f\)</span>在点
-<span class="math inline">\(x_0\)</span>的某个邻域中有定义，如果$&gt;0
-$使得当 <span class="math inline">\(|x-x_0|&lt;\rho\)</span>时，有 <span class="math inline">\(f(x)\ge f(x_0)\  (f(x)\le
-f(x_0))\)</span>，则称<span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处取得（局部）极小值（极大值）</p>
-</blockquote>
-<blockquote>
-<p>费马定理：设 <span class="math inline">\(x_0\)</span>是函数 <span class="math inline">\(f\)</span>的一个极值点，如果 <span class="math inline">\(f'(x_0)\)</span>存在，则 <span class="math inline">\(f'(x_0)=0\)</span></p>
-</blockquote>
-<blockquote>
-<p>罗尔定理：设函数<span class="math inline">\(f\)</span>在闭区间<span class="math inline">\([a,b]\)</span>上连续，在开区间<span class="math inline">\((a,b)\)</span>内可导。如果<span class="math inline">\(f(a)=f(b)\)</span>，则存在<span class="math inline">\(\epsilon \in (a,b)\)</span>使得<span class="math inline">\(f'(\epsilon)=0\)</span>。</p>
-</blockquote>
-<blockquote>
-<p>柯西中值定理：设函数f,
-g都在闭区间[a,b]上连续，在开区间(a,b)内可导，并且在(a,b)中 <span class="math inline">\(g'(x)\ne 0\)</span>，则存在 <span class="math inline">\(\epsilon\in (a,b)\)</span>，使得：<span class="math inline">\(\frac{f'(\epsilon)}{g'(\epsilon)}=\frac{f(b)-f(a)}{g(b)-g(a)}\)</span></p>
-</blockquote>
-<blockquote>
-<p>拉格朗日中值定理：是柯西中值定理中 <span class="math inline">\(g(x)=x\)</span>的一种特殊形式。</p>
-<p>几何意义：必存在一点使得曲线在该点处的切线与函数两端点的连线平行</p>
-<p>拉格朗日中值公式： <span class="math inline">\(f(x)-f(x_0)=f'(\epsilon)(x-x_0)，\epsilon\in
-(x_0,x)\)</span>，(可用于证明不等式)</p>
-</blockquote>
-<blockquote>
-<p>洛必达法则： 分子分母同时求导</p>
-</blockquote>
-<blockquote>
-<p>泰勒公式：设函数 <span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处有n阶导数，则当 <span class="math inline">\(x\rightarrow x_0\)</span>时，<span class="math inline">\(f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+o((x-x_0)^n)\)</span></p>
-<p>其中，<span class="math inline">\(R_n(x)=o((x-x_0)^n)\)</span>，称为皮亚诺余项形式</p>
-</blockquote>
-<blockquote>
-<p>设函数 <span class="math inline">\(f\)</span>在区间 <span class="math inline">\([a,b]\)</span>上n+1阶可导，<span class="math inline">\(x_0\)</span>与<span class="math inline">\(x\)</span>为<span class="math inline">\([a,b]\)</span>中任意两点，<span class="math inline">\(P_n\)</span>为 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span> 处的 n 阶泰勒多项式，则存在 <span class="math inline">\(\epsilon\)</span> 介于 <span class="math inline">\(x_0\)</span> 与 <span class="math inline">\(x\)</span> 之间，使得： <span class="math display">\[
-R_n(x)=f(x)-P_n(x)=\frac{f^{(n+1)}(\epsilon)}{(n+1)!}(x-x_0)^{n+1}
-\]</span></p>
-</blockquote>
-<blockquote>
-<p>设设函数 <span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处有n阶导数，并且存在 n 阶多项式 <span class="math inline">\(Q_n(x)\)</span>，使得： <span class="math display">\[
-f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
-\]</span> 则<span class="math inline">\(Q_n(x)\)</span>即为 <span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处有n阶泰勒多项式<span class="math inline">\(P_n(x)\)</span></p>
-</blockquote>
+<h2 id="methods">Methods</h2>
 <ul>
-<li><p>难以求导的可以化为几个简单函数的复合，分别泰勒展开，然后带入，忽略高阶项</p></li>
-<li><p>泰勒公式可以用于求近似值、无穷小量阶的确定与求不定型极限以及有关函数机器导数的等式与不等式证明等问题中的应用。</p></li>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
 </ul>
 ]]></content>
       <tags>
-        <tag>Mathematics</tag>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -702,66 +503,229 @@ model变保守（0，5，15，300……）</p></li>
       </tags>
   </entry>
   <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
+    <title>Caculus Review</title>
+    <url>/Caculus-Review/</url>
+    <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
+<p>Text Book: 《高等微积分教程》上下册.清华大学出版社</p>
+<h2 id="基础知识">基础知识</h2>
+<h3 id="第一章-实数列">第一章 实数列</h3>
+<blockquote>
+<p><strong>Definition 1 </strong>
+数集A的上界、下界；有界的、无界的；上确界sup、下确界inf</p>
+</blockquote>
+<blockquote>
+<p><strong>Definition 2</strong> 数列<span class="math inline">\(\{a_n\}\)</span>，如果 <span class="math inline">\(\forall\epsilon&gt;0\)</span>,<span class="math inline">\(\exists N\in \mathbb{N}\)</span>,使得当<span class="math inline">\(n&gt;N\)</span>时，就有<span class="math inline">\(|a_n-A|&lt;\epsilon\)</span>,则称数列<span class="math inline">\(\{a_n\}\)</span>有极限A,也称<span class="math inline">\(\{a_n\}\)</span>收敛于A，记为$_{n }{a_n}=A $</p>
+</blockquote>
+<ol type="1">
+<li><p>收敛数列的性质：</p>
+<blockquote>
+<p>若数列收敛，则极限唯一</p>
+</blockquote>
+<blockquote>
+<p>在一个收敛数列中任意添加或删去有限项，或者改变有限项的值，不会改变该数列的收敛性与极限值。</p>
+</blockquote>
+<blockquote>
+<p>若数列收敛于A，则它的任何子列都收敛于A</p>
+</blockquote>
+<blockquote>
+<p>收敛数列一定有界</p>
+</blockquote>
+<blockquote>
+<p><strong>极限的保序性：</strong>若a数列收敛于A，b数列收敛于B，若A&gt;B，则存在N，使得当n&gt;N时，就有<span class="math inline">\(a_n&gt;b_n\)</span>。</p>
+</blockquote>
+<blockquote>
+<p>极限的四则运算：</p>
+</blockquote>
+<blockquote>
+<p><strong>夹逼原理</strong>（求极限）</p>
+</blockquote></li>
+<li><p>单调数列</p>
+<blockquote>
+<p><strong>单调收敛定理：</strong>(1)单调递增且有上界的数列必收敛。(2)单调递减且有下界的数列必收敛。`</p>
+</blockquote>
+<blockquote>
+<p><strong>Stolz定理：</strong>(1)设数列{<span class="math inline">\(b_n\)</span>}严格单调递增且<span class="math inline">\(b_n\rightarrow +\infty\)</span>。如果<span class="math inline">\(\lim_{n\rightarrow \infty} \frac
+{a_n-a_{n-1}}{b_n-b{n-1}}=A\)</span>，则<span class="math inline">\(\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=A\)</span>；(2)设数列{<span class="math inline">\(b_n\)</span>}严格单调递减且<span class="math inline">\(\lim_{n\rightarrow\infty}b_n=\lim_{n\rightarrow\infty}a_n=0\)</span>。如果<span class="math inline">\(\lim_{n\rightarrow \infty} \frac
+{a_n-a_{n-1}}{b_n-b{n-1}}=A\)</span>，则<span class="math inline">\(\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=A\)</span>；</p>
+</blockquote>
+<blockquote>
+<p><strong>欧拉常数：</strong><span class="math inline">\(\lim_{n\rightarrow\infty}(1+\frac{1}{2}+...+\frac{1}{n}-lnn)=\gamma\)</span>，γ=0.577...为欧拉常数</p>
+</blockquote>
+<blockquote>
+<p><strong>柯西收敛原理：</strong>数列<span class="math inline">\(\{a_n\}\)</span>，如果 <span class="math inline">\(\forall\epsilon&gt;0\)</span>,<span class="math inline">\(\exists N\in \mathbb{N}\)</span>,使得对所有的<span class="math inline">\(n,m&gt;N\)</span>，都有<span class="math inline">\(|a_n-a_m|&lt;\epsilon\)</span>，称该数列为柯西列。数列收敛的充分必要条件是其为柯西列。</p>
+</blockquote></li>
+</ol>
+<h3 id="第二章-函数">第二章 函数</h3>
+<blockquote>
+<p><strong>Definition：</strong>对于每个x，都有唯一的y与之对应，记为y=f(x)，把这个对应规则称为一个从X到Y的映射，记为<span class="math inline">\(f:X\rightarrow
+Y\)</span>。X称之为定义域，Y称为值域</p>
+</blockquote>
+<blockquote>
+<p><strong>邻域；空心邻域</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>函数极限的保序性</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>夹逼原理</strong>：若<span class="math inline">\(f(x)\le
+g(x)\le h(x),x\in U(x_0,\rho)\)</span>，如果<span class="math inline">\(\lim_{x\rightarrow x_0}f(x)=\lim_{x\rightarrow
+x_0}h(x)=A\)</span>，则<span class="math inline">\(\lim_{x\rightarrow
+x_0}g(x)=A\)</span>。如果</p>
+</blockquote>
+<blockquote>
+<p><strong>复合函数极限</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>函数极限的柯西收敛原理</strong></p>
+</blockquote>
+<blockquote>
+<p>(1)f(x)是g(x)的<strong>高阶无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow
+x_0}\frac{f(x)}{g(x)}=0\)</span>，记作 <span class="math inline">\(f(x)=o(g(x))\ (x\rightarrow x_0)\)</span></p>
+<p>(2)f(x)是g(x)的<strong>同阶无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow x_0}\frac{f(x)}{g(x)}=c,\ c\ne
+0\)</span></p>
+<p>(3)f(x)是g(x)的<strong>等价无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow
+x_0}\frac{f(x)}{g(x)}=1\)</span>，记作 <span class="math inline">\(f(x)\sim o(g(x))\ (x\rightarrow x_0)\)</span></p>
+<p>(4)f(x)是<strong>k阶无穷小量</strong>：<span class="math inline">\(\lim_{x\rightarrow
+x_0}\frac{f(x)}{(x-x_0)^k}=c\)</span></p>
+<p>Note: 无穷大量的定义同前三条。</p>
+</blockquote>
+<blockquote>
+<p><strong>无穷小量间的等价关系：</strong></p>
+<p>(1)<span class="math inline">\(sinx\sim x\)</span>，<span class="math inline">\(tanx\sim x\)</span></p>
+<p>(2)<span class="math inline">\(1-cosx\sim \frac{1}{2}x^2\)</span></p>
+<p>(3)<span class="math inline">\(ln(1+x)\sim x\)</span></p>
+<p>(4)<span class="math inline">\(e^x-1\sim x, a^x-1\sim
+xlna(a&gt;0)\)</span></p>
+<p>(5)<span class="math inline">\((1+x)^n-1\sim ax\)</span></p>
+</blockquote>
+<blockquote>
+<p>若 <span class="math inline">\(\lim_{x\rightarrow
+x_0}f(x)=f(x_0)\)</span>，则称f在点 <span class="math inline">\(x_0\)</span>处连续。</p>
+</blockquote>
+<blockquote>
+<p>若<span class="math inline">\(\lim_{x\rightarrow
+x_0^+}f(x)=f(x_0)\)</span>，则称f在点 <span class="math inline">\(x_0\)</span>处右连续。</p>
+</blockquote>
+<blockquote>
+<p>若<span class="math inline">\(\lim_{x\rightarrow
+x_0^-}f(x)=f(x_0)\)</span>，则称f在点 <span class="math inline">\(x_0\)</span>处右连续。</p>
+</blockquote>
+<blockquote>
+<p>f在点 <span class="math inline">\(x_0\)</span>处连续的充分必要条件是f在点 <span class="math inline">\(x_0\)</span>处既右连续又左连续。</p>
+</blockquote>
+<blockquote>
+<p>f在点 <span class="math inline">\(x_0\)</span>处不连续，则称间断。三种情形：</p>
+<p>1）可去间断点：极限存在，但在该点处没有定义或者<span class="math inline">\(\lim_{x\rightarrow x_0}f(x)\ne
+f(x_0)\)</span>，即可以令该点的值等于极限，变为一个连续点</p>
+<p>2）第一类间断点：左右极限都存在，但二者不相等。也包括可去间断点。</p>
+<p>3）第二类间断点：至少有一个单侧极限不存在。</p>
+</blockquote>
+<blockquote>
+<p>介值定理：设 <span class="math inline">\(f\in
+C[a,b]\)</span>（f在闭区间上连续），<span class="math inline">\(f(a)\ne
+f(b)\)</span>，则对介于f(a)与f(b)之间的每个数c，都存在 <span class="math inline">\(\xi\in (a,b)\)</span>，使 <span class="math inline">\(f(\xi)=c\)</span></p>
+</blockquote>
+<blockquote>
+<p>闭区间上连续函数的有界性定理与最大最小值定理</p>
+</blockquote>
+<h3 id="第三章-函数的导数">第三章 函数的导数</h3>
+<blockquote>
+<p>导数的定义：设函数 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点的某个领域内定义，如果 <span class="math inline">\(\lim_{\Delta x\to 0}\frac{f(x_0)+\Delta
+x)-f(x_0)}{\Delta x}\)</span>存在，则称 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点可导，称这个极限值为 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点的导数，记作 <span class="math inline">\(f'(x_0)\)</span>。</p>
+</blockquote>
+<blockquote>
+<p>可导则连续</p>
+</blockquote>
+<blockquote>
+<p>右导数</p>
+<p>左导数</p>
+<p>导数存在的充分必要条件是左导数和右导数存在且相等</p>
+</blockquote>
+<blockquote>
+<p>微分的定义：设函数 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点的某个领域内定义，如果当自变量的增量
+<span class="math inline">\(\Delta
+x\)</span>充分小时，相应的函数值的增量 <span class="math inline">\(\Delta f(x_0)=f(x_0+\Delta
+x)-f(x_0)\)</span>可以表示为：<span class="math inline">\(\Delta
+f(x_0)=a\Delta x+o(\Delta x)(\Delta x \to \ 0)\)</span>，其中 <span class="math inline">\(a\)</span>为常数，则称 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点可微，并称 <span class="math inline">\(df(x_0)=a\cdot\Delta x\)</span>为<span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span>点处的微分。</p>
+</blockquote>
+<blockquote>
+<p>可微的充要条件是可导</p>
+</blockquote>
+<blockquote>
+<p>求导法则：</p>
 <ul>
-<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
-<p>git@github.com: yourname/yourname.github.io.git</p></li>
+<li>导数的四则运算</li>
+<li>复合函数求导数的链式法则：<span class="math inline">\(h'(x_0)=f'(\varphi(x_0))\varphi'(x_0)\)</span></li>
+<li>反函数求导法则：设 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>内严格单调且连续，<span class="math inline">\(x_0\in (a,b)\)</span>，<span class="math inline">\(f'(x_0)\ne 0\)</span>，则反函数 <span class="math inline">\(x=f^{-1}(y)\)</span>在 <span class="math inline">\(y_0=f(x_0)\)</span>处可导，并且 <span class="math inline">\((f^{-1})'(y_0)=\frac{1}{f'(x_0)}\)</span>。</li>
 </ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
+</blockquote>
+<blockquote>
+<p>常见函数的导数</p>
+</blockquote>
+<figure>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/image-20210531112117849.png" alt="常见函数的导数">
+<figcaption aria-hidden="true">常见函数的导数</figcaption>
+</figure>
+<blockquote>
+<p>隐函数求导：对于 <span class="math inline">\(F(x,y)=0\)</span>方程两边同时对x求导，解出 <span class="math inline">\(y'\)</span>即可。</p>
+</blockquote>
+<blockquote>
+<p>由参数方程形成的函数的求导方法：<span class="math inline">\(\frac{dy}{dx}=\frac{dy}{dt}\frac{dt}{dx}=\frac{dy}{dt}\frac{1}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}=\frac{y'(t)}{x'(t)}\)</span></p>
+</blockquote>
+<blockquote>
+<p>高阶导数：若 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>上n阶可导，则称 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>上n阶可导；而当 <span class="math inline">\(f^{(n)}(x)在（a,b）\)</span>上连续时，称 <span class="math inline">\(f\)</span>在 <span class="math inline">\((a,b)\)</span>上为n阶连续可导（连续可微）。</p>
 <ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
+<li><span class="math inline">\((f\cdot
+g)^{(n)}(x)=\sum^{n}_{k=0}C_{n}^{k}f^{(k)}(x)g^{(n-k)}(x)\)</span>，莱布尼茨公式</li>
 </ul>
-<h2 id="formula">Formula</h2>
+</blockquote>
+<h3 id="第四章-导数应用">第四章 导数应用</h3>
+<blockquote>
+<p>局部极值的定义：设函数<span class="math inline">\(f\)</span>在点
+<span class="math inline">\(x_0\)</span>的某个邻域中有定义，如果$&gt;0
+$使得当 <span class="math inline">\(|x-x_0|&lt;\rho\)</span>时，有 <span class="math inline">\(f(x)\ge f(x_0)\  (f(x)\le
+f(x_0))\)</span>，则称<span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处取得（局部）极小值（极大值）</p>
+</blockquote>
+<blockquote>
+<p>费马定理：设 <span class="math inline">\(x_0\)</span>是函数 <span class="math inline">\(f\)</span>的一个极值点，如果 <span class="math inline">\(f'(x_0)\)</span>存在，则 <span class="math inline">\(f'(x_0)=0\)</span></p>
+</blockquote>
+<blockquote>
+<p>罗尔定理：设函数<span class="math inline">\(f\)</span>在闭区间<span class="math inline">\([a,b]\)</span>上连续，在开区间<span class="math inline">\((a,b)\)</span>内可导。如果<span class="math inline">\(f(a)=f(b)\)</span>，则存在<span class="math inline">\(\epsilon \in (a,b)\)</span>使得<span class="math inline">\(f'(\epsilon)=0\)</span>。</p>
+</blockquote>
+<blockquote>
+<p>柯西中值定理：设函数f,
+g都在闭区间[a,b]上连续，在开区间(a,b)内可导，并且在(a,b)中 <span class="math inline">\(g'(x)\ne 0\)</span>，则存在 <span class="math inline">\(\epsilon\in (a,b)\)</span>，使得：<span class="math inline">\(\frac{f'(\epsilon)}{g'(\epsilon)}=\frac{f(b)-f(a)}{g(b)-g(a)}\)</span></p>
+</blockquote>
+<blockquote>
+<p>拉格朗日中值定理：是柯西中值定理中 <span class="math inline">\(g(x)=x\)</span>的一种特殊形式。</p>
+<p>几何意义：必存在一点使得曲线在该点处的切线与函数两端点的连线平行</p>
+<p>拉格朗日中值公式： <span class="math inline">\(f(x)-f(x_0)=f'(\epsilon)(x-x_0)，\epsilon\in
+(x_0,x)\)</span>，(可用于证明不等式)</p>
+</blockquote>
+<blockquote>
+<p>洛必达法则： 分子分母同时求导</p>
+</blockquote>
+<blockquote>
+<p>泰勒公式：设函数 <span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处有n阶导数，则当 <span class="math inline">\(x\rightarrow x_0\)</span>时，<span class="math inline">\(f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+o((x-x_0)^n)\)</span></p>
+<p>其中，<span class="math inline">\(R_n(x)=o((x-x_0)^n)\)</span>，称为皮亚诺余项形式</p>
+</blockquote>
+<blockquote>
+<p>设函数 <span class="math inline">\(f\)</span>在区间 <span class="math inline">\([a,b]\)</span>上n+1阶可导，<span class="math inline">\(x_0\)</span>与<span class="math inline">\(x\)</span>为<span class="math inline">\([a,b]\)</span>中任意两点，<span class="math inline">\(P_n\)</span>为 <span class="math inline">\(f\)</span>在 <span class="math inline">\(x_0\)</span> 处的 n 阶泰勒多项式，则存在 <span class="math inline">\(\epsilon\)</span> 介于 <span class="math inline">\(x_0\)</span> 与 <span class="math inline">\(x\)</span> 之间，使得： <span class="math display">\[
+R_n(x)=f(x)-P_n(x)=\frac{f^{(n+1)}(\epsilon)}{(n+1)!}(x-x_0)^{n+1}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>设设函数 <span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处有n阶导数，并且存在 n 阶多项式 <span class="math inline">\(Q_n(x)\)</span>，使得： <span class="math display">\[
+f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
+\]</span> 则<span class="math inline">\(Q_n(x)\)</span>即为 <span class="math inline">\(f\)</span>在点 <span class="math inline">\(x_0\)</span>处有n阶泰勒多项式<span class="math inline">\(P_n(x)\)</span></p>
+</blockquote>
 <ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
+<li><p>难以求导的可以化为几个简单函数的复合，分别泰勒展开，然后带入，忽略高阶项</p></li>
+<li><p>泰勒公式可以用于求近似值、无穷小量阶的确定与求不定型极限以及有关函数机器导数的等式与不等式证明等问题中的应用。</p></li>
 </ul>
 ]]></content>
       <tags>
-        <tag>Issues</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
+        <tag>Mathematics</tag>
       </tags>
   </entry>
   <entry>
@@ -837,61 +801,6 @@ x_i\le 2\)</span>也可以</li>
 </ul></li>
 </ul></li>
 </ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week04</title>
-    <url>/Machine-Learning-Week04/</url>
-    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
-Representation</h2>
-<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
-<p>特征多，有高次项</p>
-<h3 id="neural-networks">2. Neural Networks</h3>
-<ol type="1">
-<li><p>Model representation</p>
-<ul>
-<li><p>bias unit偏置项（=1）</p></li>
-<li><p>sigmoid activation function S型激励函数</p></li>
-<li><p>input layer —— hidden layer —— output layer</p></li>
-<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
-of\ unit\ i\ in\ layer\  j \]</span></p>
-<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
-controlling function mapping from layer j to layer j+1
-，即参数矩阵（波矩阵、权重矩阵）</p>
-<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
-unit</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
-<span class="math display">\[
-\begin{array}{r}
-a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
-x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
-x_{3}\right)=g(z_1^{(2)}) \\
-a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
-x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
-x_{3}\right)=g(z_2^{(2)})  \\
-a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
-x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
-=g(z_3^{(2)}) \\
-h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
-a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
-a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
-\end{array}
-\]</span></p></li>
-<li><p>即前向传播（forward propagation）</p></li>
-</ul></li>
-</ol>
-<h3 id="applications">3. Applications</h3>
-<ol type="1">
-<li>与运算（-30，20，20）</li>
-<li>或运算（-10，20，20）</li>
-<li>非运算（10，-20）</li>
-<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
-<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
-</ol>
-<p>​</p>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
@@ -1197,6 +1106,97 @@ A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
 </ul></li>
 <li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
 </ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Issues</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week04</title>
+    <url>/Machine-Learning-Week04/</url>
+    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
+Representation</h2>
+<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
+<p>特征多，有高次项</p>
+<h3 id="neural-networks">2. Neural Networks</h3>
+<ol type="1">
+<li><p>Model representation</p>
+<ul>
+<li><p>bias unit偏置项（=1）</p></li>
+<li><p>sigmoid activation function S型激励函数</p></li>
+<li><p>input layer —— hidden layer —— output layer</p></li>
+<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
+of\ unit\ i\ in\ layer\  j \]</span></p>
+<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
+controlling function mapping from layer j to layer j+1
+，即参数矩阵（波矩阵、权重矩阵）</p>
+<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
+unit</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
+<span class="math display">\[
+\begin{array}{r}
+a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
+x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
+x_{3}\right)=g(z_1^{(2)}) \\
+a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
+x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
+x_{3}\right)=g(z_2^{(2)})  \\
+a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
+x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
+=g(z_3^{(2)}) \\
+h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
+a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
+a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
+\end{array}
+\]</span></p></li>
+<li><p>即前向传播（forward propagation）</p></li>
+</ul></li>
+</ol>
+<h3 id="applications">3. Applications</h3>
+<ol type="1">
+<li>与运算（-30，20，20）</li>
+<li>或运算（-10，20，20）</li>
+<li>非运算（10，-20）</li>
+<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
+<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
+</ol>
+<p>​</p>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
@@ -1684,203 +1684,6 @@ kernel）</li>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week08</title>
-    <url>/Machine-Learning-Week08/</url>
-    <content><![CDATA[<h1 id="unsupervised-learning-无监督学习">Unsupervised learning
-无监督学习</h1>
-<h2 id="clustering-聚类">Clustering 聚类</h2>
-<p>无监督学习是不给分类标签y</p>
-<h3 id="应用">1. 应用：</h3>
-<ul>
-<li>对消费者市场划分</li>
-<li>社交网络分析</li>
-<li>管理计算机</li>
-<li>获取星系信息</li>
-</ul>
-<h3 id="k-means-algorithm-k均值算法">2. K-means algorithm K均值算法</h3>
-<ul>
-<li><p>随机选择两个点作为聚类中心(分两类)，然后进行下面两步</p>
-<ul>
-<li>簇分配，遍历每个点，和哪个cluster centroid更近</li>
-<li>移动聚类中心到上面分配的簇的均值</li>
-</ul></li>
-<li><p>Input:</p>
-<ul>
-<li>K - number of clusters</li>
-<li>training set</li>
-</ul></li>
-<li><p>algorithm</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"> repeat{</span><br><span class="line">	for i=1 to m</span><br><span class="line">		c_i := index (from 1 to K) of cluster centroid closest to x_i</span><br><span class="line">    for k=1 to K</span><br><span class="line">    	u_k := average (mean) of points assigned to cluster k</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>如果有中心没有被分配到任何点，可以删去这个分类，也可以reinitialize
-the cluster centroid</p></li>
-</ul>
-<h3 id="k-means-for-non-sperated-clusters">3. K-means for non-sperated
-clusters</h3>
-<ul>
-<li>根据身高体重分类T恤大小</li>
-</ul>
-<h3 id="optimization-objective">4. Optimization Objective</h3>
-<ul>
-<li><p><span class="math display">\[
-\begin{array}{l}
-J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots,
-\mu_{K}\right)=\frac{1}{m}
-\sum_{i=1}\left\|x^{(i)}-\mu_{c^{(i)}}\right\|^{2} \\
-\min _{c^{(1)}, \ldots, c^{(m)},\mu_{1}, \ldots, \mu_{K}}
-J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots, \mu_{K}\right)
-\end{array}
-\]</span></p></li>
-<li><p>also called distortion of K-means algorithm</p></li>
-<li><p>cost function 关于iteration的曲线</p></li>
-</ul>
-<h3 id="random-initialization">5. Random Initialization</h3>
-<p>随机初始化聚类中心</p>
-<p>随机选k个个例本身，作为中心，但是容易陷入Local
-optima。解决方案：多次随机，选择cost function最小的</p>
-<h3 id="choosing-the-number-of-clusters">6. Choosing the Number of
-Clusters</h3>
-<p>Elbow Method:</p>
-<p>绘制J关于K的曲线，找到“Elbow”的节点，作为分类个数</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331185002558.png" alt="image-20210331185002558">
-<figcaption aria-hidden="true">image-20210331185002558</figcaption>
-</figure>
-<p>用途之一：later/downstream purpose</p>
-<h2 id="motivation">Motivation</h2>
-<h3 id="data-compression------dimensionality-reduction降维">1. Data
-Compression ---- Dimensionality Reduction降维</h3>
-<p>压缩数据，减少内存占用加快运算</p>
-<h3 id="data-visualization">2. Data Visualization</h3>
-<p>降维可以便于数据可视化</p>
-<h2 id="principal-component-analysis主成分分析">Principal Component
-Analysis主成分分析</h2>
-<h3 id="problem-formulation">1. Problem formulation</h3>
-<p>PCA：To find a surface onto which to project the data so as to
-minimize the the projection error
-(线性拟合中就是使得离某条直线的距离最小).</p>
-<ul>
-<li>先mean normalization（feature scaling）</li>
-<li>Reduce from 2-dimension to 1-dimension: Find a direction (a vector
-<span class="math inline">\(u_i\in \R^n\)</span>) onto which to project
-the data so as to minimize the projection error.
-该向量的正负没有关系。</li>
-<li>Reduce from n-dimension to k-dimension: Find k vectors <span class="math inline">\(u^{(1)}\)</span>,<span class="math inline">\(u^{(2)}\)</span>, ... , <span class="math inline">\(u^{(k)}\)</span> onto which to project the data so
-as to minimize the projection error.</li>
-<li>注：PCA is not linear
-regression。注意看下图区别，线性回归是和预期值的差最小，PCA是到直线距离最小</li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331214953585.png" alt="image-20210331214953585">
-<figcaption aria-hidden="true">image-20210331214953585</figcaption>
-</figure>
-<h3 id="pca-algorithm">2. PCA Algorithm</h3>
-<p>PCA的目标：</p>
-<ul>
-<li>maximize variance perspective 最大投影方差</li>
-<li>minimize error perspective 最小重构代价</li>
-</ul>
-<p>Step1: mean normalization.
-根据数据(有不同的scales)，可能还需要feature
-scaling。均值归一化是特征缩放的一种方法。（除以标准差）</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331224012613.png" alt="image-20210331224012613">
-<figcaption aria-hidden="true">image-20210331224012613</figcaption>
-</figure>
-<p>Step2: Reduce data from n-dimensions to k-dimensions：</p>
-<ul>
-<li><p>Compute "covariance matrix": <span class="math inline">\(\Sigma =
-\frac{1}{m}\sum_{i=1}^{n}{(x^{(i)})(x^{(i)})^T}\)</span>，xi是n*1的列向量，symmetric
-positive definite</p></li>
-<li><p>Compute "eigenvectors" of matrix <span class="math inline">\(\Sigma\)</span>: [U, S, V] = svd(Sigma) ;或者
-eig(Sigma)</p>
-<p>svd: Singular value decomposition <a href="https://zhuanlan.zhihu.com/p/29846048">奇异值分解</a></p>
-<p>其中U是我们需要的，
-列向量为各个特征向量，压缩到k个向量只需要取前k个列向量（对称矩阵的特征向量是正交的）</p></li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401221235384.png" alt="image-20210401221235384">
-<figcaption aria-hidden="true">image-20210401221235384</figcaption>
-</figure>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401222501123.png" alt="image-20210401222501123">
-<figcaption aria-hidden="true">image-20210401222501123</figcaption>
-</figure>
-<p>注：PCA算法中，没有x0=1这一项<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-a00e6519ce24ea2b151c8bece4226d95_720w.jpg" alt="img"><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-ddbf215dce156564852941f7294c7431_720w.jpg" alt="img"></p>
-<p><strong>疑问：</strong></p>
-<ol type="1">
-<li><p><strong>为什么不直接用X进行SVD，而要算协方差的SVD？</strong></p>
-<p><strong>Answer：</strong><a href="https://www.coursera.org/learn/machine-learning/discussions/weeks/8/threads/kk41Fe5OEeqnzBL0ZMnGMw">协方差的U和X的V是相等的，其实都可以</a></p>
-<p>理解：<span class="math inline">\(X=U'S'V'^T\)</span>,
-<span class="math inline">\(X^TX=USV^T\)</span>，现要说明 <span class="math inline">\(V'=U\)</span>, 只需要 <span class="math inline">\(X^TX=V'S'^2V'^T=USV^T\)</span>，所以
-<span class="math inline">\(V'=U\)</span>。</p></li>
-<li><p><strong>为什么要取协方差矩阵SVD后的左奇异矩阵来压缩特征维度？</strong></p>
-<p>首先易证一个SPD矩阵通过SVD得到的U和V是相等的。</p>
-<p>其次，通常我们用XV=YU来表示坐标变换。</p>
-<p><span class="math inline">\(\Sigma = X^TX\)</span>，又有 <span class="math inline">\(\Sigma = USV^T\)</span>，可以得到 <span class="math inline">\(\Sigma V =
-US\)</span>，这里实际上是将covariance矩阵变化为对角线矩阵，即互不相关（其中U=V，即U为协方差矩阵的特征向量，S为其特征值）。那么这时，我们令XI=UZ，I是X坐标系下的正交基，即
-<span class="math inline">\(Z=U^TX\)</span>。此时Z的协方差 <span class="math inline">\(Z^TZ=\Sigma\)</span>。</p></li>
-</ol>
-<h2 id="applying-pca">Applying PCA</h2>
-<h3 id="reconstruction-from-compressed-representation">Reconstruction
-from compressed representation</h3>
-<p><span class="math display">\[
-z=U_{reduce}^Tx
-\]</span></p>
-<p>可以得到： <span class="math display">\[
-x_{approx}=U_{reduce}z
-\]</span></p>
-<h3 id="choosing-the-number-k-of-principal-component">Choosing the
-number k of principal component</h3>
-<ul>
-<li>Average squared projection error：</li>
-</ul>
-<p><span class="math display">\[
-\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}-x_{approx}^{(i)}\parallel ^2
-\]</span></p>
-<ul>
-<li><p>Tptal variation in the data: <span class="math display">\[
-\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}\parallel ^2
-\]</span></p></li>
-<li><p>Choose k to be smallest value so that <span class="math display">\[
-\frac{\frac{1}{m}\Sigma_{i=1}^m\parallel
-x^{(i)}-x_{approx}^{(i)}\parallel ^2}{\frac{1}{m}\Sigma_{i=1}^m\parallel
-x^{(i)}\parallel ^2}\le0.01
-\]</span> "99% of variance is
-retained"。这个数值可以根据需求不同更换。</p></li>
-<li><p>算法：</p>
-<p>SVD函数返回的S矩阵为diagonal matrix。</p>
-<p>For given k: k 递增，使得 <span class="math display">\[
-1-\frac{\Sigma_{i=1}^{k}S_{ii}}{\Sigma_{i=1}^{n}S_{ii}}\le0.01
-\]</span></p>
-<p>选择最小的K满足上式。</p>
-<p>根据性质：矩阵特征值之和等于主对角线元素之和，易证(6)式等价于(7)式。</p></li>
-</ul>
-<h3 id="advice-for-applying-pca">Advice for applying PCA</h3>
-<ol type="1">
-<li><p>Supervised learning speedup</p>
-<p>压缩原始训练集数据的维度</p>
-<p>Mapping <span class="math inline">\(x^{(i)}\rightarrow
-z^{(i)}\)</span>should be defined by running PCA only on the trainning
-set. This mapping can be applied as well to the examples <span class="math inline">\(x_{CV}^{(i)}\)</span> and <span class="math inline">\(x_{test}^{(i)}\)</span> in the cross validation
-and test sets.</p></li>
-<li><p>Compression</p>
-<ul>
-<li>Reduce memory/disk needed to store data</li>
-<li>speed up learning algorithm</li>
-</ul></li>
-<li><p>Visualization</p></li>
-<li><p>Bad use of PCA: To prevent overfitting</p>
-<p>可能确实可以避免过拟合，但是不是解决过拟合的好方法。正确方法式加正则项(Use
-regularization instead!)</p>
-<p>For example: <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210403175514854.png" alt="image-20210403175514854"></p></li>
-<li><p>正确做法是先不用PCA，在原始数据跑一遍，如果不符合期望，再用PCA</p></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week09</title>
     <url>/Machine-Learning-Week09/</url>
     <content><![CDATA[<h1 id="anomaly-detection-异常检测">Anomaly Detection 异常检测</h1>
@@ -2127,6 +1930,203 @@ is more accurate.</p>
 <p>Note:
 一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
 </blockquote>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week08</title>
+    <url>/Machine-Learning-Week08/</url>
+    <content><![CDATA[<h1 id="unsupervised-learning-无监督学习">Unsupervised learning
+无监督学习</h1>
+<h2 id="clustering-聚类">Clustering 聚类</h2>
+<p>无监督学习是不给分类标签y</p>
+<h3 id="应用">1. 应用：</h3>
+<ul>
+<li>对消费者市场划分</li>
+<li>社交网络分析</li>
+<li>管理计算机</li>
+<li>获取星系信息</li>
+</ul>
+<h3 id="k-means-algorithm-k均值算法">2. K-means algorithm K均值算法</h3>
+<ul>
+<li><p>随机选择两个点作为聚类中心(分两类)，然后进行下面两步</p>
+<ul>
+<li>簇分配，遍历每个点，和哪个cluster centroid更近</li>
+<li>移动聚类中心到上面分配的簇的均值</li>
+</ul></li>
+<li><p>Input:</p>
+<ul>
+<li>K - number of clusters</li>
+<li>training set</li>
+</ul></li>
+<li><p>algorithm</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"> repeat{</span><br><span class="line">	for i=1 to m</span><br><span class="line">		c_i := index (from 1 to K) of cluster centroid closest to x_i</span><br><span class="line">    for k=1 to K</span><br><span class="line">    	u_k := average (mean) of points assigned to cluster k</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>如果有中心没有被分配到任何点，可以删去这个分类，也可以reinitialize
+the cluster centroid</p></li>
+</ul>
+<h3 id="k-means-for-non-sperated-clusters">3. K-means for non-sperated
+clusters</h3>
+<ul>
+<li>根据身高体重分类T恤大小</li>
+</ul>
+<h3 id="optimization-objective">4. Optimization Objective</h3>
+<ul>
+<li><p><span class="math display">\[
+\begin{array}{l}
+J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots,
+\mu_{K}\right)=\frac{1}{m}
+\sum_{i=1}\left\|x^{(i)}-\mu_{c^{(i)}}\right\|^{2} \\
+\min _{c^{(1)}, \ldots, c^{(m)},\mu_{1}, \ldots, \mu_{K}}
+J\left(c^{(1)}, \ldots, c^{(m)}, \mu_{1}, \ldots, \mu_{K}\right)
+\end{array}
+\]</span></p></li>
+<li><p>also called distortion of K-means algorithm</p></li>
+<li><p>cost function 关于iteration的曲线</p></li>
+</ul>
+<h3 id="random-initialization">5. Random Initialization</h3>
+<p>随机初始化聚类中心</p>
+<p>随机选k个个例本身，作为中心，但是容易陷入Local
+optima。解决方案：多次随机，选择cost function最小的</p>
+<h3 id="choosing-the-number-of-clusters">6. Choosing the Number of
+Clusters</h3>
+<p>Elbow Method:</p>
+<p>绘制J关于K的曲线，找到“Elbow”的节点，作为分类个数</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331185002558.png" alt="image-20210331185002558">
+<figcaption aria-hidden="true">image-20210331185002558</figcaption>
+</figure>
+<p>用途之一：later/downstream purpose</p>
+<h2 id="motivation">Motivation</h2>
+<h3 id="data-compression------dimensionality-reduction降维">1. Data
+Compression ---- Dimensionality Reduction降维</h3>
+<p>压缩数据，减少内存占用加快运算</p>
+<h3 id="data-visualization">2. Data Visualization</h3>
+<p>降维可以便于数据可视化</p>
+<h2 id="principal-component-analysis主成分分析">Principal Component
+Analysis主成分分析</h2>
+<h3 id="problem-formulation">1. Problem formulation</h3>
+<p>PCA：To find a surface onto which to project the data so as to
+minimize the the projection error
+(线性拟合中就是使得离某条直线的距离最小).</p>
+<ul>
+<li>先mean normalization（feature scaling）</li>
+<li>Reduce from 2-dimension to 1-dimension: Find a direction (a vector
+<span class="math inline">\(u_i\in \R^n\)</span>) onto which to project
+the data so as to minimize the projection error.
+该向量的正负没有关系。</li>
+<li>Reduce from n-dimension to k-dimension: Find k vectors <span class="math inline">\(u^{(1)}\)</span>,<span class="math inline">\(u^{(2)}\)</span>, ... , <span class="math inline">\(u^{(k)}\)</span> onto which to project the data so
+as to minimize the projection error.</li>
+<li>注：PCA is not linear
+regression。注意看下图区别，线性回归是和预期值的差最小，PCA是到直线距离最小</li>
+</ul>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331214953585.png" alt="image-20210331214953585">
+<figcaption aria-hidden="true">image-20210331214953585</figcaption>
+</figure>
+<h3 id="pca-algorithm">2. PCA Algorithm</h3>
+<p>PCA的目标：</p>
+<ul>
+<li>maximize variance perspective 最大投影方差</li>
+<li>minimize error perspective 最小重构代价</li>
+</ul>
+<p>Step1: mean normalization.
+根据数据(有不同的scales)，可能还需要feature
+scaling。均值归一化是特征缩放的一种方法。（除以标准差）</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210331224012613.png" alt="image-20210331224012613">
+<figcaption aria-hidden="true">image-20210331224012613</figcaption>
+</figure>
+<p>Step2: Reduce data from n-dimensions to k-dimensions：</p>
+<ul>
+<li><p>Compute "covariance matrix": <span class="math inline">\(\Sigma =
+\frac{1}{m}\sum_{i=1}^{n}{(x^{(i)})(x^{(i)})^T}\)</span>，xi是n*1的列向量，symmetric
+positive definite</p></li>
+<li><p>Compute "eigenvectors" of matrix <span class="math inline">\(\Sigma\)</span>: [U, S, V] = svd(Sigma) ;或者
+eig(Sigma)</p>
+<p>svd: Singular value decomposition <a href="https://zhuanlan.zhihu.com/p/29846048">奇异值分解</a></p>
+<p>其中U是我们需要的，
+列向量为各个特征向量，压缩到k个向量只需要取前k个列向量（对称矩阵的特征向量是正交的）</p></li>
+</ul>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401221235384.png" alt="image-20210401221235384">
+<figcaption aria-hidden="true">image-20210401221235384</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210401222501123.png" alt="image-20210401222501123">
+<figcaption aria-hidden="true">image-20210401222501123</figcaption>
+</figure>
+<p>注：PCA算法中，没有x0=1这一项<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-a00e6519ce24ea2b151c8bece4226d95_720w.jpg" alt="img"><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/v2-ddbf215dce156564852941f7294c7431_720w.jpg" alt="img"></p>
+<p><strong>疑问：</strong></p>
+<ol type="1">
+<li><p><strong>为什么不直接用X进行SVD，而要算协方差的SVD？</strong></p>
+<p><strong>Answer：</strong><a href="https://www.coursera.org/learn/machine-learning/discussions/weeks/8/threads/kk41Fe5OEeqnzBL0ZMnGMw">协方差的U和X的V是相等的，其实都可以</a></p>
+<p>理解：<span class="math inline">\(X=U'S'V'^T\)</span>,
+<span class="math inline">\(X^TX=USV^T\)</span>，现要说明 <span class="math inline">\(V'=U\)</span>, 只需要 <span class="math inline">\(X^TX=V'S'^2V'^T=USV^T\)</span>，所以
+<span class="math inline">\(V'=U\)</span>。</p></li>
+<li><p><strong>为什么要取协方差矩阵SVD后的左奇异矩阵来压缩特征维度？</strong></p>
+<p>首先易证一个SPD矩阵通过SVD得到的U和V是相等的。</p>
+<p>其次，通常我们用XV=YU来表示坐标变换。</p>
+<p><span class="math inline">\(\Sigma = X^TX\)</span>，又有 <span class="math inline">\(\Sigma = USV^T\)</span>，可以得到 <span class="math inline">\(\Sigma V =
+US\)</span>，这里实际上是将covariance矩阵变化为对角线矩阵，即互不相关（其中U=V，即U为协方差矩阵的特征向量，S为其特征值）。那么这时，我们令XI=UZ，I是X坐标系下的正交基，即
+<span class="math inline">\(Z=U^TX\)</span>。此时Z的协方差 <span class="math inline">\(Z^TZ=\Sigma\)</span>。</p></li>
+</ol>
+<h2 id="applying-pca">Applying PCA</h2>
+<h3 id="reconstruction-from-compressed-representation">Reconstruction
+from compressed representation</h3>
+<p><span class="math display">\[
+z=U_{reduce}^Tx
+\]</span></p>
+<p>可以得到： <span class="math display">\[
+x_{approx}=U_{reduce}z
+\]</span></p>
+<h3 id="choosing-the-number-k-of-principal-component">Choosing the
+number k of principal component</h3>
+<ul>
+<li>Average squared projection error：</li>
+</ul>
+<p><span class="math display">\[
+\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}-x_{approx}^{(i)}\parallel ^2
+\]</span></p>
+<ul>
+<li><p>Tptal variation in the data: <span class="math display">\[
+\frac{1}{m}\Sigma_{i=1}^m\parallel x^{(i)}\parallel ^2
+\]</span></p></li>
+<li><p>Choose k to be smallest value so that <span class="math display">\[
+\frac{\frac{1}{m}\Sigma_{i=1}^m\parallel
+x^{(i)}-x_{approx}^{(i)}\parallel ^2}{\frac{1}{m}\Sigma_{i=1}^m\parallel
+x^{(i)}\parallel ^2}\le0.01
+\]</span> "99% of variance is
+retained"。这个数值可以根据需求不同更换。</p></li>
+<li><p>算法：</p>
+<p>SVD函数返回的S矩阵为diagonal matrix。</p>
+<p>For given k: k 递增，使得 <span class="math display">\[
+1-\frac{\Sigma_{i=1}^{k}S_{ii}}{\Sigma_{i=1}^{n}S_{ii}}\le0.01
+\]</span></p>
+<p>选择最小的K满足上式。</p>
+<p>根据性质：矩阵特征值之和等于主对角线元素之和，易证(6)式等价于(7)式。</p></li>
+</ul>
+<h3 id="advice-for-applying-pca">Advice for applying PCA</h3>
+<ol type="1">
+<li><p>Supervised learning speedup</p>
+<p>压缩原始训练集数据的维度</p>
+<p>Mapping <span class="math inline">\(x^{(i)}\rightarrow
+z^{(i)}\)</span>should be defined by running PCA only on the trainning
+set. This mapping can be applied as well to the examples <span class="math inline">\(x_{CV}^{(i)}\)</span> and <span class="math inline">\(x_{test}^{(i)}\)</span> in the cross validation
+and test sets.</p></li>
+<li><p>Compression</p>
+<ul>
+<li>Reduce memory/disk needed to store data</li>
+<li>speed up learning algorithm</li>
+</ul></li>
+<li><p>Visualization</p></li>
+<li><p>Bad use of PCA: To prevent overfitting</p>
+<p>可能确实可以避免过拟合，但是不是解决过拟合的好方法。正确方法式加正则项(Use
+regularization instead!)</p>
+<p>For example: <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210403175514854.png" alt="image-20210403175514854"></p></li>
+<li><p>正确做法是先不用PCA，在原始数据跑一遍，如果不符合期望，再用PCA</p></li>
+</ol>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
