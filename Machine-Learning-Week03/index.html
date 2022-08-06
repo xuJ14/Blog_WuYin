@@ -9,7 +9,7 @@
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/gallery/avator.svg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta name="google-site-verification" content="NgFq858mc61GVXVhz9J-Gw2smqS_Eqstq">
 
@@ -155,7 +155,11 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week-03-Classification-and-Representation-Overfitting"><span class="nav-number">1.1.</span> <span class="nav-text">Week 03 Classification and Representation | Overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Classification-and-Representation-%E5%88%86%E7%B1%BB%E5%92%8C%E8%A1%A8%E5%BE%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Classification and Representation 分类和表征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Logistic-Regression-Model-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Logistic Regression Model 逻辑回归模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Multiclass-Classification-%E5%A4%9A%E7%B1%BB%E5%88%AB%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Multiclass Classification 多类别分类问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Overfitting-%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. Overfitting 过拟合</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#machine-learning"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-03-classification-and-representation-overfitting"><span class="nav-number">1.1.</span> <span class="nav-text">Week 03
+Classification and Representation | Overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#classification-and-representation-%E5%88%86%E7%B1%BB%E5%92%8C%E8%A1%A8%E5%BE%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Classification
+and Representation 分类和表征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic-regression-model-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Logistic Regression
+Model 逻辑回归模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiclass-classification-%E5%A4%9A%E7%B1%BB%E5%88%AB%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Multiclass
+Classification 多类别分类问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overfitting-%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. Overfitting 过拟合</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -278,7 +282,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>3.2k</span>
+      <span>3.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -296,80 +300,81 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h1><h2 id="Week-03-Classification-and-Representation-Overfitting"><a href="#Week-03-Classification-and-Representation-Overfitting" class="headerlink" title="Week 03 Classification and Representation | Overfitting"></a>Week 03 Classification and Representation | Overfitting</h2><h3 id="1-Classification-and-Representation-分类和表征"><a href="#1-Classification-and-Representation-分类和表征" class="headerlink" title="1. Classification and Representation 分类和表征"></a>1. Classification and Representation 分类和表征</h3><ol>
+        <h1 id="machine-learning">Machine Learning</h1>
+<h2 id="week-03-classification-and-representation-overfitting">Week 03
+Classification and Representation | Overfitting</h2>
+<h3 id="classification-and-representation-分类和表征">1. Classification
+and Representation 分类和表征</h3>
+<ol type="1">
 <li><p><strong>Logistic Regression算法应用于Classification</strong></p>
 <ul>
 <li><p><strong>binary classification problem </strong>二元分类问题</p>
 <ul>
 <li>函数值是离散的discrete</li>
-</ul>
-</li>
+</ul></li>
 <li><p><strong>Hypothesis Representation</strong> 假设陈述</p>
 <ul>
-<li><p>因为需要$y∈\{0,1\}$，所以要使得$0\le h_\theta(x)\le1$，令<script type="math/tex">h_\theta(x)=g(\theta^Tx),\ z=\theta^Tx,\  g(x)=\frac {1}{1+e^{-z}}</script></p>
-</li>
-<li><p>$h_\theta(x)$表示输出为1的概率:</p>
-<script type="math/tex; mode=display">
-h_\theta(x)=P(y=1|x;\theta)=1-P(y=0|x;\theta)</script></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Decision Boundary</strong> 决策边界：分类的边界</p>
-<script type="math/tex; mode=display">
-h_\theta(x)=g(\theta_0+\theta_1x_1+\theta_2x_2)</script><ul>
+<li><p>因为需要<span class="math inline">\(y∈\{0,1\}\)</span>，所以要使得<span class="math inline">\(0\le h_\theta(x)\le1\)</span>，令<span class="math display">\[h_\theta(x)=g(\theta^Tx),\
+z=\theta^Tx,\  g(x)=\frac {1}{1+e^{-z}}\]</span></p></li>
+<li><p><span class="math inline">\(h_\theta(x)\)</span>表示输出为1的概率: <span class="math display">\[
+h_\theta(x)=P(y=1|x;\theta)=1-P(y=0|x;\theta)
+\]</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decision Boundary</strong> 决策边界：分类的边界 <span class="math display">\[
+h_\theta(x)=g(\theta_0+\theta_1x_1+\theta_2x_2)
+\]</span></p>
+<ul>
 <li><p>非线性(non-linear)决策边界</p>
-<p>多项式是决策边界的属性，不是训练集的属性，训练集决定参数θ的值</p>
-</li>
-</ul>
-</li>
+<p>多项式是决策边界的属性，不是训练集的属性，训练集决定参数θ的值</p></li>
+</ul></li>
 </ol>
-<h3 id="2-Logistic-Regression-Model-逻辑回归模型"><a href="#2-Logistic-Regression-Model-逻辑回归模型" class="headerlink" title="2. Logistic Regression Model 逻辑回归模型"></a>2. Logistic Regression Model 逻辑回归模型</h3><ol>
+<h3 id="logistic-regression-model-逻辑回归模型">2. Logistic Regression
+Model 逻辑回归模型</h3>
+<ol type="1">
 <li><p><strong>Cost Function</strong></p>
 <ul>
-<li><p>convex 凸函数，可以收敛到全局最小</p>
-</li>
-<li><p>不能使用linear regression的Cost function，因为这会使得logistic function的成本函数变成波浪形，形成许多局部最优，就无法形成凸函数</p>
-</li>
-<li><p>因此替换成本函数为：</p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac {1}{m}\sum \limits_{i=1}^mCost(h_\theta(x^{(i)}),y^{(i)}) \\
+<li><p>convex 凸函数，可以收敛到全局最小</p></li>
+<li><p>不能使用linear regression的Cost function，因为这会使得logistic
+function的成本函数变成波浪形，形成许多局部最优，就无法形成凸函数</p></li>
+<li><p>因此替换成本函数为： <span class="math display">\[
+J(\theta)=\frac {1}{m}\sum
+\limits_{i=1}^mCost(h_\theta(x^{(i)}),y^{(i)}) \\
 Cost(h_\theta(x),y)=
-\begin{cases}-log(h_\theta(x)) & \quad if\ y=1 \\
--log(1-h_\theta(x)) & \quad if\ y=0
-\end{cases}</script><blockquote>
-<p><strong>The cost function in this way guarantees that J(θ) is convex for logistic regression.</strong></p>
-</blockquote>
-</li>
-<li><p>这里的Cost function等价于：</p>
-<script type="math/tex; mode=display">
-Cost(h_\theta(x),y)=-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x))</script></li>
-<li><p>带入到代价函数 J(θ) 中</p>
-</li>
-<li><p>使用<strong>==最大似然估计法==</strong>可以得出这个代价函数，最大似然估计可以有效地为不同模型找到参数数据。</p>
-</li>
-<li><p>凸性是这个函数优秀地属性之一</p>
-</li>
-<li><p>接下来：为了拟合θ，就要最小化 J(θ)</p>
-</li>
-</ul>
-</li>
-<li><p><strong>Gradient Descent 梯度下降法</strong></p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac {\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\ j=0...n)</script><ul>
-<li><p>选择学习速率：绘制 J(θ) 关于迭代次数的函数，使得每一次迭代函数值都在下降</p>
-</li>
-<li><p>可以使用向量化实现算法</p>
-<script type="math/tex; mode=display">
+\begin{cases}-log(h_\theta(x)) &amp; \quad if\ y=1 \\
+-log(1-h_\theta(x)) &amp; \quad if\ y=0
+\end{cases}
+\]</span></p>
+<blockquote>
+<p><strong>The cost function in this way guarantees that J(θ) is convex
+for logistic regression.</strong></p>
+</blockquote></li>
+<li><p>这里的Cost function等价于： <span class="math display">\[
+Cost(h_\theta(x),y)=-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x))
+\]</span></p></li>
+<li><p>带入到代价函数 J(θ) 中</p></li>
+<li><p>使用<strong>==最大似然估计法==</strong>可以得出这个代价函数，最大似然估计可以有效地为不同模型找到参数数据。</p></li>
+<li><p>凸性是这个函数优秀地属性之一</p></li>
+<li><p>接下来：为了拟合θ，就要最小化 J(θ)</p></li>
+</ul></li>
+<li><p><strong>Gradient Descent 梯度下降法</strong> <span class="math display">\[
+\theta_j:=\theta_j-\alpha\frac {\partial} {\partial
+\theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\ j=0...n)
+\]</span></p>
+<ul>
+<li><p>选择学习速率：绘制 J(θ)
+关于迭代次数的函数，使得每一次迭代函数值都在下降</p></li>
+<li><p>可以使用向量化实现算法 <span class="math display">\[
 \begin{array}{lc}
 h=g(\theta^TX)\\
 J(\theta)=\frac{1}{m}\cdot(-y^Tlog(h)-(1-y)^Tlog(1-h))\\
 \text{注：这里X是$（n+1）\times1$维列向量}
-\end{array}</script><p>最终得到：</p>
-<script type="math/tex; mode=display">
-\theta:=\theta-\frac{\alpha}{m}X(g(\theta^TX)-\vec{y})</script></li>
-</ul>
-</li>
+\end{array}
+\]</span> 最终得到： <span class="math display">\[
+\theta:=\theta-\frac{\alpha}{m}X(g(\theta^TX)-\vec{y})
+\]</span></p></li>
+</ul></li>
 </ol>
 <ul>
 <li>特征值缩放也同样适用该模型</li>
@@ -378,77 +383,86 @@ J(\theta)=\frac{1}{m}\cdot(-y^Tlog(h)-(1-y)^Tlog(1-h))\\
 <p><strong>关于代价函数的最大似然估计法相关数学推导参见<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ranjiewen/p/5967496.html">这里</a></strong></p>
 <p><strong>==统计学是机器学习的数学基础==</strong></p>
 </blockquote>
-<ol>
+<ol start="3" type="1">
 <li><p>Optimization algorithm 优化算法</p>
 <ul>
 <li><p>例如：</p>
 <ul>
-<li><p>Conjugate gradient 共轭梯度法</p>
-</li>
-<li><p>BFGS变尺度法</p>
-</li>
+<li><p>Conjugate gradient 共轭梯度法</p></li>
+<li><p>BFGS变尺度法</p></li>
 <li><p>L-BFGS限制变尺度法</p>
 <p>优点：无需手动选择α（线性搜索法每一步都在改变α）；比梯度下降法收敛更快</p>
-<p>缺点：算法更复杂、难理解</p>
-</li>
-</ul>
-</li>
+<p>缺点：算法更复杂、难理解</p></li>
+</ul></li>
 <li><p>octave中的优化算法表达：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function [jVal, gradient] = costFunction(theta)</span><br><span class="line">  jVal = [...code to compute J(theta)...];</span><br><span class="line">  gradient = [...code to compute derivative of J(theta)...];</span><br><span class="line">end</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">options = optimset('GradObj', 'on', 'MaxIter', 100);</span><br><span class="line">initialTheta = zeros(2,1);</span><br><span class="line">   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ul>
-</li>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">options = optimset('GradObj', 'on', 'MaxIter', 100);</span><br><span class="line">initialTheta = zeros(2,1);</span><br><span class="line">   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></tbody></table></figure></li>
+</ul></li>
 </ol>
-<h3 id="3-Multiclass-Classification-多类别分类问题"><a href="#3-Multiclass-Classification-多类别分类问题" class="headerlink" title="3. Multiclass Classification 多类别分类问题"></a>3. Multiclass Classification 多类别分类问题</h3><ol>
+<h3 id="multiclass-classification-多类别分类问题">3. Multiclass
+Classification 多类别分类问题</h3>
+<ol type="1">
 <li><p><strong>one-vs-all 一对多分类算法</strong></p>
 <p>划分为多个二分类问题，求多个h(x)。应用于预测集时，将x分类到h最大的那个集里。</p>
-<p>$h^{(i)}_\theta(x)=P(y=i|x;\theta),\quad prediction=\max\limits_{i}(h^{(i)}_\theta(x))$</p>
-</li>
+<p><span class="math inline">\(h^{(i)}_\theta(x)=P(y=i|x;\theta),\quad
+prediction=\max\limits_{i}(h^{(i)}_\theta(x))\)</span></p></li>
 </ol>
-<h3 id="4-Overfitting-过拟合"><a href="#4-Overfitting-过拟合" class="headerlink" title="4. Overfitting 过拟合"></a>4. Overfitting 过拟合</h3><ol>
-<li><p>underfitting —— 高bias偏差（Bias反映的是模型在样本上的输出与真实值之间的误差，即模型本身的精准度，即算法本身的拟合能力）</p>
-<p>Overfitting —— 高variance方差（variance反映的是模型每一次输出结果与模型输出期望之间的误差，即模型的稳定性。反应预测的波动情况。）</p>
+<h3 id="overfitting-过拟合">4. Overfitting 过拟合</h3>
+<ol type="1">
+<li><p>underfitting ——
+高bias偏差（Bias反映的是模型在样本上的输出与真实值之间的误差，即模型本身的精准度，即算法本身的拟合能力）</p>
+<p>Overfitting ——
+高variance方差（variance反映的是模型每一次输出结果与模型输出期望之间的误差，即模型的稳定性。反应预测的波动情况。）</p>
 <blockquote>
 <p>关于方差与偏差的意义参见<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012197749/article/details/79766317">这里</a></p>
 </blockquote>
-<ol>
+<ol start="2" type="1">
 <li>解决过拟合：</li>
 </ol>
 <ul>
-<li>减少特征的数量<ul>
+<li>减少特征的数量
+<ul>
 <li>手动选择保留的特征</li>
-<li>模型选择算法model selection algorithm，可以自动决定要保留的变量和要剔除的变量</li>
+<li>模型选择算法model selection
+algorithm，可以自动决定要保留的变量和要剔除的变量</li>
 <li>缺点：剔除了一部分信息</li>
-</ul>
-</li>
-<li>regularization 正则化<ul>
+</ul></li>
+<li>regularization 正则化
+<ul>
 <li>保留所有变量，减少变量θ的magnitude</li>
 <li>在有很多变量时很有用</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<ol>
+<ol start="3" type="1">
 <li>正则化</li>
 </ol>
 <ul>
 <li>在代价函数加一个正则化项，使得参数θ尽可能小，排除bias偏差项</li>
 </ul>
-<script type="math/tex; mode=display">
-\min\limits_\theta\frac{1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\lambda\sum\limits_{j=1}^n\theta_j^2</script><ul>
-<li><p>λ是正则化参数regularization parameter</p>
-</li>
-<li><p>应用于梯度下降法：（注：$\theta_0$一定不要正则化！）</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac {\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha[\frac {1}{m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j]\quad(for\ j=1...n)</script></li>
-<li>应用于正规方程normal equation：<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\min\limits_\theta\frac{1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\lambda\sum\limits_{j=1}^n\theta_j^2
+\]</span></p>
+<ul>
+<li><p>λ是正则化参数regularization parameter</p></li>
+<li><p>应用于梯度下降法：（注：<span class="math inline">\(\theta_0\)</span>一定不要正则化！） <span class="math display">\[
+\theta_j:=\theta_j-\alpha\frac {\partial} {\partial
+\theta_j}J(\theta)=\theta_j-\alpha[\frac {1}{m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j]\quad(for\
+j=1...n)
+\]</span></p></li>
+<li><p>应用于正规方程normal equation： <span class="math display">\[
 \theta=(X^TX+\lambda\cdot L)^{-1}X^Ty\\
-where \quad L=\begin{bmatrix}0\\\ &1\\\  &\  &1\\\  &\  &\  &\ddots\\\  &\  &\  &\  &1\\\end{bmatrix}</script><ul>
-<li>Non-invertibility 不可逆性<br>suppose $m\le n$, 特征多于例子时，$\theta=(X^TX)^{-1}X^Ty$ 中，$X^TX$是不可逆的（或奇异的），即为退化矩阵（degenerate）<br>但是加入λL 后，解决了上述问题，公式（9）括号内的矩阵是可逆的（前提是λ&gt;0）</li>
-</ul>
-</li>
-</ul>
-</li>
+where \quad L=\begin{bmatrix}0\\\
+&amp;1\\\  &amp;\  &amp;1\\\  &amp;\  &amp;\  &amp;\ddots\\\  &amp;\  &amp;\  &amp;\  &amp;1\\\end{bmatrix}
+\]</span></p>
+<ul>
+<li>Non-invertibility 不可逆性 suppose <span class="math inline">\(m\le
+n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span> 中，<span class="math inline">\(X^TX\)</span>是不可逆的（或奇异的），即为退化矩阵（degenerate）
+但是加入λL
+后，解决了上述问题，公式（9）括号内的矩阵是可逆的（前提是λ&gt;0）</li>
+</ul></li>
+</ul></li>
 </ol>
 
     </div>
@@ -540,14 +554,14 @@ where \quad L=\begin{bmatrix}0\\\ &1\\\  &\  &1\\\  &\  &\  &\ddots\\\  &\  &\  
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">72k</span>
+    <span title="Symbols count total">76k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:05</span>
+    <span title="Reading time total">1:09</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
