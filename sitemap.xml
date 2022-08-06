@@ -218,6 +218,13 @@
 
   
   <url>
+    <loc>https://xuj14.github.io/tags/Mathematics/</loc>
+    <lastmod>2022-08-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xuj14.github.io/tags/Project/</loc>
     <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -232,7 +239,7 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Mathematics/</loc>
+    <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
     <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -246,7 +253,7 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
+    <loc>https://xuj14.github.io/tags/Python/</loc>
     <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -254,13 +261,6 @@
   
   <url>
     <loc>https://xuj14.github.io/tags/Essay/</loc>
-    <lastmod>2022-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xuj14.github.io/tags/Python/</loc>
     <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
