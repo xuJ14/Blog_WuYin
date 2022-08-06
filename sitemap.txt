@@ -22,10 +22,10 @@ https://xuj14.github.io/Machine-Learning-Week03/
 https://xuj14.github.io/This-is-my-first-bolg/
 https://xuj14.github.io/hello-world/
 https://xuj14.github.io/
-https://xuj14.github.io/tags/Project/
-https://xuj14.github.io/tags/Machine-Learning/
-https://xuj14.github.io/tags/Mathematics/
 https://xuj14.github.io/tags/Learning-Tips/
+https://xuj14.github.io/tags/Project/
+https://xuj14.github.io/tags/Mathematics/
+https://xuj14.github.io/tags/Machine-Learning/
 https://xuj14.github.io/tags/Issues/
-https://xuj14.github.io/tags/Essay/
 https://xuj14.github.io/tags/Python/
+https://xuj14.github.io/tags/Essay/
