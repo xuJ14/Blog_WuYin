@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+]]></content>
+      <tags>
+        <tag>Project</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Caculus Review</title>
     <url>/Caculus-Review/</url>
     <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
@@ -224,50 +241,6 @@ f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
 ]]></content>
       <tags>
         <tag>Mathematics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
-]]></content>
-      <tags>
-        <tag>Project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -765,136 +738,30 @@ error"错误 尽量不要用#符号</p></li>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week01</title>
-    <url>/Machine-Learning-Week01/</url>
-    <content><![CDATA[<h2 id="week-1">Week 1</h2>
-<ol type="1">
-<li><p><strong>Supervised Learning 监督学习</strong></p>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
 <ul>
-<li>分类问题 classification problem
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
 <ul>
-<li>discrete output（0，1）</li>
-<li>features</li>
-<li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
 <ul>
-<li>continuous output</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
-<ul>
-<li><p><strong>clustering algorithm 聚类算法</strong></p>
-<ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
-<ul>
-<li><p><strong>线性回归算法 linear regression</strong></p>
-<ul>
-<li><p>training set 训练集</p></li>
-<li><p>m - 训练样本数</p>
-<p>x - 输入变量</p>
-<p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
-<li><p><strong>Cost Function 成本函数</strong></p>
-<ul>
-<li><p>度量函数拟合的程度</p></li>
-<li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Parameter Learning</strong></p>
-<ul>
-<li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
-<ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
-<li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
-<li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
-<li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
-<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
-<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
-<li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
-<li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
-<li>SVD分解法</li>
-<li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
-</ol>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>Machine Learning</tag>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -970,6 +837,61 @@ x_i\le 2\)</span>也可以</li>
 </ul></li>
 </ul></li>
 </ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week04</title>
+    <url>/Machine-Learning-Week04/</url>
+    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
+Representation</h2>
+<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
+<p>特征多，有高次项</p>
+<h3 id="neural-networks">2. Neural Networks</h3>
+<ol type="1">
+<li><p>Model representation</p>
+<ul>
+<li><p>bias unit偏置项（=1）</p></li>
+<li><p>sigmoid activation function S型激励函数</p></li>
+<li><p>input layer —— hidden layer —— output layer</p></li>
+<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
+of\ unit\ i\ in\ layer\  j \]</span></p>
+<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
+controlling function mapping from layer j to layer j+1
+，即参数矩阵（波矩阵、权重矩阵）</p>
+<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
+unit</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
+<span class="math display">\[
+\begin{array}{r}
+a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
+x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
+x_{3}\right)=g(z_1^{(2)}) \\
+a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
+x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
+x_{3}\right)=g(z_2^{(2)})  \\
+a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
+x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
+=g(z_3^{(2)}) \\
+h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
+a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
+a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
+\end{array}
+\]</span></p></li>
+<li><p>即前向传播（forward propagation）</p></li>
+</ul></li>
+</ol>
+<h3 id="applications">3. Applications</h3>
+<ol type="1">
+<li>与运算（-30，20，20）</li>
+<li>或运算（-10，20，20）</li>
+<li>非运算（10，-20）</li>
+<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
+<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
+</ol>
+<p>​</p>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
@@ -1148,55 +1070,133 @@ n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week04</title>
-    <url>/Machine-Learning-Week04/</url>
-    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
-Representation</h2>
-<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
-<p>特征多，有高次项</p>
-<h3 id="neural-networks">2. Neural Networks</h3>
+    <title>Machine Learning Week01</title>
+    <url>/Machine-Learning-Week01/</url>
+    <content><![CDATA[<h2 id="week-1">Week 1</h2>
 <ol type="1">
-<li><p>Model representation</p>
+<li><p><strong>Supervised Learning 监督学习</strong></p>
 <ul>
-<li><p>bias unit偏置项（=1）</p></li>
-<li><p>sigmoid activation function S型激励函数</p></li>
-<li><p>input layer —— hidden layer —— output layer</p></li>
-<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
-of\ unit\ i\ in\ layer\  j \]</span></p>
-<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
-controlling function mapping from layer j to layer j+1
-，即参数矩阵（波矩阵、权重矩阵）</p>
-<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
-unit</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
-<span class="math display">\[
-\begin{array}{r}
-a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
-x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
-x_{3}\right)=g(z_1^{(2)}) \\
-a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
-x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
-x_{3}\right)=g(z_2^{(2)})  \\
-a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
-x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
-=g(z_3^{(2)}) \\
-h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
-a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
-a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
-\end{array}
-\]</span></p></li>
-<li><p>即前向传播（forward propagation）</p></li>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
 </ul></li>
 </ol>
-<h3 id="applications">3. Applications</h3>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
 <ol type="1">
-<li>与运算（-30，20，20）</li>
-<li>或运算（-10，20，20）</li>
-<li>非运算（10，-20）</li>
-<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
-<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
 </ol>
-<p>​</p>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
@@ -2234,54 +2234,6 @@ Ghemawat。summation over the training set。即并行处理</p>
       </tags>
   </entry>
   <entry>
-    <title>Reading List</title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
-</ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
-</ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
-</ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python Algorithm and Data Structure</title>
     <url>/Python-Algorithm-and-Data-Structure/</url>
     <content><![CDATA[<h1 id="python-数据结构与算法分析">Python 数据结构与算法分析</h1>
@@ -2533,6 +2485,54 @@ weight spanning tree)</h3>
 ]]></content>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
+]]></content>
+      <tags>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
