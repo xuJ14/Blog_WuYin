@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
-]]></content>
-      <tags>
-        <tag>Project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Caculus Review</title>
     <url>/Caculus-Review/</url>
     <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
@@ -271,136 +227,47 @@ f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week01</title>
-    <url>/Machine-Learning-Week01/</url>
-    <content><![CDATA[<h2 id="week-1">Week 1</h2>
-<ol type="1">
-<li><p><strong>Supervised Learning 监督学习</strong></p>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
 <ul>
-<li>分类问题 classification problem
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
 <ul>
-<li>discrete output（0，1）</li>
-<li>features</li>
-<li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
 <ul>
-<li>continuous output</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
-<ul>
-<li><p><strong>clustering algorithm 聚类算法</strong></p>
-<ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
-<ul>
-<li><p><strong>线性回归算法 linear regression</strong></p>
-<ul>
-<li><p>training set 训练集</p></li>
-<li><p>m - 训练样本数</p>
-<p>x - 输入变量</p>
-<p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
-<li><p><strong>Cost Function 成本函数</strong></p>
-<ul>
-<li><p>度量函数拟合的程度</p></li>
-<li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Parameter Learning</strong></p>
-<ul>
-<li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
-<ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
-<li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
-<li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
-<li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
-<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
-<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
-<li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
-<li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
-<li>SVD分解法</li>
-<li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
-</ol>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>Machine Learning</tag>
+        <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+]]></content>
+      <tags>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -862,6 +729,175 @@ model变保守（0，5，15，300……）</p></li>
       </tags>
   </entry>
   <entry>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Issues</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week01</title>
+    <url>/Machine-Learning-Week01/</url>
+    <content><![CDATA[<h2 id="week-1">Week 1</h2>
+<ol type="1">
+<li><p><strong>Supervised Learning 监督学习</strong></p>
+<ul>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
+<ol type="1">
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Machine Learning Week02</title>
     <url>/Machine-Learning-Week02/</url>
     <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
@@ -937,42 +973,6 @@ x_i\le 2\)</span>也可以</li>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
-<ul>
-<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
-<p>git@github.com: yourname/yourname.github.io.git</p></li>
-</ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
-<ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
-</ul>
-<h2 id="formula">Formula</h2>
-<ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Issues</tag>
       </tags>
   </entry>
   <entry>
@@ -1197,6 +1197,145 @@ a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
 <li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
 </ol>
 <p>​</p>
+]]></content>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week07</title>
+    <url>/Machine-Learning-Week07/</url>
+    <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
+支持向量机</h2>
+<h3 id="large-margin-classification">Large Margin Classification</h3>
+<ol type="1">
+<li><p>Optimization Objective 优化目标</p>
+<ul>
+<li><p>在复杂非线性方程的学习上有优势。</p></li>
+<li><figure>
+<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206123628670.png" alt="image-20201206123628670">
+<figcaption aria-hidden="true">image-20201206123628670</figcaption>
+</figure></li>
+<li><figure>
+<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206124245802.png" alt="image-20201206124245802">
+<figcaption aria-hidden="true">image-20201206124245802</figcaption>
+</figure>
+<p>注：实际上在训练代价函数时，分界线为-1，1</p></li>
+</ul></li>
+<li><p>Large Margin Intuition</p>
+<ul>
+<li><p>代价函数： <span class="math display">\[
+\min _{\theta} C \sum_{i=1}^{m}\left[y^{(i)}
+{\operatorname{cost}_{1}\left(\theta^{T}
+x^{(i)}\right)}+\left(1-y^{(i)}\right)
+\operatorname{cost}_{0}\left(\theta^{T}
+x^{(i)}\right)\right]+\frac{1}{2} \sum_{i=1}^{n} \theta_{j}^{2}\\
+if\ y=1, we\ want\ \theta^{T} x \geq 1\ (not\ just \left.\geq 0\right)\\
+if\ y=0, we\ want\ \theta^{T} x \leq-1\ (not\ just&lt;0 )
+\]</span></p></li>
+<li><p>SVM也被叫做大间距分类器，因为它尽量用最大间距分类样本，使得SVM更具有鲁棒性</p></li>
+<li><p>其中正则化参数C不适合设置得过大，因为这会使得一些异常值（outliner)
+会使得分类向异常值产生比较大得偏差，这就类似与逻辑回归里过小的λ
+。</p></li>
+</ul></li>
+<li><p>Mathematics Behind Large Margin Classification</p>
+<ul>
+<li><p>向量内积：<span class="math inline">\(\lVert u
+\rVert\)</span>表明u的范数，即u向量的长度。<span class="math inline">\(u^Tv=p\cdot\lVert u \rVert\)</span>, p
+是v在u上的投影长度</p></li>
+<li><p>本图演示了为什么这种方式可以最小化θ<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206171424283.png" alt="image-20201206171424283"></p>
+<p>注：这里决策边界和θ是具有垂直关系的</p></li>
+<li><p>这里最小化θ范数等价于最大化所有的p，即最大化所有点到决策边界的margin。</p></li>
+<li><p>即使<span class="math inline">\(\theta_0\ne0\)</span>推理过程也和上述类似</p></li>
+</ul></li>
+</ol>
+<h3 id="kernels">Kernels</h3>
+<ol type="1">
+<li><p>非线性决策边界</p>
+<ul>
+<li><p>用相似度函数similarity
+function代替高阶项，度量样本x和第一个标记的相似度，即核函数，例如：高斯核函数：<span class="math inline">\(f_1=similarity(x,l^{(1)})=exp(-\frac{\lVert
+x-l^{(1)}
+\rVert^2}{2\sigma^2})=exp(-\frac{\Sigma_{j=1}^{n}(x_j-l_j^{(i)})^2}{2\sigma^2})\)</span></p>
+<p>==问：这里σ是什么，如何计算？==</p></li>
+<li><p>通过用f替代特征，可以训练出复杂的非线性边界：例如：预测y=1，当<span class="math inline">\(\theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3\ge0\)</span></p></li>
+</ul></li>
+<li><p>选择landmark标记点 l :</p>
+<ul>
+<li>Given一系列x，令<span class="math inline">\(l^1=x^1\)</span>, <span class="math inline">\(f_{m}^{(i)}=similarity(x^{(i)},l^{(m)})\)</span></li>
+<li>将<span class="math inline">\(x^{(i)}\in
+\mathbb{R}^{n+1}\)</span>，转变为<span class="math inline">\(f^{(i)}=\begin{bmatrix}f_0^{(i)}\\f_0^{(i)}\\
+\vdots \\ f_m^{(i)} \end{bmatrix}\)</span>，<span class="math inline">\(f_0^{(i)}=1\)</span>。<span class="math inline">\(f\in \mathbb{R}^{m+1}\)</span></li>
+</ul></li>
+<li><p>Hypothesis：Given x ， compute features f</p>
+<p>Predict "y=1" if <span class="math inline">\(\theta^Tf\ge0\)</span></p></li>
+<li><p>代价函数： <span class="math display">\[
+\min _{\theta} C \sum_{i=1}^{m} y^{(i)}
+\operatorname{cost}_{1}\left(\theta^{T}
+f^{(i)}\right)+\left(1-y^{(i)}\right)
+\operatorname{cost}_{0}\left(\theta^{T} f^{(i)}\right)+\frac{1}{2}
+\sum_{j=1}^{m } \theta_{j}^{2}
+\]</span> 在SVM的实际应用中，最后一项通常会用<span class="math inline">\(\theta^TM\theta\)</span>，其中M和核函数有关，是为了提高计算效率</p></li>
+<li><p>参数的选择：</p>
+<ul>
+<li><p>C(=<span class="math inline">\(\frac{1}{\lambda}\)</span>)</p>
+<ul>
+<li>Large C：Lower bias；High variance</li>
+<li>Small C：Higher bias；Low variance</li>
+</ul></li>
+<li><p><span class="math inline">\(\sigma^2\)</span></p>
+<ul>
+<li><p>Large <span class="math inline">\(\sigma^2\)</span>: Fearures fi
+vary more smoothly.</p>
+<p>​ Higher bias; Lower variance</p></li>
+<li><p>Small <span class="math inline">\(\sigma^2\)</span>: Features fi
+vary less smoothly.</p>
+<p>​ Lower bias, Higher variance.</p></li>
+</ul></li>
+<li><p><strong>方差（variance）：</strong>方差描述的是训练数据在不同迭代阶段的训练模型中，预测值的变化波动情况（或称之为离散情况）。</p></li>
+<li><p><strong>偏差（bias）：</strong>偏差衡量了模型的预测值与实际值之间的偏离关系。</p></li>
+<li><p>低偏差高方差：过拟合；</p></li>
+<li><p>You want to train C and the parameters for the kernel function
+using the training and cross-validation datasets.</p></li>
+</ul></li>
+</ol>
+<h3 id="svms-in-practice">SVMs in Practice</h3>
+<ol type="1">
+<li><p>应用SVM</p>
+<ul>
+<li><p>选择C和σ</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[C, sigma]</span> = <span class="title">dataset3Params</span><span class="params">(X, y, Xval, yval)</span></span></span><br><span class="line"><span class="comment">% 这里x是训练集，xval是验证集</span></span><br><span class="line">value = [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">minC = <span class="number">0</span>;</span><br><span class="line">minSigma = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% 最小值设为交叉验证集的用例数</span></span><br><span class="line">minError = <span class="built_in">size</span>(Xval,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">        model= svmTrain(X, y, value(<span class="built_in">i</span>), @(x1, x2) gaussianKernel(x1, x2, value(<span class="built_in">j</span>)));</span><br><span class="line">        predictions = svmPredict(model,Xval);</span><br><span class="line">        error = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> minError &gt; error</span><br><span class="line">            minError = error;</span><br><span class="line">            minC = value(<span class="built_in">i</span>);</span><br><span class="line">            minSigma = value(<span class="built_in">j</span>);</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">C = minC;</span><br><span class="line">sigma = minSigma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>选择核函数（相似度函数）</p>
+<ul>
+<li>线性核函数（=没有核函数）</li>
+</ul></li>
+<li><p><strong>需要对特征向量归一化</strong>，否则一个特征会占据主要位置</p></li>
+<li><p>不是所有函数都能作为核函数，需要满足Mercer‘s
+Theorem莫塞尔定理，来确保SVM优化包能够正确运行</p></li>
+<li><p>其他核函数：</p>
+<ul>
+<li>多项式核函数</li>
+<li>字符串核函数string kernel；</li>
+<li>卡方核函数chi-square kernel</li>
+<li>直方图交叉核函数histogram intersection kernel</li>
+</ul></li>
+<li><p>多类别分类</p>
+<ul>
+<li>svm包多数内置了</li>
+<li>否则用one-vs-all
+：训练得到K组θ的值，然后选择θx最大的那一组作为分类结果</li>
+</ul></li>
+<li><p>逻辑回归和SVM，什么时候用？</p>
+<ul>
+<li>n为特征数，m为训练集样本数。如果n相对于m来说比较大，使用逻辑回归或者没有核函数的SVM（linear
+kernel）</li>
+<li>n小，m中等大。使用高斯核函数</li>
+<li>n小，m很大。运行很慢，逻辑回归或没有核函数的SVM</li>
+<li>神经网络上面都适用，但有时可能会比SVM慢很多</li>
+</ul></li>
+<li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
+</ul></li>
+</ol>
 ]]></content>
       <tags>
         <tag>Machine Learning</tag>
@@ -1537,145 +1676,6 @@ positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
 <ul>
 <li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
 <li>多项式参数对大训练集没有帮助</li>
-</ul></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week07</title>
-    <url>/Machine-Learning-Week07/</url>
-    <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
-支持向量机</h2>
-<h3 id="large-margin-classification">Large Margin Classification</h3>
-<ol type="1">
-<li><p>Optimization Objective 优化目标</p>
-<ul>
-<li><p>在复杂非线性方程的学习上有优势。</p></li>
-<li><figure>
-<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206123628670.png" alt="image-20201206123628670">
-<figcaption aria-hidden="true">image-20201206123628670</figcaption>
-</figure></li>
-<li><figure>
-<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206124245802.png" alt="image-20201206124245802">
-<figcaption aria-hidden="true">image-20201206124245802</figcaption>
-</figure>
-<p>注：实际上在训练代价函数时，分界线为-1，1</p></li>
-</ul></li>
-<li><p>Large Margin Intuition</p>
-<ul>
-<li><p>代价函数： <span class="math display">\[
-\min _{\theta} C \sum_{i=1}^{m}\left[y^{(i)}
-{\operatorname{cost}_{1}\left(\theta^{T}
-x^{(i)}\right)}+\left(1-y^{(i)}\right)
-\operatorname{cost}_{0}\left(\theta^{T}
-x^{(i)}\right)\right]+\frac{1}{2} \sum_{i=1}^{n} \theta_{j}^{2}\\
-if\ y=1, we\ want\ \theta^{T} x \geq 1\ (not\ just \left.\geq 0\right)\\
-if\ y=0, we\ want\ \theta^{T} x \leq-1\ (not\ just&lt;0 )
-\]</span></p></li>
-<li><p>SVM也被叫做大间距分类器，因为它尽量用最大间距分类样本，使得SVM更具有鲁棒性</p></li>
-<li><p>其中正则化参数C不适合设置得过大，因为这会使得一些异常值（outliner)
-会使得分类向异常值产生比较大得偏差，这就类似与逻辑回归里过小的λ
-。</p></li>
-</ul></li>
-<li><p>Mathematics Behind Large Margin Classification</p>
-<ul>
-<li><p>向量内积：<span class="math inline">\(\lVert u
-\rVert\)</span>表明u的范数，即u向量的长度。<span class="math inline">\(u^Tv=p\cdot\lVert u \rVert\)</span>, p
-是v在u上的投影长度</p></li>
-<li><p>本图演示了为什么这种方式可以最小化θ<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206171424283.png" alt="image-20201206171424283"></p>
-<p>注：这里决策边界和θ是具有垂直关系的</p></li>
-<li><p>这里最小化θ范数等价于最大化所有的p，即最大化所有点到决策边界的margin。</p></li>
-<li><p>即使<span class="math inline">\(\theta_0\ne0\)</span>推理过程也和上述类似</p></li>
-</ul></li>
-</ol>
-<h3 id="kernels">Kernels</h3>
-<ol type="1">
-<li><p>非线性决策边界</p>
-<ul>
-<li><p>用相似度函数similarity
-function代替高阶项，度量样本x和第一个标记的相似度，即核函数，例如：高斯核函数：<span class="math inline">\(f_1=similarity(x,l^{(1)})=exp(-\frac{\lVert
-x-l^{(1)}
-\rVert^2}{2\sigma^2})=exp(-\frac{\Sigma_{j=1}^{n}(x_j-l_j^{(i)})^2}{2\sigma^2})\)</span></p>
-<p>==问：这里σ是什么，如何计算？==</p></li>
-<li><p>通过用f替代特征，可以训练出复杂的非线性边界：例如：预测y=1，当<span class="math inline">\(\theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3\ge0\)</span></p></li>
-</ul></li>
-<li><p>选择landmark标记点 l :</p>
-<ul>
-<li>Given一系列x，令<span class="math inline">\(l^1=x^1\)</span>, <span class="math inline">\(f_{m}^{(i)}=similarity(x^{(i)},l^{(m)})\)</span></li>
-<li>将<span class="math inline">\(x^{(i)}\in
-\mathbb{R}^{n+1}\)</span>，转变为<span class="math inline">\(f^{(i)}=\begin{bmatrix}f_0^{(i)}\\f_0^{(i)}\\
-\vdots \\ f_m^{(i)} \end{bmatrix}\)</span>，<span class="math inline">\(f_0^{(i)}=1\)</span>。<span class="math inline">\(f\in \mathbb{R}^{m+1}\)</span></li>
-</ul></li>
-<li><p>Hypothesis：Given x ， compute features f</p>
-<p>Predict "y=1" if <span class="math inline">\(\theta^Tf\ge0\)</span></p></li>
-<li><p>代价函数： <span class="math display">\[
-\min _{\theta} C \sum_{i=1}^{m} y^{(i)}
-\operatorname{cost}_{1}\left(\theta^{T}
-f^{(i)}\right)+\left(1-y^{(i)}\right)
-\operatorname{cost}_{0}\left(\theta^{T} f^{(i)}\right)+\frac{1}{2}
-\sum_{j=1}^{m } \theta_{j}^{2}
-\]</span> 在SVM的实际应用中，最后一项通常会用<span class="math inline">\(\theta^TM\theta\)</span>，其中M和核函数有关，是为了提高计算效率</p></li>
-<li><p>参数的选择：</p>
-<ul>
-<li><p>C(=<span class="math inline">\(\frac{1}{\lambda}\)</span>)</p>
-<ul>
-<li>Large C：Lower bias；High variance</li>
-<li>Small C：Higher bias；Low variance</li>
-</ul></li>
-<li><p><span class="math inline">\(\sigma^2\)</span></p>
-<ul>
-<li><p>Large <span class="math inline">\(\sigma^2\)</span>: Fearures fi
-vary more smoothly.</p>
-<p>​ Higher bias; Lower variance</p></li>
-<li><p>Small <span class="math inline">\(\sigma^2\)</span>: Features fi
-vary less smoothly.</p>
-<p>​ Lower bias, Higher variance.</p></li>
-</ul></li>
-<li><p><strong>方差（variance）：</strong>方差描述的是训练数据在不同迭代阶段的训练模型中，预测值的变化波动情况（或称之为离散情况）。</p></li>
-<li><p><strong>偏差（bias）：</strong>偏差衡量了模型的预测值与实际值之间的偏离关系。</p></li>
-<li><p>低偏差高方差：过拟合；</p></li>
-<li><p>You want to train C and the parameters for the kernel function
-using the training and cross-validation datasets.</p></li>
-</ul></li>
-</ol>
-<h3 id="svms-in-practice">SVMs in Practice</h3>
-<ol type="1">
-<li><p>应用SVM</p>
-<ul>
-<li><p>选择C和σ</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[C, sigma]</span> = <span class="title">dataset3Params</span><span class="params">(X, y, Xval, yval)</span></span></span><br><span class="line"><span class="comment">% 这里x是训练集，xval是验证集</span></span><br><span class="line">value = [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">minC = <span class="number">0</span>;</span><br><span class="line">minSigma = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% 最小值设为交叉验证集的用例数</span></span><br><span class="line">minError = <span class="built_in">size</span>(Xval,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">        model= svmTrain(X, y, value(<span class="built_in">i</span>), @(x1, x2) gaussianKernel(x1, x2, value(<span class="built_in">j</span>)));</span><br><span class="line">        predictions = svmPredict(model,Xval);</span><br><span class="line">        error = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> minError &gt; error</span><br><span class="line">            minError = error;</span><br><span class="line">            minC = value(<span class="built_in">i</span>);</span><br><span class="line">            minSigma = value(<span class="built_in">j</span>);</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">C = minC;</span><br><span class="line">sigma = minSigma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>选择核函数（相似度函数）</p>
-<ul>
-<li>线性核函数（=没有核函数）</li>
-</ul></li>
-<li><p><strong>需要对特征向量归一化</strong>，否则一个特征会占据主要位置</p></li>
-<li><p>不是所有函数都能作为核函数，需要满足Mercer‘s
-Theorem莫塞尔定理，来确保SVM优化包能够正确运行</p></li>
-<li><p>其他核函数：</p>
-<ul>
-<li>多项式核函数</li>
-<li>字符串核函数string kernel；</li>
-<li>卡方核函数chi-square kernel</li>
-<li>直方图交叉核函数histogram intersection kernel</li>
-</ul></li>
-<li><p>多类别分类</p>
-<ul>
-<li>svm包多数内置了</li>
-<li>否则用one-vs-all
-：训练得到K组θ的值，然后选择θx最大的那一组作为分类结果</li>
-</ul></li>
-<li><p>逻辑回归和SVM，什么时候用？</p>
-<ul>
-<li>n为特征数，m为训练集样本数。如果n相对于m来说比较大，使用逻辑回归或者没有核函数的SVM（linear
-kernel）</li>
-<li>n小，m中等大。使用高斯核函数</li>
-<li>n小，m很大。运行很慢，逻辑回归或没有核函数的SVM</li>
-<li>神经网络上面都适用，但有时可能会比SVM慢很多</li>
-</ul></li>
-<li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
 </ul></li>
 </ol>
 ]]></content>
@@ -2234,54 +2234,6 @@ Ghemawat。summation over the training set。即并行处理</p>
       </tags>
   </entry>
   <entry>
-    <title>Reading List</title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
-</ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
-</ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
-</ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python Algorithm and Data Structure</title>
     <url>/Python-Algorithm-and-Data-Structure/</url>
     <content><![CDATA[<h1 id="python-数据结构与算法分析">Python 数据结构与算法分析</h1>
@@ -2533,6 +2485,54 @@ weight spanning tree)</h3>
 ]]></content>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
+]]></content>
+      <tags>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
