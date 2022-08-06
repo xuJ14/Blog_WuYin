@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>Project</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Caculus Review</title>
     <url>/Caculus-Review/</url>
     <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
@@ -230,23 +250,39 @@ f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
       </tags>
   </entry>
   <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
 ]]></content>
-      <categories>
-        <category>Project</category>
-      </categories>
       <tags>
-        <tag>Project</tag>
+        <tag>Issues</tag>
       </tags>
   </entry>
   <entry>
@@ -703,144 +739,41 @@ model变保守（0，5，15，300……）</p></li>
 </ul></li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week01</title>
-    <url>/Machine-Learning-Week01/</url>
-    <content><![CDATA[<h2 id="week-1">Week 1</h2>
-<ol type="1">
-<li><p><strong>Supervised Learning 监督学习</strong></p>
-<ul>
-<li>分类问题 classification problem
-<ul>
-<li>discrete output（0，1）</li>
-<li>features</li>
-<li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
-<ul>
-<li>continuous output</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
-<ul>
-<li><p><strong>clustering algorithm 聚类算法</strong></p>
-<ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
-<ul>
-<li><p><strong>线性回归算法 linear regression</strong></p>
-<ul>
-<li><p>training set 训练集</p></li>
-<li><p>m - 训练样本数</p>
-<p>x - 输入变量</p>
-<p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
-<li><p><strong>Cost Function 成本函数</strong></p>
-<ul>
-<li><p>度量函数拟合的程度</p></li>
-<li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Parameter Learning</strong></p>
-<ul>
-<li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
-<ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
-<li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
-<li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
-<li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
-<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
-<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
-<li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
-<li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
-<li>SVD分解法</li>
-<li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
-</ol>
-]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
       <tags>
         <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
+<ul>
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -922,69 +855,6 @@ x_i\le 2\)</span>也可以</li>
       </categories>
       <tags>
         <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
-<ul>
-<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
-<p>git@github.com: yourname/yourname.github.io.git</p></li>
-</ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
-<ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
-</ul>
-<h2 id="formula">Formula</h2>
-<ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Issues</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learning Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,6 +1023,142 @@ n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-
 后，解决了上述问题，公式（9）括号内的矩阵是可逆的（前提是λ&gt;0）</li>
 </ul></li>
 </ul></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week01</title>
+    <url>/Machine-Learning-Week01/</url>
+    <content><![CDATA[<h2 id="week-1">Week 1</h2>
+<ol type="1">
+<li><p><strong>Supervised Learning 监督学习</strong></p>
+<ul>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
+<ol type="1">
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
 </ol>
 ]]></content>
       <categories>
@@ -1911,110 +1917,6 @@ regularization instead!)</p>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week10</title>
-    <url>/Machine-Learning-Week10/</url>
-    <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
-<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
-Large Datasets</h2>
-<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
-<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
-curve（error关于m的曲线）</p>
-<p>左图为high variance，说明增加m有助于结果变好；右图为high
-bias，说明增加m无助于结果变好</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
-<figcaption aria-hidden="true">左：high variance；右: high
-bias</figcaption>
-</figure>
-<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
-descent 随机梯度下降</h3>
-<p>Batch gradient descent:
-前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
-<p>Stochastic gradient descent：每次iteration用1个例子</p>
-<ol type="1">
-<li><p>Randomly shuffle dataset</p></li>
-<li><p>Repeat：</p>
-<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
-}</p>
-<blockquote>
-<p>Note: 和Batch gradient
-descent不同的是，无需每一步都要计算全部的training example</p>
-</blockquote></li>
-</ol>
-<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
-<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
-<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
-<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
-<p>第i个例子，直到第i+b-1个例子</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
-<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
-</figure>
-<p>只有当have a good vetorized implementation
-，mini-batch才能比stochastic表现得更好。（并行运算）</p>
-<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
-descent convergence</h3>
-<p>收敛性：</p>
-<ul>
-<li><figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
-<figcaption aria-hidden="true">Algorithm</figcaption>
-</figure></li>
-<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
-better结果。（cost关于no. of iteration 的曲线）</p></li>
-<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
-<li><p>如果学习曲线在上升，就要用更小的α</p></li>
-<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
-<li><p>关于学习速率的选择：</p>
-<ul>
-<li>Learning rate α is typically held constant 在随机梯度下降中</li>
-<li>Can slowly decrease α over time if we want θ to converge.
-（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
-Number+const2}\)</span>）
-<ul>
-<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<p>### Online Learning</p>
-<ul>
-<li><p>连续的数据流：用户进入离开</p></li>
-<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
-regression或者神经网络</p></li>
-<li><p>这里考虑逻辑回归：</p>
-<p>Repeat forever {</p>
-<p>​ Get (x,y) corresponding to user.</p>
-<p>​ Update θ using (x,y):</p>
-<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
-(j=0, ..., n)</p>
-<p>}</p></li>
-<li><p>这个算法可以用于学习用户喜好</p>
-<ul>
-<li>Choosing special offers to show user</li>
-<li>Customized selection of news articles</li>
-<li>product recommendation/search</li>
-</ul></li>
-</ul>
-<h3 id="map-reduce-and-data-parallelism">Map reduce and data
-parallelism</h3>
-<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
-Ghemawat。summation over the training set。即并行处理</p>
-<ul>
-<li>神经网络也同样可以并行计算前向和后向propagation</li>
-<li>有时只需要向量化实现算法，不需要多核并行</li>
-<li>Hadoop是开源map reduce</li>
-<li>由于并行的latency，速度会少于N倍 的单核心</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week09</title>
     <url>/Machine-Learning-Week09/</url>
     <content><![CDATA[<h1 id="anomaly-detection-异常检测">Anomaly Detection 异常检测</h1>
@@ -2270,64 +2172,107 @@ is more accurate.</p>
       </tags>
   </entry>
   <entry>
-    <title>Reading List</title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
+    <title>Machine Learning Week10</title>
+    <url>/Machine-Learning-Week10/</url>
+    <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
+<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
+Large Datasets</h2>
+<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
+<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
+curve（error关于m的曲线）</p>
+<p>左图为high variance，说明增加m有助于结果变好；右图为high
+bias，说明增加m无助于结果变好</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
+<figcaption aria-hidden="true">左：high variance；右: high
+bias</figcaption>
+</figure>
+<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
+descent 随机梯度下降</h3>
+<p>Batch gradient descent:
+前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
+<p>Stochastic gradient descent：每次iteration用1个例子</p>
+<ol type="1">
+<li><p>Randomly shuffle dataset</p></li>
+<li><p>Repeat：</p>
+<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
+}</p>
+<blockquote>
+<p>Note: 和Batch gradient
+descent不同的是，无需每一步都要计算全部的training example</p>
+</blockquote></li>
+</ol>
+<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
+<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
+<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
+<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
+<p>第i个例子，直到第i+b-1个例子</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
+<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
+</figure>
+<p>只有当have a good vetorized implementation
+，mini-batch才能比stochastic表现得更好。（并行运算）</p>
+<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
+descent convergence</h3>
+<p>收敛性：</p>
+<ul>
+<li><figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
+<figcaption aria-hidden="true">Algorithm</figcaption>
+</figure></li>
+<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
+better结果。（cost关于no. of iteration 的曲线）</p></li>
+<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
+<li><p>如果学习曲线在上升，就要用更小的α</p></li>
+<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
+<li><p>关于学习速率的选择：</p>
+<ul>
+<li>Learning rate α is typically held constant 在随机梯度下降中</li>
+<li>Can slowly decrease α over time if we want θ to converge.
+（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
+Number+const2}\)</span>）
+<ul>
+<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
+</ul></li>
+</ul></li>
 </ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<p>### Online Learning</p>
+<ul>
+<li><p>连续的数据流：用户进入离开</p></li>
+<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
+regression或者神经网络</p></li>
+<li><p>这里考虑逻辑回归：</p>
+<p>Repeat forever {</p>
+<p>​ Get (x,y) corresponding to user.</p>
+<p>​ Update θ using (x,y):</p>
+<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
+(j=0, ..., n)</p>
+<p>}</p></li>
+<li><p>这个算法可以用于学习用户喜好</p>
+<ul>
+<li>Choosing special offers to show user</li>
+<li>Customized selection of news articles</li>
+<li>product recommendation/search</li>
+</ul></li>
 </ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
+<h3 id="map-reduce-and-data-parallelism">Map reduce and data
+parallelism</h3>
+<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
+Ghemawat。summation over the training set。即并行处理</p>
+<ul>
+<li>神经网络也同样可以并行计算前向和后向propagation</li>
+<li>有时只需要向量化实现算法，不需要多核并行</li>
+<li>Hadoop是开源map reduce</li>
+<li>由于并行的latency，速度会少于N倍 的单核心</li>
 </ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
 ]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
       <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>This is my first blog!</title>
-    <url>/This-is-my-first-bolg/</url>
-    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
-<p>My major is <strong>Engineering Physics</strong> and
-<strong>Financial Engineering</strong>.</p>
-<p>Hope to share my experiences with you!</p>
-<p><strong>Thank you</strong> for following my blog!</p>
-]]></content>
-      <tags>
-        <tag>Essay</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -2580,6 +2525,99 @@ weight spanning tree)</h3>
 <li>prim算法（和dijkstra算法相似，只不过要采取贪心策略，加入所有的顶点）</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+      <tags>
+        <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>This is my first blog!</title>
+    <url>/This-is-my-first-bolg/</url>
+    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
+<p>My major is <strong>Engineering Physics</strong> and
+<strong>Financial Engineering</strong>.</p>
+<p>Hope to share my experiences with you!</p>
+<p><strong>Thank you</strong> for following my blog!</p>
+]]></content>
+      <tags>
+        <tag>Essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tree Traverse</title>
+    <url>/Tree-Traverse/</url>
+    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
+<p>Leetcode相关题目：94，144，145</p>
+<h2 id="前序遍历">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="递归法">递归法</h1>
+<h2 id="前序遍历-1">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历-1">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历-1">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
       <tags>
         <tag>Python</tag>
       </tags>
@@ -2607,28 +2645,5 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Tree Traverse</title>
-    <url>/Tree-Traverse/</url>
-    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
-<p>Leetcode相关题目：94，144，145</p>
-<h2 id="前序遍历">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="递归法">递归法</h1>
-<h2 id="前序遍历-1">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历-1">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历-1">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
   </entry>
 </search>
