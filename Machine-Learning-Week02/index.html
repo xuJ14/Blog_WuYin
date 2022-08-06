@@ -154,8 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#multiple-feature"><span class="nav-number">1.</span> <span class="nav-text">Multiple Feature</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multivariate-linear-regression"><span class="nav-number">1.1.</span> <span class="nav-text">Multivariate Linear
-Regression</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Multiple-Feature"><span class="nav-number">1.</span> <span class="nav-text">Multiple Feature</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Linear-Regression"><span class="nav-number">1.1.</span> <span class="nav-text">Multivariate Linear Regression</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -294,75 +293,70 @@ Regression</span></a></li></ol></li></ol></div>
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="multiple-feature">Multiple Feature</h1>
-<h2 id="multivariate-linear-regression">Multivariate Linear
-Regression</h2>
-<ol type="1">
-<li><p><span class="math inline">\(h_{\theta}(x)=\theta^{T}X\)</span></p>
-<p><span class="math inline">\(h_θ(x)=\begin{bmatrix}θ_0&amp;θ_1&amp;...&amp;θ_n\end{bmatrix}\begin{bmatrix}x_0\\x_1\\⋮\\x_n\end{bmatrix}=θ^Tx\)</span></p></li>
+        <h1 id="Multiple-Feature"><a href="#Multiple-Feature" class="headerlink" title="Multiple Feature"></a>Multiple Feature</h1><h2 id="Multivariate-Linear-Regression"><a href="#Multivariate-Linear-Regression" class="headerlink" title="Multivariate Linear Regression"></a>Multivariate Linear Regression</h2><ol>
+<li><p>$h_{\theta}(x)=\theta^{T}X$</p>
+<p>$h_θ(x)=\begin{bmatrix}θ_0&amp;θ_1&amp;…&amp;θ_n\end{bmatrix}\begin{bmatrix}x_0\\x_1\\⋮\\x_n\end{bmatrix}=θ^Tx$</p>
+</li>
 <li><p>Gradient Descent for Multiple Variables</p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\
-j=0...n)\]</span></p></li>
+<p>Cost function: <script type="math/tex">J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script> </p>
+<script type="math/tex; mode=display">\theta_j:=\theta_j-\alpha\frac {\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\ j=0...n)</script></li>
+</ol>
+<ol>
 <li><p>Feature Scaling</p>
 <p>Make sure features are on a similar scale</p>
 <p>避免梯度下降一个维度值过大导致下降速率很慢</p>
 <ul>
-<li>Get every feature into approximately a <span class="math inline">\(-1\le x_i\le 1\)</span> range</li>
-<li>大约在这个范围附近就行，例如: <span class="math inline">\(-2\le
-x_i\le 2\)</span>也可以</li>
-<li>方法一：都除以最大值<span class="math inline">\(x_{max}\)</span></li>
-<li>均值归一化 Mean normalization：
-<ul>
-<li><span class="math display">\[\frac{x_i-\mu_i}{s_{i}}\]</span></li>
+<li>Get every feature into approximately a $-1\le x_i\le 1$ range</li>
+<li>大约在这个范围附近就行，例如: $-2\le x_i\le 2$也可以</li>
+<li>方法一：都除以最大值$x_{max}$</li>
+<li>均值归一化  Mean normalization：<ul>
+<li><script type="math/tex; mode=display">\frac{x_i-\mu_i}{s_{i}}</script></li>
 <li>使得均值为0</li>
-<li><span class="math inline">\(\mu\)</span>是训练集x某特征的均值，s可以是标准差，一般<span class="math inline">\(s=max-min\)</span>即可</li>
+<li>$\mu$是训练集x某特征的均值，s可以是标准差，一般$s=max-min$即可</li>
 <li>特征缩放不用太精确，只是为了让梯度下降更快而已</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>确定α</p>
 <ul>
 <li>如果α过大，则可能出现 J 值增大或者不收敛</li>
 <li>让α尽量小，使得每次迭代 J 值都在减小</li>
 <li>自动收敛测试：可以设定一个值比如0.001，如果每一步J变化小于这个值即可认为收敛，但是选择合适的值很困难</li>
-<li>所以可以采用：代价函数 J
-随迭代步数变化曲线，可以帮助判断梯度下降算法是否收敛</li>
-</ul></li>
+<li>所以可以采用：代价函数 J 随迭代步数变化曲线，可以帮助判断梯度下降算法是否收敛</li>
+</ul>
+</li>
 <li><p>多项式回归 Polynomial Regression</p>
 <ul>
 <li>拟合复杂函数</li>
-<li>将x进行平方、开根等处理。例如：<span class="math inline">\(x_3=x_1^3\)</span></li>
+<li>将x进行平方、开根等处理。例如：$x_3=x_1^3$</li>
 <li>注意新特征要进行均值归一化使得各个特征之间差距不至于过大</li>
-</ul></li>
+</ul>
+</li>
 <li><p>Normal equation 正规方程</p>
 <ul>
 <li>solve for θ analytically，θ的解析解法</li>
-<li><span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac
-{1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span>
-，令<span class="math inline">\(\frac {\partial} {\partial
-\theta_j}J(\theta)=0\)</span>(偏微分)
-<ul>
-<li><span class="math inline">\(X=\begin{bmatrix}x_0&amp;x_1&amp;...&amp;x_n\end{bmatrix}\)</span>，x代表特征的列向量集合</li>
-<li>则可以推出：<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span>，即正规方程</li>
-</ul></li>
-<li>matlab：pinv(X‘*X)*X'*y</li>
+<li><script type="math/tex">J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script> ，令$\frac {\partial} {\partial \theta_j}J(\theta)=0$(偏微分)<ul>
+<li>$X=\begin{bmatrix}x_0&amp;x_1&amp;…&amp;x_n\end{bmatrix}$，x代表特征的列向量集合</li>
+<li>则可以推出：$\theta=(X^TX)^{-1}X^Ty$，即正规方程</li>
+</ul>
+</li>
+<li>matlab：pinv(X‘*X)*X’*y</li>
 <li>用正规方程就不用变量归一化</li>
 <li>优点：不用选择α；不用迭代</li>
-<li>缺点：n较大时，算逆矩阵会比较慢，n&gt;10000，复杂度大约在<span class="math inline">\(O(n^3)\)</span></li>
-<li>正规方程的不可逆性 Normal Equation Non-invertibility
-<ul>
+<li>缺点：n较大时，算逆矩阵会比较慢，n&gt;10000，复杂度大约在$O(n^3)$</li>
+<li>正规方程的不可逆性 Normal Equation Non-invertibility<ul>
 <li>pinv可以求伪逆，inv求逆</li>
-<li>如果<span class="math inline">\(X^TX\)</span>是不可逆的：
-<ul>
+<li>如果$X^TX$是不可逆的：<ul>
 <li>特征之间是相关的</li>
 <li>特征多于样本数</li>
 <li>解决方法：删除多余特征或正则化</li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 
     </div>
@@ -371,6 +365,21 @@ x_i\le 2\)</span>也可以</li>
     
     
       
+
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="related-posts">
+  
+      <li class="related-posts-item"><a href="/How-to-Win-a-Data-Science-Competition-Learn-from-Top-Kagglers/">How to Win a Data Science Competition</a></li>
+  
+      <li class="related-posts-item"><a href="/Machine-Learning-Week10/">Machine Learning Week10</a></li>
+  
+      <li class="related-posts-item"><a href="/Machine-Learning-Week09/">Machine Learning Week09</a></li>
+  
+      <li class="related-posts-item"><a href="/Machine-Learning-Week06/">Machine Learning Week06</a></li>
+  
+      <li class="related-posts-item"><a href="/Machine-Learning-Week08/">Machine Learning Week08</a></li>
+  
+  </ul>
 
 
     <footer class="post-footer">
@@ -422,14 +431,14 @@ x_i\le 2\)</span>也可以</li>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">76k</span>
+    <span title="Symbols count total">72k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:09</span>
+    <span title="Reading time total">1:05</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
