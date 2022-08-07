@@ -1,23 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
+<ul>
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Project</category>
+        <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
+        <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Issues</tag>
       </tags>
   </entry>
   <entry>
@@ -250,39 +296,415 @@ f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
       </tags>
   </entry>
   <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
-<ul>
-<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
-<p>git@github.com: yourname/yourname.github.io.git</p></li>
-</ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
-<ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
-</ul>
-<h2 id="formula">Formula</h2>
-<ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
-</ul>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
 ]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
       <tags>
-        <tag>Issues</tag>
+        <tag>Project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week01</title>
+    <url>/Machine-Learning-Week01/</url>
+    <content><![CDATA[<h2 id="week-1">Week 1</h2>
+<ol type="1">
+<li><p><strong>Supervised Learning 监督学习</strong></p>
+<ul>
+<li>分类问题 classification problem
+<ul>
+<li>discrete output（0，1）</li>
+<li>features</li>
+<li>特征无限多的时候可以用SVM支持向量机</li>
+</ul></li>
+<li>回归问题 regression problem
+<ul>
+<li>continuous output</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
+<ul>
+<li><p><strong>clustering algorithm 聚类算法</strong></p>
+<ul>
+<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
+<li><p>E.g. 网站分类；基因分类；social network analysis；market
+segmentation；Astronomical data analysis</p></li>
+<li><p><strong>Cocktail party
+problem</strong>：混杂的声音中分离出两种声音</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
+<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
+<p>octave做原型，然后迁移到C或JAVA</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
+<ul>
+<li><p><strong>线性回归算法 linear regression</strong></p>
+<ul>
+<li><p>training set 训练集</p></li>
+<li><p>m - 训练样本数</p>
+<p>x - 输入变量</p>
+<p>y - 输出变量</p>
+<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
+example</p>
+<p><span class="math inline">\(\theta\)</span> - Parameters</p>
+<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
+<p>不一定都是线性方程</p></li>
+</ul></li>
+<li><p><strong>Cost Function 成本函数</strong></p>
+<ul>
+<li><p>度量函数拟合的程度</p></li>
+<li><p>平方误差成本函数：适用于线性回归</p>
+<p>Hypothesis: <span class="math display">\[\min
+\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
+Error Function)</p>
+<p>contour plot: 轮廓图；等高线图</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Parameter Learning</strong></p>
+<ul>
+<li><p>Gradient descent 梯度下降算法</p>
+<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
+optimum，convergence收敛</p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
+j=1)\]</span></p>
+<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
+rate</p>
+<ul>
+<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
+<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
+<li><p>不需要调整α因为导数值越来越小</p></li>
+<li><p>Batch Gradient Descent
+批量梯度下降：每step都用到全部的训练样本</p></li>
+<li><p>高等线性代数：normal equations
+method正规方程，大数据时梯度下降更好用</p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
+<ol type="1">
+<li>Matrix: rows*columns
+<ul>
+<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
+</ul></li>
+<li>Vector: n*1 matrix
+<ul>
+<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
+<li>Associative交换律</li>
+<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
+<ul>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
+<li>I = eye(2)</li>
+</ul></li>
+<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
+<ul>
+<li>pinv（A）</li>
+<li><span class="math inline">\(A_{m\times m}\)</span></li>
+<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
+<li>高斯消元法求逆：
+<ul>
+<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
+<li>行变换或列变换都可以</li>
+<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
+&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
+A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
+A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
+1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
+A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
+&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
+A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
+</ul></li>
+<li>待定系数法</li>
+<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
+<ul>
+<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
+<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
+</ul></li>
+<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
+<li>SVD分解法</li>
+<li>QR分解法</li>
+</ul></li>
+<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week02</title>
+    <url>/Machine-Learning-Week02/</url>
+    <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
+<h2 id="multivariate-linear-regression">Multivariate Linear
+Regression</h2>
+<ol type="1">
+<li><p><span class="math inline">\(h_{\theta}(x)=\theta^{T}X\)</span></p>
+<p><span class="math inline">\(h_θ(x)=\begin{bmatrix}θ_0&amp;θ_1&amp;...&amp;θ_n\end{bmatrix}\begin{bmatrix}x_0\\x_1\\⋮\\x_n\end{bmatrix}=θ^Tx\)</span></p></li>
+<li><p>Gradient Descent for Multiple Variables</p>
+<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
+<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
+{\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\
+j=0...n)\]</span></p></li>
+<li><p>Feature Scaling</p>
+<p>Make sure features are on a similar scale</p>
+<p>避免梯度下降一个维度值过大导致下降速率很慢</p>
+<ul>
+<li>Get every feature into approximately a <span class="math inline">\(-1\le x_i\le 1\)</span> range</li>
+<li>大约在这个范围附近就行，例如: <span class="math inline">\(-2\le
+x_i\le 2\)</span>也可以</li>
+<li>方法一：都除以最大值<span class="math inline">\(x_{max}\)</span></li>
+<li>均值归一化 Mean normalization：
+<ul>
+<li><span class="math display">\[\frac{x_i-\mu_i}{s_{i}}\]</span></li>
+<li>使得均值为0</li>
+<li><span class="math inline">\(\mu\)</span>是训练集x某特征的均值，s可以是标准差，一般<span class="math inline">\(s=max-min\)</span>即可</li>
+<li>特征缩放不用太精确，只是为了让梯度下降更快而已</li>
+</ul></li>
+</ul></li>
+<li><p>确定α</p>
+<ul>
+<li>如果α过大，则可能出现 J 值增大或者不收敛</li>
+<li>让α尽量小，使得每次迭代 J 值都在减小</li>
+<li>自动收敛测试：可以设定一个值比如0.001，如果每一步J变化小于这个值即可认为收敛，但是选择合适的值很困难</li>
+<li>所以可以采用：代价函数 J
+随迭代步数变化曲线，可以帮助判断梯度下降算法是否收敛</li>
+</ul></li>
+<li><p>多项式回归 Polynomial Regression</p>
+<ul>
+<li>拟合复杂函数</li>
+<li>将x进行平方、开根等处理。例如：<span class="math inline">\(x_3=x_1^3\)</span></li>
+<li>注意新特征要进行均值归一化使得各个特征之间差距不至于过大</li>
+</ul></li>
+<li><p>Normal equation 正规方程</p>
+<ul>
+<li>solve for θ analytically，θ的解析解法</li>
+<li><span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac
+{1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span>
+，令<span class="math inline">\(\frac {\partial} {\partial
+\theta_j}J(\theta)=0\)</span>(偏微分)
+<ul>
+<li><span class="math inline">\(X=\begin{bmatrix}x_0&amp;x_1&amp;...&amp;x_n\end{bmatrix}\)</span>，x代表特征的列向量集合</li>
+<li>则可以推出：<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span>，即正规方程</li>
+</ul></li>
+<li>matlab：pinv(X‘*X)*X'*y</li>
+<li>用正规方程就不用变量归一化</li>
+<li>优点：不用选择α；不用迭代</li>
+<li>缺点：n较大时，算逆矩阵会比较慢，n&gt;10000，复杂度大约在<span class="math inline">\(O(n^3)\)</span></li>
+<li>正规方程的不可逆性 Normal Equation Non-invertibility
+<ul>
+<li>pinv可以求伪逆，inv求逆</li>
+<li>如果<span class="math inline">\(X^TX\)</span>是不可逆的：
+<ul>
+<li>特征之间是相关的</li>
+<li>特征多于样本数</li>
+<li>解决方法：删除多余特征或正则化</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week03</title>
+    <url>/Machine-Learning-Week03/</url>
+    <content><![CDATA[<h1 id="machine-learning">Machine Learning</h1>
+<h2 id="week-03-classification-and-representation-overfitting">Week 03
+Classification and Representation | Overfitting</h2>
+<h3 id="classification-and-representation-分类和表征">1. Classification
+and Representation 分类和表征</h3>
+<ol type="1">
+<li><p><strong>Logistic Regression算法应用于Classification</strong></p>
+<ul>
+<li><p><strong>binary classification problem </strong>二元分类问题</p>
+<ul>
+<li>函数值是离散的discrete</li>
+</ul></li>
+<li><p><strong>Hypothesis Representation</strong> 假设陈述</p>
+<ul>
+<li><p>因为需要<span class="math inline">\(y∈\{0,1\}\)</span>，所以要使得<span class="math inline">\(0\le h_\theta(x)\le1\)</span>，令<span class="math display">\[h_\theta(x)=g(\theta^Tx),\
+z=\theta^Tx,\  g(x)=\frac {1}{1+e^{-z}}\]</span></p></li>
+<li><p><span class="math inline">\(h_\theta(x)\)</span>表示输出为1的概率: <span class="math display">\[
+h_\theta(x)=P(y=1|x;\theta)=1-P(y=0|x;\theta)
+\]</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Decision Boundary</strong> 决策边界：分类的边界 <span class="math display">\[
+h_\theta(x)=g(\theta_0+\theta_1x_1+\theta_2x_2)
+\]</span></p>
+<ul>
+<li><p>非线性(non-linear)决策边界</p>
+<p>多项式是决策边界的属性，不是训练集的属性，训练集决定参数θ的值</p></li>
+</ul></li>
+</ol>
+<h3 id="logistic-regression-model-逻辑回归模型">2. Logistic Regression
+Model 逻辑回归模型</h3>
+<ol type="1">
+<li><p><strong>Cost Function</strong></p>
+<ul>
+<li><p>convex 凸函数，可以收敛到全局最小</p></li>
+<li><p>不能使用linear regression的Cost function，因为这会使得logistic
+function的成本函数变成波浪形，形成许多局部最优，就无法形成凸函数</p></li>
+<li><p>因此替换成本函数为： <span class="math display">\[
+J(\theta)=\frac {1}{m}\sum
+\limits_{i=1}^mCost(h_\theta(x^{(i)}),y^{(i)}) \\
+Cost(h_\theta(x),y)=
+\begin{cases}-log(h_\theta(x)) &amp; \quad if\ y=1 \\
+-log(1-h_\theta(x)) &amp; \quad if\ y=0
+\end{cases}
+\]</span></p>
+<blockquote>
+<p><strong>The cost function in this way guarantees that J(θ) is convex
+for logistic regression.</strong></p>
+</blockquote></li>
+<li><p>这里的Cost function等价于： <span class="math display">\[
+Cost(h_\theta(x),y)=-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x))
+\]</span></p></li>
+<li><p>带入到代价函数 J(θ) 中</p></li>
+<li><p>使用<strong>==最大似然估计法==</strong>可以得出这个代价函数，最大似然估计可以有效地为不同模型找到参数数据。</p></li>
+<li><p>凸性是这个函数优秀地属性之一</p></li>
+<li><p>接下来：为了拟合θ，就要最小化 J(θ)</p></li>
+</ul></li>
+<li><p><strong>Gradient Descent 梯度下降法</strong> <span class="math display">\[
+\theta_j:=\theta_j-\alpha\frac {\partial} {\partial
+\theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\ j=0...n)
+\]</span></p>
+<ul>
+<li><p>选择学习速率：绘制 J(θ)
+关于迭代次数的函数，使得每一次迭代函数值都在下降</p></li>
+<li><p>可以使用向量化实现算法 <span class="math display">\[
+\begin{array}{lc}
+h=g(\theta^TX)\\
+J(\theta)=\frac{1}{m}\cdot(-y^Tlog(h)-(1-y)^Tlog(1-h))\\
+\text{注：这里X是$（n+1）\times1$维列向量}
+\end{array}
+\]</span> 最终得到： <span class="math display">\[
+\theta:=\theta-\frac{\alpha}{m}X(g(\theta^TX)-\vec{y})
+\]</span></p></li>
+</ul></li>
+</ol>
+<ul>
+<li>特征值缩放也同样适用该模型</li>
+</ul>
+<blockquote>
+<p><strong>关于代价函数的最大似然估计法相关数学推导参见<a href="https://www.cnblogs.com/ranjiewen/p/5967496.html">这里</a></strong></p>
+<p><strong>==统计学是机器学习的数学基础==</strong></p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Optimization algorithm 优化算法</p>
+<ul>
+<li><p>例如：</p>
+<ul>
+<li><p>Conjugate gradient 共轭梯度法</p></li>
+<li><p>BFGS变尺度法</p></li>
+<li><p>L-BFGS限制变尺度法</p>
+<p>优点：无需手动选择α（线性搜索法每一步都在改变α）；比梯度下降法收敛更快</p>
+<p>缺点：算法更复杂、难理解</p></li>
+</ul></li>
+<li><p>octave中的优化算法表达：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">function [jVal, gradient] = costFunction(theta)</span><br><span class="line">  jVal = [...code to compute J(theta)...];</span><br><span class="line">  gradient = [...code to compute derivative of J(theta)...];</span><br><span class="line">end</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">options = optimset('GradObj', 'on', 'MaxIter', 100);</span><br><span class="line">initialTheta = zeros(2,1);</span><br><span class="line">   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></tbody></table></figure></li>
+</ul></li>
+</ol>
+<h3 id="multiclass-classification-多类别分类问题">3. Multiclass
+Classification 多类别分类问题</h3>
+<ol type="1">
+<li><p><strong>one-vs-all 一对多分类算法</strong></p>
+<p>划分为多个二分类问题，求多个h(x)。应用于预测集时，将x分类到h最大的那个集里。</p>
+<p><span class="math inline">\(h^{(i)}_\theta(x)=P(y=i|x;\theta),\quad
+prediction=\max\limits_{i}(h^{(i)}_\theta(x))\)</span></p></li>
+</ol>
+<h3 id="overfitting-过拟合">4. Overfitting 过拟合</h3>
+<ol type="1">
+<li><p>underfitting ——
+高bias偏差（Bias反映的是模型在样本上的输出与真实值之间的误差，即模型本身的精准度，即算法本身的拟合能力）</p>
+<p>Overfitting ——
+高variance方差（variance反映的是模型每一次输出结果与模型输出期望之间的误差，即模型的稳定性。反应预测的波动情况。）</p>
+<blockquote>
+<p>关于方差与偏差的意义参见<a href="https://blog.csdn.net/u012197749/article/details/79766317">这里</a></p>
+</blockquote>
+<ol start="2" type="1">
+<li>解决过拟合：</li>
+</ol>
+<ul>
+<li>减少特征的数量
+<ul>
+<li>手动选择保留的特征</li>
+<li>模型选择算法model selection
+algorithm，可以自动决定要保留的变量和要剔除的变量</li>
+<li>缺点：剔除了一部分信息</li>
+</ul></li>
+<li>regularization 正则化
+<ul>
+<li>保留所有变量，减少变量θ的magnitude</li>
+<li>在有很多变量时很有用</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li>正则化</li>
+</ol>
+<ul>
+<li>在代价函数加一个正则化项，使得参数θ尽可能小，排除bias偏差项</li>
+</ul>
+<p><span class="math display">\[
+\min\limits_\theta\frac{1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\lambda\sum\limits_{j=1}^n\theta_j^2
+\]</span></p>
+<ul>
+<li><p>λ是正则化参数regularization parameter</p></li>
+<li><p>应用于梯度下降法：（注：<span class="math inline">\(\theta_0\)</span>一定不要正则化！） <span class="math display">\[
+\theta_j:=\theta_j-\alpha\frac {\partial} {\partial
+\theta_j}J(\theta)=\theta_j-\alpha[\frac {1}{m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j]\quad(for\
+j=1...n)
+\]</span></p></li>
+<li><p>应用于正规方程normal equation： <span class="math display">\[
+\theta=(X^TX+\lambda\cdot L)^{-1}X^Ty\\
+where \quad L=\begin{bmatrix}0\\\
+&amp;1\\\  &amp;\  &amp;1\\\  &amp;\  &amp;\  &amp;\ddots\\\  &amp;\  &amp;\  &amp;\  &amp;1\\\end{bmatrix}
+\]</span></p>
+<ul>
+<li>Non-invertibility 不可逆性 suppose <span class="math inline">\(m\le
+n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span> 中，<span class="math inline">\(X^TX\)</span>是不可逆的（或奇异的），即为退化矩阵（degenerate）
+但是加入λL
+后，解决了上述问题，公式（9）括号内的矩阵是可逆的（前提是λ&gt;0）</li>
+</ul></li>
+</ul></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -747,428 +1169,6 @@ model变保守（0，5，15，300……）</p></li>
       </tags>
   </entry>
   <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week02</title>
-    <url>/Machine-Learning-Week02/</url>
-    <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
-<h2 id="multivariate-linear-regression">Multivariate Linear
-Regression</h2>
-<ol type="1">
-<li><p><span class="math inline">\(h_{\theta}(x)=\theta^{T}X\)</span></p>
-<p><span class="math inline">\(h_θ(x)=\begin{bmatrix}θ_0&amp;θ_1&amp;...&amp;θ_n\end{bmatrix}\begin{bmatrix}x_0\\x_1\\⋮\\x_n\end{bmatrix}=θ^Tx\)</span></p></li>
-<li><p>Gradient Descent for Multiple Variables</p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\
-j=0...n)\]</span></p></li>
-<li><p>Feature Scaling</p>
-<p>Make sure features are on a similar scale</p>
-<p>避免梯度下降一个维度值过大导致下降速率很慢</p>
-<ul>
-<li>Get every feature into approximately a <span class="math inline">\(-1\le x_i\le 1\)</span> range</li>
-<li>大约在这个范围附近就行，例如: <span class="math inline">\(-2\le
-x_i\le 2\)</span>也可以</li>
-<li>方法一：都除以最大值<span class="math inline">\(x_{max}\)</span></li>
-<li>均值归一化 Mean normalization：
-<ul>
-<li><span class="math display">\[\frac{x_i-\mu_i}{s_{i}}\]</span></li>
-<li>使得均值为0</li>
-<li><span class="math inline">\(\mu\)</span>是训练集x某特征的均值，s可以是标准差，一般<span class="math inline">\(s=max-min\)</span>即可</li>
-<li>特征缩放不用太精确，只是为了让梯度下降更快而已</li>
-</ul></li>
-</ul></li>
-<li><p>确定α</p>
-<ul>
-<li>如果α过大，则可能出现 J 值增大或者不收敛</li>
-<li>让α尽量小，使得每次迭代 J 值都在减小</li>
-<li>自动收敛测试：可以设定一个值比如0.001，如果每一步J变化小于这个值即可认为收敛，但是选择合适的值很困难</li>
-<li>所以可以采用：代价函数 J
-随迭代步数变化曲线，可以帮助判断梯度下降算法是否收敛</li>
-</ul></li>
-<li><p>多项式回归 Polynomial Regression</p>
-<ul>
-<li>拟合复杂函数</li>
-<li>将x进行平方、开根等处理。例如：<span class="math inline">\(x_3=x_1^3\)</span></li>
-<li>注意新特征要进行均值归一化使得各个特征之间差距不至于过大</li>
-</ul></li>
-<li><p>Normal equation 正规方程</p>
-<ul>
-<li>solve for θ analytically，θ的解析解法</li>
-<li><span class="math display">\[J(\theta_0,\theta_1...\theta_n)=\frac
-{1}{2m}\sum \limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span>
-，令<span class="math inline">\(\frac {\partial} {\partial
-\theta_j}J(\theta)=0\)</span>(偏微分)
-<ul>
-<li><span class="math inline">\(X=\begin{bmatrix}x_0&amp;x_1&amp;...&amp;x_n\end{bmatrix}\)</span>，x代表特征的列向量集合</li>
-<li>则可以推出：<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span>，即正规方程</li>
-</ul></li>
-<li>matlab：pinv(X‘*X)*X'*y</li>
-<li>用正规方程就不用变量归一化</li>
-<li>优点：不用选择α；不用迭代</li>
-<li>缺点：n较大时，算逆矩阵会比较慢，n&gt;10000，复杂度大约在<span class="math inline">\(O(n^3)\)</span></li>
-<li>正规方程的不可逆性 Normal Equation Non-invertibility
-<ul>
-<li>pinv可以求伪逆，inv求逆</li>
-<li>如果<span class="math inline">\(X^TX\)</span>是不可逆的：
-<ul>
-<li>特征之间是相关的</li>
-<li>特征多于样本数</li>
-<li>解决方法：删除多余特征或正则化</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week03</title>
-    <url>/Machine-Learning-Week03/</url>
-    <content><![CDATA[<h1 id="machine-learning">Machine Learning</h1>
-<h2 id="week-03-classification-and-representation-overfitting">Week 03
-Classification and Representation | Overfitting</h2>
-<h3 id="classification-and-representation-分类和表征">1. Classification
-and Representation 分类和表征</h3>
-<ol type="1">
-<li><p><strong>Logistic Regression算法应用于Classification</strong></p>
-<ul>
-<li><p><strong>binary classification problem </strong>二元分类问题</p>
-<ul>
-<li>函数值是离散的discrete</li>
-</ul></li>
-<li><p><strong>Hypothesis Representation</strong> 假设陈述</p>
-<ul>
-<li><p>因为需要<span class="math inline">\(y∈\{0,1\}\)</span>，所以要使得<span class="math inline">\(0\le h_\theta(x)\le1\)</span>，令<span class="math display">\[h_\theta(x)=g(\theta^Tx),\
-z=\theta^Tx,\  g(x)=\frac {1}{1+e^{-z}}\]</span></p></li>
-<li><p><span class="math inline">\(h_\theta(x)\)</span>表示输出为1的概率: <span class="math display">\[
-h_\theta(x)=P(y=1|x;\theta)=1-P(y=0|x;\theta)
-\]</span></p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Decision Boundary</strong> 决策边界：分类的边界 <span class="math display">\[
-h_\theta(x)=g(\theta_0+\theta_1x_1+\theta_2x_2)
-\]</span></p>
-<ul>
-<li><p>非线性(non-linear)决策边界</p>
-<p>多项式是决策边界的属性，不是训练集的属性，训练集决定参数θ的值</p></li>
-</ul></li>
-</ol>
-<h3 id="logistic-regression-model-逻辑回归模型">2. Logistic Regression
-Model 逻辑回归模型</h3>
-<ol type="1">
-<li><p><strong>Cost Function</strong></p>
-<ul>
-<li><p>convex 凸函数，可以收敛到全局最小</p></li>
-<li><p>不能使用linear regression的Cost function，因为这会使得logistic
-function的成本函数变成波浪形，形成许多局部最优，就无法形成凸函数</p></li>
-<li><p>因此替换成本函数为： <span class="math display">\[
-J(\theta)=\frac {1}{m}\sum
-\limits_{i=1}^mCost(h_\theta(x^{(i)}),y^{(i)}) \\
-Cost(h_\theta(x),y)=
-\begin{cases}-log(h_\theta(x)) &amp; \quad if\ y=1 \\
--log(1-h_\theta(x)) &amp; \quad if\ y=0
-\end{cases}
-\]</span></p>
-<blockquote>
-<p><strong>The cost function in this way guarantees that J(θ) is convex
-for logistic regression.</strong></p>
-</blockquote></li>
-<li><p>这里的Cost function等价于： <span class="math display">\[
-Cost(h_\theta(x),y)=-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x))
-\]</span></p></li>
-<li><p>带入到代价函数 J(θ) 中</p></li>
-<li><p>使用<strong>==最大似然估计法==</strong>可以得出这个代价函数，最大似然估计可以有效地为不同模型找到参数数据。</p></li>
-<li><p>凸性是这个函数优秀地属性之一</p></li>
-<li><p>接下来：为了拟合θ，就要最小化 J(θ)</p></li>
-</ul></li>
-<li><p><strong>Gradient Descent 梯度下降法</strong> <span class="math display">\[
-\theta_j:=\theta_j-\alpha\frac {\partial} {\partial
-\theta_j}J(\theta)=\theta_j-\alpha\frac {1}{m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\quad(for\ j=0...n)
-\]</span></p>
-<ul>
-<li><p>选择学习速率：绘制 J(θ)
-关于迭代次数的函数，使得每一次迭代函数值都在下降</p></li>
-<li><p>可以使用向量化实现算法 <span class="math display">\[
-\begin{array}{lc}
-h=g(\theta^TX)\\
-J(\theta)=\frac{1}{m}\cdot(-y^Tlog(h)-(1-y)^Tlog(1-h))\\
-\text{注：这里X是$（n+1）\times1$维列向量}
-\end{array}
-\]</span> 最终得到： <span class="math display">\[
-\theta:=\theta-\frac{\alpha}{m}X(g(\theta^TX)-\vec{y})
-\]</span></p></li>
-</ul></li>
-</ol>
-<ul>
-<li>特征值缩放也同样适用该模型</li>
-</ul>
-<blockquote>
-<p><strong>关于代价函数的最大似然估计法相关数学推导参见<a href="https://www.cnblogs.com/ranjiewen/p/5967496.html">这里</a></strong></p>
-<p><strong>==统计学是机器学习的数学基础==</strong></p>
-</blockquote>
-<ol start="3" type="1">
-<li><p>Optimization algorithm 优化算法</p>
-<ul>
-<li><p>例如：</p>
-<ul>
-<li><p>Conjugate gradient 共轭梯度法</p></li>
-<li><p>BFGS变尺度法</p></li>
-<li><p>L-BFGS限制变尺度法</p>
-<p>优点：无需手动选择α（线性搜索法每一步都在改变α）；比梯度下降法收敛更快</p>
-<p>缺点：算法更复杂、难理解</p></li>
-</ul></li>
-<li><p>octave中的优化算法表达：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">function [jVal, gradient] = costFunction(theta)</span><br><span class="line">  jVal = [...code to compute J(theta)...];</span><br><span class="line">  gradient = [...code to compute derivative of J(theta)...];</span><br><span class="line">end</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">options = optimset('GradObj', 'on', 'MaxIter', 100);</span><br><span class="line">initialTheta = zeros(2,1);</span><br><span class="line">   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></tbody></table></figure></li>
-</ul></li>
-</ol>
-<h3 id="multiclass-classification-多类别分类问题">3. Multiclass
-Classification 多类别分类问题</h3>
-<ol type="1">
-<li><p><strong>one-vs-all 一对多分类算法</strong></p>
-<p>划分为多个二分类问题，求多个h(x)。应用于预测集时，将x分类到h最大的那个集里。</p>
-<p><span class="math inline">\(h^{(i)}_\theta(x)=P(y=i|x;\theta),\quad
-prediction=\max\limits_{i}(h^{(i)}_\theta(x))\)</span></p></li>
-</ol>
-<h3 id="overfitting-过拟合">4. Overfitting 过拟合</h3>
-<ol type="1">
-<li><p>underfitting ——
-高bias偏差（Bias反映的是模型在样本上的输出与真实值之间的误差，即模型本身的精准度，即算法本身的拟合能力）</p>
-<p>Overfitting ——
-高variance方差（variance反映的是模型每一次输出结果与模型输出期望之间的误差，即模型的稳定性。反应预测的波动情况。）</p>
-<blockquote>
-<p>关于方差与偏差的意义参见<a href="https://blog.csdn.net/u012197749/article/details/79766317">这里</a></p>
-</blockquote>
-<ol start="2" type="1">
-<li>解决过拟合：</li>
-</ol>
-<ul>
-<li>减少特征的数量
-<ul>
-<li>手动选择保留的特征</li>
-<li>模型选择算法model selection
-algorithm，可以自动决定要保留的变量和要剔除的变量</li>
-<li>缺点：剔除了一部分信息</li>
-</ul></li>
-<li>regularization 正则化
-<ul>
-<li>保留所有变量，减少变量θ的magnitude</li>
-<li>在有很多变量时很有用</li>
-</ul></li>
-</ul>
-<ol start="3" type="1">
-<li>正则化</li>
-</ol>
-<ul>
-<li>在代价函数加一个正则化项，使得参数θ尽可能小，排除bias偏差项</li>
-</ul>
-<p><span class="math display">\[
-\min\limits_\theta\frac{1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\lambda\sum\limits_{j=1}^n\theta_j^2
-\]</span></p>
-<ul>
-<li><p>λ是正则化参数regularization parameter</p></li>
-<li><p>应用于梯度下降法：（注：<span class="math inline">\(\theta_0\)</span>一定不要正则化！） <span class="math display">\[
-\theta_j:=\theta_j-\alpha\frac {\partial} {\partial
-\theta_j}J(\theta)=\theta_j-\alpha[\frac {1}{m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j]\quad(for\
-j=1...n)
-\]</span></p></li>
-<li><p>应用于正规方程normal equation： <span class="math display">\[
-\theta=(X^TX+\lambda\cdot L)^{-1}X^Ty\\
-where \quad L=\begin{bmatrix}0\\\
-&amp;1\\\  &amp;\  &amp;1\\\  &amp;\  &amp;\  &amp;\ddots\\\  &amp;\  &amp;\  &amp;\  &amp;1\\\end{bmatrix}
-\]</span></p>
-<ul>
-<li>Non-invertibility 不可逆性 suppose <span class="math inline">\(m\le
-n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-1}X^Ty\)</span> 中，<span class="math inline">\(X^TX\)</span>是不可逆的（或奇异的），即为退化矩阵（degenerate）
-但是加入λL
-后，解决了上述问题，公式（9）括号内的矩阵是可逆的（前提是λ&gt;0）</li>
-</ul></li>
-</ul></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week01</title>
-    <url>/Machine-Learning-Week01/</url>
-    <content><![CDATA[<h2 id="week-1">Week 1</h2>
-<ol type="1">
-<li><p><strong>Supervised Learning 监督学习</strong></p>
-<ul>
-<li>分类问题 classification problem
-<ul>
-<li>discrete output（0，1）</li>
-<li>features</li>
-<li>特征无限多的时候可以用SVM支持向量机</li>
-</ul></li>
-<li>回归问题 regression problem
-<ul>
-<li>continuous output</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Unsupervised Learning 无监督学习</strong></p>
-<ul>
-<li><p><strong>clustering algorithm 聚类算法</strong></p>
-<ul>
-<li><p>dataset（no label） find structure;根据数据内部关系分类</p></li>
-<li><p>E.g. 网站分类；基因分类；social network analysis；market
-segmentation；Astronomical data analysis</p></li>
-<li><p><strong>Cocktail party
-problem</strong>：混杂的声音中分离出两种声音</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">[W,s,v] = svd((<span class="built_in">repmat</span>(sum(x.*x,<span class="number">1</span>),<span class="built_in">size</span>(x,<span class="number">1</span>),<span class="number">1</span>).*x)*x')</span><br></pre></td></tr></tbody></table></figure>
-<p>*SVD: singular value decomposition 奇异值分解，求解线性方程</p>
-<p>octave做原型，然后迁移到C或JAVA</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Model and Cost Function 模型和成本函数</strong></p>
-<ul>
-<li><p><strong>线性回归算法 linear regression</strong></p>
-<ul>
-<li><p>training set 训练集</p></li>
-<li><p>m - 训练样本数</p>
-<p>x - 输入变量</p>
-<p>y - 输出变量</p>
-<p><span class="math inline">\((x^{i},y^{i})\)</span> - i training
-example</p>
-<p><span class="math inline">\(\theta\)</span> - Parameters</p>
-<p>h - hypothesis，x映射到y的函数 ：<span class="math inline">\(h_{\theta}(x)=\theta_0+\theta_1x\)</span>；缩写即<span class="math inline">\(h(x)\)</span></p>
-<p>不一定都是线性方程</p></li>
-</ul></li>
-<li><p><strong>Cost Function 成本函数</strong></p>
-<ul>
-<li><p>度量函数拟合的程度</p></li>
-<li><p>平方误差成本函数：适用于线性回归</p>
-<p>Hypothesis: <span class="math display">\[\min
-\limits_{\theta_0\theta_1}\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span></p>
-<p>Cost function: <span class="math display">\[J(\theta_0,\theta_1)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2\]</span> ----- (Squared
-Error Function)</p>
-<p>contour plot: 轮廓图；等高线图</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Parameter Learning</strong></p>
-<ul>
-<li><p>Gradient descent 梯度下降算法</p>
-<p>不断改变<span class="math inline">\(\theta\)</span>使得J函数变小，得到局部最优点local
-optimum，convergence收敛</p>
-<p><span class="math display">\[\theta_j:=\theta_j-\alpha\frac
-{\partial} {\partial \theta_j}J(\theta_0,\theta_j)\quad(for\ j=0\ and\
-j=1)\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>是学习速率 learning
-rate</p>
-<ul>
-<li><p>注意编程中的赋值后会覆盖，所以要桥接一下</p></li>
-<li><p>partial derivatives 偏导数；derivatives 导数</p></li>
-<li><p>不需要调整α因为导数值越来越小</p></li>
-<li><p>Batch Gradient Descent
-批量梯度下降：每step都用到全部的训练样本</p></li>
-<li><p>高等线性代数：normal equations
-method正规方程，大数据时梯度下降更好用</p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="matrices-and-vectors">Matrices and Vectors</h1>
-<ol type="1">
-<li>Matrix: rows*columns
-<ul>
-<li><span class="math inline">\(\mathbb{R} ^{2\times3}\)</span> , <span class="math inline">\(A_{ij}\)</span>,</li>
-</ul></li>
-<li>Vector: n*1 matrix
-<ul>
-<li><span class="math inline">\(\mathbb{R}^4\)</span></li>
-</ul></li>
-<li><span class="math inline">\(A\times B\ne B\times A\)</span></li>
-<li>Associative交换律</li>
-<li>Identity Matrix： <span class="math inline">\(I\)</span>, <span class="math inline">\(n\times n\)</span>
-<ul>
-<li><span class="math inline">\(\begin{bmatrix}1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;1\end{bmatrix}\)</span></li>
-<li><span class="math inline">\(A\cdot I=I\cdot A\)</span></li>
-<li>I = eye(2)</li>
-</ul></li>
-<li>Inverse 矩阵的逆：<span class="math inline">\(A(A^{-1})=A^{-1}A=I\)</span>
-<ul>
-<li>pinv（A）</li>
-<li><span class="math inline">\(A_{m\times m}\)</span></li>
-<li>0矩阵=奇异矩阵，没有逆矩阵的矩阵是奇异矩阵</li>
-<li>高斯消元法求逆：
-<ul>
-<li>“某行乘以一个数后加到另一行”、“某两行互换位置”、“某行乘以某一个数”，这三种以行做运算的方法</li>
-<li>行变换或列变换都可以</li>
-<li>增广矩阵<span class="math inline">\(B=[A|I]=\begin{vmatrix} A_{11}
-&amp; A_{12} &amp; A_{13}&amp;1&amp;0&amp;0 \\ A_{21} &amp;
-A_{22}&amp;A_{23}&amp;0&amp;1&amp;0\\A_{31} &amp; A_{32} &amp;
-A_{33}&amp;0&amp;0&amp;1 \end{vmatrix} \Rightarrow \begin{vmatrix}
-1&amp;0&amp;0&amp;A_{11}^{'} &amp; A_{12}^{'} &amp;
-A_{13}^{'} \\0&amp;1&amp;0&amp;A_{21}^{'} &amp; A_{22}^{'}
-&amp; A_{23}^{'}\\0&amp;0&amp;1&amp;A_{31}^{'} &amp;
-A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
-</ul></li>
-<li>待定系数法</li>
-<li>伴随矩阵法$A^* <span class="math inline">\(，\)</span>A^{-1}=$
-<ul>
-<li>将矩阵A元素<span class="math inline">\(a_{ij}\)</span>所在的第i行j列元素划去后剩余元素按照原来顺序组成n-1阶矩阵所确定的行列式成为元素<span class="math inline">\(a_{ij}\)</span>的余子式，记为<span class="math inline">\(M_{ij}\)</span>，称<span class="math inline">\(A_{ij}=(-1)^{i+j}M_{ij}\)</span>为元素<span class="math inline">\(a_{ij}\)</span>的代数余子式</li>
-<li><span class="math inline">\(A^*\)</span>的第i行j列元素为上面的<span class="math inline">\(A_{ij}\)</span></li>
-</ul></li>
-<li>LU分解法A=LU，<span class="math inline">\(A^{-1}=U^{-1}L^{-1}\)</span></li>
-<li>SVD分解法</li>
-<li>QR分解法</li>
-</ul></li>
-<li>Transpose 矩阵的转置：<span class="math inline">\(A^T\)</span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week04</title>
     <url>/Machine-Learning-Week04/</url>
     <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
@@ -1575,148 +1575,6 @@ positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week07</title>
-    <url>/Machine-Learning-Week07/</url>
-    <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
-支持向量机</h2>
-<h3 id="large-margin-classification">Large Margin Classification</h3>
-<ol type="1">
-<li><p>Optimization Objective 优化目标</p>
-<ul>
-<li><p>在复杂非线性方程的学习上有优势。</p></li>
-<li><figure>
-<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206123628670.png" alt="image-20201206123628670">
-<figcaption aria-hidden="true">image-20201206123628670</figcaption>
-</figure></li>
-<li><figure>
-<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206124245802.png" alt="image-20201206124245802">
-<figcaption aria-hidden="true">image-20201206124245802</figcaption>
-</figure>
-<p>注：实际上在训练代价函数时，分界线为-1，1</p></li>
-</ul></li>
-<li><p>Large Margin Intuition</p>
-<ul>
-<li><p>代价函数： <span class="math display">\[
-\min _{\theta} C \sum_{i=1}^{m}\left[y^{(i)}
-{\operatorname{cost}_{1}\left(\theta^{T}
-x^{(i)}\right)}+\left(1-y^{(i)}\right)
-\operatorname{cost}_{0}\left(\theta^{T}
-x^{(i)}\right)\right]+\frac{1}{2} \sum_{i=1}^{n} \theta_{j}^{2}\\
-if\ y=1, we\ want\ \theta^{T} x \geq 1\ (not\ just \left.\geq 0\right)\\
-if\ y=0, we\ want\ \theta^{T} x \leq-1\ (not\ just&lt;0 )
-\]</span></p></li>
-<li><p>SVM也被叫做大间距分类器，因为它尽量用最大间距分类样本，使得SVM更具有鲁棒性</p></li>
-<li><p>其中正则化参数C不适合设置得过大，因为这会使得一些异常值（outliner)
-会使得分类向异常值产生比较大得偏差，这就类似与逻辑回归里过小的λ
-。</p></li>
-</ul></li>
-<li><p>Mathematics Behind Large Margin Classification</p>
-<ul>
-<li><p>向量内积：<span class="math inline">\(\lVert u
-\rVert\)</span>表明u的范数，即u向量的长度。<span class="math inline">\(u^Tv=p\cdot\lVert u \rVert\)</span>, p
-是v在u上的投影长度</p></li>
-<li><p>本图演示了为什么这种方式可以最小化θ<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206171424283.png" alt="image-20201206171424283"></p>
-<p>注：这里决策边界和θ是具有垂直关系的</p></li>
-<li><p>这里最小化θ范数等价于最大化所有的p，即最大化所有点到决策边界的margin。</p></li>
-<li><p>即使<span class="math inline">\(\theta_0\ne0\)</span>推理过程也和上述类似</p></li>
-</ul></li>
-</ol>
-<h3 id="kernels">Kernels</h3>
-<ol type="1">
-<li><p>非线性决策边界</p>
-<ul>
-<li><p>用相似度函数similarity
-function代替高阶项，度量样本x和第一个标记的相似度，即核函数，例如：高斯核函数：<span class="math inline">\(f_1=similarity(x,l^{(1)})=exp(-\frac{\lVert
-x-l^{(1)}
-\rVert^2}{2\sigma^2})=exp(-\frac{\Sigma_{j=1}^{n}(x_j-l_j^{(i)})^2}{2\sigma^2})\)</span></p>
-<p>==问：这里σ是什么，如何计算？==</p></li>
-<li><p>通过用f替代特征，可以训练出复杂的非线性边界：例如：预测y=1，当<span class="math inline">\(\theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3\ge0\)</span></p></li>
-</ul></li>
-<li><p>选择landmark标记点 l :</p>
-<ul>
-<li>Given一系列x，令<span class="math inline">\(l^1=x^1\)</span>, <span class="math inline">\(f_{m}^{(i)}=similarity(x^{(i)},l^{(m)})\)</span></li>
-<li>将<span class="math inline">\(x^{(i)}\in
-\mathbb{R}^{n+1}\)</span>，转变为<span class="math inline">\(f^{(i)}=\begin{bmatrix}f_0^{(i)}\\f_0^{(i)}\\
-\vdots \\ f_m^{(i)} \end{bmatrix}\)</span>，<span class="math inline">\(f_0^{(i)}=1\)</span>。<span class="math inline">\(f\in \mathbb{R}^{m+1}\)</span></li>
-</ul></li>
-<li><p>Hypothesis：Given x ， compute features f</p>
-<p>Predict "y=1" if <span class="math inline">\(\theta^Tf\ge0\)</span></p></li>
-<li><p>代价函数： <span class="math display">\[
-\min _{\theta} C \sum_{i=1}^{m} y^{(i)}
-\operatorname{cost}_{1}\left(\theta^{T}
-f^{(i)}\right)+\left(1-y^{(i)}\right)
-\operatorname{cost}_{0}\left(\theta^{T} f^{(i)}\right)+\frac{1}{2}
-\sum_{j=1}^{m } \theta_{j}^{2}
-\]</span> 在SVM的实际应用中，最后一项通常会用<span class="math inline">\(\theta^TM\theta\)</span>，其中M和核函数有关，是为了提高计算效率</p></li>
-<li><p>参数的选择：</p>
-<ul>
-<li><p>C(=<span class="math inline">\(\frac{1}{\lambda}\)</span>)</p>
-<ul>
-<li>Large C：Lower bias；High variance</li>
-<li>Small C：Higher bias；Low variance</li>
-</ul></li>
-<li><p><span class="math inline">\(\sigma^2\)</span></p>
-<ul>
-<li><p>Large <span class="math inline">\(\sigma^2\)</span>: Fearures fi
-vary more smoothly.</p>
-<p>​ Higher bias; Lower variance</p></li>
-<li><p>Small <span class="math inline">\(\sigma^2\)</span>: Features fi
-vary less smoothly.</p>
-<p>​ Lower bias, Higher variance.</p></li>
-</ul></li>
-<li><p><strong>方差（variance）：</strong>方差描述的是训练数据在不同迭代阶段的训练模型中，预测值的变化波动情况（或称之为离散情况）。</p></li>
-<li><p><strong>偏差（bias）：</strong>偏差衡量了模型的预测值与实际值之间的偏离关系。</p></li>
-<li><p>低偏差高方差：过拟合；</p></li>
-<li><p>You want to train C and the parameters for the kernel function
-using the training and cross-validation datasets.</p></li>
-</ul></li>
-</ol>
-<h3 id="svms-in-practice">SVMs in Practice</h3>
-<ol type="1">
-<li><p>应用SVM</p>
-<ul>
-<li><p>选择C和σ</p>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[C, sigma]</span> = <span class="title">dataset3Params</span><span class="params">(X, y, Xval, yval)</span></span></span><br><span class="line"><span class="comment">% 这里x是训练集，xval是验证集</span></span><br><span class="line">value = [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">minC = <span class="number">0</span>;</span><br><span class="line">minSigma = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% 最小值设为交叉验证集的用例数</span></span><br><span class="line">minError = <span class="built_in">size</span>(Xval,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">        model= svmTrain(X, y, value(<span class="built_in">i</span>), @(x1, x2) gaussianKernel(x1, x2, value(<span class="built_in">j</span>)));</span><br><span class="line">        predictions = svmPredict(model,Xval);</span><br><span class="line">        error = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> minError &gt; error</span><br><span class="line">            minError = error;</span><br><span class="line">            minC = value(<span class="built_in">i</span>);</span><br><span class="line">            minSigma = value(<span class="built_in">j</span>);</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">C = minC;</span><br><span class="line">sigma = minSigma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>选择核函数（相似度函数）</p>
-<ul>
-<li>线性核函数（=没有核函数）</li>
-</ul></li>
-<li><p><strong>需要对特征向量归一化</strong>，否则一个特征会占据主要位置</p></li>
-<li><p>不是所有函数都能作为核函数，需要满足Mercer‘s
-Theorem莫塞尔定理，来确保SVM优化包能够正确运行</p></li>
-<li><p>其他核函数：</p>
-<ul>
-<li>多项式核函数</li>
-<li>字符串核函数string kernel；</li>
-<li>卡方核函数chi-square kernel</li>
-<li>直方图交叉核函数histogram intersection kernel</li>
-</ul></li>
-<li><p>多类别分类</p>
-<ul>
-<li>svm包多数内置了</li>
-<li>否则用one-vs-all
-：训练得到K组θ的值，然后选择θx最大的那一组作为分类结果</li>
-</ul></li>
-<li><p>逻辑回归和SVM，什么时候用？</p>
-<ul>
-<li>n为特征数，m为训练集样本数。如果n相对于m来说比较大，使用逻辑回归或者没有核函数的SVM（linear
-kernel）</li>
-<li>n小，m中等大。使用高斯核函数</li>
-<li>n小，m很大。运行很慢，逻辑回归或没有核函数的SVM</li>
-<li>神经网络上面都适用，但有时可能会比SVM慢很多</li>
-</ul></li>
-<li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
-</ul></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week08</title>
     <url>/Machine-Learning-Week08/</url>
     <content><![CDATA[<h1 id="unsupervised-learning-无监督学习">Unsupervised learning
@@ -1907,6 +1765,148 @@ and test sets.</p></li>
 regularization instead!)</p>
 <p>For example: <img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210403175514854.png" alt="image-20210403175514854"></p></li>
 <li><p>正确做法是先不用PCA，在原始数据跑一遍，如果不符合期望，再用PCA</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week07</title>
+    <url>/Machine-Learning-Week07/</url>
+    <content><![CDATA[<h2 id="support-vector-machines-支持向量机">Support Vector Machines
+支持向量机</h2>
+<h3 id="large-margin-classification">Large Margin Classification</h3>
+<ol type="1">
+<li><p>Optimization Objective 优化目标</p>
+<ul>
+<li><p>在复杂非线性方程的学习上有优势。</p></li>
+<li><figure>
+<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206123628670.png" alt="image-20201206123628670">
+<figcaption aria-hidden="true">image-20201206123628670</figcaption>
+</figure></li>
+<li><figure>
+<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206124245802.png" alt="image-20201206124245802">
+<figcaption aria-hidden="true">image-20201206124245802</figcaption>
+</figure>
+<p>注：实际上在训练代价函数时，分界线为-1，1</p></li>
+</ul></li>
+<li><p>Large Margin Intuition</p>
+<ul>
+<li><p>代价函数： <span class="math display">\[
+\min _{\theta} C \sum_{i=1}^{m}\left[y^{(i)}
+{\operatorname{cost}_{1}\left(\theta^{T}
+x^{(i)}\right)}+\left(1-y^{(i)}\right)
+\operatorname{cost}_{0}\left(\theta^{T}
+x^{(i)}\right)\right]+\frac{1}{2} \sum_{i=1}^{n} \theta_{j}^{2}\\
+if\ y=1, we\ want\ \theta^{T} x \geq 1\ (not\ just \left.\geq 0\right)\\
+if\ y=0, we\ want\ \theta^{T} x \leq-1\ (not\ just&lt;0 )
+\]</span></p></li>
+<li><p>SVM也被叫做大间距分类器，因为它尽量用最大间距分类样本，使得SVM更具有鲁棒性</p></li>
+<li><p>其中正则化参数C不适合设置得过大，因为这会使得一些异常值（outliner)
+会使得分类向异常值产生比较大得偏差，这就类似与逻辑回归里过小的λ
+。</p></li>
+</ul></li>
+<li><p>Mathematics Behind Large Margin Classification</p>
+<ul>
+<li><p>向量内积：<span class="math inline">\(\lVert u
+\rVert\)</span>表明u的范数，即u向量的长度。<span class="math inline">\(u^Tv=p\cdot\lVert u \rVert\)</span>, p
+是v在u上的投影长度</p></li>
+<li><p>本图演示了为什么这种方式可以最小化θ<img src="C:\Users\Jun\AppData\Roaming\Typora\typora-user-images\image-20201206171424283.png" alt="image-20201206171424283"></p>
+<p>注：这里决策边界和θ是具有垂直关系的</p></li>
+<li><p>这里最小化θ范数等价于最大化所有的p，即最大化所有点到决策边界的margin。</p></li>
+<li><p>即使<span class="math inline">\(\theta_0\ne0\)</span>推理过程也和上述类似</p></li>
+</ul></li>
+</ol>
+<h3 id="kernels">Kernels</h3>
+<ol type="1">
+<li><p>非线性决策边界</p>
+<ul>
+<li><p>用相似度函数similarity
+function代替高阶项，度量样本x和第一个标记的相似度，即核函数，例如：高斯核函数：<span class="math inline">\(f_1=similarity(x,l^{(1)})=exp(-\frac{\lVert
+x-l^{(1)}
+\rVert^2}{2\sigma^2})=exp(-\frac{\Sigma_{j=1}^{n}(x_j-l_j^{(i)})^2}{2\sigma^2})\)</span></p>
+<p>==问：这里σ是什么，如何计算？==</p></li>
+<li><p>通过用f替代特征，可以训练出复杂的非线性边界：例如：预测y=1，当<span class="math inline">\(\theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3\ge0\)</span></p></li>
+</ul></li>
+<li><p>选择landmark标记点 l :</p>
+<ul>
+<li>Given一系列x，令<span class="math inline">\(l^1=x^1\)</span>, <span class="math inline">\(f_{m}^{(i)}=similarity(x^{(i)},l^{(m)})\)</span></li>
+<li>将<span class="math inline">\(x^{(i)}\in
+\mathbb{R}^{n+1}\)</span>，转变为<span class="math inline">\(f^{(i)}=\begin{bmatrix}f_0^{(i)}\\f_0^{(i)}\\
+\vdots \\ f_m^{(i)} \end{bmatrix}\)</span>，<span class="math inline">\(f_0^{(i)}=1\)</span>。<span class="math inline">\(f\in \mathbb{R}^{m+1}\)</span></li>
+</ul></li>
+<li><p>Hypothesis：Given x ， compute features f</p>
+<p>Predict "y=1" if <span class="math inline">\(\theta^Tf\ge0\)</span></p></li>
+<li><p>代价函数： <span class="math display">\[
+\min _{\theta} C \sum_{i=1}^{m} y^{(i)}
+\operatorname{cost}_{1}\left(\theta^{T}
+f^{(i)}\right)+\left(1-y^{(i)}\right)
+\operatorname{cost}_{0}\left(\theta^{T} f^{(i)}\right)+\frac{1}{2}
+\sum_{j=1}^{m } \theta_{j}^{2}
+\]</span> 在SVM的实际应用中，最后一项通常会用<span class="math inline">\(\theta^TM\theta\)</span>，其中M和核函数有关，是为了提高计算效率</p></li>
+<li><p>参数的选择：</p>
+<ul>
+<li><p>C(=<span class="math inline">\(\frac{1}{\lambda}\)</span>)</p>
+<ul>
+<li>Large C：Lower bias；High variance</li>
+<li>Small C：Higher bias；Low variance</li>
+</ul></li>
+<li><p><span class="math inline">\(\sigma^2\)</span></p>
+<ul>
+<li><p>Large <span class="math inline">\(\sigma^2\)</span>: Fearures fi
+vary more smoothly.</p>
+<p>​ Higher bias; Lower variance</p></li>
+<li><p>Small <span class="math inline">\(\sigma^2\)</span>: Features fi
+vary less smoothly.</p>
+<p>​ Lower bias, Higher variance.</p></li>
+</ul></li>
+<li><p><strong>方差（variance）：</strong>方差描述的是训练数据在不同迭代阶段的训练模型中，预测值的变化波动情况（或称之为离散情况）。</p></li>
+<li><p><strong>偏差（bias）：</strong>偏差衡量了模型的预测值与实际值之间的偏离关系。</p></li>
+<li><p>低偏差高方差：过拟合；</p></li>
+<li><p>You want to train C and the parameters for the kernel function
+using the training and cross-validation datasets.</p></li>
+</ul></li>
+</ol>
+<h3 id="svms-in-practice">SVMs in Practice</h3>
+<ol type="1">
+<li><p>应用SVM</p>
+<ul>
+<li><p>选择C和σ</p>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[C, sigma]</span> = <span class="title">dataset3Params</span><span class="params">(X, y, Xval, yval)</span></span></span><br><span class="line"><span class="comment">% 这里x是训练集，xval是验证集</span></span><br><span class="line">value = [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">minC = <span class="number">0</span>;</span><br><span class="line">minSigma = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% 最小值设为交叉验证集的用例数</span></span><br><span class="line">minError = <span class="built_in">size</span>(Xval,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span>,</span><br><span class="line">        model= svmTrain(X, y, value(<span class="built_in">i</span>), @(x1, x2) gaussianKernel(x1, x2, value(<span class="built_in">j</span>)));</span><br><span class="line">        predictions = svmPredict(model,Xval);</span><br><span class="line">        error = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> minError &gt; error</span><br><span class="line">            minError = error;</span><br><span class="line">            minC = value(<span class="built_in">i</span>);</span><br><span class="line">            minSigma = value(<span class="built_in">j</span>);</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">C = minC;</span><br><span class="line">sigma = minSigma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>选择核函数（相似度函数）</p>
+<ul>
+<li>线性核函数（=没有核函数）</li>
+</ul></li>
+<li><p><strong>需要对特征向量归一化</strong>，否则一个特征会占据主要位置</p></li>
+<li><p>不是所有函数都能作为核函数，需要满足Mercer‘s
+Theorem莫塞尔定理，来确保SVM优化包能够正确运行</p></li>
+<li><p>其他核函数：</p>
+<ul>
+<li>多项式核函数</li>
+<li>字符串核函数string kernel；</li>
+<li>卡方核函数chi-square kernel</li>
+<li>直方图交叉核函数histogram intersection kernel</li>
+</ul></li>
+<li><p>多类别分类</p>
+<ul>
+<li>svm包多数内置了</li>
+<li>否则用one-vs-all
+：训练得到K组θ的值，然后选择θx最大的那一组作为分类结果</li>
+</ul></li>
+<li><p>逻辑回归和SVM，什么时候用？</p>
+<ul>
+<li>n为特征数，m为训练集样本数。如果n相对于m来说比较大，使用逻辑回归或者没有核函数的SVM（linear
+kernel）</li>
+<li>n小，m中等大。使用高斯核函数</li>
+<li>n小，m很大。运行很慢，逻辑回归或没有核函数的SVM</li>
+<li>神经网络上面都适用，但有时可能会比SVM慢很多</li>
+</ul></li>
+<li><p>SVM属于凸优化问题，大多数包都会找到全局最优，无需担心局部最优。神经网络的局部最优问题不是非常大但也不小。</p></li>
+</ul></li>
 </ol>
 ]]></content>
       <categories>
@@ -2276,6 +2276,56 @@ Ghemawat。summation over the training set。即并行处理</p>
       </tags>
   </entry>
   <entry>
+    <title>Tree Traverse</title>
+    <url>/Tree-Traverse/</url>
+    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
+<p>Leetcode相关题目：94，144，145</p>
+<h2 id="前序遍历">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="递归法">递归法</h1>
+<h2 id="前序遍历-1">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历-1">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历-1">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Python Algorithm and Data Structure</title>
     <url>/Python-Algorithm-and-Data-Structure/</url>
     <content><![CDATA[<h1 id="python-数据结构与算法分析">Python 数据结构与算法分析</h1>
@@ -2595,55 +2645,5 @@ Elements of Statistical Learning</li>
       <tags>
         <tag>Essay</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Tree Traverse</title>
-    <url>/Tree-Traverse/</url>
-    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
-<p>Leetcode相关题目：94，144，145</p>
-<h2 id="前序遍历">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="递归法">递归法</h1>
-<h2 id="前序遍历-1">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历-1">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历-1">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
