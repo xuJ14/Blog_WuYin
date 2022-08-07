@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xuj14.github.io/Python-Generator-and-Iterator-LC-173/</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xuj14.github.io/Python-Algorithm-and-Data-Structure/</loc>
     
     <lastmod>2022-08-06</lastmod>
@@ -225,14 +234,14 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Issues/</loc>
+    <loc>https://xuj14.github.io/tags/Mathematics/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Mathematics/</loc>
+    <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -246,7 +255,7 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
+    <loc>https://xuj14.github.io/tags/Issues/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
