@@ -4543,7 +4543,7 @@ repeating ourselves and make a function:</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">spark = pyspark.sql.SparkSession(sc)</span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
-        <category>programming</category>
+        <category>Programming</category>
       </categories>
       <tags>
         <tag>Python</tag>
