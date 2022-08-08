@@ -155,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pyspark"><span class="nav-number">1.</span> <span class="nav-text">Pyspark</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pyspark"><span class="nav-number">1.</span> <span class="nav-text">Pyspark</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -310,21 +310,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="pyspark">Pyspark</h1>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br></pre></td></tr></tbody></table></figure>
+        <h1 id="Pyspark"><a href="#Pyspark" class="headerlink" title="Pyspark"></a>Pyspark</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line">findspark.init()</span><br><span class="line">sc = pyspark.SparkContext()</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data=sc.textFile(<span class="string">'16\simple.txt'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.collect() <span class="comment"># form a list of data</span></span><br></pre></td></tr></tbody></table></figure>
 <pre><code>['Raining cats and dogs',
  'Cats eat mice, mice eat cheese',
- 'Mice and cats and dogs have fleas']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = sc.textFile(<span class="string">'16\\numbers.txt'</span>)</span><br></pre></td></tr></tbody></table></figure>
+ 'Mice and cats and dogs have fleas']
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = sc.textFile(<span class="string">'16\\numbers.txt'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data2 = data.<span class="built_in">map</span>(<span class="built_in">int</span>)</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data2.collect()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>[10, 23, 16, 7, 12, 0, 1, 1, 2, 3, 5, 8, -1, 42, 64, 101, -101, 3]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> add</span><br><span class="line">data2.reduce(add)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>196</code></pre>
-<ul>
+<pre><code>[10, 23, 16, 7, 12, 0, 1, 1, 2, 3, 5, 8, -1, 42, 64, 101, -101, 3]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> add</span><br><span class="line">data2.reduce(add)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>196
+</code></pre><ul>
 <li>map</li>
 <li>filter</li>
 <li>flatMap</li>
@@ -334,15 +333,15 @@
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = sc.textFile(<span class="string">'16\\numbers.txt'</span>).<span class="built_in">map</span>(<span class="built_in">int</span>)</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.collect()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>[10, 23, 16, 7, 12, 0, 1, 1, 2, 3, 5, 8, -1, 42, 64, 101, -101, 3]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x%<span class="number">2</span> == <span class="number">0</span>).collect()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>[10, 16, 12, 0, 2, 8, 42, 64]</code></pre>
-<p>sample(withReplacement,fraction,[seed])</p>
+<pre><code>[10, 23, 16, 7, 12, 0, 1, 1, 2, 3, 5, 8, -1, 42, 64, 101, -101, 3]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x%<span class="number">2</span> == <span class="number">0</span>).collect()</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[10, 16, 12, 0, 2, 8, 42, 64]
+</code></pre><p>sample(withReplacement,fraction,[seed])</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.sample(<span class="literal">True</span>,<span class="number">0.3</span>).collect()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>[23, 23, 1, 1, 64]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.sample(<span class="literal">True</span>,<span class="number">0.3</span>,<span class="number">1</span>).collect()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>[23, 7, 0, -1, 64, 64, 101, 3]</code></pre>
-<p>复杂的data：pickle module里面serializaiton</p>
+<pre><code>[23, 23, 1, 1, 64]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.sample(<span class="literal">True</span>,<span class="number">0.3</span>,<span class="number">1</span>).collect()</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[23, 7, 0, -1, 64, 64, 101, 3]
+</code></pre><p>复杂的data：pickle module里面serializaiton</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = sc.textFile(<span class="string">'16\\scientists.txt'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>['John Bardeen 3.1 EE 1908',
@@ -352,8 +351,8 @@
  'Emmy Noether 2.9 Physics 1882',
  'Leonard Euler 3.9 Mathematics 1707',
  'Jerzy Neyman 3.5 Statistics 1894',
- 'Ky Fan 3.55 Mathematics 1914']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">map</span>(<span class="keyword">lambda</span> line: line.split()).collect()</span><br></pre></td></tr></tbody></table></figure>
+ 'Ky Fan 3.55 Mathematics 1914']
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">map</span>(<span class="keyword">lambda</span> line: line.split()).collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>[['John', 'Bardeen', '3.1', 'EE', '1908'],
  ['Eugene', 'Wigner', '3.2', 'Physics', '1902'],
  ['Albert', 'Einstein', '4.0', 'Physics', '1879'],
@@ -361,8 +360,8 @@
  ['Emmy', 'Noether', '2.9', 'Physics', '1882'],
  ['Leonard', 'Euler', '3.9', 'Mathematics', '1707'],
  ['Jerzy', 'Neyman', '3.5', 'Statistics', '1894'],
- ['Ky', 'Fan', '3.55', 'Mathematics', '1914']]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">map</span>(<span class="built_in">str</span>.split).collect()</span><br></pre></td></tr></tbody></table></figure>
+ ['Ky', 'Fan', '3.55', 'Mathematics', '1914']]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">map</span>(<span class="built_in">str</span>.split).collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>[['John', 'Bardeen', '3.1', 'EE', '1908'],
  ['Eugene', 'Wigner', '3.2', 'Physics', '1902'],
  ['Albert', 'Einstein', '4.0', 'Physics', '1879'],
@@ -370,8 +369,8 @@
  ['Emmy', 'Noether', '2.9', 'Physics', '1882'],
  ['Leonard', 'Euler', '3.9', 'Mathematics', '1707'],
  ['Jerzy', 'Neyman', '3.5', 'Statistics', '1894'],
- ['Ky', 'Fan', '3.55', 'Mathematics', '1914']]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = data.<span class="built_in">map</span>(<span class="built_in">str</span>.split).<span class="built_in">map</span>(<span class="keyword">lambda</span> tup: (tup[<span class="number">0</span>]+<span class="string">' '</span>+tup[<span class="number">1</span>],<span class="built_in">float</span>(tup[<span class="number">2</span>]),<span class="built_in">int</span>(tup[<span class="number">4</span>])))</span><br><span class="line">d.collect()</span><br></pre></td></tr></tbody></table></figure>
+ ['Ky', 'Fan', '3.55', 'Mathematics', '1914']]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = data.<span class="built_in">map</span>(<span class="built_in">str</span>.split).<span class="built_in">map</span>(<span class="keyword">lambda</span> tup: (tup[<span class="number">0</span>]+<span class="string">' '</span>+tup[<span class="number">1</span>],<span class="built_in">float</span>(tup[<span class="number">2</span>]),<span class="built_in">int</span>(tup[<span class="number">4</span>])))</span><br><span class="line">d.collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>[('John Bardeen', 3.1, 1908),
  ('Eugene Wigner', 3.2, 1902),
  ('Albert Einstein', 4.0, 1879),
@@ -379,20 +378,20 @@
  ('Emmy Noether', 2.9, 1882),
  ('Leonard Euler', 3.9, 1707),
  ('Jerzy Neyman', 3.5, 1894),
- ('Ky Fan', 3.55, 1914)]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d.<span class="built_in">map</span>(<span class="keyword">lambda</span> tup: tup[<span class="number">1</span>]).mean()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>3.425</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = sc.textFile(<span class="string">'16/numbers_weird.txt'</span>)</span><br><span class="line">data.collect()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['10 23 16', '7 12', '0', '1 1 2 3 5 8', '-1 42', '64 101 -101', '3']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">map</span>(<span class="built_in">str</span>.split).collect()</span><br></pre></td></tr></tbody></table></figure>
+ ('Ky Fan', 3.55, 1914)]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d.<span class="built_in">map</span>(<span class="keyword">lambda</span> tup: tup[<span class="number">1</span>]).mean()</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>3.425
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = sc.textFile(<span class="string">'16/numbers_weird.txt'</span>)</span><br><span class="line">data.collect()</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['10 23 16', '7 12', '0', '1 1 2 3 5 8', '-1 42', '64 101 -101', '3']
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.<span class="built_in">map</span>(<span class="built_in">str</span>.split).collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>[['10', '23', '16'],
  ['7', '12'],
  ['0'],
  ['1', '1', '2', '3', '5', '8'],
  ['-1', '42'],
  ['64', '101', '-101'],
- ['3']]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.flatMap(<span class="built_in">str</span>.split).collect()</span><br></pre></td></tr></tbody></table></figure>
+ ['3']]
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.flatMap(<span class="built_in">str</span>.split).collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>['10',
  '23',
  '16',
@@ -410,8 +409,8 @@
  '64',
  '101',
  '-101',
- '3']</code></pre>
-<ul>
+ '3']
+</code></pre><ul>
 <li>reduce</li>
 <li>collect</li>
 <li>count</li>
@@ -421,8 +420,8 @@
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.collect()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>['Raining cats and dogs',
  'Cats eat mice, mice eat cheese',
- 'Mice and cats and dogs have fleas']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.flatMap(<span class="built_in">str</span>.split).<span class="built_in">map</span>(<span class="built_in">str</span>.lower).<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x.replace(<span class="string">','</span>,<span class="string">''</span>)).<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x,<span class="number">1</span>)).countByKey()</span><br></pre></td></tr></tbody></table></figure>
+ 'Mice and cats and dogs have fleas']
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.flatMap(<span class="built_in">str</span>.split).<span class="built_in">map</span>(<span class="built_in">str</span>.lower).<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x.replace(<span class="string">','</span>,<span class="string">''</span>)).<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x,<span class="number">1</span>)).countByKey()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>defaultdict(int,
             {'raining': 1,
              'cats': 3,
@@ -432,11 +431,11 @@
              'mice': 3,
              'cheese': 1,
              'have': 1,
-             'fleas': 1})</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.flatMap(<span class="built_in">str</span>.split).<span class="built_in">map</span>(<span class="built_in">str</span>.lower).<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x.replace(<span class="string">','</span>,<span class="string">''</span>)).countByKey()</span><br></pre></td></tr></tbody></table></figure>
+             'fleas': 1})
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.flatMap(<span class="built_in">str</span>.split).<span class="built_in">map</span>(<span class="built_in">str</span>.lower).<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x.replace(<span class="string">','</span>,<span class="string">''</span>)).countByKey()</span><br></pre></td></tr></tbody></table></figure>
 <pre><code>defaultdict(int,
-            {'r': 1, 'c': 4, 'a': 3, 'd': 2, 'e': 2, 'm': 3, 'h': 1, 'f': 1})</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br></pre></td></tr></tbody></table></figure>
+            {'r': 1, 'c': 4, 'a': 3, 'd': 2, 'e': 2, 'm': 3, 'h': 1, 'f': 1})
+</code></pre><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark = pyspark.sql.SparkSession(sc)</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
@@ -528,14 +527,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">170k</span>
+    <span title="Symbols count total">167k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:35</span>
+    <span title="Reading time total">2:31</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>

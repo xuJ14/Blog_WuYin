@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xuj14.github.io/Python-Algorithm-and-Data-Structure/</loc>
+    
+    <lastmod>2022-08-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xuj14.github.io/Pyspark/</loc>
     
     <lastmod>2022-08-07</lastmod>
@@ -32,15 +41,6 @@
     <loc>https://xuj14.github.io/Programming-in-Python-1/</loc>
     
     <lastmod>2022-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xuj14.github.io/Python-Algorithm-and-Data-Structure/</loc>
-    
-    <lastmod>2022-08-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -247,57 +247,57 @@
 
   <url>
     <loc>https://xuj14.github.io/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://xuj14.github.io/tags/Mathematics/</loc>
-    <lastmod>2022-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
-    <lastmod>2022-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xuj14.github.io/tags/Project/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/tags/Mathematics/</loc>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Issues/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Python/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Essay/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -305,36 +305,36 @@
 
   
   <url>
+    <loc>https://xuj14.github.io/categories/Project/</loc>
+    <lastmod>2022-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xuj14.github.io/categories/Mathematics/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Machine-Learning/</loc>
-    <lastmod>2022-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xuj14.github.io/categories/Project/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Programming/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Other/</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
