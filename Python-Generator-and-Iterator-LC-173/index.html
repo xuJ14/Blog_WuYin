@@ -98,7 +98,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">7</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">24</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">7</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">25</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -155,7 +155,9 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterable-and-Iterator"><span class="nav-number">1.1.</span> <span class="nav-text">Iterable and Iterator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">1.2.</span> <span class="nav-text">Generator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LC-173-Binary-Search-Tree-Iterator"><span class="nav-number">2.</span> <span class="nav-text">LC-173: Binary Search Tree Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE%EF%BC%9A-%E4%B8%BA%E4%BD%95%E8%BF%99%E9%87%8C%E8%A6%81%E7%94%A8next-self-g-%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5self-g%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">疑问： 为何这里要用next(self.g)，而不是直接self.g？</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iterable-and-iterator"><span class="nav-number">1.1.</span> <span class="nav-text">Iterable and Iterator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generator"><span class="nav-number">1.2.</span> <span class="nav-text">Generator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lc-173-binary-search-tree-iterator"><span class="nav-number">2.</span> <span class="nav-text">LC-173: Binary Search Tree
+Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE-%E4%B8%BA%E4%BD%95%E8%BF%99%E9%87%8C%E8%A6%81%E7%94%A8nextself.g%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5self.g"><span class="nav-number">2.1.</span> <span class="nav-text">疑问：
+为何这里要用next(self.g)，而不是直接self.g？</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -310,28 +312,45 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="Iterable-and-Iterator"><a href="#Iterable-and-Iterator" class="headerlink" title="Iterable and Iterator"></a>Iterable and Iterator</h2><p>The definition of <a target="_blank" rel="noopener" href="https://docs.python.org/3/glossary.html#term-iterator">Iterator</a>: An object representing a stream of data. </p>
+        <h1 id="基本知识">基本知识</h1>
+<h2 id="iterable-and-iterator">Iterable and Iterator</h2>
+<p>The definition of <a target="_blank" rel="noopener" href="https://docs.python.org/3/glossary.html#term-iterator">Iterator</a>:
+An object representing a stream of data.</p>
 <ul>
-<li><code>__next__()</code> is necessary, because it repeated calls to the iterator’s <code>__next__()</code>. </li>
-<li><code>__iter__()</code> is necessary, which returns iterator object itself, because iterator itself needs to be an Iterable. 可以直接<code>return self</code></li>
+<li><code>__next__()</code> is necessary, because it repeated calls to
+the iterator's <code>__next__()</code>.</li>
+<li><code>__iter__()</code> is necessary, which returns iterator object
+itself, because iterator itself needs to be an Iterable.
+可以直接<code>return self</code></li>
 </ul>
-<p>The definition of <a target="_blank" rel="noopener" href="https://docs.python.org/3/glossary.html#term-iterable">Iterable</a>: An object capable of returning its members one at a time.</p>
+<p>The definition of <a target="_blank" rel="noopener" href="https://docs.python.org/3/glossary.html#term-iterable">Iterable</a>:
+An object capable of returning its members one at a time.</p>
 <ul>
-<li><code>__iter__()</code> or <code>__getitem__()</code> is necessary to implement Sequence semantics. </li>
+<li><code>__iter__()</code> or <code>__getitem__()</code> is necessary
+to implement Sequence semantics.</li>
 <li>can be used in for loop.</li>
 </ul>
-<p>简单理解：Iterable要有能力产生一个Iterator，Iterator的next要有能力返回下一个iterable里的值。for loop是从Iterable里面拿到一个Iterator，然后对iterator一直请求next，直到StopIteration。</p>
-<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p>The definition of <a target="_blank" rel="noopener" href="https://docs.python.org/3/glossary.html#term-generator">Generator</a>: A function returns a generator Iterator. </p>
+<p>简单理解：Iterable要有能力产生一个Iterator，Iterator的next要有能力返回下一个iterable里的值。for
+loop是从Iterable里面拿到一个Iterator，然后对iterator一直请求next，直到StopIteration。</p>
+<h2 id="generator">Generator</h2>
+<p>The definition of <a target="_blank" rel="noopener" href="https://docs.python.org/3/glossary.html#term-generator">Generator</a>:
+A function returns a generator Iterator.</p>
 <ul>
-<li><p>Every time use <code>next()</code> to generator, it will yield the next and label the current frame.</p>
-</li>
-<li><p>It can ‘send’: <code>g.send()</code>, which allows you to involve the generator.</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">gen</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">        tmp = <span class="keyword">yield</span> num</span><br><span class="line">        <span class="keyword">if</span> tmp <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            num = tmp</span><br><span class="line">        num -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">g = gen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">first = <span class="built_in">next</span>(g) <span class="comment"># first = g.send(None)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"first:<span class="subst">{first}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"send: <span class="subst">{g.send(<span class="number">10</span>)}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="comment"># &gt;&gt; 8, 7, 6, 5, 4, 3, 2, 1</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
+<li><p>Every time use <code>next()</code> to generator, it will yield
+the next and label the current frame.</p></li>
+<li><p>It can 'send': <code>g.send()</code>, which allows you to involve
+the generator.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">gen</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">        tmp = <span class="keyword">yield</span> num</span><br><span class="line">        <span class="keyword">if</span> tmp <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            num = tmp</span><br><span class="line">        num -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">g = gen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">first = <span class="built_in">next</span>(g) <span class="comment"># first = g.send(None)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"first:<span class="subst">{first}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"send: <span class="subst">{g.send(<span class="number">10</span>)}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="comment"># &gt;&gt; 8, 7, 6, 5, 4, 3, 2, 1</span></span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
-<h1 id="LC-173-Binary-Search-Tree-Iterator"><a href="#LC-173-Binary-Search-Tree-Iterator" class="headerlink" title="LC-173: Binary Search Tree Iterator"></a>LC-173: Binary Search Tree Iterator</h1><p>generator solution:</p>
+<h1 id="lc-173-binary-search-tree-iterator">LC-173: Binary Search Tree
+Iterator</h1>
+<p>generator solution:</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, root</span>):</span><br><span class="line">    self.last = root</span><br><span class="line">    <span class="keyword">while</span> self.last <span class="keyword">and</span> self.last.right:</span><br><span class="line">        self.last = self.last.right</span><br><span class="line">    self.current = <span class="literal">None</span></span><br><span class="line">    self.g = self.iterate(root)</span><br><span class="line"></span><br><span class="line"><span class="comment"># @return a boolean, whether we have a next smallest number</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hasNext</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> self.current <span class="keyword">is</span> <span class="keyword">not</span> self.last</span><br><span class="line"></span><br><span class="line"><span class="comment"># @return an integer, the next smallest number</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">next</span>(self.g)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">self, node</span>):</span><br><span class="line">    <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> self.iterate(node.left):</span><br><span class="line">        <span class="keyword">yield</span> x</span><br><span class="line">    self.current = node</span><br><span class="line">    <span class="keyword">yield</span> node.val</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> self.iterate(node.right):</span><br><span class="line">        <span class="keyword">yield</span> x</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="疑问：-为何这里要用next-self-g-，而不是直接self-g？"><a href="#疑问：-为何这里要用next-self-g-，而不是直接self-g？" class="headerlink" title="疑问： 为何这里要用next(self.g)，而不是直接self.g？"></a>疑问： 为何这里要用<code>next(self.g)</code>，而不是直接self.g？</h2><p>个人理解： 这里的next非def中的next，而是generator里的<code>__next__()</code>，当把def中的next改为其他名称时，运行结果相同。另外self.g是一个generator，因为iterate用到了yield，直接return self.g是generator，而不是具体数字。</p>
+<h2 id="疑问-为何这里要用nextself.g而不是直接self.g">疑问：
+为何这里要用<code>next(self.g)</code>，而不是直接self.g？</h2>
+<p>个人理解：
+这里的next非def中的next，而是generator里的<code>__next__()</code>，当把def中的next改为其他名称时，运行结果相同。另外self.g是一个generator，因为iterate用到了yield，直接return
+self.g是generator，而不是具体数字。</p>
 
     </div>
 
@@ -422,14 +441,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">167k</span>
+    <span title="Symbols count total">178k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:31</span>
+    <span title="Reading time total">2:42</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>

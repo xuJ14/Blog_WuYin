@@ -24,32 +24,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xuj14.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Large scale machine learning">
+    <meta name="description" content="Describe the assumption of Linear Regression and how to deal with the violation.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Week10">
-<meta property="og:url" content="https://xuj14.github.io/Machine-Learning-Week10/index.html">
+<meta property="og:title" content="Assumption of Linear Regression">
+<meta property="og:url" content="https://xuj14.github.io/Assumption-of-Linear-Regression/index.html">
 <meta property="og:site_name" content="午尹">
-<meta property="og:description" content="Large scale machine learning">
+<meta property="og:description" content="Describe the assumption of Linear Regression and how to deal with the violation.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png">
-<meta property="article:published_time" content="2021-04-18T19:25:01.000Z">
-<meta property="article:modified_time" content="2022-08-06T16:33:33.473Z">
+<meta property="article:published_time" content="2021-12-10T17:50:11.000Z">
+<meta property="article:modified_time" content="2022-08-12T05:44:55.750Z">
 <meta property="article:author" content="Jun XU">
-<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Mathematics">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png">
 
 
-<link rel="canonical" href="https://xuj14.github.io/Machine-Learning-Week10/">
+<link rel="canonical" href="https://xuj14.github.io/Assumption-of-Linear-Regression/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xuj14.github.io/Machine-Learning-Week10/","path":"Machine-Learning-Week10/","title":"Machine Learning Week10"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xuj14.github.io/Assumption-of-Linear-Regression/","path":"Assumption-of-Linear-Regression/","title":"Assumption of Linear Regression"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Machine Learning Week10 | 午尹</title>
+<title>Assumption of Linear Regression | 午尹</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJCKHPPPPQ"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-SJCKHPPPPQ","only_pageview":false}</script>
@@ -159,11 +155,11 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#large-scale-machine-learning"><span class="nav-number">1.</span> <span class="nav-text">Large Scale Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient-descent-with-large-datasets"><span class="nav-number">1.1.</span> <span class="nav-text">Gradient Descent with
-Large Datasets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-with-large-datasets"><span class="nav-number">1.1.1.</span> <span class="nav-text">Learning with large datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stochastic-gradient-descent-%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="nav-number">1.1.2.</span> <span class="nav-text">Stochastic gradient
-descent 随机梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mini-batch-gradient-descent"><span class="nav-number">1.1.3.</span> <span class="nav-text">Mini-Batch gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stochastic-gradient-descent-convergence"><span class="nav-number">1.1.4.</span> <span class="nav-text">Stochastic gradient
-descent convergence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#advanced-topics"><span class="nav-number">1.2.</span> <span class="nav-text">Advanced Topics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#map-reduce-and-data-parallelism"><span class="nav-number">1.2.1.</span> <span class="nav-text">Map reduce and data
-parallelism</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1least-squarels"><span class="nav-number">2.</span> <span class="nav-text">最小二乘估计Least Square（LS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gauss-markov-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">古典线性回归模型的假设</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">一些基本性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#violation-and-misappropriation"><span class="nav-number">5.</span> <span class="nav-text">Violation and
+Misappropriation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#errors-are-correlated-or-have-unequal-variance"><span class="nav-number">5.1.</span> <span class="nav-text">Errors are
+correlated or have unequal variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#error-distribution-is-long-tailed"><span class="nav-number">5.2.</span> <span class="nav-text">Error distribution is
+long-tailed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predictors-are-highly-correlated-collinear"><span class="nav-number">5.3.</span> <span class="nav-text">Predictors are
+highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%BF%9D%E8%83%8C%E4%BA%86%E5%81%87%E8%AE%BE%E6%9D%A1%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">如果违背了假设条件：</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +234,7 @@ parallelism</span></a></li></ol></li></ol></li></ol></div>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xuj14.github.io/Machine-Learning-Week10/">
+    <link itemprop="mainEntityOfPage" href="https://xuj14.github.io/Assumption-of-Linear-Regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/gallery/avator.jpg">
@@ -251,12 +247,12 @@ parallelism</span></a></li></ol></li></ol></li></ol></div>
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Machine Learning Week10 | 午尹">
+      <meta itemprop="name" content="Assumption of Linear Regression | 午尹">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Machine Learning Week10
+          Assumption of Linear Regression
         </h1>
 
         <div class="post-meta-container">
@@ -267,14 +263,14 @@ parallelism</span></a></li></ol></li></ol></li></ol></div>
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-04-18 15:25:01" itemprop="dateCreated datePublished" datetime="2021-04-18T15:25:01-04:00">2021-04-18</time>
+      <time title="Created: 2021-12-10 12:50:11" itemprop="dateCreated datePublished" datetime="2021-12-10T12:50:11-05:00">2021-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-06 12:33:33" itemprop="dateModified" datetime="2022-08-06T12:33:33-04:00">2022-08-06</time>
+      <time title="Modified: 2022-08-12 01:44:55" itemprop="dateModified" datetime="2022-08-12T01:44:55-04:00">2022-08-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,12 +278,12 @@ parallelism</span></a></li></ol></li></ol></li></ol></div>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
         </span>
     </span>
 
   
-    <span id="/Machine-Learning-Week10/" class="post-meta-item leancloud_visitors" data-flag-title="Machine Learning Week10" title="Views">
+    <span id="/Assumption-of-Linear-Regression/" class="post-meta-item leancloud_visitors" data-flag-title="Assumption of Linear Regression" title="Views">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -300,14 +296,14 @@ parallelism</span></a></li></ol></li></ol></li></ol></div>
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.7k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -318,99 +314,161 @@ parallelism</span></a></li></ol></li></ol></li></ol></div>
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
-<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
-Large Datasets</h2>
-<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
-<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
-curve（error关于m的曲线）</p>
-<p>左图为high variance，说明增加m有助于结果变好；右图为high
-bias，说明增加m无助于结果变好</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
-<figcaption aria-hidden="true">左：high variance；右: high
-bias</figcaption>
-</figure>
-<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
-descent 随机梯度下降</h3>
-<p>Batch gradient descent:
-前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
-<p>Stochastic gradient descent：每次iteration用1个例子</p>
+        <h1 id="linear-regression">Linear Regression</h1>
+<p>线性模型通常是：<span class="math inline">\(Y=f\left(X_{1}, X_{2},
+X_{3}\right)+\varepsilon\)</span>的形式。这里predictor本身不需要一定是线性的，可以通过一些transform的形式，将非线性的关系转变为线性的。
+线性模型的矩阵表达：<span class="math inline">\(y=X
+\beta+\varepsilon\)</span>，这里y为n×1的矩阵。
+那么接下来问题就是如何估计β，以尽可能多的用x解释y。在本文中，p为β中参数的个数。</p>
+<p>我们用<span class="math inline">\(\hat{y}=X \hat{\beta}\)</span>
+表示我们的预测值（predicted or fitted value），<span class="math inline">\(\hat{\varepsilon} = y-\hat y\)</span>
+表示残差（residual）。这样，我们的y是n维，确定的变量是p维，剩下n-p维就是不确定的random
+variation（可以用QR分解证明）。不带^的为真实值。</p>
+<h1 id="最小二乘估计least-squarels">最小二乘估计Least Square（LS）</h1>
+<p><span class="math display">\[
+X^{\top} X \hat{\beta}=X^{\top} y
+\]</span></p>
+<p>上述就是normal equation。</p>
+<p>事实上有很多种估计β的方法，但为什么要用最小二乘估计呢，有以下三点原因：</p>
 <ol type="1">
-<li><p>Randomly shuffle dataset</p></li>
-<li><p>Repeat：</p>
-<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
-}</p>
-<blockquote>
-<p>Note: 和Batch gradient
-descent不同的是，无需每一步都要计算全部的training example</p>
-</blockquote></li>
+<li>它的结果恰好符合：正交投影到模型空间的结果。符合我们的几何直觉。</li>
+<li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
+likelihood
+estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
+<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
+\beta\)</span>是最优线性无偏估计（BLUE）。</li>
 </ol>
-<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
-<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
-<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
-<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
-<p>第i个例子，直到第i+b-1个例子</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
-<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
-</figure>
-<p>只有当have a good vetorized implementation
-，mini-batch才能比stochastic表现得更好。（并行运算）</p>
-<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
-descent convergence</h3>
-<p>收敛性：</p>
+<blockquote>
+<p><strong>Gauss-Markov Theorem</strong> ：</p>
+<p>If the errors in the linear regression model are
+<strong>uncorrelated不相关</strong>, have <strong>equal
+variances同方差</strong> and <strong>expectation value of
+zero期望为0</strong>:</p>
+<p>Then the ordinary least squares (OLS) estimator has <strong>the
+lowest sampling variance within the class of linear unbiased
+estimators</strong>.</p>
+<p><strong>Note:</strong> The errors do not need to be normal, nor do
+they need to be independent and identically distributed (only
+uncorrelated with mean zero and homoscedastic with finite variance). The
+requirement that the estimator be unbiased cannot be dropped, since
+biased estimators exist with lower variance. See, for example, the
+James–Stein estimator (which also drops linearity), ridge regression, or
+simply any degenerate estimator.</p>
+</blockquote>
+<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
+<p>假设：<span class="math inline">\(E \varepsilon=0\)</span>，<span class="math inline">\(\operatorname{Var} \varepsilon=\sigma^{2}
+I\)</span>。</p>
+<p>公式1是LS得到的对β的估计。这时，我们并不知道β这个估计怎么样。那么有下述几条推论，他们的证明参见这里。</p>
+<p>首先，我们定义Estimable Function：</p>
+<blockquote>
+<p><strong>Estimable Function</strong>：如果存在a，使得<span class="math inline">\(E a^{\top} y=q^{\top}
+\beta\)</span>成立，其中q是已知的，那么我们说<span class="math inline">\(q^\top\beta\)</span>是estimable function。</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1:</strong> <span class="math inline">\(q^\top
+\beta\)</span> is estimable, if and only if there exists a vector t such
+that <span class="math inline">\(q^\top=t^\top X\)</span>.</p>
+</blockquote>
+<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a></p>
+<blockquote>
+<p><strong>Theorem 2:</strong> <span class="math inline">\(q^\top
+\beta\)</span> is estimable, if and only if <span class="math inline">\(X^{\top} X u=q\)</span> has solution for u.</p>
+</blockquote>
+<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a>.
+另判断非齐次线性方程组是否有解，需要比较系数矩阵和增广矩阵的秩的大小，这时若系数矩阵的行列式为0，说明有可能无解，也有可能有无穷多解。</p>
+<blockquote>
+<p><strong>Theorem 3:</strong> If <span class="math inline">\(q^\top
+\beta\)</span> is estimable, then <span class="math inline">\(q^\top
+\hat\beta\)</span> is an unbiased estimator of <span class="math inline">\(q^\top\beta\)</span>, and this solution <span class="math inline">\(\hat\beta\)</span> is invariant with the solution
+of <span class="math inline">\(X^{\top} X \hat\beta=X^\top
+y\)</span>.</p>
+</blockquote>
+<p>简单说，如果<span class="math inline">\(q^\top \beta\)</span> 是
+estimable，那么我们只需要找到任意一个符合<span class="math inline">\(X^{\top} X \hat\beta=X^\top y\)</span>的解<span class="math inline">\(\hat \beta\)</span>，这样<span class="math inline">\(q^\top \hat\beta\)</span> 就是<span class="math inline">\(q^\top\beta\)</span> 的无偏估计。</p>
+<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P4</a></p>
+<blockquote>
+<p><strong>Theorem 4: </strong> Of all unbiased linear estimators of the
+estimable function, <span class="math inline">\(q^\top\hat\beta\)</span>
+have the smallest variance.</p>
+</blockquote>
+<p>简单说，<span class="math inline">\(q^\top \beta\)</span>
+的所有无偏估计里，<span class="math inline">\(q^\top \hat \beta\)</span>
+的方差是最小的，也就是估计最稳定的，最优的。</p>
+<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P5</a></p>
+<p>综上，<span class="math inline">\(\hat \beta\)</span> 是<span class="math inline">\(\beta\)</span> 的BLUE（best linear unbiased
+estimation），最优线性无偏估计。</p>
+<h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
+<ol type="1">
+<li>线性模型</li>
+<li><span class="math inline">\(E[\varepsilon \mid
+X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
+Exogeneity</li>
+<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
+perfectly multicollinear）</li>
+<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
+X)=\sigma^{2} I_{n}\)</span>，意味着
 <ul>
-<li><figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
-<figcaption aria-hidden="true">Algorithm</figcaption>
-</figure></li>
-<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
-better结果。（cost关于no. of iteration 的曲线）</p></li>
-<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
-<li><p>如果学习曲线在上升，就要用更小的α</p></li>
-<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
-<li><p>关于学习速率的选择：</p>
+<li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
+\mid X\right)=\sigma^{2}\)</span></li>
+<li>没有自相关性（autocorrelation），即不同观测的error是不相关的（uncorrelated）：<span class="math inline">\(E\left[\varepsilon_{i} \varepsilon_{j} \mid
+X\right]=0\)</span>，for <span class="math inline">\(i\ne
+j\)</span>。</li>
+</ul></li>
+<li>有些地方，还会有这样一个假设：被观测对象(x,y)是独立同分布iid。这意味着所有的样本，是遵循随机采样的原则选出来的。</li>
+</ol>
+<h1 id="一些基本性质">一些基本性质</h1>
+<ol type="1">
+<li><p>projection matrix：<span class="math inline">\(H=X\left(X^{\top}
+X\right)^{-1} X^{\top}\)</span></p>
 <ul>
-<li>Learning rate α is typically held constant 在随机梯度下降中</li>
-<li>Can slowly decrease α over time if we want θ to converge.
-（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
-Number+const2}\)</span>）
+<li><span class="math inline">\(H^\top = H\)</span></li>
+</ul></li>
+<li><p>fitted values: <span class="math inline">\(\hat{y}=X
+\hat{\beta}=H y\)</span></p>
 <ul>
-<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
+<li>我们可以理解这个式子为把y投影到X空间里，这样误差就位于正交于X的空间里。</li>
+</ul></li>
+<li><p>residuals: <span class="math inline">\(\hat{\varepsilon}=y-\hat{y}=(I-H)
+y\)</span></p></li>
+<li><p>基于上述假设，推出：</p>
+<ul>
+<li><p><span class="math inline">\(\hat{\beta} \sim N\left(\beta,
+\sigma^{2}\left(X^{\top} X\right)^{-1}\right)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
+X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
+<li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
+X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
+\frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
+\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
+500作业3第2题。</li>
 </ul></li>
 </ul></li>
-</ul>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<p>### Online Learning</p>
-<ul>
-<li><p>连续的数据流：用户进入离开</p></li>
-<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
-regression或者神经网络</p></li>
-<li><p>这里考虑逻辑回归：</p>
-<p>Repeat forever {</p>
-<p>​ Get (x,y) corresponding to user.</p>
-<p>​ Update θ using (x,y):</p>
-<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
-(j=0, ..., n)</p>
-<p>}</p></li>
-<li><p>这个算法可以用于学习用户喜好</p>
-<ul>
-<li>Choosing special offers to show user</li>
-<li>Customized selection of news articles</li>
-<li>product recommendation/search</li>
-</ul></li>
-</ul>
-<h3 id="map-reduce-and-data-parallelism">Map reduce and data
-parallelism</h3>
-<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
-Ghemawat。summation over the training set。即并行处理</p>
-<ul>
-<li>神经网络也同样可以并行计算前向和后向propagation</li>
-<li>有时只需要向量化实现算法，不需要多核并行</li>
-<li>Hadoop是开源map reduce</li>
-<li>由于并行的latency，速度会少于N倍 的单核心</li>
-</ul>
+</ol>
+<h1 id="violation-and-misappropriation">Violation and
+Misappropriation</h1>
+<h2 id="errors-are-correlated-or-have-unequal-variance">Errors are
+correlated or have unequal variance</h2>
+<p>Generalized least squares</p>
+<h2 id="error-distribution-is-long-tailed">Error distribution is
+long-tailed</h2>
+<h2 id="predictors-are-highly-correlated-collinear">Predictors are
+highly correlated (collinear)</h2>
+<p>线性无关不代表基向量正交</p>
+<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
+<p>X线性无关，并不代表没有相关性</p>
+<p>什么是无偏估计</p>
+<p>方差的无偏估计：</p>
+<p>引出自由度</p>
+<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
+<p>如果相关：</p>
+<p>如果异方差</p>
+<p>如果期望不为0</p>
+<p>如果不服从正态分布</p>
 
     </div>
 
@@ -422,15 +480,7 @@ Ghemawat。summation over the training set。即并行处理</p>
   <div class="popular-posts-header">Related Posts</div>
   <ul class="related-posts">
   
-      <li class="related-posts-item"><a href="/How-to-Win-a-Data-Science-Competition-Learn-from-Top-Kagglers/">How to Win a Data Science Competition</a></li>
-  
-      <li class="related-posts-item"><a href="/Machine-Learning-Week09/">Machine Learning Week09</a></li>
-  
-      <li class="related-posts-item"><a href="/Machine-Learning-Week06/">Machine Learning Week06</a></li>
-  
-      <li class="related-posts-item"><a href="/Machine-Learning-Week08/">Machine Learning Week08</a></li>
-  
-      <li class="related-posts-item"><a href="/Machine-Learning-Week07/">Machine Learning Week07</a></li>
+      <li class="related-posts-item"><a href="/Caculus-Review/">Caculus Review</a></li>
   
   </ul>
 
@@ -445,7 +495,7 @@ Ghemawat。summation over the training set。即并行处理</p>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://xuj14.github.io/Machine-Learning-Week10/" title="Machine Learning Week10">https://xuj14.github.io/Machine-Learning-Week10/</a>
+      <a href="https://xuj14.github.io/Assumption-of-Linear-Regression/" title="Assumption of Linear Regression">https://xuj14.github.io/Assumption-of-Linear-Regression/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -454,20 +504,20 @@ Ghemawat。summation over the training set。即并行处理</p>
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/Mathematics/" rel="tag"><i class="fa fa-tag"></i> Mathematics</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Machine-Learning-Week09/" rel="prev" title="Machine Learning Week09">
-                  <i class="fa fa-chevron-left"></i> Machine Learning Week09
+                <a href="/Reading-List/" rel="prev" title="Reading List">
+                  <i class="fa fa-chevron-left"></i> Reading List
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/How-to-Read-Papers/" rel="next" title="How to Read Papers">
-                  How to Read Papers <i class="fa fa-chevron-right"></i>
+                <a href="/Citadel-Central-Datathon-2021/" rel="next" title="Citadel Central Regional Datathon 2021">
+                  Citadel Central Regional Datathon 2021 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -542,7 +592,7 @@ Ghemawat。summation over the training set。即并行处理</p>
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
