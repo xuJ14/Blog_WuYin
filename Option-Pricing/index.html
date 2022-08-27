@@ -24,28 +24,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xuj14.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Describe the assumption of Linear Regression and how to deal with the violation.">
+    <meta name="description" content="Option pricing Terminology  T: maturity date t: current time \(\tau &#x3D; T-t\): time to maturity S: stock price at time t r: continuous risk-free interest rate y: continuous dividend yield \(\sigma\): an">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Assumption of Linear Regression">
-<meta property="og:url" content="https://xuj14.github.io/Assumption-of-Linear-Regression/index.html">
+<meta property="og:title" content="Option Pricing Review">
+<meta property="og:url" content="https://xuj14.github.io/Option-Pricing/index.html">
 <meta property="og:site_name" content="午尹">
-<meta property="og:description" content="Describe the assumption of Linear Regression and how to deal with the violation.">
+<meta property="og:description" content="Option pricing Terminology  T: maturity date t: current time \(\tau &#x3D; T-t\): time to maturity S: stock price at time t r: continuous risk-free interest rate y: continuous dividend yield \(\sigma\): an">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-12-10T17:50:11.000Z">
-<meta property="article:modified_time" content="2022-08-12T05:57:33.260Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xuJ14/ImageHost/main/d015e777de4bf0748d5ea22202509e1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/xuJ14/ImageHost/main/8ed96e39fc112cc5ca5c61fa8e3c75f.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/xuJ14/ImageHost/main/32d631e2e903396552ef7cb511b04da.jpg">
+<meta property="article:published_time" content="2022-08-25T14:45:28.000Z">
+<meta property="article:modified_time" content="2022-08-27T05:16:58.767Z">
 <meta property="article:author" content="Jun XU">
 <meta property="article:tag" content="Mathematics">
+<meta property="article:tag" content="Finance">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xuJ14/ImageHost/main/d015e777de4bf0748d5ea22202509e1.jpg">
 
 
-<link rel="canonical" href="https://xuj14.github.io/Assumption-of-Linear-Regression/">
+<link rel="canonical" href="https://xuj14.github.io/Option-Pricing/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xuj14.github.io/Assumption-of-Linear-Regression/","path":"Assumption-of-Linear-Regression/","title":"Assumption of Linear Regression"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xuj14.github.io/Option-Pricing/","path":"Option-Pricing/","title":"Option Pricing Review"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Assumption of Linear Regression | 午尹</title>
+<title>Option Pricing Review | 午尹</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJCKHPPPPQ"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-SJCKHPPPPQ","only_pageview":false}</script>
@@ -155,11 +160,11 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1least-squarels"><span class="nav-number">2.</span> <span class="nav-text">最小二乘估计Least Square（LS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gauss-markov-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">古典线性回归模型的假设</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">一些基本性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#violation-and-misappropriation"><span class="nav-number">5.</span> <span class="nav-text">Violation and
-Misappropriation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#errors-are-correlated-or-have-unequal-variance"><span class="nav-number">5.1.</span> <span class="nav-text">Errors are
-correlated or have unequal variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#error-distribution-is-long-tailed"><span class="nav-number">5.2.</span> <span class="nav-text">Error distribution is
-long-tailed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predictors-are-highly-correlated-collinear"><span class="nav-number">5.3.</span> <span class="nav-text">Predictors are
-highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%BF%9D%E8%83%8C%E4%BA%86%E5%81%87%E8%AE%BE%E6%9D%A1%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">如果违背了假设条件：</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#option-pricing"><span class="nav-number">1.</span> <span class="nav-text">Option pricing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#terminology"><span class="nav-number">1.1.</span> <span class="nav-text">Terminology</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#price-direction-of-options"><span class="nav-number">1.2.</span> <span class="nav-text">Price direction of options</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#put-call-parity"><span class="nav-number">1.3.</span> <span class="nav-text">Put-call Parity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#american-v.s.-european-options"><span class="nav-number">1.4.</span> <span class="nav-text">American v.s. European
+options</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#payoff-of-options"><span class="nav-number">1.5.</span> <span class="nav-text">Payoff of options</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#black-scholes-merton-model"><span class="nav-number">1.6.</span> <span class="nav-text">Black-Scholes-Merton model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feynman-kac-theorem"><span class="nav-number">1.7.</span> <span class="nav-text">Feynman-Kac theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#black-scholes-formula"><span class="nav-number">1.8.</span> <span class="nav-text">Black-Scholes Formula</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#assumptions-behind-black-scholes-formula"><span class="nav-number">1.8.1.</span> <span class="nav-text">Assumptions behind
+Black-Scholes Formula</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#derive-the-black-scholes-formula"><span class="nav-number">1.8.2.</span> <span class="nav-text">Derive the Black-Scholes
+formula</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#using-risk-neutral-probability-measure"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">Using risk-neutral
+probability measure</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-pde"><span class="nav-number">1.8.2.2.</span> <span class="nav-text">Using PDE</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-greeks"><span class="nav-number">2.</span> <span class="nav-text">The Greeks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#delta"><span class="nav-number">2.1.</span> <span class="nav-text">Delta</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#delta-hedging"><span class="nav-number">2.1.1.</span> <span class="nav-text">Delta Hedging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gamma"><span class="nav-number">2.2.</span> <span class="nav-text">Gamma</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gamma-hedging"><span class="nav-number">2.2.1.</span> <span class="nav-text">Gamma hedging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#theta"><span class="nav-number">2.3.</span> <span class="nav-text">Theta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vega"><span class="nav-number">2.4.</span> <span class="nav-text">Vega</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other-options"><span class="nav-number">3.</span> <span class="nav-text">Other options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#appendix"><span class="nav-number">4.</span> <span class="nav-text">Appendix</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,7 +239,7 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://xuj14.github.io/Assumption-of-Linear-Regression/">
+    <link itemprop="mainEntityOfPage" href="https://xuj14.github.io/Option-Pricing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/gallery/avator.jpg">
@@ -247,12 +252,12 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Assumption of Linear Regression | 午尹">
+      <meta itemprop="name" content="Option Pricing Review | 午尹">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Assumption of Linear Regression
+          Option Pricing Review
         </h1>
 
         <div class="post-meta-container">
@@ -263,27 +268,18 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-12-10 12:50:11" itemprop="dateCreated datePublished" datetime="2021-12-10T12:50:11-05:00">2021-12-10</time>
+      <time title="Created: 2022-08-25 10:45:28" itemprop="dateCreated datePublished" datetime="2022-08-25T10:45:28-04:00">2022-08-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 01:57:33" itemprop="dateModified" datetime="2022-08-12T01:57:33-04:00">2022-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-        </span>
+      <time title="Modified: 2022-08-27 01:16:58" itemprop="dateModified" datetime="2022-08-27T01:16:58-04:00">2022-08-27</time>
     </span>
 
   
-    <span id="/Assumption-of-Linear-Regression/" class="post-meta-item leancloud_visitors" data-flag-title="Assumption of Linear Regression" title="Views">
+    <span id="/Option-Pricing/" class="post-meta-item leancloud_visitors" data-flag-title="Option Pricing Review" title="Views">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -296,14 +292,14 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>4k</span>
+      <span>5.1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>5 mins.</span>
     </span>
 </div>
 
@@ -314,161 +310,287 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="linear-regression">Linear Regression</h1>
-<p>线性模型通常是：<span class="math inline">\(Y=f\left(X_{1}, X_{2},
-X_{3}\right)+\varepsilon\)</span>的形式。这里predictor本身不需要一定是线性的，可以通过一些transform的形式，将非线性的关系转变为线性的。
-线性模型的矩阵表达：<span class="math inline">\(y=X
-\beta+\varepsilon\)</span>，这里y为n×1的矩阵。
-那么接下来问题就是如何估计β，以尽可能多的用x解释y。在本文中，p为β中参数的个数。</p>
-<p>我们用<span class="math inline">\(\hat{y}=X \hat{\beta}\)</span>
-表示我们的预测值（predicted or fitted value），<span class="math inline">\(\hat{\varepsilon} = y-\hat y\)</span>
-表示残差（residual）。这样，我们的y是n维，确定的变量是p维，剩下n-p维就是不确定的random
-variation（可以用QR分解证明）。不带^的为真实值。</p>
-<h1 id="最小二乘估计least-squarels">最小二乘估计Least Square（LS）</h1>
+        <h1 id="option-pricing">Option pricing</h1>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li><p>T: maturity date</p></li>
+<li><p>t: current time</p></li>
+<li><p><span class="math inline">\(\tau = T-t\)</span>: time to
+maturity</p></li>
+<li><p>S: stock price at time t</p></li>
+<li><p>r: continuous risk-free interest rate</p></li>
+<li><p>y: continuous dividend yield</p></li>
+<li><p><span class="math inline">\(\sigma\)</span>: annualized asset
+volatility</p></li>
+<li><p><span class="math inline">\(c\)</span>: price of a European
+call</p></li>
+<li><p>p: price of a European put</p></li>
+<li><p>C: price of an American call</p></li>
+<li><p>P: price of an American put</p></li>
+<li><p>D: present value of future dividends at t</p></li>
+<li><p>K: strike price</p></li>
+<li><p>PV: present value at t</p></li>
+<li><p>ITM: in-the-money</p></li>
+<li><p>OTM: out-the-money</p></li>
+<li><p>ATM: at-the-money (K=S)</p></li>
+</ul>
+<h2 id="price-direction-of-options">Price direction of options</h2>
+<ul>
+<li>How do vanilla European/American option prices change when those
+term changes?</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable⬆</th>
+<th>European call</th>
+<th>European put</th>
+<th>American call</th>
+<th>American put</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Stock price - S</td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Strike price - K</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+</tr>
+<tr class="odd">
+<td>Time maturity - T</td>
+<td>❓</td>
+<td>❓</td>
+<td>⬆</td>
+<td>⬆</td>
+</tr>
+<tr class="even">
+<td>Volatility - σ</td>
+<td>⬆</td>
+<td>⬆</td>
+<td>⬆</td>
+<td>⬆</td>
+</tr>
+<tr class="odd">
+<td>Risk-free rate - r</td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Dividend - d</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: The impact of time to maturity on the European
+call/put is uncertain.</p>
+<ul>
+<li>If there is a large dividend payoff between two different maturity
+dates, a European call with shorter maturity that expires before the
+ex-dividend date may be worth more than a call with longer
+maturity.</li>
+<li>For deep in-the-money European puts, the one with shorter maturity
+is worth more since it can be exercised earlier (time value of
+money).</li>
+</ul>
+<h2 id="put-call-parity">Put-call Parity</h2>
 <p><span class="math display">\[
-X^{\top} X \hat{\beta}=X^{\top} y
+c+K^{-r \tau}=p+S-D
 \]</span></p>
-<p>上述就是normal equation。</p>
-<p>事实上有很多种估计β的方法，但为什么要用最小二乘估计呢，有以下三点原因：</p>
-<ol type="1">
-<li>它的结果恰好符合：正交投影到模型空间的结果。符合我们的几何直觉。</li>
-<li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
-likelihood
-estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
-<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
-\beta\)</span>是最优线性无偏估计（BLUE）。</li>
-</ol>
-<blockquote>
-<p><strong>Gauss-Markov Theorem</strong> ：</p>
-<p>If the errors in the linear regression model are
-<strong>uncorrelated不相关</strong>, have <strong>equal
-variances同方差</strong> and <strong>expectation value of
-zero期望为0</strong>:</p>
-<p>Then the ordinary least squares (OLS) estimator has <strong>the
-lowest sampling variance within the class of linear unbiased
-estimators</strong>.</p>
-<p><strong>Note:</strong> The errors do not need to be normal, nor do
-they need to be independent and identically distributed (only
-uncorrelated with mean zero and homoscedastic with finite variance). The
-requirement that the estimator be unbiased cannot be dropped, since
-biased estimators exist with lower variance. See, for example, the
-James–Stein estimator (which also drops linearity), ridge regression, or
-simply any degenerate estimator.</p>
-</blockquote>
-<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
-<p>假设：<span class="math inline">\(E \varepsilon=0\)</span>，<span class="math inline">\(\operatorname{Var} \varepsilon=\sigma^{2}
-I\)</span>。</p>
-<p>公式1是LS得到的对β的估计。这时，我们并不知道β这个估计怎么样。那么有下述几条推论，他们的证明参见这里。</p>
-<p>首先，我们定义Estimable Function：</p>
-<blockquote>
-<p><strong>Estimable Function</strong>：如果存在a，使得<span class="math inline">\(E a^{\top} y=q^{\top}
-\beta\)</span>成立，其中q是已知的，那么我们说<span class="math inline">\(q^\top\beta\)</span>是estimable function。</p>
-</blockquote>
-<blockquote>
-<p><strong>Theorem 1:</strong> <span class="math inline">\(q^\top
-\beta\)</span> is estimable, if and only if there exists a vector t such
-that <span class="math inline">\(q^\top=t^\top X\)</span>.</p>
-</blockquote>
-<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a></p>
-<blockquote>
-<p><strong>Theorem 2:</strong> <span class="math inline">\(q^\top
-\beta\)</span> is estimable, if and only if <span class="math inline">\(X^{\top} X u=q\)</span> has solution for u.</p>
-</blockquote>
-<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a>.
-另判断非齐次线性方程组是否有解，需要比较系数矩阵和增广矩阵的秩的大小，这时若系数矩阵的行列式为0，说明有可能无解，也有可能有无穷多解。</p>
-<blockquote>
-<p><strong>Theorem 3:</strong> If <span class="math inline">\(q^\top
-\beta\)</span> is estimable, then <span class="math inline">\(q^\top
-\hat\beta\)</span> is an unbiased estimator of <span class="math inline">\(q^\top\beta\)</span>, and this solution <span class="math inline">\(\hat\beta\)</span> is invariant with the solution
-of <span class="math inline">\(X^{\top} X \hat\beta=X^\top
-y\)</span>.</p>
-</blockquote>
-<p>简单说，如果<span class="math inline">\(q^\top \beta\)</span> 是
-estimable，那么我们只需要找到任意一个符合<span class="math inline">\(X^{\top} X \hat\beta=X^\top y\)</span>的解<span class="math inline">\(\hat \beta\)</span>，这样<span class="math inline">\(q^\top \hat\beta\)</span> 就是<span class="math inline">\(q^\top\beta\)</span> 的无偏估计。</p>
-<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P4</a></p>
-<blockquote>
-<p><strong>Theorem 4: </strong> Of all unbiased linear estimators of the
-estimable function, <span class="math inline">\(q^\top\hat\beta\)</span>
-have the smallest variance.</p>
-</blockquote>
-<p>简单说，<span class="math inline">\(q^\top \beta\)</span>
-的所有无偏估计里，<span class="math inline">\(q^\top \hat \beta\)</span>
-的方差是最小的，也就是估计最稳定的，最优的。</p>
-<p>证明见<a target="_blank" rel="noopener" href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P5</a></p>
-<p>综上，<span class="math inline">\(\hat \beta\)</span> 是<span class="math inline">\(\beta\)</span> 的BLUE（best linear unbiased
-estimation），最优线性无偏估计。</p>
-<h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
-<ol type="1">
-<li>线性模型</li>
-<li><span class="math inline">\(E[\varepsilon \mid
-X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
-Exogeneity</li>
-<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
-perfectly multicollinear）</li>
-<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
-X)=\sigma^{2} I_{n}\)</span>，意味着
+<h2 id="american-v.s.-european-options">American v.s. European
+options</h2>
+<p>When the stock pays no dividend, never optimal to exercise American
+call. Actually, if <span class="math display">\[
+D_{t} \leqslant K\left(1-e^{-r(T-t)}\right)
+\]</span> , then it is not optimal to exercise American call. It is
+possibly optimal for the time right before an ex-dividend date.</p>
+<h2 id="payoff-of-options">Payoff of options</h2>
 <ul>
-<li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
-\mid X\right)=\sigma^{2}\)</span></li>
-<li>没有自相关性（autocorrelation），即不同观测的error是不相关的（uncorrelated）：<span class="math inline">\(E\left[\varepsilon_{i} \varepsilon_{j} \mid
-X\right]=0\)</span>，for <span class="math inline">\(i\ne
-j\)</span>。</li>
-</ul></li>
-<li>有些地方，还会有这样一个假设：被观测对象(x,y)是独立同分布iid。这意味着所有的样本，是遵循随机采样的原则选出来的。</li>
-</ol>
-<h1 id="一些基本性质">一些基本性质</h1>
-<ol type="1">
-<li><p>projection matrix：<span class="math inline">\(H=X\left(X^{\top}
-X\right)^{-1} X^{\top}\)</span></p>
+<li>the payoff of a put is convex function in stock price</li>
+<li>the price of a put is convex function in strike price</li>
+</ul>
+<h2 id="black-scholes-merton-model">Black-Scholes-Merton model</h2>
+<p><span class="math display">\[
+\frac{\partial V}{\partial t}+r s \frac{\partial V}{\partial
+s}+\frac{1}{2} \sigma^{2} s^{2} \frac{\partial^{2} V}{\partial s^{2}}=V
+\]</span></p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+推导过程</li>
+</ul>
+<h2 id="feynman-kac-theorem">Feynman-Kac theorem</h2>
+<p>Let X be an Ito process, given <span class="math display">\[
+d X(t)=\beta(t, X) d t + \gamma(t, X) d W(t)
+\]</span> Define <span class="math display">\[
+V(t, x)=E\left[e^{-r(T-t)} f\left(X_{T}\right) \mid X_{t}=x\right]
+\]</span> , then <span class="math inline">\(V(t,x)\)</span> is a
+martingale process that satisfies PDE: <span class="math display">\[
+\frac{\partial V}{\partial t}+\beta(t, x) \frac{\partial V}{\partial
+x}+\frac{1}{2} \gamma^{2}(t, x) \frac{\partial^{2} V}{\partial x^{2}}=r
+V(t, x)
+\]</span> and boundary condition <span class="math inline">\(V(t,x) =
+f(x)\)</span> for all x.</p>
+<p>Under risk-neutral measure, <span class="math inline">\(dS =
+rSdt+\sigma SdW(t)\)</span>. Let <span class="math inline">\(S=X\)</span>, <span class="math inline">\(\beta(t,X) = rS\)</span> and <span class="math inline">\(\gamma(t,X) = \sigma S\)</span> , then the
+<strong>Black-Scholes-Merton differential equation</strong> would be
+<span class="math display">\[
+\frac{\partial V}{\partial t}+r S \frac{\partial V}{\partial
+S}+\frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} v}{\partial s^{2}}=rV
+\]</span></p>
+<h2 id="black-scholes-formula">Black-Scholes Formula</h2>
+<p>Define continuous dividend yield <span class="math inline">\(y\)</span>: <span class="math display">\[
+c=S e^{-y \tau} N\left(d_{1}\right)-K e^{-r \tau} N\left(d_{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+p=K e^{-r \tau} N\left(-d_{2}\right)-S e^{-y \tau} N\left(-d_{1}\right)
+\]</span></p>
+<p>where <span class="math display">\[
+d_{1}=\frac{\ln \left(S e^{-y \tau} / K\right)+\left(r+\sigma^{2} /
+2\right) \tau}{\sigma \sqrt{\tau}}=\frac{\ln (S /
+K)+\left(r-y+\sigma^{2} / 2\right) \tau}{\sigma \sqrt{\tau}}
+\]</span></p>
+<p><span class="math display">\[
+d_{2}=\frac{\ln (S / K)+\left(r-y-\sigma^{2} / 2\right) \tau}{\sigma
+\sqrt{\tau}}=d_1-\sigma\sqrt{\tau}
+\]</span></p>
+<p>N is normal distribution.</p>
+<p>Note:</p>
 <ul>
-<li><span class="math inline">\(H^\top = H\)</span></li>
-</ul></li>
-<li><p>fitted values: <span class="math inline">\(\hat{y}=X
-\hat{\beta}=H y\)</span></p>
+<li>If the underlying asset is futures contract, then y = r.</li>
+<li>If the underlying asset is foreign currency, then <span class="math inline">\(y=r_f\)</span>, which is foreign risk-free
+interest rate.</li>
+</ul>
+<h3 id="assumptions-behind-black-scholes-formula">Assumptions behind
+Black-Scholes Formula</h3>
 <ul>
-<li>我们可以理解这个式子为把y投影到X空间里，这样误差就位于正交于X的空间里。</li>
-</ul></li>
-<li><p>residuals: <span class="math inline">\(\hat{\varepsilon}=y-\hat{y}=(I-H)
-y\)</span></p></li>
-<li><p>基于上述假设，推出：</p>
+<li>No transaction costs or taxes, the proceeds of short selling can be
+fully invested.</li>
+<li>All securities can be perfectly divisible.</li>
+<li>no risk-free arbitrage opportunities</li>
+</ul>
+<h3 id="derive-the-black-scholes-formula">Derive the Black-Scholes
+formula</h3>
+<h4 id="using-risk-neutral-probability-measure">Using risk-neutral
+probability measure</h4>
+<h4 id="using-pde">Using PDE</h4>
+<p>Solve the heat equation: <span class="math display">\[
+\frac{\partial u}{\partial \tau}=\frac{1}{2} \sigma^{2}
+\frac{\partial^{2} u}{\partial x^{2}}
+\]</span> where <span class="math inline">\(u = e^{r\tau}V\)</span></p>
+<h1 id="the-greeks">The Greeks</h1>
 <ul>
-<li><p><span class="math inline">\(\hat{\beta} \sim N\left(\beta,
-\sigma^{2}\left(X^{\top} X\right)^{-1}\right)\)</span></p>
+<li><p>Delta: <span class="math inline">\(\Delta=\frac{\partial
+f}{\partial S}\)</span></p></li>
+<li><p>Gamma: <span class="math inline">\(\Gamma=\frac{\partial^{2}
+f}{\partial S^{2}}\)</span></p></li>
+<li><p>Theta: <span class="math inline">\(\Theta=\frac{\partial
+f}{\partial t}\)</span></p></li>
+<li><p>Vega: <span class="math inline">\(\nu=\frac{\partial f}{\partial
+\sigma}\)</span></p></li>
+<li><p>Rho: <span class="math inline">\(\rho=\frac{\partial f}{\partial
+r}\)</span></p></li>
+</ul>
+<h2 id="delta">Delta</h2>
+<p>For a European call with dividend yield y: <span class="math display">\[
+\Delta=e^{-y \tau}N\left(d_{1}\right)
+\]</span> For a European put with dividend yield y: <span class="math display">\[
+\Delta=-e^{-y \tau}\left[1-N\left(d_{1}\right)\right]
+\]</span>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/d015e777de4bf0748d5ea22202509e1.jpg" alt="d015e777de4bf0748d5ea22202509e1" style="zoom:25%;"></p>
+<h3 id="delta-hedging">Delta Hedging</h3>
+<p>By BS PDE: <span class="math display">\[
+\theta^1 = \frac{\partial V}{\partial S}
+\]</span></p>
 <ul>
-<li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
-X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
-<li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
-X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
-\frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
+<li>Delta Hedging only replicates the value and the slope of the option.
+To hedge the curvature of the option, need to hedge gamma as well.</li>
+</ul>
+<h2 id="gamma">Gamma</h2>
+<p>European call/put with dividend yield y: <span class="math display">\[
+\Gamma=\frac{N^{\prime}\left(d_{1}\right) e^{-y \tau}}{S_{0} \sigma
+\sqrt{\tau}}
+\]</span></p>
 <ul>
-<li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
-\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
-500作业3第2题。</li>
+<li>For plain vanilla call and put options, gamma is always
+positive</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/8ed96e39fc112cc5ca5c61fa8e3c75f.jpg" alt="8ed96e39fc112cc5ca5c61fa8e3c75f" style="zoom:25%;"></p>
+<h3 id="gamma-hedging">Gamma hedging</h3>
+<p>The delta hedge only replicates the value and the slope of the
+option. To hedge the curvature of the option, we will need to hedge
+gamma as well.</p>
+<h2 id="theta">Theta</h2>
+<ul>
+<li><p>For a European call option: <span class="math display">\[
+\Theta=-\frac{S N^{\prime}\left(d_{1}\right) \sigma e^{-y \tau}}{2
+\sqrt{\tau}}+y S e^{-y \tau} N\left(d_{1}\right)-r K e^{-r \tau}
+N\left(d_{2}\right)
+\]</span></p></li>
+<li><p>For a European put option: <span class="math display">\[
+\Theta=-\frac{S N^{\prime}\left(d_{1}\right) \sigma e^{-y \tau}}{2
+\sqrt{\tau}}-y S e^{-y \tau} N\left(-d_{1}\right)+r K e^{-r \tau}
+N\left(-d_{2}\right)
+\]</span></p></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/32d631e2e903396552ef7cb511b04da.jpg" alt="32d631e2e903396552ef7cb511b04da" style="zoom:25%;"></p>
+<h2 id="vega">Vega</h2>
+<ul>
+<li><p>For European options: <span class="math display">\[
+v=\frac{\partial c}{\partial \sigma}=\frac{\partial p}{\partial
+\sigma}=S e^{-y \tau} \sqrt{\tau} N^{\prime}\left(d_{1}\right)
+\]</span></p>
+<ul>
+<li>Long-term option is more sensitive to change in volatility</li>
 </ul></li>
+<li><p>Implied volatility:</p>
+<ul>
+<li>the volatility that makes the model option price equal to the market
+option price</li>
 </ul></li>
-</ol>
-<h1 id="violation-and-misappropriation">Violation and
-Misappropriation</h1>
-<h2 id="errors-are-correlated-or-have-unequal-variance">Errors are
-correlated or have unequal variance</h2>
-<p>Generalized least squares</p>
-<h2 id="error-distribution-is-long-tailed">Error distribution is
-long-tailed</h2>
-<h2 id="predictors-are-highly-correlated-collinear">Predictors are
-highly correlated (collinear)</h2>
-<p>线性无关不代表基向量正交</p>
-<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
-<p>X线性无关，并不代表没有相关性</p>
-<p>什么是无偏估计</p>
-<p>方差的无偏估计：</p>
-<p>引出自由度</p>
-<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
-<p>如果相关：</p>
-<p>如果异方差</p>
-<p>如果期望不为0</p>
-<p>如果不服从正态分布</p>
+<li><p>Volatility smile:</p>
+<ul>
+<li>the relationship between the implied volatility of the options and
+the strike prices for a given asset.</li>
+</ul></li>
+</ul>
+<h1 id="other-options">Other options</h1>
+<ul>
+<li>Bull spread:
+<ul>
+<li>long 1 call/put with <span class="math inline">\(K_1\)</span></li>
+<li>short 1 call/put with <span class="math inline">\(K_2\)</span></li>
+</ul></li>
+<li>Straddle
+<ul>
+<li>long 1 call option with K</li>
+<li>long 1 put option with K</li>
+</ul></li>
+</ul>
+<h1 id="appendix">Appendix</h1>
+<p><span class="math display">\[
+\frac{\partial}{\partial z} \int_{a(z)}^{b(z)} f(x, z) d
+x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
+\frac{\partial b}{\partial z}-f(a(z), z)\frac{\partial a}{\partial z}
+\]</span></p>
 
     </div>
 
@@ -480,9 +602,9 @@ highly correlated (collinear)</h2>
   <div class="popular-posts-header">Related Posts</div>
   <ul class="related-posts">
   
-      <li class="related-posts-item"><a href="/Caculus-Review/">Caculus Review</a></li>
+      <li class="related-posts-item"><a href="/Assumption-of-Linear-Regression/">Assumption of Linear Regression</a></li>
   
-      <li class="related-posts-item"><a href="/Option-Pricing/">Option Pricing Review</a></li>
+      <li class="related-posts-item"><a href="/Caculus-Review/">Caculus Review</a></li>
   
   </ul>
 
@@ -497,7 +619,7 @@ highly correlated (collinear)</h2>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://xuj14.github.io/Assumption-of-Linear-Regression/" title="Assumption of Linear Regression">https://xuj14.github.io/Assumption-of-Linear-Regression/</a>
+      <a href="https://xuj14.github.io/Option-Pricing/" title="Option Pricing Review">https://xuj14.github.io/Option-Pricing/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -507,20 +629,18 @@ highly correlated (collinear)</h2>
 
           <div class="post-tags">
               <a href="/tags/Mathematics/" rel="tag"><i class="fa fa-tag"></i> Mathematics</a>
+              <a href="/tags/Finance/" rel="tag"><i class="fa fa-tag"></i> Finance</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Reading-List/" rel="prev" title="Reading List">
-                  <i class="fa fa-chevron-left"></i> Reading List
+                <a href="/How-to-Win-a-Data-Science-Competition-Learn-from-Top-Kagglers/" rel="prev" title="How to Win a Data Science Competition">
+                  <i class="fa fa-chevron-left"></i> How to Win a Data Science Competition
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Citadel-Central-Datathon-2021/" rel="next" title="Citadel Central Regional Datathon 2021">
-                  Citadel Central Regional Datathon 2021 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

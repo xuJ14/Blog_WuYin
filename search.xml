@@ -1,192 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Assumption of Linear Regression</title>
-    <url>/Assumption-of-Linear-Regression/</url>
-    <content><![CDATA[<h1 id="linear-regression">Linear Regression</h1>
-<p>线性模型通常是：<span class="math inline">\(Y=f\left(X_{1}, X_{2},
-X_{3}\right)+\varepsilon\)</span>的形式。这里predictor本身不需要一定是线性的，可以通过一些transform的形式，将非线性的关系转变为线性的。
-线性模型的矩阵表达：<span class="math inline">\(y=X
-\beta+\varepsilon\)</span>，这里y为n×1的矩阵。
-那么接下来问题就是如何估计β，以尽可能多的用x解释y。在本文中，p为β中参数的个数。</p>
-<p>我们用<span class="math inline">\(\hat{y}=X \hat{\beta}\)</span>
-表示我们的预测值（predicted or fitted value），<span class="math inline">\(\hat{\varepsilon} = y-\hat y\)</span>
-表示残差（residual）。这样，我们的y是n维，确定的变量是p维，剩下n-p维就是不确定的random
-variation（可以用QR分解证明）。不带^的为真实值。</p>
-<h1 id="最小二乘估计least-squarels">最小二乘估计Least Square（LS）</h1>
-<p><span class="math display">\[
-X^{\top} X \hat{\beta}=X^{\top} y
-\]</span></p>
-<p>上述就是normal equation。</p>
-<p>事实上有很多种估计β的方法，但为什么要用最小二乘估计呢，有以下三点原因：</p>
-<ol type="1">
-<li>它的结果恰好符合：正交投影到模型空间的结果。符合我们的几何直觉。</li>
-<li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
-likelihood
-estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
-<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
-\beta\)</span>是最优线性无偏估计（BLUE）。</li>
-</ol>
-<blockquote>
-<p><strong>Gauss-Markov Theorem</strong> ：</p>
-<p>If the errors in the linear regression model are
-<strong>uncorrelated不相关</strong>, have <strong>equal
-variances同方差</strong> and <strong>expectation value of
-zero期望为0</strong>:</p>
-<p>Then the ordinary least squares (OLS) estimator has <strong>the
-lowest sampling variance within the class of linear unbiased
-estimators</strong>.</p>
-<p><strong>Note:</strong> The errors do not need to be normal, nor do
-they need to be independent and identically distributed (only
-uncorrelated with mean zero and homoscedastic with finite variance). The
-requirement that the estimator be unbiased cannot be dropped, since
-biased estimators exist with lower variance. See, for example, the
-James–Stein estimator (which also drops linearity), ridge regression, or
-simply any degenerate estimator.</p>
-</blockquote>
-<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
-<p>假设：<span class="math inline">\(E \varepsilon=0\)</span>，<span class="math inline">\(\operatorname{Var} \varepsilon=\sigma^{2}
-I\)</span>。</p>
-<p>公式1是LS得到的对β的估计。这时，我们并不知道β这个估计怎么样。那么有下述几条推论，他们的证明参见这里。</p>
-<p>首先，我们定义Estimable Function：</p>
-<blockquote>
-<p><strong>Estimable Function</strong>：如果存在a，使得<span class="math inline">\(E a^{\top} y=q^{\top}
-\beta\)</span>成立，其中q是已知的，那么我们说<span class="math inline">\(q^\top\beta\)</span>是estimable function。</p>
-</blockquote>
-<blockquote>
-<p><strong>Theorem 1:</strong> <span class="math inline">\(q^\top
-\beta\)</span> is estimable, if and only if there exists a vector t such
-that <span class="math inline">\(q^\top=t^\top X\)</span>.</p>
-</blockquote>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a></p>
-<blockquote>
-<p><strong>Theorem 2:</strong> <span class="math inline">\(q^\top
-\beta\)</span> is estimable, if and only if <span class="math inline">\(X^{\top} X u=q\)</span> has solution for u.</p>
-</blockquote>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a>.
-另判断非齐次线性方程组是否有解，需要比较系数矩阵和增广矩阵的秩的大小，这时若系数矩阵的行列式为0，说明有可能无解，也有可能有无穷多解。</p>
-<blockquote>
-<p><strong>Theorem 3:</strong> If <span class="math inline">\(q^\top
-\beta\)</span> is estimable, then <span class="math inline">\(q^\top
-\hat\beta\)</span> is an unbiased estimator of <span class="math inline">\(q^\top\beta\)</span>, and this solution <span class="math inline">\(\hat\beta\)</span> is invariant with the solution
-of <span class="math inline">\(X^{\top} X \hat\beta=X^\top
-y\)</span>.</p>
-</blockquote>
-<p>简单说，如果<span class="math inline">\(q^\top \beta\)</span> 是
-estimable，那么我们只需要找到任意一个符合<span class="math inline">\(X^{\top} X \hat\beta=X^\top y\)</span>的解<span class="math inline">\(\hat \beta\)</span>，这样<span class="math inline">\(q^\top \hat\beta\)</span> 就是<span class="math inline">\(q^\top\beta\)</span> 的无偏估计。</p>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P4</a></p>
-<blockquote>
-<p><strong>Theorem 4: </strong> Of all unbiased linear estimators of the
-estimable function, <span class="math inline">\(q^\top\hat\beta\)</span>
-have the smallest variance.</p>
-</blockquote>
-<p>简单说，<span class="math inline">\(q^\top \beta\)</span>
-的所有无偏估计里，<span class="math inline">\(q^\top \hat \beta\)</span>
-的方差是最小的，也就是估计最稳定的，最优的。</p>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P5</a></p>
-<p>综上，<span class="math inline">\(\hat \beta\)</span> 是<span class="math inline">\(\beta\)</span> 的BLUE（best linear unbiased
-estimation），最优线性无偏估计。</p>
-<h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
-<ol type="1">
-<li>线性模型</li>
-<li><span class="math inline">\(E[\varepsilon \mid
-X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
-Exogeneity</li>
-<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
-perfectly multicollinear）</li>
-<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
-X)=\sigma^{2} I_{n}\)</span>，意味着
-<ul>
-<li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
-\mid X\right)=\sigma^{2}\)</span></li>
-<li>没有自相关性（autocorrelation），即不同观测的error是不相关的（uncorrelated）：<span class="math inline">\(E\left[\varepsilon_{i} \varepsilon_{j} \mid
-X\right]=0\)</span>，for <span class="math inline">\(i\ne
-j\)</span>。</li>
-</ul></li>
-<li>有些地方，还会有这样一个假设：被观测对象(x,y)是独立同分布iid。这意味着所有的样本，是遵循随机采样的原则选出来的。</li>
-</ol>
-<h1 id="一些基本性质">一些基本性质</h1>
-<ol type="1">
-<li><p>projection matrix：<span class="math inline">\(H=X\left(X^{\top}
-X\right)^{-1} X^{\top}\)</span></p>
-<ul>
-<li><span class="math inline">\(H^\top = H\)</span></li>
-</ul></li>
-<li><p>fitted values: <span class="math inline">\(\hat{y}=X
-\hat{\beta}=H y\)</span></p>
-<ul>
-<li>我们可以理解这个式子为把y投影到X空间里，这样误差就位于正交于X的空间里。</li>
-</ul></li>
-<li><p>residuals: <span class="math inline">\(\hat{\varepsilon}=y-\hat{y}=(I-H)
-y\)</span></p></li>
-<li><p>基于上述假设，推出：</p>
-<ul>
-<li><p><span class="math inline">\(\hat{\beta} \sim N\left(\beta,
-\sigma^{2}\left(X^{\top} X\right)^{-1}\right)\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
-X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
-<li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
-X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
-\frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
-<ul>
-<li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
-\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
-500作业3第2题。</li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="violation-and-misappropriation">Violation and
-Misappropriation</h1>
-<h2 id="errors-are-correlated-or-have-unequal-variance">Errors are
-correlated or have unequal variance</h2>
-<p>Generalized least squares</p>
-<h2 id="error-distribution-is-long-tailed">Error distribution is
-long-tailed</h2>
-<h2 id="predictors-are-highly-correlated-collinear">Predictors are
-highly correlated (collinear)</h2>
-<p>线性无关不代表基向量正交</p>
-<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
-<p>X线性无关，并不代表没有相关性</p>
-<p>什么是无偏估计</p>
-<p>方差的无偏估计：</p>
-<p>引出自由度</p>
-<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
-<p>如果相关：</p>
-<p>如果异方差</p>
-<p>如果期望不为0</p>
-<p>如果不服从正态分布</p>
-]]></content>
-      <categories>
-        <category>Mathematics</category>
-      </categories>
-      <tags>
-        <tag>Mathematics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
-]]></content>
-      <categories>
-        <category>Project</category>
-      </categories>
-      <tags>
-        <tag>Project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Caculus Review</title>
     <url>/Caculus-Review/</url>
     <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
@@ -413,72 +227,6 @@ f(x)= Q_n(x)+O((x-x_0)^N)(x\rightarrow x_0)
       </categories>
       <tags>
         <tag>Mathematics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Issues of Icarus</title>
-    <url>/Issues-of-Icarus/</url>
-    <content><![CDATA[<h1 id="upload">Upload</h1>
-<ul>
-<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
-<p>git@github.com: yourname/yourname.github.io.git</p></li>
-</ul>
-<h1 id="widgets">Widgets</h1>
-<h1 id="posts">Posts</h1>
-<h2 id="content">Content</h2>
-<ul>
-<li><p><strong>Image not showing up</strong></p>
-<p>Image should be under source/gallery/. Use Hexo's tag:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>Excerpt / Read more</p>
-<p>Put a &lt;! -- more --&gt;tag in the post.</p>
-<p>Or in the front-matter, "excerpt: the content of the
-excerpt"</p></li>
-<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
-via github</a></p></li>
-</ul>
-<h2 id="formula">Formula</h2>
-<ul>
-<li><p>无法正确渲染</p>
-<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
-<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
-<li><p>hexo公式换行的问题？？</p></li>
-<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
-error"错误 尽量不要用#符号</p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Issues</tag>
       </tags>
   </entry>
   <entry>
@@ -943,6 +691,228 @@ model变保守（0，5，15，300……）</p></li>
       </tags>
   </entry>
   <entry>
+    <title>Issues of Icarus</title>
+    <url>/Issues-of-Icarus/</url>
+    <content><![CDATA[<h1 id="upload">Upload</h1>
+<ul>
+<li><p>每次上传都需要密码 _config.yml中将仓库地址改为:</p>
+<p>git@github.com: yourname/yourname.github.io.git</p></li>
+</ul>
+<h1 id="widgets">Widgets</h1>
+<h1 id="posts">Posts</h1>
+<h2 id="content">Content</h2>
+<ul>
+<li><p><strong>Image not showing up</strong></p>
+<p>Image should be under source/gallery/. Use Hexo's tag:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% img /gallery/image.jpg "image title" %\}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Excerpt / Read more</p>
+<p>Put a &lt;! -- more --&gt;tag in the post.</p>
+<p>Or in the front-matter, "excerpt: the content of the
+excerpt"</p></li>
+<li><p><a href="https://www.icode9.com/content-4-828659.html">Image host
+via github</a></p></li>
+</ul>
+<h2 id="formula">Formula</h2>
+<ul>
+<li><p>无法正确渲染</p>
+<p><a href="https://blog.csdn.net/yexiaohhjk/article/details/82526604?utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-baidujs-1.nonecase">完美解决方案</a></p>
+<p>上述方案无法解决类似*$这样的问题，如何解决？？</p></li>
+<li><p>hexo公式换行的问题？？</p></li>
+<li><p>公式内的“\#”无法解析，或其他公式渲染问题，报"Template render
+error"错误 尽量不要用#符号</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Issues</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>Project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Assumption of Linear Regression</title>
+    <url>/Assumption-of-Linear-Regression/</url>
+    <content><![CDATA[<h1 id="linear-regression">Linear Regression</h1>
+<p>线性模型通常是：<span class="math inline">\(Y=f\left(X_{1}, X_{2},
+X_{3}\right)+\varepsilon\)</span>的形式。这里predictor本身不需要一定是线性的，可以通过一些transform的形式，将非线性的关系转变为线性的。
+线性模型的矩阵表达：<span class="math inline">\(y=X
+\beta+\varepsilon\)</span>，这里y为n×1的矩阵。
+那么接下来问题就是如何估计β，以尽可能多的用x解释y。在本文中，p为β中参数的个数。</p>
+<p>我们用<span class="math inline">\(\hat{y}=X \hat{\beta}\)</span>
+表示我们的预测值（predicted or fitted value），<span class="math inline">\(\hat{\varepsilon} = y-\hat y\)</span>
+表示残差（residual）。这样，我们的y是n维，确定的变量是p维，剩下n-p维就是不确定的random
+variation（可以用QR分解证明）。不带^的为真实值。</p>
+<h1 id="最小二乘估计least-squarels">最小二乘估计Least Square（LS）</h1>
+<p><span class="math display">\[
+X^{\top} X \hat{\beta}=X^{\top} y
+\]</span></p>
+<p>上述就是normal equation。</p>
+<p>事实上有很多种估计β的方法，但为什么要用最小二乘估计呢，有以下三点原因：</p>
+<ol type="1">
+<li>它的结果恰好符合：正交投影到模型空间的结果。符合我们的几何直觉。</li>
+<li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
+likelihood
+estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
+<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
+\beta\)</span>是最优线性无偏估计（BLUE）。</li>
+</ol>
+<blockquote>
+<p><strong>Gauss-Markov Theorem</strong> ：</p>
+<p>If the errors in the linear regression model are
+<strong>uncorrelated不相关</strong>, have <strong>equal
+variances同方差</strong> and <strong>expectation value of
+zero期望为0</strong>:</p>
+<p>Then the ordinary least squares (OLS) estimator has <strong>the
+lowest sampling variance within the class of linear unbiased
+estimators</strong>.</p>
+<p><strong>Note:</strong> The errors do not need to be normal, nor do
+they need to be independent and identically distributed (only
+uncorrelated with mean zero and homoscedastic with finite variance). The
+requirement that the estimator be unbiased cannot be dropped, since
+biased estimators exist with lower variance. See, for example, the
+James–Stein estimator (which also drops linearity), ridge regression, or
+simply any degenerate estimator.</p>
+</blockquote>
+<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
+<p>假设：<span class="math inline">\(E \varepsilon=0\)</span>，<span class="math inline">\(\operatorname{Var} \varepsilon=\sigma^{2}
+I\)</span>。</p>
+<p>公式1是LS得到的对β的估计。这时，我们并不知道β这个估计怎么样。那么有下述几条推论，他们的证明参见这里。</p>
+<p>首先，我们定义Estimable Function：</p>
+<blockquote>
+<p><strong>Estimable Function</strong>：如果存在a，使得<span class="math inline">\(E a^{\top} y=q^{\top}
+\beta\)</span>成立，其中q是已知的，那么我们说<span class="math inline">\(q^\top\beta\)</span>是estimable function。</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1:</strong> <span class="math inline">\(q^\top
+\beta\)</span> is estimable, if and only if there exists a vector t such
+that <span class="math inline">\(q^\top=t^\top X\)</span>.</p>
+</blockquote>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a></p>
+<blockquote>
+<p><strong>Theorem 2:</strong> <span class="math inline">\(q^\top
+\beta\)</span> is estimable, if and only if <span class="math inline">\(X^{\top} X u=q\)</span> has solution for u.</p>
+</blockquote>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a>.
+另判断非齐次线性方程组是否有解，需要比较系数矩阵和增广矩阵的秩的大小，这时若系数矩阵的行列式为0，说明有可能无解，也有可能有无穷多解。</p>
+<blockquote>
+<p><strong>Theorem 3:</strong> If <span class="math inline">\(q^\top
+\beta\)</span> is estimable, then <span class="math inline">\(q^\top
+\hat\beta\)</span> is an unbiased estimator of <span class="math inline">\(q^\top\beta\)</span>, and this solution <span class="math inline">\(\hat\beta\)</span> is invariant with the solution
+of <span class="math inline">\(X^{\top} X \hat\beta=X^\top
+y\)</span>.</p>
+</blockquote>
+<p>简单说，如果<span class="math inline">\(q^\top \beta\)</span> 是
+estimable，那么我们只需要找到任意一个符合<span class="math inline">\(X^{\top} X \hat\beta=X^\top y\)</span>的解<span class="math inline">\(\hat \beta\)</span>，这样<span class="math inline">\(q^\top \hat\beta\)</span> 就是<span class="math inline">\(q^\top\beta\)</span> 的无偏估计。</p>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P4</a></p>
+<blockquote>
+<p><strong>Theorem 4: </strong> Of all unbiased linear estimators of the
+estimable function, <span class="math inline">\(q^\top\hat\beta\)</span>
+have the smallest variance.</p>
+</blockquote>
+<p>简单说，<span class="math inline">\(q^\top \beta\)</span>
+的所有无偏估计里，<span class="math inline">\(q^\top \hat \beta\)</span>
+的方差是最小的，也就是估计最稳定的，最优的。</p>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P5</a></p>
+<p>综上，<span class="math inline">\(\hat \beta\)</span> 是<span class="math inline">\(\beta\)</span> 的BLUE（best linear unbiased
+estimation），最优线性无偏估计。</p>
+<h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
+<ol type="1">
+<li>线性模型</li>
+<li><span class="math inline">\(E[\varepsilon \mid
+X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
+Exogeneity</li>
+<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
+perfectly multicollinear）</li>
+<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
+X)=\sigma^{2} I_{n}\)</span>，意味着
+<ul>
+<li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
+\mid X\right)=\sigma^{2}\)</span></li>
+<li>没有自相关性（autocorrelation），即不同观测的error是不相关的（uncorrelated）：<span class="math inline">\(E\left[\varepsilon_{i} \varepsilon_{j} \mid
+X\right]=0\)</span>，for <span class="math inline">\(i\ne
+j\)</span>。</li>
+</ul></li>
+<li>有些地方，还会有这样一个假设：被观测对象(x,y)是独立同分布iid。这意味着所有的样本，是遵循随机采样的原则选出来的。</li>
+</ol>
+<h1 id="一些基本性质">一些基本性质</h1>
+<ol type="1">
+<li><p>projection matrix：<span class="math inline">\(H=X\left(X^{\top}
+X\right)^{-1} X^{\top}\)</span></p>
+<ul>
+<li><span class="math inline">\(H^\top = H\)</span></li>
+</ul></li>
+<li><p>fitted values: <span class="math inline">\(\hat{y}=X
+\hat{\beta}=H y\)</span></p>
+<ul>
+<li>我们可以理解这个式子为把y投影到X空间里，这样误差就位于正交于X的空间里。</li>
+</ul></li>
+<li><p>residuals: <span class="math inline">\(\hat{\varepsilon}=y-\hat{y}=(I-H)
+y\)</span></p></li>
+<li><p>基于上述假设，推出：</p>
+<ul>
+<li><p><span class="math inline">\(\hat{\beta} \sim N\left(\beta,
+\sigma^{2}\left(X^{\top} X\right)^{-1}\right)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
+X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
+<li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
+X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
+\frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
+\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
+500作业3第2题。</li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="violation-and-misappropriation">Violation and
+Misappropriation</h1>
+<h2 id="errors-are-correlated-or-have-unequal-variance">Errors are
+correlated or have unequal variance</h2>
+<p>Generalized least squares</p>
+<h2 id="error-distribution-is-long-tailed">Error distribution is
+long-tailed</h2>
+<h2 id="predictors-are-highly-correlated-collinear">Predictors are
+highly correlated (collinear)</h2>
+<p>线性无关不代表基向量正交</p>
+<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
+<p>X线性无关，并不代表没有相关性</p>
+<p>什么是无偏估计</p>
+<p>方差的无偏估计：</p>
+<p>引出自由度</p>
+<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
+<p>如果相关：</p>
+<p>如果异方差</p>
+<p>如果期望不为0</p>
+<p>如果不服从正态分布</p>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Machine Learning Week01</title>
     <url>/Machine-Learning-Week01/</url>
     <content><![CDATA[<h2 id="week-1">Week 1</h2>
@@ -1079,6 +1049,94 @@ A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
       </tags>
   </entry>
   <entry>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
+<ul>
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week04</title>
+    <url>/Machine-Learning-Week04/</url>
+    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
+Representation</h2>
+<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
+<p>特征多，有高次项</p>
+<h3 id="neural-networks">2. Neural Networks</h3>
+<ol type="1">
+<li><p>Model representation</p>
+<ul>
+<li><p>bias unit偏置项（=1）</p></li>
+<li><p>sigmoid activation function S型激励函数</p></li>
+<li><p>input layer —— hidden layer —— output layer</p></li>
+<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
+of\ unit\ i\ in\ layer\  j \]</span></p>
+<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
+controlling function mapping from layer j to layer j+1
+，即参数矩阵（波矩阵、权重矩阵）</p>
+<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
+unit</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
+<span class="math display">\[
+\begin{array}{r}
+a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
+x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
+x_{3}\right)=g(z_1^{(2)}) \\
+a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
+x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
+x_{3}\right)=g(z_2^{(2)})  \\
+a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
+x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
+=g(z_3^{(2)}) \\
+h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
+a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
+a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
+\end{array}
+\]</span></p></li>
+<li><p>即前向传播（forward propagation）</p></li>
+</ul></li>
+</ol>
+<h3 id="applications">3. Applications</h3>
+<ol type="1">
+<li>与运算（-30，20，20）</li>
+<li>或运算（-10，20，20）</li>
+<li>非运算（10，-20）</li>
+<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
+<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
+</ol>
+<p>​</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Machine Learning Week02</title>
     <url>/Machine-Learning-Week02/</url>
     <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
@@ -1149,6 +1207,187 @@ x_i\le 2\)</span>也可以</li>
 <li>解决方法：删除多余特征或正则化</li>
 </ul></li>
 </ul></li>
+</ul></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week06</title>
+    <url>/Machine-Learning-Week06/</url>
+    <content><![CDATA[<h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
+<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
+Algorithm</h3>
+<ol type="1">
+<li><p>误差大的改进方法：</p>
+<ul>
+<li>更多数据</li>
+<li>更少特征集避免过拟合</li>
+<li>更多特征</li>
+<li>增加多项式特征</li>
+<li>减少或增大正则化参数值</li>
+</ul></li>
+<li><p>评估假设函数Evaluating a Hypothesis</p>
+<ul>
+<li><p>如何判断过拟合？</p>
+<ul>
+<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
+<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
+<li><p>计算测试集误差</p>
+<ul>
+<li><p>线性回归中计算测试集的 J(θ)</p></li>
+<li><p>逻辑回归中可以用误分类率来计算error：</p>
+<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
+h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
+&amp;otherwise\end{cases}\)</span></p>
+<p><span class="math inline">\(Test\
+error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
+<ul>
+<li>将数据分为三段：训练集（60%），交叉验证集（cross
+validation）（20%），测试集（20%）</li>
+<li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
+<li>最后计算测试集误差评价模型表现</li>
+</ul></li>
+</ol>
+<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
+<ol type="1">
+<li><p>分析bias和variance</p>
+<ul>
+<li>高偏差：欠拟合；高方差：过拟合</li>
+<li>高偏差：
+<ul>
+<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
+the same as <span class="math inline">\(J_{CV}(\theta)\approx
+J_{train}(\theta)\)</span></li>
+</ul></li>
+<li>高方差：
+<ul>
+<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
+<span class="math inline">\(J_{CV}(\theta)\gg
+J_{train}(\theta)\)</span></li>
+</ul></li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
+</ul></li>
+<li><p>正则化与方差、偏差的关系</p>
+<ul>
+<li><p>正则化可以有效防止过拟合</p></li>
+<li><p>选择λ的过程：</p>
+<ul>
+<li>Create a list of lambdas (i.e.
+λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
+<li>Create a set of models with different degrees or any other
+variants.</li>
+<li>Iterate through the λs and for each λ go through all the models to
+learn some Θ.</li>
+<li>Compute the cross validation error using the learned Θ (computed
+with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
+0.</li>
+<li>Select the best combo that produces the lowest error on the cross
+validation set.</li>
+<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
+has a good generalization of the problem.</li>
+</ul></li>
+<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
+J_{train}(\theta)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
+\]</span></p></li>
+</ul></li>
+<li><p>学习曲线（error-训练集的大小）</p>
+<ul>
+<li>高偏差
+<ul>
+<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
+<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
+<li>高偏差，更多训练数据不会有很大帮助</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
+</ul></li>
+<li>高方差
+<ul>
+<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
+<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
+set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
+continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
+the difference between them remains significant.</li>
+<li>高方差，更多训练数据可能有帮助</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
+</ul></li>
+</ul></li>
+<li><p>诊断法则如何判断</p>
+<ul>
+<li>更多训练数据——高方差，画学习曲线</li>
+<li>更少特征集避免过拟合——高方差</li>
+<li>更多特征——高偏差</li>
+<li>增加多项式特征——高偏差</li>
+<li>减少（高偏差）或增大正则化参数值（高方差）
+<ul>
+<li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
+</ul></li>
+<li>神经网络很容易过拟合，正则化项非常有用
+<ul>
+<li>如何选择几层隐藏层：
+<ul>
+<li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
+<ol type="1">
+<li>做法：
+<ul>
+<li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
+<li>列出可能的做法，讨论可行性，然后选择一个方向</li>
+</ul></li>
+<li>误差分析
+<ul>
+<li>推荐做法：
+<ul>
+<li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
+<li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
+<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
+<ul>
+<li>手动对错误的部分分类</li>
+<li>发现特征</li>
+<li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>stem词干提取（porter stemmer）</li>
+<li>skewed classes 偏斜类问题
+<ul>
+<li>癌症的比例非常非常低</li>
+<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
+<ul>
+<li><span class="math inline">\(=\frac{True\ positives}{predicted\
+positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
+</ul></li>
+<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
+<ul>
+<li><span class="math inline">\(=\frac{True\ positives}{actual\
+positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
+</ul></li>
+<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
+<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
+<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
+<li>绘制查准率-召回率曲线</li>
+<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
+<ul>
+<li>评估选择算法或者不同临界值的量化标准</li>
+</ul></li>
+</ul></li>
+<li>Data For Machine Learning
+<ul>
+<li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
+<li>多项式参数对大训练集没有帮助</li>
 </ul></li>
 </ol>
 ]]></content>
@@ -1335,64 +1574,6 @@ n\)</span>, 特征多于例子时，<span class="math inline">\(\theta=(X^TX)^{-
       </tags>
   </entry>
   <entry>
-    <title>Machine Learning Week04</title>
-    <url>/Machine-Learning-Week04/</url>
-    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
-Representation</h2>
-<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
-<p>特征多，有高次项</p>
-<h3 id="neural-networks">2. Neural Networks</h3>
-<ol type="1">
-<li><p>Model representation</p>
-<ul>
-<li><p>bias unit偏置项（=1）</p></li>
-<li><p>sigmoid activation function S型激励函数</p></li>
-<li><p>input layer —— hidden layer —— output layer</p></li>
-<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
-of\ unit\ i\ in\ layer\  j \]</span></p>
-<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
-controlling function mapping from layer j to layer j+1
-，即参数矩阵（波矩阵、权重矩阵）</p>
-<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
-unit</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
-<span class="math display">\[
-\begin{array}{r}
-a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
-x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
-x_{3}\right)=g(z_1^{(2)}) \\
-a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
-x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
-x_{3}\right)=g(z_2^{(2)})  \\
-a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
-x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
-=g(z_3^{(2)}) \\
-h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
-a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
-a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
-\end{array}
-\]</span></p></li>
-<li><p>即前向传播（forward propagation）</p></li>
-</ul></li>
-</ol>
-<h3 id="applications">3. Applications</h3>
-<ol type="1">
-<li>与运算（-30，20，20）</li>
-<li>或运算（-10，20，20）</li>
-<li>非运算（10，-20）</li>
-<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
-<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
-</ol>
-<p>​</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week05</title>
     <url>/Machine-Learning-Week05/</url>
     <content><![CDATA[<h2 id="neural-networks-learning">Neural Networks Learning</h2>
@@ -1549,187 +1730,6 @@ the cost function with the weights in theta.</li>
 <li>对每一个训练样例循环上述步骤（有可能得到局部最优，因为J（θ）是非凸函数）</li>
 </ol></li>
 </ol></li>
-</ul></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week06</title>
-    <url>/Machine-Learning-Week06/</url>
-    <content><![CDATA[<h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
-<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
-Algorithm</h3>
-<ol type="1">
-<li><p>误差大的改进方法：</p>
-<ul>
-<li>更多数据</li>
-<li>更少特征集避免过拟合</li>
-<li>更多特征</li>
-<li>增加多项式特征</li>
-<li>减少或增大正则化参数值</li>
-</ul></li>
-<li><p>评估假设函数Evaluating a Hypothesis</p>
-<ul>
-<li><p>如何判断过拟合？</p>
-<ul>
-<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
-<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
-<li><p>计算测试集误差</p>
-<ul>
-<li><p>线性回归中计算测试集的 J(θ)</p></li>
-<li><p>逻辑回归中可以用误分类率来计算error：</p>
-<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
-h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
-&amp;otherwise\end{cases}\)</span></p>
-<p><span class="math inline">\(Test\
-error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
-<ul>
-<li>将数据分为三段：训练集（60%），交叉验证集（cross
-validation）（20%），测试集（20%）</li>
-<li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
-<li>最后计算测试集误差评价模型表现</li>
-</ul></li>
-</ol>
-<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
-<ol type="1">
-<li><p>分析bias和variance</p>
-<ul>
-<li>高偏差：欠拟合；高方差：过拟合</li>
-<li>高偏差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
-the same as <span class="math inline">\(J_{CV}(\theta)\approx
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li>高方差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
-<span class="math inline">\(J_{CV}(\theta)\gg
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
-</ul></li>
-<li><p>正则化与方差、偏差的关系</p>
-<ul>
-<li><p>正则化可以有效防止过拟合</p></li>
-<li><p>选择λ的过程：</p>
-<ul>
-<li>Create a list of lambdas (i.e.
-λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
-<li>Create a set of models with different degrees or any other
-variants.</li>
-<li>Iterate through the λs and for each λ go through all the models to
-learn some Θ.</li>
-<li>Compute the cross validation error using the learned Θ (computed
-with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
-0.</li>
-<li>Select the best combo that produces the lowest error on the cross
-validation set.</li>
-<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
-has a good generalization of the problem.</li>
-</ul></li>
-<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
-J_{train}(\theta)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
-\]</span></p></li>
-</ul></li>
-<li><p>学习曲线（error-训练集的大小）</p>
-<ul>
-<li>高偏差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
-<li>高偏差，更多训练数据不会有很大帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
-</ul></li>
-<li>高方差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
-set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
-continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
-the difference between them remains significant.</li>
-<li>高方差，更多训练数据可能有帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
-</ul></li>
-</ul></li>
-<li><p>诊断法则如何判断</p>
-<ul>
-<li>更多训练数据——高方差，画学习曲线</li>
-<li>更少特征集避免过拟合——高方差</li>
-<li>更多特征——高偏差</li>
-<li>增加多项式特征——高偏差</li>
-<li>减少（高偏差）或增大正则化参数值（高方差）
-<ul>
-<li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
-</ul></li>
-<li>神经网络很容易过拟合，正则化项非常有用
-<ul>
-<li>如何选择几层隐藏层：
-<ul>
-<li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
-<ol type="1">
-<li>做法：
-<ul>
-<li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
-<li>列出可能的做法，讨论可行性，然后选择一个方向</li>
-</ul></li>
-<li>误差分析
-<ul>
-<li>推荐做法：
-<ul>
-<li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
-<li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
-<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
-<ul>
-<li>手动对错误的部分分类</li>
-<li>发现特征</li>
-<li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>stem词干提取（porter stemmer）</li>
-<li>skewed classes 偏斜类问题
-<ul>
-<li>癌症的比例非常非常低</li>
-<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{predicted\
-positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
-</ul></li>
-<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{actual\
-positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
-</ul></li>
-<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
-<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
-<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
-<li>绘制查准率-召回率曲线</li>
-<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
-<ul>
-<li>评估选择算法或者不同临界值的量化标准</li>
-</ul></li>
-</ul></li>
-<li>Data For Machine Learning
-<ul>
-<li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
-<li>多项式参数对大训练集没有帮助</li>
 </ul></li>
 </ol>
 ]]></content>
@@ -2338,6 +2338,296 @@ regularization instead!)</p>
       </tags>
   </entry>
   <entry>
+    <title>Option Pricing Review</title>
+    <url>/Option-Pricing/</url>
+    <content><![CDATA[<h1 id="option-pricing">Option pricing</h1>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li><p>T: maturity date</p></li>
+<li><p>t: current time</p></li>
+<li><p><span class="math inline">\(\tau = T-t\)</span>: time to
+maturity</p></li>
+<li><p>S: stock price at time t</p></li>
+<li><p>r: continuous risk-free interest rate</p></li>
+<li><p>y: continuous dividend yield</p></li>
+<li><p><span class="math inline">\(\sigma\)</span>: annualized asset
+volatility</p></li>
+<li><p><span class="math inline">\(c\)</span>: price of a European
+call</p></li>
+<li><p>p: price of a European put</p></li>
+<li><p>C: price of an American call</p></li>
+<li><p>P: price of an American put</p></li>
+<li><p>D: present value of future dividends at t</p></li>
+<li><p>K: strike price</p></li>
+<li><p>PV: present value at t</p></li>
+<li><p>ITM: in-the-money</p></li>
+<li><p>OTM: out-the-money</p></li>
+<li><p>ATM: at-the-money (K=S)</p></li>
+</ul>
+<h2 id="price-direction-of-options">Price direction of options</h2>
+<ul>
+<li>How do vanilla European/American option prices change when those
+term changes?</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable⬆</th>
+<th>European call</th>
+<th>European put</th>
+<th>American call</th>
+<th>American put</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Stock price - S</td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Strike price - K</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+</tr>
+<tr class="odd">
+<td>Time maturity - T</td>
+<td>❓</td>
+<td>❓</td>
+<td>⬆</td>
+<td>⬆</td>
+</tr>
+<tr class="even">
+<td>Volatility - σ</td>
+<td>⬆</td>
+<td>⬆</td>
+<td>⬆</td>
+<td>⬆</td>
+</tr>
+<tr class="odd">
+<td>Risk-free rate - r</td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Dividend - d</td>
+<td></td>
+<td>⬆</td>
+<td></td>
+<td>⬆</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: The impact of time to maturity on the European
+call/put is uncertain.</p>
+<ul>
+<li>If there is a large dividend payoff between two different maturity
+dates, a European call with shorter maturity that expires before the
+ex-dividend date may be worth more than a call with longer
+maturity.</li>
+<li>For deep in-the-money European puts, the one with shorter maturity
+is worth more since it can be exercised earlier (time value of
+money).</li>
+</ul>
+<h2 id="put-call-parity">Put-call Parity</h2>
+<p><span class="math display">\[
+c+K^{-r \tau}=p+S-D
+\]</span></p>
+<h2 id="american-v.s.-european-options">American v.s. European
+options</h2>
+<p>When the stock pays no dividend, never optimal to exercise American
+call. Actually, if <span class="math display">\[
+D_{t} \leqslant K\left(1-e^{-r(T-t)}\right)
+\]</span> , then it is not optimal to exercise American call. It is
+possibly optimal for the time right before an ex-dividend date.</p>
+<h2 id="payoff-of-options">Payoff of options</h2>
+<ul>
+<li>the payoff of a put is convex function in stock price</li>
+<li>the price of a put is convex function in strike price</li>
+</ul>
+<h2 id="black-scholes-merton-model">Black-Scholes-Merton model</h2>
+<p><span class="math display">\[
+\frac{\partial V}{\partial t}+r s \frac{\partial V}{\partial
+s}+\frac{1}{2} \sigma^{2} s^{2} \frac{\partial^{2} V}{\partial s^{2}}=V
+\]</span></p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+推导过程</li>
+</ul>
+<h2 id="feynman-kac-theorem">Feynman-Kac theorem</h2>
+<p>Let X be an Ito process, given <span class="math display">\[
+d X(t)=\beta(t, X) d t + \gamma(t, X) d W(t)
+\]</span> Define <span class="math display">\[
+V(t, x)=E\left[e^{-r(T-t)} f\left(X_{T}\right) \mid X_{t}=x\right]
+\]</span> , then <span class="math inline">\(V(t,x)\)</span> is a
+martingale process that satisfies PDE: <span class="math display">\[
+\frac{\partial V}{\partial t}+\beta(t, x) \frac{\partial V}{\partial
+x}+\frac{1}{2} \gamma^{2}(t, x) \frac{\partial^{2} V}{\partial x^{2}}=r
+V(t, x)
+\]</span> and boundary condition <span class="math inline">\(V(t,x) =
+f(x)\)</span> for all x.</p>
+<p>Under risk-neutral measure, <span class="math inline">\(dS =
+rSdt+\sigma SdW(t)\)</span>. Let <span class="math inline">\(S=X\)</span>, <span class="math inline">\(\beta(t,X) = rS\)</span> and <span class="math inline">\(\gamma(t,X) = \sigma S\)</span> , then the
+<strong>Black-Scholes-Merton differential equation</strong> would be
+<span class="math display">\[
+\frac{\partial V}{\partial t}+r S \frac{\partial V}{\partial
+S}+\frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} v}{\partial s^{2}}=rV
+\]</span></p>
+<h2 id="black-scholes-formula">Black-Scholes Formula</h2>
+<p>Define continuous dividend yield <span class="math inline">\(y\)</span>: <span class="math display">\[
+c=S e^{-y \tau} N\left(d_{1}\right)-K e^{-r \tau} N\left(d_{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+p=K e^{-r \tau} N\left(-d_{2}\right)-S e^{-y \tau} N\left(-d_{1}\right)
+\]</span></p>
+<p>where <span class="math display">\[
+d_{1}=\frac{\ln \left(S e^{-y \tau} / K\right)+\left(r+\sigma^{2} /
+2\right) \tau}{\sigma \sqrt{\tau}}=\frac{\ln (S /
+K)+\left(r-y+\sigma^{2} / 2\right) \tau}{\sigma \sqrt{\tau}}
+\]</span></p>
+<p><span class="math display">\[
+d_{2}=\frac{\ln (S / K)+\left(r-y-\sigma^{2} / 2\right) \tau}{\sigma
+\sqrt{\tau}}=d_1-\sigma\sqrt{\tau}
+\]</span></p>
+<p>N is normal distribution.</p>
+<p>Note:</p>
+<ul>
+<li>If the underlying asset is futures contract, then y = r.</li>
+<li>If the underlying asset is foreign currency, then <span class="math inline">\(y=r_f\)</span>, which is foreign risk-free
+interest rate.</li>
+</ul>
+<h3 id="assumptions-behind-black-scholes-formula">Assumptions behind
+Black-Scholes Formula</h3>
+<ul>
+<li>No transaction costs or taxes, the proceeds of short selling can be
+fully invested.</li>
+<li>All securities can be perfectly divisible.</li>
+<li>no risk-free arbitrage opportunities</li>
+</ul>
+<h3 id="derive-the-black-scholes-formula">Derive the Black-Scholes
+formula</h3>
+<h4 id="using-risk-neutral-probability-measure">Using risk-neutral
+probability measure</h4>
+<h4 id="using-pde">Using PDE</h4>
+<p>Solve the heat equation: <span class="math display">\[
+\frac{\partial u}{\partial \tau}=\frac{1}{2} \sigma^{2}
+\frac{\partial^{2} u}{\partial x^{2}}
+\]</span> where <span class="math inline">\(u = e^{r\tau}V\)</span></p>
+<h1 id="the-greeks">The Greeks</h1>
+<ul>
+<li><p>Delta: <span class="math inline">\(\Delta=\frac{\partial
+f}{\partial S}\)</span></p></li>
+<li><p>Gamma: <span class="math inline">\(\Gamma=\frac{\partial^{2}
+f}{\partial S^{2}}\)</span></p></li>
+<li><p>Theta: <span class="math inline">\(\Theta=\frac{\partial
+f}{\partial t}\)</span></p></li>
+<li><p>Vega: <span class="math inline">\(\nu=\frac{\partial f}{\partial
+\sigma}\)</span></p></li>
+<li><p>Rho: <span class="math inline">\(\rho=\frac{\partial f}{\partial
+r}\)</span></p></li>
+</ul>
+<h2 id="delta">Delta</h2>
+<p>For a European call with dividend yield y: <span class="math display">\[
+\Delta=e^{-y \tau}N\left(d_{1}\right)
+\]</span> For a European put with dividend yield y: <span class="math display">\[
+\Delta=-e^{-y \tau}\left[1-N\left(d_{1}\right)\right]
+\]</span>
+<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/d015e777de4bf0748d5ea22202509e1.jpg" alt="d015e777de4bf0748d5ea22202509e1" style="zoom:25%;"></p>
+<h3 id="delta-hedging">Delta Hedging</h3>
+<p>By BS PDE: <span class="math display">\[
+\theta^1 = \frac{\partial V}{\partial S}
+\]</span></p>
+<ul>
+<li>Delta Hedging only replicates the value and the slope of the option.
+To hedge the curvature of the option, need to hedge gamma as well.</li>
+</ul>
+<h2 id="gamma">Gamma</h2>
+<p>European call/put with dividend yield y: <span class="math display">\[
+\Gamma=\frac{N^{\prime}\left(d_{1}\right) e^{-y \tau}}{S_{0} \sigma
+\sqrt{\tau}}
+\]</span></p>
+<ul>
+<li>For plain vanilla call and put options, gamma is always
+positive</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/8ed96e39fc112cc5ca5c61fa8e3c75f.jpg" alt="8ed96e39fc112cc5ca5c61fa8e3c75f" style="zoom:25%;"></p>
+<h3 id="gamma-hedging">Gamma hedging</h3>
+<p>The delta hedge only replicates the value and the slope of the
+option. To hedge the curvature of the option, we will need to hedge
+gamma as well.</p>
+<h2 id="theta">Theta</h2>
+<ul>
+<li><p>For a European call option: <span class="math display">\[
+\Theta=-\frac{S N^{\prime}\left(d_{1}\right) \sigma e^{-y \tau}}{2
+\sqrt{\tau}}+y S e^{-y \tau} N\left(d_{1}\right)-r K e^{-r \tau}
+N\left(d_{2}\right)
+\]</span></p></li>
+<li><p>For a European put option: <span class="math display">\[
+\Theta=-\frac{S N^{\prime}\left(d_{1}\right) \sigma e^{-y \tau}}{2
+\sqrt{\tau}}-y S e^{-y \tau} N\left(-d_{1}\right)+r K e^{-r \tau}
+N\left(-d_{2}\right)
+\]</span></p></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/32d631e2e903396552ef7cb511b04da.jpg" alt="32d631e2e903396552ef7cb511b04da" style="zoom:25%;"></p>
+<h2 id="vega">Vega</h2>
+<ul>
+<li><p>For European options: <span class="math display">\[
+v=\frac{\partial c}{\partial \sigma}=\frac{\partial p}{\partial
+\sigma}=S e^{-y \tau} \sqrt{\tau} N^{\prime}\left(d_{1}\right)
+\]</span></p>
+<ul>
+<li>Long-term option is more sensitive to change in volatility</li>
+</ul></li>
+<li><p>Implied volatility:</p>
+<ul>
+<li>the volatility that makes the model option price equal to the market
+option price</li>
+</ul></li>
+<li><p>Volatility smile:</p>
+<ul>
+<li>the relationship between the implied volatility of the options and
+the strike prices for a given asset.</li>
+</ul></li>
+</ul>
+<h1 id="other-options">Other options</h1>
+<ul>
+<li>Bull spread:
+<ul>
+<li>long 1 call/put with <span class="math inline">\(K_1\)</span></li>
+<li>short 1 call/put with <span class="math inline">\(K_2\)</span></li>
+</ul></li>
+<li>Straddle
+<ul>
+<li>long 1 call option with K</li>
+<li>long 1 put option with K</li>
+</ul></li>
+</ul>
+<h1 id="appendix">Appendix</h1>
+<p><span class="math display">\[
+\frac{\partial}{\partial z} \int_{a(z)}^{b(z)} f(x, z) d
+x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
+\frac{\partial b}{\partial z}-f(a(z), z)\frac{\partial a}{\partial z}
+\]</span></p>
+]]></content>
+      <tags>
+        <tag>Mathematics</tag>
+        <tag>Finance</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Machine Learning Week10</title>
     <url>/Machine-Learning-Week10/</url>
     <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
@@ -2572,56 +2862,6 @@ Ghemawat。summation over the training set。即并行处理</p>
             {'r': 1, 'c': 4, 'a': 3, 'd': 2, 'e': 2, 'm': 3, 'h': 1, 'f': 1})</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">spark = pyspark.sql.SparkSession(sc)</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python Generator and Iterator LC 173</title>
-    <url>/Python-Generator-and-Iterator-LC-173/</url>
-    <content><![CDATA[<h1 id="基本知识">基本知识</h1>
-<h2 id="iterable-and-iterator">Iterable and Iterator</h2>
-<p>The definition of <a href="https://docs.python.org/3/glossary.html#term-iterator">Iterator</a>:
-An object representing a stream of data.</p>
-<ul>
-<li><code>__next__()</code> is necessary, because it repeated calls to
-the iterator's <code>__next__()</code>.</li>
-<li><code>__iter__()</code> is necessary, which returns iterator object
-itself, because iterator itself needs to be an Iterable.
-可以直接<code>return self</code></li>
-</ul>
-<p>The definition of <a href="https://docs.python.org/3/glossary.html#term-iterable">Iterable</a>:
-An object capable of returning its members one at a time.</p>
-<ul>
-<li><code>__iter__()</code> or <code>__getitem__()</code> is necessary
-to implement Sequence semantics.</li>
-<li>can be used in for loop.</li>
-</ul>
-<p>简单理解：Iterable要有能力产生一个Iterator，Iterator的next要有能力返回下一个iterable里的值。for
-loop是从Iterable里面拿到一个Iterator，然后对iterator一直请求next，直到StopIteration。</p>
-<h2 id="generator">Generator</h2>
-<p>The definition of <a href="https://docs.python.org/3/glossary.html#term-generator">Generator</a>:
-A function returns a generator Iterator.</p>
-<ul>
-<li><p>Every time use <code>next()</code> to generator, it will yield
-the next and label the current frame.</p></li>
-<li><p>It can 'send': <code>g.send()</code>, which allows you to involve
-the generator.</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">gen</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">        tmp = <span class="keyword">yield</span> num</span><br><span class="line">        <span class="keyword">if</span> tmp <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            num = tmp</span><br><span class="line">        num -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">g = gen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">first = <span class="built_in">next</span>(g) <span class="comment"># first = g.send(None)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"first:<span class="subst">{first}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"send: <span class="subst">{g.send(<span class="number">10</span>)}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="comment"># &gt;&gt; 8, 7, 6, 5, 4, 3, 2, 1</span></span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h1 id="lc-173-binary-search-tree-iterator">LC-173: Binary Search Tree
-Iterator</h1>
-<p>generator solution:</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, root</span>):</span><br><span class="line">    self.last = root</span><br><span class="line">    <span class="keyword">while</span> self.last <span class="keyword">and</span> self.last.right:</span><br><span class="line">        self.last = self.last.right</span><br><span class="line">    self.current = <span class="literal">None</span></span><br><span class="line">    self.g = self.iterate(root)</span><br><span class="line"></span><br><span class="line"><span class="comment"># @return a boolean, whether we have a next smallest number</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hasNext</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> self.current <span class="keyword">is</span> <span class="keyword">not</span> self.last</span><br><span class="line"></span><br><span class="line"><span class="comment"># @return an integer, the next smallest number</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">next</span>(self.g)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">self, node</span>):</span><br><span class="line">    <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> self.iterate(node.left):</span><br><span class="line">        <span class="keyword">yield</span> x</span><br><span class="line">    self.current = node</span><br><span class="line">    <span class="keyword">yield</span> node.val</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> self.iterate(node.right):</span><br><span class="line">        <span class="keyword">yield</span> x</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="疑问-为何这里要用nextself.g而不是直接self.g">疑问：
-为何这里要用<code>next(self.g)</code>，而不是直接self.g？</h2>
-<p>个人理解：
-这里的next非def中的next，而是generator里的<code>__next__()</code>，当把def中的next改为其他名称时，运行结果相同。另外self.g是一个generator，因为iterate用到了yield，直接return
-self.g是generator，而不是具体数字。</p>
 ]]></content>
       <categories>
         <category>Programming</category>
@@ -4766,16 +5006,53 @@ repeating ourselves and make a function:</p>
       </tags>
   </entry>
   <entry>
-    <title>This is my first blog!</title>
-    <url>/This-is-my-first-bolg/</url>
-    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
-<p>My major is <strong>Engineering Physics</strong> and
-<strong>Financial Engineering</strong>.</p>
-<p>Hope to share my experiences with you!</p>
-<p><strong>Thank you</strong> for following my blog!</p>
+    <title>Python Generator and Iterator LC 173</title>
+    <url>/Python-Generator-and-Iterator-LC-173/</url>
+    <content><![CDATA[<h1 id="基本知识">基本知识</h1>
+<h2 id="iterable-and-iterator">Iterable and Iterator</h2>
+<p>The definition of <a href="https://docs.python.org/3/glossary.html#term-iterator">Iterator</a>:
+An object representing a stream of data.</p>
+<ul>
+<li><code>__next__()</code> is necessary, because it repeated calls to
+the iterator's <code>__next__()</code>.</li>
+<li><code>__iter__()</code> is necessary, which returns iterator object
+itself, because iterator itself needs to be an Iterable.
+可以直接<code>return self</code></li>
+</ul>
+<p>The definition of <a href="https://docs.python.org/3/glossary.html#term-iterable">Iterable</a>:
+An object capable of returning its members one at a time.</p>
+<ul>
+<li><code>__iter__()</code> or <code>__getitem__()</code> is necessary
+to implement Sequence semantics.</li>
+<li>can be used in for loop.</li>
+</ul>
+<p>简单理解：Iterable要有能力产生一个Iterator，Iterator的next要有能力返回下一个iterable里的值。for
+loop是从Iterable里面拿到一个Iterator，然后对iterator一直请求next，直到StopIteration。</p>
+<h2 id="generator">Generator</h2>
+<p>The definition of <a href="https://docs.python.org/3/glossary.html#term-generator">Generator</a>:
+A function returns a generator Iterator.</p>
+<ul>
+<li><p>Every time use <code>next()</code> to generator, it will yield
+the next and label the current frame.</p></li>
+<li><p>It can 'send': <code>g.send()</code>, which allows you to involve
+the generator.</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">gen</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">        tmp = <span class="keyword">yield</span> num</span><br><span class="line">        <span class="keyword">if</span> tmp <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            num = tmp</span><br><span class="line">        num -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">g = gen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">first = <span class="built_in">next</span>(g) <span class="comment"># first = g.send(None)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"first:<span class="subst">{first}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"send: <span class="subst">{g.send(<span class="number">10</span>)}</span>"</span>)</span><br><span class="line"><span class="comment"># &gt;&gt; 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="comment"># &gt;&gt; 8, 7, 6, 5, 4, 3, 2, 1</span></span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h1 id="lc-173-binary-search-tree-iterator">LC-173: Binary Search Tree
+Iterator</h1>
+<p>generator solution:</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, root</span>):</span><br><span class="line">    self.last = root</span><br><span class="line">    <span class="keyword">while</span> self.last <span class="keyword">and</span> self.last.right:</span><br><span class="line">        self.last = self.last.right</span><br><span class="line">    self.current = <span class="literal">None</span></span><br><span class="line">    self.g = self.iterate(root)</span><br><span class="line"></span><br><span class="line"><span class="comment"># @return a boolean, whether we have a next smallest number</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hasNext</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> self.current <span class="keyword">is</span> <span class="keyword">not</span> self.last</span><br><span class="line"></span><br><span class="line"><span class="comment"># @return an integer, the next smallest number</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">next</span>(self.g)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">self, node</span>):</span><br><span class="line">    <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> self.iterate(node.left):</span><br><span class="line">        <span class="keyword">yield</span> x</span><br><span class="line">    self.current = node</span><br><span class="line">    <span class="keyword">yield</span> node.val</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> self.iterate(node.right):</span><br><span class="line">        <span class="keyword">yield</span> x</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="疑问-为何这里要用nextself.g而不是直接self.g">疑问：
+为何这里要用<code>next(self.g)</code>，而不是直接self.g？</h2>
+<p>个人理解：
+这里的next非def中的next，而是generator里的<code>__next__()</code>，当把def中的next改为其他名称时，运行结果相同。另外self.g是一个generator，因为iterate用到了yield，直接return
+self.g是generator，而不是具体数字。</p>
 ]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
       <tags>
-        <tag>Essay</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -4827,32 +5104,6 @@ Elements of Statistical Learning</li>
       </categories>
       <tags>
         <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tree Traverse</title>
-    <url>/Tree-Traverse/</url>
-    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
-<p>Leetcode相关题目：94，144，145</p>
-<h2 id="前序遍历">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="递归法">递归法</h1>
-<h2 id="前序遍历-1">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历-1">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历-1">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -5099,6 +5350,9 @@ G = (V, E) 有向图，无向图<br>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vertex</span>: </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, key</span>): </span><br><span class="line">        self.<span class="built_in">id</span> = key </span><br><span class="line">        self.connectedTo = {} </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addNeighbor</span>(<span class="params">self, nbr, weight=<span class="number">0</span></span>): </span><br><span class="line">        self.connectedTo[nbr] = weight </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.<span class="built_in">id</span>) + <span class="string">' connectedTo: '</span> + <span class="built_in">str</span>([x.<span class="built_in">id</span> <span class="keyword">for</span> x <span class="keyword">in</span> self.connectedTo])</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getConnections</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="keyword">return</span> self.connectedTo.keys() </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getId</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">id</span> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getWeight</span>(<span class="params">self, nbr</span>): </span><br><span class="line">        <span class="keyword">return</span> self.connectedTo[nbr]</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>: </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>): </span><br><span class="line">        self.vertList = {} </span><br><span class="line">        self.numVertices = <span class="number">0</span> </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addVertex</span>(<span class="params">self, key</span>): </span><br><span class="line">        self.numVertices = self.numVertices + <span class="number">1</span> </span><br><span class="line">        newVertex = Vertex(key) </span><br><span class="line">        self.vertList[key] = newVertex </span><br><span class="line">        <span class="keyword">return</span> newVertex </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getVertex</span>(<span class="params">self, n</span>): </span><br><span class="line">        <span class="keyword">if</span> n <span class="keyword">in</span> self.vertList: </span><br><span class="line">            <span class="keyword">return</span> self.vertList[n] </span><br><span class="line">        <span class="keyword">else</span>: </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span> </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__contains__</span>(<span class="params">self, n</span>): </span><br><span class="line">        <span class="keyword">return</span> n <span class="keyword">in</span> self.vertList </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addEdge</span>(<span class="params">self, f, t, cost=<span class="number">0</span></span>): </span><br><span class="line">        <span class="keyword">if</span> f <span class="keyword">not</span> <span class="keyword">in</span> self.vertList: </span><br><span class="line">            nv = self.addVertex(f) </span><br><span class="line">        <span class="keyword">if</span> t <span class="keyword">not</span> <span class="keyword">in</span> self.vertList: </span><br><span class="line">            nv = self.addVertex(t) </span><br><span class="line">        self.vertList[f].addNeighbor(self.vertList[t], cost) </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getVertices</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="keyword">return</span> self.vertList.keys() </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">iter</span>(self.vertList.values())</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="并查集">并查集</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n</span>):</span><br><span class="line">        self.parent = <span class="built_in">list</span>(<span class="built_in">range</span>(n))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">union</span>(<span class="params">self, index1: <span class="built_in">int</span>, index2: <span class="built_in">int</span></span>):</span><br><span class="line">        self.parent[self.find(index2)] = self.find(index1)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">self, index: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> self.parent[index] != index:</span><br><span class="line">            self.parent[index] = self.find(self.parent[index])</span><br><span class="line">        <span class="keyword">return</span> self.parent[index]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="keyword">if</span> parent[i] == i:</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        parent[i] = find(parent[i])</span><br><span class="line">        <span class="keyword">return</span> parent[i]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">union</span>(<span class="params">i,j</span>):</span><br><span class="line">    i_parent = find(i)</span><br><span class="line">    j_parent = find(j)</span><br><span class="line">    parent[i_parent] = j_parent</span><br><span class="line">    </span><br><span class="line">parent = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    parent[i] = i</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="广度优先搜索ove">广度优先搜索:O(V+E)</h2>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.graphs <span class="keyword">import</span> Graph, Vertex </span><br><span class="line"><span class="keyword">from</span> pythonds.basic <span class="keyword">import</span> Queue </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bfs</span>(<span class="params">g, start</span>): </span><br><span class="line">    start.setDistance(<span class="number">0</span>) </span><br><span class="line">    start.setPred(<span class="literal">None</span>) </span><br><span class="line">    vertQueue = Queue() </span><br><span class="line">    vertQueue.enqueue(start) </span><br><span class="line">    <span class="keyword">while</span> (vertQueue.size() &gt; <span class="number">0</span>): </span><br><span class="line">        currentVert = vertQueue.dequeue() </span><br><span class="line">        <span class="keyword">for</span> nbr <span class="keyword">in</span> currentVert.getConnections(): </span><br><span class="line">            <span class="keyword">if</span> (nbr.getColor() == <span class="string">'white'</span>): </span><br><span class="line">                nbr.setColor(<span class="string">'gray'</span>) </span><br><span class="line">                nbr.setDistance(currentVert.getDistance() + <span class="number">1</span>) </span><br><span class="line">                nbr.setPred(currentVert) </span><br><span class="line">                vertQueue.enqueue(nbr) </span><br><span class="line">        currentVert.setColor(<span class="string">'black'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 回溯BFS</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">y</span>): </span><br><span class="line">    x = y </span><br><span class="line">    <span class="keyword">while</span> (x.getPred()): </span><br><span class="line">        <span class="built_in">print</span>(x.getId()) </span><br><span class="line">        x = x.getPred() </span><br><span class="line">        <span class="built_in">print</span>(x.getId()) </span><br><span class="line"></span><br><span class="line"><span class="comment"># traverse(g.getVertex('sage'))</span></span><br></pre></td></tr></tbody></table></figure>
@@ -5138,6 +5392,69 @@ weight spanning tree)</h2>
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tree Traverse</title>
+    <url>/Tree-Traverse/</url>
+    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
+<p>Leetcode相关题目：94，144，145</p>
+<h2 id="前序遍历">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="递归法">递归法</h1>
+<h2 id="前序遍历-1">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历-1">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历-1">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>This is my first blog!</title>
+    <url>/This-is-my-first-bolg/</url>
+    <content><![CDATA[<p>This is the first time for me to use Hexo to build my blog.</p>
+<p>My major is <strong>Engineering Physics</strong> and
+<strong>Financial Engineering</strong>.</p>
+<p>Hope to share my experiences with you!</p>
+<p><strong>Thank you</strong> for following my blog!</p>
+]]></content>
+      <tags>
+        <tag>Essay</tag>
       </tags>
   </entry>
   <entry>
@@ -11140,29 +11457,5 @@ many flights were destined for airports with a one word name?</h2>
       <tags>
         <tag>Python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
