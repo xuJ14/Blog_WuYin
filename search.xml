@@ -1,6 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Assumption of Linear Regression</title>
+    <url>/Assumption-of-Linear-Regression/</url>
+    <content><![CDATA[<h1 id="linear-regression">Linear Regression</h1>
+<p>线性模型通常是：<span class="math inline">\(Y=f\left(X_{1}, X_{2},
+X_{3}\right)+\varepsilon\)</span>的形式。这里predictor本身不需要一定是线性的，可以通过一些transform的形式，将非线性的关系转变为线性的。
+线性模型的矩阵表达：<span class="math inline">\(y=X
+\beta+\varepsilon\)</span>，这里y为n×1的矩阵。
+那么接下来问题就是如何估计β，以尽可能多的用x解释y。在本文中，p为β中参数的个数。</p>
+<p>我们用<span class="math inline">\(\hat{y}=X \hat{\beta}\)</span>
+表示我们的预测值（predicted or fitted value），<span class="math inline">\(\hat{\varepsilon} = y-\hat y\)</span>
+表示残差（residual）。这样，我们的y是n维，确定的变量是p维，剩下n-p维就是不确定的random
+variation（可以用QR分解证明）。不带^的为真实值。</p>
+<h1 id="最小二乘估计least-squarels">最小二乘估计Least Square（LS）</h1>
+<p><span class="math display">\[
+X^{\top} X \hat{\beta}=X^{\top} y
+\]</span></p>
+<p>上述就是normal equation。</p>
+<p>事实上有很多种估计β的方法，但为什么要用最小二乘估计呢，有以下三点原因：</p>
+<ol type="1">
+<li>它的结果恰好符合：正交投影到模型空间的结果。符合我们的几何直觉。</li>
+<li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
+likelihood
+estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
+<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
+\beta\)</span>是最优线性无偏估计（BLUE）。</li>
+</ol>
+<blockquote>
+<p><strong>Gauss-Markov Theorem</strong> ：</p>
+<p>If the errors in the linear regression model are
+<strong>uncorrelated不相关</strong>, have <strong>equal
+variances同方差</strong> and <strong>expectation value of
+zero期望为0</strong>:</p>
+<p>Then the ordinary least squares (OLS) estimator has <strong>the
+lowest sampling variance within the class of linear unbiased
+estimators</strong>.</p>
+<p><strong>Note:</strong> The errors do not need to be normal, nor do
+they need to be independent and identically distributed (only
+uncorrelated with mean zero and homoscedastic with finite variance). The
+requirement that the estimator be unbiased cannot be dropped, since
+biased estimators exist with lower variance. See, for example, the
+James–Stein estimator (which also drops linearity), ridge regression, or
+simply any degenerate estimator.</p>
+</blockquote>
+<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
+<p>假设：<span class="math inline">\(E \varepsilon=0\)</span>，<span class="math inline">\(\operatorname{Var} \varepsilon=\sigma^{2}
+I\)</span>。</p>
+<p>公式1是LS得到的对β的估计。这时，我们并不知道β这个估计怎么样。那么有下述几条推论，他们的证明参见这里。</p>
+<p>首先，我们定义Estimable Function：</p>
+<blockquote>
+<p><strong>Estimable Function</strong>：如果存在a，使得<span class="math inline">\(E a^{\top} y=q^{\top}
+\beta\)</span>成立，其中q是已知的，那么我们说<span class="math inline">\(q^\top\beta\)</span>是estimable function。</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1:</strong> <span class="math inline">\(q^\top
+\beta\)</span> is estimable, if and only if there exists a vector t such
+that <span class="math inline">\(q^\top=t^\top X\)</span>.</p>
+</blockquote>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a></p>
+<blockquote>
+<p><strong>Theorem 2:</strong> <span class="math inline">\(q^\top
+\beta\)</span> is estimable, if and only if <span class="math inline">\(X^{\top} X u=q\)</span> has solution for u.</p>
+</blockquote>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a>.
+另判断非齐次线性方程组是否有解，需要比较系数矩阵和增广矩阵的秩的大小，这时若系数矩阵的行列式为0，说明有可能无解，也有可能有无穷多解。</p>
+<blockquote>
+<p><strong>Theorem 3:</strong> If <span class="math inline">\(q^\top
+\beta\)</span> is estimable, then <span class="math inline">\(q^\top
+\hat\beta\)</span> is an unbiased estimator of <span class="math inline">\(q^\top\beta\)</span>, and this solution <span class="math inline">\(\hat\beta\)</span> is invariant with the solution
+of <span class="math inline">\(X^{\top} X \hat\beta=X^\top
+y\)</span>.</p>
+</blockquote>
+<p>简单说，如果<span class="math inline">\(q^\top \beta\)</span> 是
+estimable，那么我们只需要找到任意一个符合<span class="math inline">\(X^{\top} X \hat\beta=X^\top y\)</span>的解<span class="math inline">\(\hat \beta\)</span>，这样<span class="math inline">\(q^\top \hat\beta\)</span> 就是<span class="math inline">\(q^\top\beta\)</span> 的无偏估计。</p>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P4</a></p>
+<blockquote>
+<p><strong>Theorem 4: </strong> Of all unbiased linear estimators of the
+estimable function, <span class="math inline">\(q^\top\hat\beta\)</span>
+have the smallest variance.</p>
+</blockquote>
+<p>简单说，<span class="math inline">\(q^\top \beta\)</span>
+的所有无偏估计里，<span class="math inline">\(q^\top \hat \beta\)</span>
+的方差是最小的，也就是估计最稳定的，最优的。</p>
+<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P5</a></p>
+<p>综上，<span class="math inline">\(\hat \beta\)</span> 是<span class="math inline">\(\beta\)</span> 的BLUE（best linear unbiased
+estimation），最优线性无偏估计。</p>
+<h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
+<ol type="1">
+<li>线性模型</li>
+<li><span class="math inline">\(E[\varepsilon \mid
+X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
+Exogeneity</li>
+<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
+perfectly multicollinear）. Not perfectly linearly dependent</li>
+<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
+X)=\sigma^{2} I_{n}\)</span>，意味着
+<ul>
+<li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
+\mid X\right)=\sigma^{2}\)</span></li>
+<li>没有自相关性（autocorrelation），即不同观测的error是不相关的（uncorrelated）：<span class="math inline">\(E\left[\varepsilon_{i} \varepsilon_{j} \mid
+X\right]=0\)</span>，for <span class="math inline">\(i\ne
+j\)</span>。</li>
+</ul></li>
+<li>有些地方，还会有这样一个假设：被观测对象(x,y)是独立同分布iid。这意味着所有的样本，是遵循随机采样的原则选出来的。</li>
+</ol>
+<h1 id="一些基本性质">一些基本性质</h1>
+<ol type="1">
+<li><p>projection matrix：<span class="math inline">\(H=X\left(X^{\top}
+X\right)^{-1} X^{\top}\)</span></p>
+<ul>
+<li><span class="math inline">\(H^\top = H\)</span></li>
+</ul></li>
+<li><p>fitted values: <span class="math inline">\(\hat{y}=X
+\hat{\beta}=H y\)</span></p>
+<ul>
+<li>我们可以理解这个式子为把y投影到X空间里，这样误差就位于正交于X的空间里。</li>
+</ul></li>
+<li><p>residuals: <span class="math inline">\(\hat{\varepsilon}=y-\hat{y}=(I-H)
+y\)</span></p></li>
+<li><p>基于上述假设，推出：</p>
+<ul>
+<li><p><span class="math inline">\(\hat{\beta} \sim N\left(\beta,
+\sigma^{2}\left(X^{\top} X\right)^{-1}\right)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
+X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
+<li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
+X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
+\frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
+\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
+500作业3第2题。</li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A d j \cdot R^{2}=1-\frac{R S S
+/(n-p-1)}{T S S / n-1}\)</span></p></li>
+</ol>
+<h1 id="假设检验及分布">假设检验及分布</h1>
+<h2 id="卡方分布及卡方检验">卡方分布及卡方检验</h2>
+<p>假设自变量<span class="math inline">\(X_{1}, \ldots, X_{n} \sim
+N(0,1)\)</span>，且相互独立，则： <span class="math display">\[
+\chi^{2}=\sum_{i=1}^{n} X_{i}^{2}   
+\]</span></p>
+<h2 id="t分布及t检验">t分布及t检验</h2>
+<p>假设<span class="math inline">\(X \sim N(0,1)\)</span>，<span class="math inline">\(Y \sim \chi^{2}(n)\)</span>，且X和Y相互独立 <span class="math display">\[
+T=\frac{X}{\sqrt{Y/ n}}
+\]</span></p>
+<h2 id="f分布及f检验">F分布及F检验</h2>
+<p>假设<span class="math inline">\(X\sim \chi^{2}(n_1)\)</span>，<span class="math inline">\(Y\sim \chi^{2}(n_2)\)</span>，且X和Y相互独立：
+<span class="math display">\[
+F=\frac{X / n_{1}}{Y / n_{2}}
+\]</span></p>
+<h1 id="inference-and-diagnosis">Inference and Diagnosis</h1>
+<h2 id="显著性检验">显著性检验</h2>
+<p>从前文中我们可以知道，β符合正态分布，但是我们并不知道β的均值和方差，只能用样本来估计，因此采用了下述检验方法：</p>
+<ol type="1">
+<li>检验单个回归系数是否显著（<span class="math inline">\(H_0:\beta_i=0\)</span>）：t检验
+<ul>
+<li><span class="math inline">\(T=\frac{\hat{\beta_{i}}-0}{S_{\hat{\beta}_{i}}}\)</span></li>
+</ul></li>
+<li>检验回归系数整体（模型整体）是否显著（<span class="math inline">\(H_0:\beta_1=\dots=\beta_p=0\)</span>）：F检验
+<ul>
+<li><span class="math inline">\(F=\frac{E S S / p}{\operatorname{RSS}
+/(n-p-1)}\)</span></li>
+</ul></li>
+</ol>
+<h2 id="筛选自变量">筛选自变量：</h2>
+<p>注： 增加无关自变量会导致<span class="math inline">\(R^2\)</span>增加，但是<span class="math inline">\(Adj.R^2\)</span>减小</p>
+<ol type="1">
+<li>General to specific model selection:
+<ul>
+<li>先包括全部变量，然后逐个删除最小 t
+统计量的，直到没有不显著的统计量</li>
+</ul></li>
+<li>M-fold cross-validation:</li>
+</ol>
+<h2 id="检验error-homoskedasticity">检验Error Homoskedasticity</h2>
+<p>异方差不影响参数的unbiasedness，但是这时，估计参数不再是BLUE，并且检验统计量用到的standard
+error不再是无偏的（即t检验中的分母）。</p>
+<ol type="1">
+<li>White Test</li>
+<li>Residual Plot （Residual - X）</li>
+</ol>
+<p><strong>Violation</strong> （Heteroskedasticity）处理方法：</p>
+<ol type="1">
+<li>Standard Error 代替为White's standard error</li>
+<li>Transformation，当发现残差具有显著趋势时</li>
+<li>WLS（Weighed Least Square）</li>
+</ol>
+<h2 id="multicollinearity">Multicollinearity</h2>
+<p>由于共线性变量的存在，有可能两个变量t
+检验统计量都不显著，但是删除某一个后，另一个变显著。只要不是perfectly
+dependent，就不影响BLUE</p>
+<h2 id="outlier">Outlier</h2>
+<p>检验方法：</p>
+<ul>
+<li><p>Cook's distance: measure sensitivity of the fitted value in a
+regression to dropping a single observation j. <span class="math display">\[
+D_{j}=\frac{\sum_{i=1}^{n}\left(\hat{Y}_{i}^{-j}-\hat{Y}_{i}\right)^{2}}{p
+S^{2}}
+\]</span> S is the estimate of error variance from the model using all
+observations.</p>
+<p>If Cook's distance &gt; 1, then j has large impact.</p></li>
+</ul>
+<h1 id="violation-and-misappropriation">Violation and
+Misappropriation</h1>
+<h2 id="errors-are-correlated">Errors are correlated</h2>
+<p>https://math.stackexchange.com/questions/2957686/explain-about-the-correlation-of-error-terms-in-linear-regression-models</p>
+<p>总结一下就是，如果error相关，那么估计出来的置信区间将会比正常更窄。</p>
+<h2 id="have-unequal-variance">have unequal variance</h2>
+<p>Generalized least squares</p>
+<h2 id="error-distribution-is-long-tailed">Error distribution is
+long-tailed</h2>
+<h2 id="predictors-are-highly-correlated-collinear">Predictors are
+highly correlated (collinear)</h2>
+<p>线性无关不代表基向量正交</p>
+<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
+<p>X线性无关，并不代表没有相关性</p>
+<p>什么是无偏估计</p>
+<p>方差的无偏估计：</p>
+<p>引出自由度</p>
+<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
+<p>如果相关：</p>
+<p>如果异方差</p>
+<p>如果期望不为0</p>
+<p>如果不服从正态分布</p>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Read Papers</title>
+    <url>/How-to-Read-Papers/</url>
+    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Arxiv</li>
+<li>Blog Posts</li>
+<li>Text Books</li>
+</ul>
+<h2 id="prepare">Prepare</h2>
+<ul>
+<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
+<li>如果有论文不是想要的，就删掉</li>
+<li>如果有新的论文就加进来</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>第一遍：只看标题，摘要，图表</li>
+<li>第二遍：前言，结语，图表</li>
+<li>第三遍：论文主体</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Citadel Central Regional Datathon 2021</title>
+    <url>/Citadel-Central-Datathon-2021/</url>
+    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
+<p>The goal is to use tobacco related data in order to discover and
+analyze patterns associated with tobacco usage.</p>
+<h2 id="prize">Prize</h2>
+<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
+Place Winner of Central Regional Datathon 2021</a></p>
+<h2 id="result">Result</h2>
+<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
+<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>Project</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Caculus Review</title>
     <url>/Caculus-Review/</url>
     <content><![CDATA[<h1 id="calculus-微积分复习">Calculus 微积分复习：</h1>
@@ -727,192 +1014,6 @@ error"错误 尽量不要用#符号</p></li>
       </tags>
   </entry>
   <entry>
-    <title>Citadel Central Regional Datathon 2021</title>
-    <url>/Citadel-Central-Datathon-2021/</url>
-    <content><![CDATA[<h1 id="whos-still-smoking">Who's still smoking?</h1>
-<p>The goal is to use tobacco related data in order to discover and
-analyze patterns associated with tobacco usage.</p>
-<h2 id="prize">Prize</h2>
-<p><a href="https://www.credential.net/4c9232c5-10b9-4f7e-a5ab-0d04a2f7a317">2nd
-Place Winner of Central Regional Datathon 2021</a></p>
-<h2 id="result">Result</h2>
-<p><a href="https://github.com/mtanghu/Citadel-Central-Datathon-Fall21">code</a></p>
-<div class="pdf-container" data-target="../pdf/Team_2_report.pdf" data-height="1000px"></div>
-]]></content>
-      <categories>
-        <category>Project</category>
-      </categories>
-      <tags>
-        <tag>Project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Assumption of Linear Regression</title>
-    <url>/Assumption-of-Linear-Regression/</url>
-    <content><![CDATA[<h1 id="linear-regression">Linear Regression</h1>
-<p>线性模型通常是：<span class="math inline">\(Y=f\left(X_{1}, X_{2},
-X_{3}\right)+\varepsilon\)</span>的形式。这里predictor本身不需要一定是线性的，可以通过一些transform的形式，将非线性的关系转变为线性的。
-线性模型的矩阵表达：<span class="math inline">\(y=X
-\beta+\varepsilon\)</span>，这里y为n×1的矩阵。
-那么接下来问题就是如何估计β，以尽可能多的用x解释y。在本文中，p为β中参数的个数。</p>
-<p>我们用<span class="math inline">\(\hat{y}=X \hat{\beta}\)</span>
-表示我们的预测值（predicted or fitted value），<span class="math inline">\(\hat{\varepsilon} = y-\hat y\)</span>
-表示残差（residual）。这样，我们的y是n维，确定的变量是p维，剩下n-p维就是不确定的random
-variation（可以用QR分解证明）。不带^的为真实值。</p>
-<h1 id="最小二乘估计least-squarels">最小二乘估计Least Square（LS）</h1>
-<p><span class="math display">\[
-X^{\top} X \hat{\beta}=X^{\top} y
-\]</span></p>
-<p>上述就是normal equation。</p>
-<p>事实上有很多种估计β的方法，但为什么要用最小二乘估计呢，有以下三点原因：</p>
-<ol type="1">
-<li>它的结果恰好符合：正交投影到模型空间的结果。符合我们的几何直觉。</li>
-<li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
-likelihood
-estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
-<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
-\beta\)</span>是最优线性无偏估计（BLUE）。</li>
-</ol>
-<blockquote>
-<p><strong>Gauss-Markov Theorem</strong> ：</p>
-<p>If the errors in the linear regression model are
-<strong>uncorrelated不相关</strong>, have <strong>equal
-variances同方差</strong> and <strong>expectation value of
-zero期望为0</strong>:</p>
-<p>Then the ordinary least squares (OLS) estimator has <strong>the
-lowest sampling variance within the class of linear unbiased
-estimators</strong>.</p>
-<p><strong>Note:</strong> The errors do not need to be normal, nor do
-they need to be independent and identically distributed (only
-uncorrelated with mean zero and homoscedastic with finite variance). The
-requirement that the estimator be unbiased cannot be dropped, since
-biased estimators exist with lower variance. See, for example, the
-James–Stein estimator (which also drops linearity), ridge regression, or
-simply any degenerate estimator.</p>
-</blockquote>
-<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
-<p>假设：<span class="math inline">\(E \varepsilon=0\)</span>，<span class="math inline">\(\operatorname{Var} \varepsilon=\sigma^{2}
-I\)</span>。</p>
-<p>公式1是LS得到的对β的估计。这时，我们并不知道β这个估计怎么样。那么有下述几条推论，他们的证明参见这里。</p>
-<p>首先，我们定义Estimable Function：</p>
-<blockquote>
-<p><strong>Estimable Function</strong>：如果存在a，使得<span class="math inline">\(E a^{\top} y=q^{\top}
-\beta\)</span>成立，其中q是已知的，那么我们说<span class="math inline">\(q^\top\beta\)</span>是estimable function。</p>
-</blockquote>
-<blockquote>
-<p><strong>Theorem 1:</strong> <span class="math inline">\(q^\top
-\beta\)</span> is estimable, if and only if there exists a vector t such
-that <span class="math inline">\(q^\top=t^\top X\)</span>.</p>
-</blockquote>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a></p>
-<blockquote>
-<p><strong>Theorem 2:</strong> <span class="math inline">\(q^\top
-\beta\)</span> is estimable, if and only if <span class="math inline">\(X^{\top} X u=q\)</span> has solution for u.</p>
-</blockquote>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P3</a>.
-另判断非齐次线性方程组是否有解，需要比较系数矩阵和增广矩阵的秩的大小，这时若系数矩阵的行列式为0，说明有可能无解，也有可能有无穷多解。</p>
-<blockquote>
-<p><strong>Theorem 3:</strong> If <span class="math inline">\(q^\top
-\beta\)</span> is estimable, then <span class="math inline">\(q^\top
-\hat\beta\)</span> is an unbiased estimator of <span class="math inline">\(q^\top\beta\)</span>, and this solution <span class="math inline">\(\hat\beta\)</span> is invariant with the solution
-of <span class="math inline">\(X^{\top} X \hat\beta=X^\top
-y\)</span>.</p>
-</blockquote>
-<p>简单说，如果<span class="math inline">\(q^\top \beta\)</span> 是
-estimable，那么我们只需要找到任意一个符合<span class="math inline">\(X^{\top} X \hat\beta=X^\top y\)</span>的解<span class="math inline">\(\hat \beta\)</span>，这样<span class="math inline">\(q^\top \hat\beta\)</span> 就是<span class="math inline">\(q^\top\beta\)</span> 的无偏估计。</p>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P4</a></p>
-<blockquote>
-<p><strong>Theorem 4: </strong> Of all unbiased linear estimators of the
-estimable function, <span class="math inline">\(q^\top\hat\beta\)</span>
-have the smallest variance.</p>
-</blockquote>
-<p>简单说，<span class="math inline">\(q^\top \beta\)</span>
-的所有无偏估计里，<span class="math inline">\(q^\top \hat \beta\)</span>
-的方差是最小的，也就是估计最稳定的，最优的。</p>
-<p>证明见<a href="https://ecommons.cornell.edu/bitstream/handle/1813/32309/BU-213-M.pdf">P5</a></p>
-<p>综上，<span class="math inline">\(\hat \beta\)</span> 是<span class="math inline">\(\beta\)</span> 的BLUE（best linear unbiased
-estimation），最优线性无偏估计。</p>
-<h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
-<ol type="1">
-<li>线性模型</li>
-<li><span class="math inline">\(E[\varepsilon \mid
-X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
-Exogeneity</li>
-<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
-perfectly multicollinear）</li>
-<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
-X)=\sigma^{2} I_{n}\)</span>，意味着
-<ul>
-<li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
-\mid X\right)=\sigma^{2}\)</span></li>
-<li>没有自相关性（autocorrelation），即不同观测的error是不相关的（uncorrelated）：<span class="math inline">\(E\left[\varepsilon_{i} \varepsilon_{j} \mid
-X\right]=0\)</span>，for <span class="math inline">\(i\ne
-j\)</span>。</li>
-</ul></li>
-<li>有些地方，还会有这样一个假设：被观测对象(x,y)是独立同分布iid。这意味着所有的样本，是遵循随机采样的原则选出来的。</li>
-</ol>
-<h1 id="一些基本性质">一些基本性质</h1>
-<ol type="1">
-<li><p>projection matrix：<span class="math inline">\(H=X\left(X^{\top}
-X\right)^{-1} X^{\top}\)</span></p>
-<ul>
-<li><span class="math inline">\(H^\top = H\)</span></li>
-</ul></li>
-<li><p>fitted values: <span class="math inline">\(\hat{y}=X
-\hat{\beta}=H y\)</span></p>
-<ul>
-<li>我们可以理解这个式子为把y投影到X空间里，这样误差就位于正交于X的空间里。</li>
-</ul></li>
-<li><p>residuals: <span class="math inline">\(\hat{\varepsilon}=y-\hat{y}=(I-H)
-y\)</span></p></li>
-<li><p>基于上述假设，推出：</p>
-<ul>
-<li><p><span class="math inline">\(\hat{\beta} \sim N\left(\beta,
-\sigma^{2}\left(X^{\top} X\right)^{-1}\right)\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
-X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
-<li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
-X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
-\frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
-<ul>
-<li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
-\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
-500作业3第2题。</li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="violation-and-misappropriation">Violation and
-Misappropriation</h1>
-<h2 id="errors-are-correlated-or-have-unequal-variance">Errors are
-correlated or have unequal variance</h2>
-<p>Generalized least squares</p>
-<h2 id="error-distribution-is-long-tailed">Error distribution is
-long-tailed</h2>
-<h2 id="predictors-are-highly-correlated-collinear">Predictors are
-highly correlated (collinear)</h2>
-<p>线性无关不代表基向量正交</p>
-<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
-<p>X线性无关，并不代表没有相关性</p>
-<p>什么是无偏估计</p>
-<p>方差的无偏估计：</p>
-<p>引出自由度</p>
-<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
-<p>如果相关：</p>
-<p>如果异方差</p>
-<p>如果期望不为0</p>
-<p>如果不服从正态分布</p>
-]]></content>
-      <categories>
-        <category>Mathematics</category>
-      </categories>
-      <tags>
-        <tag>Mathematics</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week01</title>
     <url>/Machine-Learning-Week01/</url>
     <content><![CDATA[<h2 id="week-1">Week 1</h2>
@@ -1049,94 +1150,6 @@ A_{32}^{'} &amp; A_{33}^{'} \end{vmatrix}\)</span></li>
       </tags>
   </entry>
   <entry>
-    <title>How to Read Papers</title>
-    <url>/How-to-Read-Papers/</url>
-    <content><![CDATA[<h1 id="how-to-read-papers">How to Read Papers?</h1>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Arxiv</li>
-<li>Blog Posts</li>
-<li>Text Books</li>
-</ul>
-<h2 id="prepare">Prepare</h2>
-<ul>
-<li>列出待读论文，每一篇列一行，表示从0-100的阅读进度</li>
-<li>如果有论文不是想要的，就删掉</li>
-<li>如果有新的论文就加进来</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<ul>
-<li>第一遍：只看标题，摘要，图表</li>
-<li>第二遍：前言，结语，图表</li>
-<li>第三遍：论文主体</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week04</title>
-    <url>/Machine-Learning-Week04/</url>
-    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
-Representation</h2>
-<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
-<p>特征多，有高次项</p>
-<h3 id="neural-networks">2. Neural Networks</h3>
-<ol type="1">
-<li><p>Model representation</p>
-<ul>
-<li><p>bias unit偏置项（=1）</p></li>
-<li><p>sigmoid activation function S型激励函数</p></li>
-<li><p>input layer —— hidden layer —— output layer</p></li>
-<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
-of\ unit\ i\ in\ layer\  j \]</span></p>
-<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
-controlling function mapping from layer j to layer j+1
-，即参数矩阵（波矩阵、权重矩阵）</p>
-<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
-unit</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
-<span class="math display">\[
-\begin{array}{r}
-a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
-x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
-x_{3}\right)=g(z_1^{(2)}) \\
-a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
-x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
-x_{3}\right)=g(z_2^{(2)})  \\
-a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
-x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
-=g(z_3^{(2)}) \\
-h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
-a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
-a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
-\end{array}
-\]</span></p></li>
-<li><p>即前向传播（forward propagation）</p></li>
-</ul></li>
-</ol>
-<h3 id="applications">3. Applications</h3>
-<ol type="1">
-<li>与运算（-30，20，20）</li>
-<li>或运算（-10，20，20）</li>
-<li>非运算（10，-20）</li>
-<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
-<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
-</ol>
-<p>​</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Machine Learning Week02</title>
     <url>/Machine-Learning-Week02/</url>
     <content><![CDATA[<h1 id="multiple-feature">Multiple Feature</h1>
@@ -1207,187 +1220,6 @@ x_i\le 2\)</span>也可以</li>
 <li>解决方法：删除多余特征或正则化</li>
 </ul></li>
 </ul></li>
-</ul></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week06</title>
-    <url>/Machine-Learning-Week06/</url>
-    <content><![CDATA[<h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
-<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
-Algorithm</h3>
-<ol type="1">
-<li><p>误差大的改进方法：</p>
-<ul>
-<li>更多数据</li>
-<li>更少特征集避免过拟合</li>
-<li>更多特征</li>
-<li>增加多项式特征</li>
-<li>减少或增大正则化参数值</li>
-</ul></li>
-<li><p>评估假设函数Evaluating a Hypothesis</p>
-<ul>
-<li><p>如何判断过拟合？</p>
-<ul>
-<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
-<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
-<li><p>计算测试集误差</p>
-<ul>
-<li><p>线性回归中计算测试集的 J(θ)</p></li>
-<li><p>逻辑回归中可以用误分类率来计算error：</p>
-<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
-h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
-&amp;otherwise\end{cases}\)</span></p>
-<p><span class="math inline">\(Test\
-error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
-<ul>
-<li>将数据分为三段：训练集（60%），交叉验证集（cross
-validation）（20%），测试集（20%）</li>
-<li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
-<li>最后计算测试集误差评价模型表现</li>
-</ul></li>
-</ol>
-<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
-<ol type="1">
-<li><p>分析bias和variance</p>
-<ul>
-<li>高偏差：欠拟合；高方差：过拟合</li>
-<li>高偏差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
-the same as <span class="math inline">\(J_{CV}(\theta)\approx
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li>高方差：
-<ul>
-<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
-<span class="math inline">\(J_{CV}(\theta)\gg
-J_{train}(\theta)\)</span></li>
-</ul></li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
-</ul></li>
-<li><p>正则化与方差、偏差的关系</p>
-<ul>
-<li><p>正则化可以有效防止过拟合</p></li>
-<li><p>选择λ的过程：</p>
-<ul>
-<li>Create a list of lambdas (i.e.
-λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
-<li>Create a set of models with different degrees or any other
-variants.</li>
-<li>Iterate through the λs and for each λ go through all the models to
-learn some Θ.</li>
-<li>Compute the cross validation error using the learned Θ (computed
-with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
-0.</li>
-<li>Select the best combo that produces the lowest error on the cross
-validation set.</li>
-<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
-has a good generalization of the problem.</li>
-</ul></li>
-<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
-J_{train}(\theta)=\frac {1}{2m}\sum
-\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
-\]</span></p></li>
-</ul></li>
-<li><p>学习曲线（error-训练集的大小）</p>
-<ul>
-<li>高偏差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
-<li>高偏差，更多训练数据不会有很大帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
-</ul></li>
-<li>高方差
-<ul>
-<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
-<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
-set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
-continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
-the difference between them remains significant.</li>
-<li>高方差，更多训练数据可能有帮助</li>
-<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
-</ul></li>
-</ul></li>
-<li><p>诊断法则如何判断</p>
-<ul>
-<li>更多训练数据——高方差，画学习曲线</li>
-<li>更少特征集避免过拟合——高方差</li>
-<li>更多特征——高偏差</li>
-<li>增加多项式特征——高偏差</li>
-<li>减少（高偏差）或增大正则化参数值（高方差）
-<ul>
-<li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
-</ul></li>
-<li>神经网络很容易过拟合，正则化项非常有用
-<ul>
-<li>如何选择几层隐藏层：
-<ul>
-<li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
-<ol type="1">
-<li>做法：
-<ul>
-<li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
-<li>列出可能的做法，讨论可行性，然后选择一个方向</li>
-</ul></li>
-<li>误差分析
-<ul>
-<li>推荐做法：
-<ul>
-<li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
-<li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
-<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
-<ul>
-<li>手动对错误的部分分类</li>
-<li>发现特征</li>
-<li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>stem词干提取（porter stemmer）</li>
-<li>skewed classes 偏斜类问题
-<ul>
-<li>癌症的比例非常非常低</li>
-<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{predicted\
-positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
-</ul></li>
-<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
-<ul>
-<li><span class="math inline">\(=\frac{True\ positives}{actual\
-positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
-</ul></li>
-<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
-<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
-<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
-<li>绘制查准率-召回率曲线</li>
-<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
-<ul>
-<li>评估选择算法或者不同临界值的量化标准</li>
-</ul></li>
-</ul></li>
-<li>Data For Machine Learning
-<ul>
-<li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
-<li>多项式参数对大训练集没有帮助</li>
 </ul></li>
 </ol>
 ]]></content>
@@ -1732,6 +1564,64 @@ the cost function with the weights in theta.</li>
 </ol></li>
 </ul></li>
 </ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week04</title>
+    <url>/Machine-Learning-Week04/</url>
+    <content><![CDATA[<h2 id="neural-networks-representation">Neural Networks：
+Representation</h2>
+<h3 id="non-linear-hypotheses">1. Non-linear Hypotheses</h3>
+<p>特征多，有高次项</p>
+<h3 id="neural-networks">2. Neural Networks</h3>
+<ol type="1">
+<li><p>Model representation</p>
+<ul>
+<li><p>bias unit偏置项（=1）</p></li>
+<li><p>sigmoid activation function S型激励函数</p></li>
+<li><p>input layer —— hidden layer —— output layer</p></li>
+<li><p><span class="math display">\[ a_i^{(j)}= "activation"\
+of\ unit\ i\ in\ layer\  j \]</span></p>
+<p><span class="math inline">\(\Theta^{(j)}=\)</span> matrix of weights
+controlling function mapping from layer j to layer j+1
+，即参数矩阵（波矩阵、权重矩阵）</p>
+<p>如果一个网络在 j 层有<span class="math inline">\(s_j\)</span>个单元，j+1层有<span class="math inline">\(s_{j+1}\)</span>个单元，那么<span class="math inline">\(\Theta^{(j)}\)</span>的矩阵维度是<span class="math inline">\(s_{j+1}\times(s_j+1)\)</span>，因为要加上bias
+unit</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/屏幕截图 2020-11-09 112621.png" alt="神经网络" style="zoom:50%;">
+<span class="math display">\[
+\begin{array}{r}
+a_{1}^{(2)}=g\left(\Theta_{10}^{(1)} x_{0}+\Theta_{11}^{(1)}
+x_{1}+\Theta_{12}^{(1)} x_{2}+\Theta_{13}^{(1)}
+x_{3}\right)=g(z_1^{(2)}) \\
+a_{2}^{(2)}=g\left(\Theta_{20}^{(1)} x_{0}+\Theta_{21}^{(1)}
+x_{1}+\Theta_{22}^{(1)} x_{2}+\Theta_{23}^{(1)}
+x_{3}\right)=g(z_2^{(2)})  \\
+a_{3}^{(2)}=g\left(\Theta_{30}^{(1)} x_{0}+\Theta_{31}^{(1)}
+x_{1}+\Theta_{32}^{(1)} x_{2}+\Theta_{33}^{(1)} x_{3}\right)
+=g(z_3^{(2)}) \\
+h_{\Theta}(x)=a_{1}^{(3)}=g\left(\Theta_{10}^{(2)}
+a_{0}^{(2)}+\Theta_{11}^{(2)} a_{1}^{(2)}+\Theta_{12}^{(2)}
+a_{2}^{(2)}+\Theta_{13}^{(2)} a_{3}^{(2)}\right)
+\end{array}
+\]</span></p></li>
+<li><p>即前向传播（forward propagation）</p></li>
+</ul></li>
+</ol>
+<h3 id="applications">3. Applications</h3>
+<ol type="1">
+<li>与运算（-30，20，20）</li>
+<li>或运算（-10，20，20）</li>
+<li>非运算（10，-20）</li>
+<li>XNOR运算，同或运算（相同为1，否则为0）：两层神经网络</li>
+<li>Multiclass Classification，如果4个分类器结果则例如[0,0,1,0]</li>
+</ol>
+<p>​</p>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -2129,6 +2019,291 @@ is more accurate.</p>
 <p>Note:
 一般的均值归一化要除以range，即max-min，但是这里不需要，因为都有统一的scale</p>
 </blockquote>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week10</title>
+    <url>/Machine-Learning-Week10/</url>
+    <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
+<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
+Large Datasets</h2>
+<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
+<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
+curve（error关于m的曲线）</p>
+<p>左图为high variance，说明增加m有助于结果变好；右图为high
+bias，说明增加m无助于结果变好</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
+<figcaption aria-hidden="true">左：high variance；右: high
+bias</figcaption>
+</figure>
+<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
+descent 随机梯度下降</h3>
+<p>Batch gradient descent:
+前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
+<p>Stochastic gradient descent：每次iteration用1个例子</p>
+<ol type="1">
+<li><p>Randomly shuffle dataset</p></li>
+<li><p>Repeat：</p>
+<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
+}</p>
+<blockquote>
+<p>Note: 和Batch gradient
+descent不同的是，无需每一步都要计算全部的training example</p>
+</blockquote></li>
+</ol>
+<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
+<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
+<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
+<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
+<p>第i个例子，直到第i+b-1个例子</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
+<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
+</figure>
+<p>只有当have a good vetorized implementation
+，mini-batch才能比stochastic表现得更好。（并行运算）</p>
+<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
+descent convergence</h3>
+<p>收敛性：</p>
+<ul>
+<li><figure>
+<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
+<figcaption aria-hidden="true">Algorithm</figcaption>
+</figure></li>
+<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
+better结果。（cost关于no. of iteration 的曲线）</p></li>
+<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
+<li><p>如果学习曲线在上升，就要用更小的α</p></li>
+<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
+<li><p>关于学习速率的选择：</p>
+<ul>
+<li>Learning rate α is typically held constant 在随机梯度下降中</li>
+<li>Can slowly decrease α over time if we want θ to converge.
+（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
+Number+const2}\)</span>）
+<ul>
+<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<p>### Online Learning</p>
+<ul>
+<li><p>连续的数据流：用户进入离开</p></li>
+<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
+regression或者神经网络</p></li>
+<li><p>这里考虑逻辑回归：</p>
+<p>Repeat forever {</p>
+<p>​ Get (x,y) corresponding to user.</p>
+<p>​ Update θ using (x,y):</p>
+<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
+(j=0, ..., n)</p>
+<p>}</p></li>
+<li><p>这个算法可以用于学习用户喜好</p>
+<ul>
+<li>Choosing special offers to show user</li>
+<li>Customized selection of news articles</li>
+<li>product recommendation/search</li>
+</ul></li>
+</ul>
+<h3 id="map-reduce-and-data-parallelism">Map reduce and data
+parallelism</h3>
+<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
+Ghemawat。summation over the training set。即并行处理</p>
+<ul>
+<li>神经网络也同样可以并行计算前向和后向propagation</li>
+<li>有时只需要向量化实现算法，不需要多核并行</li>
+<li>Hadoop是开源map reduce</li>
+<li>由于并行的latency，速度会少于N倍 的单核心</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Machine Learning Week06</title>
+    <url>/Machine-Learning-Week06/</url>
+    <content><![CDATA[<h2 id="deciding-what-to-try-next">Deciding What to Try Next</h2>
+<h3 id="evaluating-a-learning-algorithm">Evaluating a Learning
+Algorithm</h3>
+<ol type="1">
+<li><p>误差大的改进方法：</p>
+<ul>
+<li>更多数据</li>
+<li>更少特征集避免过拟合</li>
+<li>更多特征</li>
+<li>增加多项式特征</li>
+<li>减少或增大正则化参数值</li>
+</ul></li>
+<li><p>评估假设函数Evaluating a Hypothesis</p>
+<ul>
+<li><p>如何判断过拟合？</p>
+<ul>
+<li><p>随机将数据分为两部分，一部分是训练集，一部分是预测集（30%）</p></li>
+<li><p>学习训练集的参数θ（即最小化训练误差J ）</p></li>
+<li><p>计算测试集误差</p>
+<ul>
+<li><p>线性回归中计算测试集的 J(θ)</p></li>
+<li><p>逻辑回归中可以用误分类率来计算error：</p>
+<p><span class="math inline">\(err(h_\theta(x),y)=\begin{cases}1,&amp;if\
+h_\theta(x)\ge 0.5,y=0\  or\ if\ h_\theta(x)&lt;0.5, y=1\\0,
+&amp;otherwise\end{cases}\)</span></p>
+<p><span class="math inline">\(Test\
+error=\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}err(h_\theta(x_{test}^{(i)},y^{(i)}))\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>模型选择问题：确定对于某组数据最合适的多项式是几次，怎样选用正确的特征来构造学习算法，或者需要正确选择算法中的正则化参数λ</p>
+<ul>
+<li>将数据分为三段：训练集（60%），交叉验证集（cross
+validation）（20%），测试集（20%）</li>
+<li>用不同的多项式模型得到θ，然后计算交叉验证集的误差，看看哪个模型中CV集的误差最小，进而选择那个多项式模型</li>
+<li>最后计算测试集误差评价模型表现</li>
+</ul></li>
+</ol>
+<h3 id="bias-vs.-variance">Bias vs. Variance</h3>
+<ol type="1">
+<li><p>分析bias和variance</p>
+<ul>
+<li>高偏差：欠拟合；高方差：过拟合</li>
+<li>高偏差：
+<ul>
+<li><span class="math inline">\(J_{train}(\theta)\)</span>will be high,
+the same as <span class="math inline">\(J_{CV}(\theta)\approx
+J_{train}(\theta)\)</span></li>
+</ul></li>
+<li>高方差：
+<ul>
+<li><span class="math inline">\(J_{train}(\theta)\)</span>will be low,
+<span class="math inline">\(J_{CV}(\theta)\gg
+J_{train}(\theta)\)</span></li>
+</ul></li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1606262400000&amp;hmac=zQgQniOf2GNzDd--YwZNZhUDjMOAn1JxYg1s_gG_d_I" title="fig:" alt="img"></li>
+</ul></li>
+<li><p>正则化与方差、偏差的关系</p>
+<ul>
+<li><p>正则化可以有效防止过拟合</p></li>
+<li><p>选择λ的过程：</p>
+<ul>
+<li>Create a list of lambdas (i.e.
+λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
+<li>Create a set of models with different degrees or any other
+variants.</li>
+<li>Iterate through the λs and for each λ go through all the models to
+learn some Θ.</li>
+<li>Compute the cross validation error using the learned Θ (computed
+with λ) on the$ J_{CV}()$ <strong>without</strong> regularization or λ =
+0.</li>
+<li>Select the best combo that produces the lowest error on the cross
+validation set.</li>
+<li>Using the best combo Θ and λ, apply it on$ J_{test}()$ to see if it
+has a good generalization of the problem.</li>
+</ul></li>
+<li><p>注：训练时带λ，计算各个集的误差时不需要λ，即<span class="math inline">\(J_{train}(\theta)\)</span>、<span class="math inline">\(J_{CV}(\theta)\)</span>、<span class="math inline">\(J_{test}(\theta)\)</span>都不包含正则项 <span class="math display">\[
+J_{train}(\theta)=\frac {1}{2m}\sum
+\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2
+\]</span></p></li>
+</ul></li>
+<li><p>学习曲线（error-训练集的大小）</p>
+<ul>
+<li>高偏差
+<ul>
+<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
+<li><strong>Large training set size</strong>: causes both <span class="math inline">\(J_{train}(\Theta)\)</span> and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high with <span class="math inline">\(J_{train}(\Theta)≈J_{CV}(\Theta)\)</span>.</li>
+<li>高偏差，更多训练数据不会有很大帮助</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1606262400000&amp;hmac=-xKhLZnoeJ_Ht3_X7XaX3Jae2F94vNrpbyPcMCExkPg" title="fig:" alt="img"></li>
+</ul></li>
+<li>高方差
+<ul>
+<li><strong>Low training set size</strong>: causes <span class="math inline">\(J_{train}(\Theta)\)</span> to be low and <span class="math inline">\(J_{CV}(\Theta)\)</span> to be high.</li>
+<li><strong>Large training set size</strong>: <span class="math inline">\(J_{train}(\Theta)\)</span> increases with training
+set size and <span class="math inline">\(J_{CV}(\Theta)\)</span>
+continues to decrease without leveling off. Also, <span class="math inline">\(J_{train}(\Theta) &lt; J_{CV}(\Theta)\)</span> but
+the difference between them remains significant.</li>
+<li>高方差，更多训练数据可能有帮助</li>
+<li><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1606262400000&amp;hmac=6kgO1n2qmCGikLwAE15RXslkLQYjwcHJ2utP_e9INDk" title="fig:" alt="img"></li>
+</ul></li>
+</ul></li>
+<li><p>诊断法则如何判断</p>
+<ul>
+<li>更多训练数据——高方差，画学习曲线</li>
+<li>更少特征集避免过拟合——高方差</li>
+<li>更多特征——高偏差</li>
+<li>增加多项式特征——高偏差</li>
+<li>减少（高偏差）或增大正则化参数值（高方差）
+<ul>
+<li>正则化会保留所有的特征变量，但是会减小特征变量的数量级。正则化就是使用惩罚项，通过惩罚项，我们可以将一些参数的值变小。通常参数值越小，对应的函数也就越光滑，也就是更加简单的函数，因此不容易发生过拟合问题。</li>
+</ul></li>
+<li>神经网络很容易过拟合，正则化项非常有用
+<ul>
+<li>如何选择几层隐藏层：
+<ul>
+<li>通过交叉验证集，测试1，2，…，l个隐藏层的误差，选择表现最好的一个</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="build-a-spam-classifier">Build a Spam Classifier</h3>
+<ol type="1">
+<li>做法：
+<ul>
+<li>遍历整个训练集，然后在中间选出出现次数最多的n个单词，n一般介于10000和50000之间，作为特征</li>
+<li>列出可能的做法，讨论可行性，然后选择一个方向</li>
+</ul></li>
+<li>误差分析
+<ul>
+<li>推荐做法：
+<ul>
+<li>用简单算法快速实现，然后测试CV集（避免过早优化）</li>
+<li>画学习曲线，决定是否需要更多数据、更多特征或其他</li>
+<li>误差分析：手动检验CV集中的错误分类样本，发现系统性的错误分类特征，构造更好的特征
+<ul>
+<li>手动对错误的部分分类</li>
+<li>发现特征</li>
+<li>用数字来量化表现误差（在CV集上，不能在test集上）</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>stem词干提取（porter stemmer）</li>
+<li>skewed classes 偏斜类问题
+<ul>
+<li>癌症的比例非常非常低</li>
+<li>查准率（precision）：预测为1的病人里，多少是真正得癌症的
+<ul>
+<li><span class="math inline">\(=\frac{True\ positives}{predicted\
+positives}=\frac{True\ positives}{True\ pos+False\ pos}\)</span></li>
+</ul></li>
+<li>召回率Recall：实际得癌症的病人里，多少是真正预测得癌症的
+<ul>
+<li><span class="math inline">\(=\frac{True\ positives}{actual\
+positives}=\frac{True\ positives}{True\ pos+False\ neg}\)</span></li>
+</ul></li>
+<li><img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/113quiz1q1.png"></li>
+<li>假设现在想要预测y=1，当非常自信的情况下（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值threshold0.5为0.9）：高查准，低召回</li>
+<li>假设想要避免错过癌症案例，（修改<span class="math inline">\(h_\theta(x)\)</span>分类临界值0.5为0.3）：高召回，低查准</li>
+<li>绘制查准率-召回率曲线</li>
+<li><span class="math inline">\(F_1\)</span>Score <span class="math inline">\(=\frac{2PR}{P+R}\)</span>:
+<ul>
+<li>评估选择算法或者不同临界值的量化标准</li>
+</ul></li>
+</ul></li>
+<li>Data For Machine Learning
+<ul>
+<li>有大量训练数据可以显著提升算法表现，可能得到低方差、低偏差的结果，test误差和train误差也相近</li>
+<li>多项式参数对大训练集没有帮助</li>
+</ul></li>
+</ol>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
@@ -2625,110 +2800,6 @@ x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
       <tags>
         <tag>Mathematics</tag>
         <tag>Finance</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Machine Learning Week10</title>
-    <url>/Machine-Learning-Week10/</url>
-    <content><![CDATA[<h1 id="large-scale-machine-learning">Large Scale Machine Learning</h1>
-<h2 id="gradient-descent-with-large-datasets">Gradient Descent with
-Large Datasets</h2>
-<h3 id="learning-with-large-datasets">Learning with large datasets</h3>
-<p>如何知道小m（size of dataset）也能产生很好的结果？绘制learning
-curve（error关于m的曲线）</p>
-<p>左图为high variance，说明增加m有助于结果变好；右图为high
-bias，说明增加m无助于结果变好</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210409182113679.png" alt="左：high variance；右: high bias">
-<figcaption aria-hidden="true">左：high variance；右: high
-bias</figcaption>
-</figure>
-<h3 id="stochastic-gradient-descent-随机梯度下降">Stochastic gradient
-descent 随机梯度下降</h3>
-<p>Batch gradient descent:
-前述传统的梯度下降算法。batch意味着每次都要用到所有m个例子</p>
-<p>Stochastic gradient descent：每次iteration用1个例子</p>
-<ol type="1">
-<li><p>Randomly shuffle dataset</p></li>
-<li><p>Repeat：</p>
-<p>for i =1,..., m { <span class="math inline">\(\theta_j=\theta_j-\alpha(h_{\theta}(x^{(i)})-y^{(i)})x_j^{(i)}\)</span>
-}</p>
-<blockquote>
-<p>Note: 和Batch gradient
-descent不同的是，无需每一步都要计算全部的training example</p>
-</blockquote></li>
-</ol>
-<p>并不一定会达到global minimum，最后可能在全局最优附近徘徊。</p>
-<p>上述过程重复的次数取决于数据集的大小，一般为10次，若数据集特别大，则1次。</p>
-<h3 id="mini-batch-gradient-descent">Mini-Batch gradient descent</h3>
-<p>每次iteration用b（mini-batch size）个例子，常用2-100</p>
-<p>第i个例子，直到第i+b-1个例子</p>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210415223239627.png" alt="mini-batch gradient descent">
-<figcaption aria-hidden="true">mini-batch gradient descent</figcaption>
-</figure>
-<p>只有当have a good vetorized implementation
-，mini-batch才能比stochastic表现得更好。（并行运算）</p>
-<h3 id="stochastic-gradient-descent-convergence">Stochastic gradient
-descent convergence</h3>
-<p>收敛性：</p>
-<ul>
-<li><figure>
-<img src="https://cdn.jsdelivr.net/gh/xuJ14/ImageHost@latest/images/image-20210416223947732.png" alt="Algorithm">
-<figcaption aria-hidden="true">Algorithm</figcaption>
-</figure></li>
-<li><p>更小的学习速率学习曲线更平滑，有可能会得到slightly
-better结果。（cost关于no. of iteration 的曲线）</p></li>
-<li><p>增加1000这个数值，会使得曲线更加平滑</p></li>
-<li><p>如果学习曲线在上升，就要用更小的α</p></li>
-<li><p>如果学习曲线几乎在一个水平上，那么就需要增加特征等</p></li>
-<li><p>关于学习速率的选择：</p>
-<ul>
-<li>Learning rate α is typically held constant 在随机梯度下降中</li>
-<li>Can slowly decrease α over time if we want θ to converge.
-（例如：<span class="math inline">\(\alpha=\frac{const1}{iteration
-Number+const2}\)</span>）
-<ul>
-<li>但是这里，两个参数的调整tune会很费时间，所以很少采用这种方法</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<p>### Online Learning</p>
-<ul>
-<li><p>连续的数据流：用户进入离开</p></li>
-<li><p><span class="math inline">\(p(y=1|x;\theta)\)</span>其中x表示价格，可以用logistic
-regression或者神经网络</p></li>
-<li><p>这里考虑逻辑回归：</p>
-<p>Repeat forever {</p>
-<p>​ Get (x,y) corresponding to user.</p>
-<p>​ Update θ using (x,y):</p>
-<p>​ <span class="math inline">\(\theta_j:=\theta_j-\alpha(h_{\theta}(x)-y)x_j\)</span>
-(j=0, ..., n)</p>
-<p>}</p></li>
-<li><p>这个算法可以用于学习用户喜好</p>
-<ul>
-<li>Choosing special offers to show user</li>
-<li>Customized selection of news articles</li>
-<li>product recommendation/search</li>
-</ul></li>
-</ul>
-<h3 id="map-reduce-and-data-parallelism">Map reduce and data
-parallelism</h3>
-<p>Map reduce 可以处理更多数据。思想来自于Jeffrey Dean和Sanjay
-Ghemawat。summation over the training set。即并行处理</p>
-<ul>
-<li>神经网络也同样可以并行计算前向和后向propagation</li>
-<li>有时只需要向量化实现算法，不需要多核并行</li>
-<li>Hadoop是开源map reduce</li>
-<li>由于并行的latency，速度会少于N倍 的单核心</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -5056,57 +5127,6 @@ self.g是generator，而不是具体数字。</p>
       </tags>
   </entry>
   <entry>
-    <title>Reading List</title>
-    <url>/Reading-List/</url>
-    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
-<h2 id="step-1">Step 1</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
-<li><input type="checkbox" disabled="">
-Python Machine Learning. Sebastian Raschka</li>
-<li><input type="checkbox" disabled="">
-Introduction to Statistical Learning with R</li>
-<li><input type="checkbox" disabled="">
-【参考书】机器学习. 周志华</li>
-</ul>
-<h2 id="step-2">Step 2</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-训练平台：Kaggle，天池大数据竞赛</li>
-<li><input type="checkbox" disabled="">
-Scikit-learn: machine learning in Python</li>
-</ul>
-<h2 id="step-3">Step 3</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Deeplearning.ai —— Coursera</li>
-<li><input type="checkbox" disabled="">
-Deep learning - by Ian GoodFellow</li>
-</ul>
-<h2 id="step-4">Step 4</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-Elements of Statistical Learning</li>
-<li><input type="checkbox" disabled="">
-统计学习基础</li>
-<li><input type="checkbox" disabled="">
-订阅arxiv</li>
-<li><input type="checkbox" disabled="">
-关注顶会：ICML/NIPS/KDD</li>
-</ul>
-<h1 id="financial-engineering">2. Financial Engineering</h1>
-<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
-- 经管之家的回答 - 知乎</a></p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-      <tags>
-        <tag>Learning Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python Algorithm and Data Structure</title>
     <url>/Python-Algorithm-and-Data-Structure/</url>
     <content><![CDATA[<h1 id="python-数据结构与算法分析">Python 数据结构与算法分析</h1>
@@ -5135,6 +5155,8 @@ Average wait   115.83 secs   0 tasks remaining.
 Average wait   265.00 secs   4 tasks remaining.</code></pre>
 <h2 id="双端队列">双端队列</h2>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Deque</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.items = []</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addFront</span>(<span class="params">self, item</span>):</span><br><span class="line">        self.items.append(item)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addRear</span>(<span class="params">self, item</span>):</span><br><span class="line">        self.items.insert(<span class="number">0</span>,item)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeFront</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeRear</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items.pop(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="内置库实现双端队列">内置库实现双端队列</h3>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="无序表">无序表</h2>
 <p>链表实现无序表</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, initdata</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.data = initdata</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getData</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.data</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getNext</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">next</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setData</span>(<span class="params">self, newdata</span>):</span><br><span class="line">        self.data = newdata</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setNext</span>(<span class="params">self,newnext</span>):</span><br><span class="line">        self.<span class="built_in">next</span> = newnext</span><br></pre></td></tr></tbody></table></figure>
@@ -5386,6 +5408,8 @@ weight spanning tree)</h2>
 <li>拥有图中所有顶点和最小数量的边（权重和最小）以保持联通的子图（无圈）</li>
 <li>prim算法（和dijkstra算法相似，只不过要采取贪心策略，加入所有的顶点）</li>
 </ul>
+<h1 id="python小技巧">python小技巧</h1>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">itertools.combinations(indexlist,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">enumerate</span>(indexlist)</span><br><span class="line"></span><br><span class="line">dummynode = ListNode(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">low, high = <span class="number">0</span>, n-<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> low &lt;= high:</span><br><span class="line">    </span><br><span class="line">collections.deque([])</span><br><span class="line">collections.defaultdict(<span class="built_in">list</span>)</span><br><span class="line"></span><br><span class="line">__lt__()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
         <category>Programming</category>
@@ -5395,54 +5419,55 @@ weight spanning tree)</h2>
       </tags>
   </entry>
   <entry>
-    <title>Tree Traverse</title>
-    <url>/Tree-Traverse/</url>
-    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
-<p>Leetcode相关题目：94，144，145</p>
-<h2 id="前序遍历">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="递归法">递归法</h1>
-<h2 id="前序遍历-1">前序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="中序遍历-1">中序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="后序遍历-1">后序遍历</h2>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+    <title>Reading List</title>
+    <url>/Reading-List/</url>
+    <content><![CDATA[<h1 id="machine-learning">1. Machine Learning</h1>
+<h2 id="step-1">Step 1</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Hands-On Machine learning with Scikit-Learn and Tensorflow</li>
+<li><input type="checkbox" disabled="">
+Python Machine Learning. Sebastian Raschka</li>
+<li><input type="checkbox" disabled="">
+Introduction to Statistical Learning with R</li>
+<li><input type="checkbox" disabled="">
+【参考书】机器学习. 周志华</li>
+</ul>
+<h2 id="step-2">Step 2</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+训练平台：Kaggle，天池大数据竞赛</li>
+<li><input type="checkbox" disabled="">
+Scikit-learn: machine learning in Python</li>
+</ul>
+<h2 id="step-3">Step 3</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Deeplearning.ai —— Coursera</li>
+<li><input type="checkbox" disabled="">
+Deep learning - by Ian GoodFellow</li>
+</ul>
+<h2 id="step-4">Step 4</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Elements of Statistical Learning</li>
+<li><input type="checkbox" disabled="">
+统计学习基础</li>
+<li><input type="checkbox" disabled="">
+订阅arxiv</li>
+<li><input type="checkbox" disabled="">
+关注顶会：ICML/NIPS/KDD</li>
+</ul>
+<h1 id="financial-engineering">2. Financial Engineering</h1>
+<p><a href="https://www.zhihu.com/question/302531501/answer/534780501">金融工程专业需要哪些数学基础？
+- 经管之家的回答 - 知乎</a></p>
 ]]></content>
       <categories>
-        <category>Programming</category>
+        <category>Other</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>Learning Tips</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>This is my first blog!</title>
@@ -11450,6 +11475,56 @@ many flights were destined for airports with a one word name?</h2>
 
 
 &lt;IPython.core.display.Javascript object&gt;</code></pre>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Tree Traverse</title>
+    <url>/Tree-Traverse/</url>
+    <content><![CDATA[<h1 id="迭代法">迭代法</h1>
+<p>Leetcode相关题目：94，144，145</p>
+<h2 id="前序遍历">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st= []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#添加右节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                </span><br><span class="line">                st.append(node) <span class="comment">#添加中节点</span></span><br><span class="line">                st.append(<span class="literal">None</span>) <span class="comment">#中节点访问过，但是还没有处理，加入空节点做为标记。</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#添加左节点（空节点不入栈）</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#只有遇到空节点的时候，才将下一个节点放进结果集</span></span><br><span class="line">                node = st.pop() <span class="comment">#重新取出栈中元素</span></span><br><span class="line">                result.append(node.val) <span class="comment">#加入到结果集</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line">        st = []</span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            st.append(root)</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node = st.pop()</span><br><span class="line">            <span class="keyword">if</span> node != <span class="literal">None</span>:</span><br><span class="line">                st.append(node) <span class="comment">#中</span></span><br><span class="line">                st.append(<span class="literal">None</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> node.right: <span class="comment">#右</span></span><br><span class="line">                    st.append(node.right)</span><br><span class="line">                <span class="keyword">if</span> node.left: <span class="comment">#左</span></span><br><span class="line">                    st.append(node.left)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = st.pop()</span><br><span class="line">                result.append(node.val)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="递归法">递归法</h1>
+<h2 id="前序遍历-1">前序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 保存结果</span></span><br><span class="line">        result = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 前序</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中序遍历-1">中序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 中序</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="后序遍历-1">后序遍历</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        result = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>):</span><br><span class="line">            <span class="keyword">if</span> root == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            traversal(root.left)    <span class="comment"># 左</span></span><br><span class="line">            traversal(root.right)   <span class="comment"># 右</span></span><br><span class="line">            result.append(root.val) <span class="comment"># 后序</span></span><br><span class="line"></span><br><span class="line">        traversal(root)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
         <category>Programming</category>

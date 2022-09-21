@@ -261,7 +261,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-27 01:16:58" itemprop="dateModified" datetime="2022-08-27T01:16:58-04:00">2022-08-27</time>
+      <time title="Modified: 2022-09-20 20:08:05" itemprop="dateModified" datetime="2022-09-20T20:08:05-04:00">2022-09-20</time>
     </span>
 
   
@@ -296,288 +296,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="option-pricing">Option pricing</h1>
-<h2 id="terminology">Terminology</h2>
-<ul>
-<li><p>T: maturity date</p></li>
-<li><p>t: current time</p></li>
-<li><p><span class="math inline">\(\tau = T-t\)</span>: time to
-maturity</p></li>
-<li><p>S: stock price at time t</p></li>
-<li><p>r: continuous risk-free interest rate</p></li>
-<li><p>y: continuous dividend yield</p></li>
-<li><p><span class="math inline">\(\sigma\)</span>: annualized asset
-volatility</p></li>
-<li><p><span class="math inline">\(c\)</span>: price of a European
-call</p></li>
-<li><p>p: price of a European put</p></li>
-<li><p>C: price of an American call</p></li>
-<li><p>P: price of an American put</p></li>
-<li><p>D: present value of future dividends at t</p></li>
-<li><p>K: strike price</p></li>
-<li><p>PV: present value at t</p></li>
-<li><p>ITM: in-the-money</p></li>
-<li><p>OTM: out-the-money</p></li>
-<li><p>ATM: at-the-money (K=S)</p></li>
-</ul>
-<h2 id="price-direction-of-options">Price direction of options</h2>
-<ul>
-<li>How do vanilla European/American option prices change when those
-term changes?</li>
-</ul>
-<table>
-<colgroup>
-<col style="width: 26%">
-<col style="width: 19%">
-<col style="width: 17%">
-<col style="width: 19%">
-<col style="width: 17%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable⬆</th>
-<th>European call</th>
-<th>European put</th>
-<th>American call</th>
-<th>American put</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Stock price - S</td>
-<td>⬆</td>
-<td></td>
-<td>⬆</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Strike price - K</td>
-<td></td>
-<td>⬆</td>
-<td></td>
-<td>⬆</td>
-</tr>
-<tr class="odd">
-<td>Time maturity - T</td>
-<td>❓</td>
-<td>❓</td>
-<td>⬆</td>
-<td>⬆</td>
-</tr>
-<tr class="even">
-<td>Volatility - σ</td>
-<td>⬆</td>
-<td>⬆</td>
-<td>⬆</td>
-<td>⬆</td>
-</tr>
-<tr class="odd">
-<td>Risk-free rate - r</td>
-<td>⬆</td>
-<td></td>
-<td>⬆</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Dividend - d</td>
-<td></td>
-<td>⬆</td>
-<td></td>
-<td>⬆</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Note</strong>: The impact of time to maturity on the European
-call/put is uncertain.</p>
-<ul>
-<li>If there is a large dividend payoff between two different maturity
-dates, a European call with shorter maturity that expires before the
-ex-dividend date may be worth more than a call with longer
-maturity.</li>
-<li>For deep in-the-money European puts, the one with shorter maturity
-is worth more since it can be exercised earlier (time value of
-money).</li>
-</ul>
-<h2 id="put-call-parity">Put-call Parity</h2>
-<p><span class="math display">\[
-c+K^{-r \tau}=p+S-D
-\]</span></p>
-<h2 id="american-v.s.-european-options">American v.s. European
-options</h2>
-<p>When the stock pays no dividend, never optimal to exercise American
-call. Actually, if <span class="math display">\[
-D_{t} \leqslant K\left(1-e^{-r(T-t)}\right)
-\]</span> , then it is not optimal to exercise American call. It is
-possibly optimal for the time right before an ex-dividend date.</p>
-<h2 id="payoff-of-options">Payoff of options</h2>
-<ul>
-<li>the payoff of a put is convex function in stock price</li>
-<li>the price of a put is convex function in strike price</li>
-</ul>
-<h2 id="black-scholes-merton-model">Black-Scholes-Merton model</h2>
-<p><span class="math display">\[
-\frac{\partial V}{\partial t}+r s \frac{\partial V}{\partial
-s}+\frac{1}{2} \sigma^{2} s^{2} \frac{\partial^{2} V}{\partial s^{2}}=V
-\]</span></p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="">
-推导过程</li>
-</ul>
-<h2 id="feynman-kac-theorem">Feynman-Kac theorem</h2>
-<p>Let X be an Ito process, given <span class="math display">\[
-d X(t)=\beta(t, X) d t + \gamma(t, X) d W(t)
-\]</span> Define <span class="math display">\[
-V(t, x)=E\left[e^{-r(T-t)} f\left(X_{T}\right) \mid X_{t}=x\right]
-\]</span> , then <span class="math inline">\(V(t,x)\)</span> is a
-martingale process that satisfies PDE: <span class="math display">\[
-\frac{\partial V}{\partial t}+\beta(t, x) \frac{\partial V}{\partial
-x}+\frac{1}{2} \gamma^{2}(t, x) \frac{\partial^{2} V}{\partial x^{2}}=r
-V(t, x)
-\]</span> and boundary condition <span class="math inline">\(V(t,x) =
-f(x)\)</span> for all x.</p>
-<p>Under risk-neutral measure, <span class="math inline">\(dS =
-rSdt+\sigma SdW(t)\)</span>. Let <span class="math inline">\(S=X\)</span>, <span class="math inline">\(\beta(t,X) = rS\)</span> and <span class="math inline">\(\gamma(t,X) = \sigma S\)</span> , then the
-<strong>Black-Scholes-Merton differential equation</strong> would be
-<span class="math display">\[
-\frac{\partial V}{\partial t}+r S \frac{\partial V}{\partial
-S}+\frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} v}{\partial s^{2}}=rV
-\]</span></p>
-<h2 id="black-scholes-formula">Black-Scholes Formula</h2>
-<p>Define continuous dividend yield <span class="math inline">\(y\)</span>: <span class="math display">\[
-c=S e^{-y \tau} N\left(d_{1}\right)-K e^{-r \tau} N\left(d_{2}\right)
-\]</span></p>
-<p><span class="math display">\[
-p=K e^{-r \tau} N\left(-d_{2}\right)-S e^{-y \tau} N\left(-d_{1}\right)
-\]</span></p>
-<p>where <span class="math display">\[
-d_{1}=\frac{\ln \left(S e^{-y \tau} / K\right)+\left(r+\sigma^{2} /
-2\right) \tau}{\sigma \sqrt{\tau}}=\frac{\ln (S /
-K)+\left(r-y+\sigma^{2} / 2\right) \tau}{\sigma \sqrt{\tau}}
-\]</span></p>
-<p><span class="math display">\[
-d_{2}=\frac{\ln (S / K)+\left(r-y-\sigma^{2} / 2\right) \tau}{\sigma
-\sqrt{\tau}}=d_1-\sigma\sqrt{\tau}
-\]</span></p>
-<p>N is normal distribution.</p>
-<p>Note:</p>
-<ul>
-<li>If the underlying asset is futures contract, then y = r.</li>
-<li>If the underlying asset is foreign currency, then <span class="math inline">\(y=r_f\)</span>, which is foreign risk-free
-interest rate.</li>
-</ul>
-<h3 id="assumptions-behind-black-scholes-formula">Assumptions behind
-Black-Scholes Formula</h3>
-<ul>
-<li>No transaction costs or taxes, the proceeds of short selling can be
-fully invested.</li>
-<li>All securities can be perfectly divisible.</li>
-<li>no risk-free arbitrage opportunities</li>
-</ul>
-<h3 id="derive-the-black-scholes-formula">Derive the Black-Scholes
-formula</h3>
-<h4 id="using-risk-neutral-probability-measure">Using risk-neutral
-probability measure</h4>
-<h4 id="using-pde">Using PDE</h4>
-<p>Solve the heat equation: <span class="math display">\[
-\frac{\partial u}{\partial \tau}=\frac{1}{2} \sigma^{2}
-\frac{\partial^{2} u}{\partial x^{2}}
-\]</span> where <span class="math inline">\(u = e^{r\tau}V\)</span></p>
-<h1 id="the-greeks">The Greeks</h1>
-<ul>
-<li><p>Delta: <span class="math inline">\(\Delta=\frac{\partial
-f}{\partial S}\)</span></p></li>
-<li><p>Gamma: <span class="math inline">\(\Gamma=\frac{\partial^{2}
-f}{\partial S^{2}}\)</span></p></li>
-<li><p>Theta: <span class="math inline">\(\Theta=\frac{\partial
-f}{\partial t}\)</span></p></li>
-<li><p>Vega: <span class="math inline">\(\nu=\frac{\partial f}{\partial
-\sigma}\)</span></p></li>
-<li><p>Rho: <span class="math inline">\(\rho=\frac{\partial f}{\partial
-r}\)</span></p></li>
-</ul>
-<h2 id="delta">Delta</h2>
-<p>For a European call with dividend yield y: <span class="math display">\[
-\Delta=e^{-y \tau}N\left(d_{1}\right)
-\]</span> For a European put with dividend yield y: <span class="math display">\[
-\Delta=-e^{-y \tau}\left[1-N\left(d_{1}\right)\right]
-\]</span>
-<img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/d015e777de4bf0748d5ea22202509e1.jpg" alt="d015e777de4bf0748d5ea22202509e1" style="zoom:25%;"></p>
-<h3 id="delta-hedging">Delta Hedging</h3>
-<p>By BS PDE: <span class="math display">\[
-\theta^1 = \frac{\partial V}{\partial S}
-\]</span></p>
-<ul>
-<li>Delta Hedging only replicates the value and the slope of the option.
-To hedge the curvature of the option, need to hedge gamma as well.</li>
-</ul>
-<h2 id="gamma">Gamma</h2>
-<p>European call/put with dividend yield y: <span class="math display">\[
-\Gamma=\frac{N^{\prime}\left(d_{1}\right) e^{-y \tau}}{S_{0} \sigma
-\sqrt{\tau}}
-\]</span></p>
-<ul>
-<li>For plain vanilla call and put options, gamma is always
-positive</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/8ed96e39fc112cc5ca5c61fa8e3c75f.jpg" alt="8ed96e39fc112cc5ca5c61fa8e3c75f" style="zoom:25%;"></p>
-<h3 id="gamma-hedging">Gamma hedging</h3>
-<p>The delta hedge only replicates the value and the slope of the
-option. To hedge the curvature of the option, we will need to hedge
-gamma as well.</p>
-<h2 id="theta">Theta</h2>
-<ul>
-<li><p>For a European call option: <span class="math display">\[
-\Theta=-\frac{S N^{\prime}\left(d_{1}\right) \sigma e^{-y \tau}}{2
-\sqrt{\tau}}+y S e^{-y \tau} N\left(d_{1}\right)-r K e^{-r \tau}
-N\left(d_{2}\right)
-\]</span></p></li>
-<li><p>For a European put option: <span class="math display">\[
-\Theta=-\frac{S N^{\prime}\left(d_{1}\right) \sigma e^{-y \tau}}{2
-\sqrt{\tau}}-y S e^{-y \tau} N\left(-d_{1}\right)+r K e^{-r \tau}
-N\left(-d_{2}\right)
-\]</span></p></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/xuJ14/ImageHost/main/32d631e2e903396552ef7cb511b04da.jpg" alt="32d631e2e903396552ef7cb511b04da" style="zoom:25%;"></p>
-<h2 id="vega">Vega</h2>
-<ul>
-<li><p>For European options: <span class="math display">\[
-v=\frac{\partial c}{\partial \sigma}=\frac{\partial p}{\partial
-\sigma}=S e^{-y \tau} \sqrt{\tau} N^{\prime}\left(d_{1}\right)
-\]</span></p>
-<ul>
-<li>Long-term option is more sensitive to change in volatility</li>
-</ul></li>
-<li><p>Implied volatility:</p>
-<ul>
-<li>the volatility that makes the model option price equal to the market
-option price</li>
-</ul></li>
-<li><p>Volatility smile:</p>
-<ul>
-<li>the relationship between the implied volatility of the options and
-the strike prices for a given asset.</li>
-</ul></li>
-</ul>
-<h1 id="other-options">Other options</h1>
-<ul>
-<li>Bull spread:
-<ul>
-<li>long 1 call/put with <span class="math inline">\(K_1\)</span></li>
-<li>short 1 call/put with <span class="math inline">\(K_2\)</span></li>
-</ul></li>
-<li>Straddle
-<ul>
-<li>long 1 call option with K</li>
-<li>long 1 put option with K</li>
-</ul></li>
-</ul>
-<h1 id="appendix">Appendix</h1>
-<p><span class="math display">\[
-\frac{\partial}{\partial z} \int_{a(z)}^{b(z)} f(x, z) d
-x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
-\frac{\partial b}{\partial z}-f(a(z), z)\frac{\partial a}{\partial z}
-\]</span></p>
-
+          Option pricing review
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Option-Pricing/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1323,7 +1050,7 @@ x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-17 19:34:39" itemprop="dateModified" datetime="2022-08-17T19:34:39-04:00">2022-08-17</time>
+      <time title="Modified: 2022-09-14 20:42:03" itemprop="dateModified" datetime="2022-09-14T20:42:03-04:00">2022-09-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1356,7 +1083,7 @@ x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>31 mins.</span>
+      <span>32 mins.</span>
     </span>
 </div>
 
@@ -1551,7 +1278,7 @@ x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 01:57:33" itemprop="dateModified" datetime="2022-08-12T01:57:33-04:00">2022-08-12</time>
+      <time title="Modified: 2022-09-17 20:40:45" itemprop="dateModified" datetime="2022-09-17T20:40:45-04:00">2022-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1577,14 +1304,14 @@ x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>4k</span>
+      <span>5.5k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>5 mins.</span>
     </span>
 </div>
 
@@ -1646,14 +1373,14 @@ x=\int_{a(z)}^{b(z)} \frac{\partial f(x, z)}{\partial z} d x+f(b(z), z)
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">184k</span>
+    <span title="Symbols count total">185k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:47</span>
+    <span title="Reading time total">2:48</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
