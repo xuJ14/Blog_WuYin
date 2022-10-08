@@ -279,13 +279,6 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
-    <lastmod>2022-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xuj14.github.io/tags/Project/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -293,7 +286,7 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Issues/</loc>
+    <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -307,7 +300,7 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/tags/Python/</loc>
+    <loc>https://xuj14.github.io/tags/Issues/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -315,6 +308,13 @@
   
   <url>
     <loc>https://xuj14.github.io/tags/Finance/</loc>
+    <lastmod>2022-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/tags/Python/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -337,14 +337,14 @@
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/categories/Machine-Learning/</loc>
+    <loc>https://xuj14.github.io/categories/Project/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xuj14.github.io/categories/Project/</loc>
+    <loc>https://xuj14.github.io/categories/Machine-Learning/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
