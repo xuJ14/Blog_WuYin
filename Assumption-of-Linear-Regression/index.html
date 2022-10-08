@@ -32,7 +32,7 @@
 <meta property="og:description" content="Describe the assumption of Linear Regression and how to deal with the violation.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-10T17:50:11.000Z">
-<meta property="article:modified_time" content="2022-09-18T00:40:45.378Z">
+<meta property="article:modified_time" content="2022-10-08T21:16:29.572Z">
 <meta property="article:author" content="Jun XU">
 <meta property="article:tag" content="Mathematics">
 <meta name="twitter:card" content="summary">
@@ -155,10 +155,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1least-squarels"><span class="nav-number">2.</span> <span class="nav-text">最小二乘估计Least Square（LS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gauss-markov-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">古典线性回归模型的假设</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">一些基本性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E5%8F%8A%E5%88%86%E5%B8%83"><span class="nav-number">5.</span> <span class="nav-text">假设检验及分布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E5%8F%8A%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="nav-number">5.1.</span> <span class="nav-text">卡方分布及卡方检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t%E5%88%86%E5%B8%83%E5%8F%8At%E6%A3%80%E9%AA%8C"><span class="nav-number">5.2.</span> <span class="nav-text">t分布及t检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f%E5%88%86%E5%B8%83%E5%8F%8Af%E6%A3%80%E9%AA%8C"><span class="nav-number">5.3.</span> <span class="nav-text">F分布及F检验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#inference-and-diagnosis"><span class="nav-number">6.</span> <span class="nav-text">Inference and Diagnosis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="nav-number">6.1.</span> <span class="nav-text">显著性检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%9B%E9%80%89%E8%87%AA%E5%8F%98%E9%87%8F"><span class="nav-number">6.2.</span> <span class="nav-text">筛选自变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E9%AA%8Cerror-homoskedasticity"><span class="nav-number">6.3.</span> <span class="nav-text">检验Error Homoskedasticity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multicollinearity"><span class="nav-number">6.4.</span> <span class="nav-text">Multicollinearity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#outlier"><span class="nav-number">6.5.</span> <span class="nav-text">Outlier</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#violation-and-misappropriation"><span class="nav-number">7.</span> <span class="nav-text">Violation and
-Misappropriation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#errors-are-correlated"><span class="nav-number">7.1.</span> <span class="nav-text">Errors are correlated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#have-unequal-variance"><span class="nav-number">7.2.</span> <span class="nav-text">have unequal variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#error-distribution-is-long-tailed"><span class="nav-number">7.3.</span> <span class="nav-text">Error distribution is
-long-tailed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predictors-are-highly-correlated-collinear"><span class="nav-number">7.4.</span> <span class="nav-text">Predictors are
-highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%BF%9D%E8%83%8C%E4%BA%86%E5%81%87%E8%AE%BE%E6%9D%A1%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">如果违背了假设条件：</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1least-squarels"><span class="nav-number">2.</span> <span class="nav-text">最小二乘估计Least Square（LS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gauss-markov-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">古典线性回归模型的假设</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">一些基本性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E5%8F%8A%E5%88%86%E5%B8%83"><span class="nav-number">5.</span> <span class="nav-text">假设检验及分布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E5%8F%8A%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="nav-number">5.1.</span> <span class="nav-text">卡方分布及卡方检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t%E5%88%86%E5%B8%83%E5%8F%8At%E6%A3%80%E9%AA%8C"><span class="nav-number">5.2.</span> <span class="nav-text">t分布及t检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f%E5%88%86%E5%B8%83%E5%8F%8Af%E6%A3%80%E9%AA%8C"><span class="nav-number">5.3.</span> <span class="nav-text">F分布及F检验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#inference-and-diagnosis"><span class="nav-number">6.</span> <span class="nav-text">Inference and Diagnosis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E6%95%B0%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="nav-number">6.1.</span> <span class="nav-text">系数显著性检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E9%AA%8Cerror-%E5%81%87%E8%AE%BE"><span class="nav-number">6.2.</span> <span class="nav-text">检验Error 假设</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#correlated-error"><span class="nav-number">6.2.1.</span> <span class="nav-text">Correlated error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E9%AA%8Cerror-homoskedasticity"><span class="nav-number">6.2.2.</span> <span class="nav-text">检验Error Homoskedasticity</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unusual-observation"><span class="nav-number">7.</span> <span class="nav-text">Unusual Observation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#leverage"><span class="nav-number">7.1.</span> <span class="nav-text">Leverage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#outlier"><span class="nav-number">7.2.</span> <span class="nav-text">Outlier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#influential-observations"><span class="nav-number">7.3.</span> <span class="nav-text">Influential Observations</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problems-with-predictors"><span class="nav-number">8.</span> <span class="nav-text">Problems with Predictors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multicollinearity"><span class="nav-number">8.1.</span> <span class="nav-text">Multicollinearity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problem-with-errors"><span class="nav-number">9.</span> <span class="nav-text">Problem with Errors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#independent-but-not-identically-distributed-wls"><span class="nav-number">9.1.</span> <span class="nav-text">Independent but
+not identically distributed: WLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#not-normal-robust-regression"><span class="nav-number">9.2.</span> <span class="nav-text">Not Normal: Robust Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m-estimation"><span class="nav-number">9.2.1.</span> <span class="nav-text">M-estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#least-trimmed-squares"><span class="nav-number">9.2.2.</span> <span class="nav-text">Least Trimmed Squares</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#transformation"><span class="nav-number">10.</span> <span class="nav-text">Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#box-cox-transformation"><span class="nav-number">10.1.</span> <span class="nav-text">Box-Cox transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other-methods"><span class="nav-number">10.2.</span> <span class="nav-text">Other Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#model-selection"><span class="nav-number">11.</span> <span class="nav-text">Model Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-elimination"><span class="nav-number">11.0.1.</span> <span class="nav-text">Forward Elimination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#criterion-based"><span class="nav-number">11.1.</span> <span class="nav-text">Criterion Based</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinkage-methods"><span class="nav-number">12.</span> <span class="nav-text">Shrinkage Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#factor-model"><span class="nav-number">13.</span> <span class="nav-text">Factor Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#welch-t-test"><span class="nav-number">13.1.</span> <span class="nav-text">Welch t test:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pairwise-comparisons"><span class="nav-number">13.2.</span> <span class="nav-text">Pairwise Comparisons</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple-comparison"><span class="nav-number">13.2.1.</span> <span class="nav-text">Multiple comparison</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#false-dicovery-rate"><span class="nav-number">13.2.2.</span> <span class="nav-text">False Dicovery Rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bonferroni-test"><span class="nav-number">13.2.3.</span> <span class="nav-text">Bonferroni Test</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -269,7 +267,7 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-17 20:40:45" itemprop="dateModified" datetime="2022-09-17T20:40:45-04:00">2022-09-17</time>
+      <time title="Modified: 2022-10-08 17:16:29" itemprop="dateModified" datetime="2022-10-08T17:16:29-04:00">2022-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,14 +293,14 @@ highly correlated (collinear)</span></a></li></ol></li><li class="nav-item nav-l
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>5.5k</span>
+      <span>21k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>19 mins.</span>
     </span>
 </div>
 
@@ -437,13 +435,14 @@ y\)</span></p></li>
 <li><p><span class="math inline">\(\operatorname{Var}(\hat{\beta})=\left(X^{\top}
 X\right)^{-1} \sigma^{2}\)</span>，证明见STATS 500 ch2课件P28</p></li>
 <li><p><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)=\left(X^{\top}
-X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
+X\right)_{j j}^{-1}
+\sigma^{2}\)</span>，这里σ可以用下面无偏估计量估计。</p></li>
 </ul></li>
 <li><p><span class="math inline">\(\hat{\sigma}^{2} \sim
 \frac{\sigma^{2}}{n-p} \cdot \chi_{n-p}^{2}\)</span></p>
 <ul>
 <li><span class="math inline">\(\hat{\sigma}^2=\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-p}\)</span>作为<span class="math inline">\(\sigma^2\)</span>的无偏估计量，这里n-p是自由度，<span class="math inline">\(E(\hat\sigma^2)=\sigma^2\)</span>，证明过程同证明<span class="math inline">\(E\left(\hat{\varepsilon}
-\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}\)</span>，参见STATS
+\hat{\varepsilon}^{\top}\right)=(n-p) \sigma^{2}=RSS\)</span>，参见STATS
 500作业3第2题。</li>
 </ul></li>
 </ul></li>
@@ -451,6 +450,7 @@ X\right)_{j j}^{-1} \sigma^{2}\)</span></p></li>
 /(n-p-1)}{T S S / n-1}\)</span></p></li>
 </ol>
 <h1 id="假设检验及分布">假设检验及分布</h1>
+<p>如果仅仅是为了估计β，那么我们并不需要假设error的分布，但是当我们做假设检验时，分布就是很重要的。</p>
 <h2 id="卡方分布及卡方检验">卡方分布及卡方检验</h2>
 <p>假设自变量<span class="math inline">\(X_{1}, \ldots, X_{n} \sim
 N(0,1)\)</span>，且相互独立，则： <span class="math display">\[
@@ -466,30 +466,59 @@ T=\frac{X}{\sqrt{Y/ n}}
 F=\frac{X / n_{1}}{Y / n_{2}}
 \]</span></p>
 <h1 id="inference-and-diagnosis">Inference and Diagnosis</h1>
-<h2 id="显著性检验">显著性检验</h2>
+<p>在残差服从正态分布的情况下：</p>
+<h2 id="系数显著性检验">系数显著性检验</h2>
 <p>从前文中我们可以知道，β符合正态分布，但是我们并不知道β的均值和方差，只能用样本来估计，因此采用了下述检验方法：</p>
 <ol type="1">
 <li>检验单个回归系数是否显著（<span class="math inline">\(H_0:\beta_i=0\)</span>）：t检验
 <ul>
-<li><span class="math inline">\(T=\frac{\hat{\beta_{i}}-0}{S_{\hat{\beta}_{i}}}\)</span></li>
+<li><span class="math inline">\(T=\frac{\hat{\beta_{i}}-0}{SE_{\hat{\beta}_{i}}}\)</span>，0可以替换为其他数字</li>
+<li><span class="math inline">\(t_i^2=F_\omega\)</span></li>
+<li>置信区间<span class="math inline">\(\hat{\beta}+t_{n-p}^{(\alpha /
+2)} \operatorname{se}(\hat{\beta})\)</span></li>
 </ul></li>
-<li>检验回归系数整体（模型整体）是否显著（<span class="math inline">\(H_0:\beta_1=\dots=\beta_p=0\)</span>）：F检验
-<ul>
-<li><span class="math inline">\(F=\frac{E S S / p}{\operatorname{RSS}
-/(n-p-1)}\)</span></li>
-</ul></li>
-</ol>
-<h2 id="筛选自变量">筛选自变量：</h2>
-<p>注： 增加无关自变量会导致<span class="math inline">\(R^2\)</span>增加，但是<span class="math inline">\(Adj.R^2\)</span>减小</p>
+<li>检验回归系数整体（模型整体）是否显著（<span class="math inline">\(H_0:\beta_1=\dots=\beta_p=0\)</span>）：F检验（ANOVA）
 <ol type="1">
-<li>General to specific model selection:
-<ul>
-<li>先包括全部变量，然后逐个删除最小 t
-统计量的，直到没有不显著的统计量</li>
-</ul></li>
-<li>M-fold cross-validation:</li>
+<li><span class="math inline">\(F=\frac{\left(\mathrm{RSS}_\omega-\mathrm{RSS}_{\Omega}\right)
+/(p-q)}{\operatorname{RSS}_{\Omega} /(n-p)} \sim F_{p-q,
+n-p}\)</span>，这里ω代表Null 假设，Ω代表备择假设模型。因为<span class="math inline">\(\frac{RSS}{\sigma^2}\sim
+\chi^2_{n-p}\)</span>.</li>
+<li><span class="math inline">\(F=\frac{(TSS-RSS)/
+(p-1)}{\operatorname{RSS} /(n-p)}\)</span></li>
+<li>统计量大，表示null可以被拒绝</li>
+<li>多个变量的置信区间 <span class="math inline">\((\hat{\beta}-\beta)^T
+X^T X(\hat{\beta}-\beta) \leq p \hat{\sigma}^2 F_{p,
+n-p}^{(\alpha)}\)</span></li>
+</ol></li>
+<li>置换检验：permutation test，可以脱离正态分布的假设对统计量进行检验。
+## Prediction <span class="math display">\[
+\hat{y_{0}}=x_{0}^{T} \hat{\beta}
+\]</span> 因为<span class="math inline">\(\operatorname{Var}\left(x_0^{\top}
+\hat{\beta}\right)=x_0^{\top}\left(x^{\top} x\right)^{-1} x_0
+\sigma^2\)</span>所以预测区间为：<span class="math inline">\(\hat{y}_0
+\pm t_{n-p}^{(\alpha / 2)} \hat{\sigma} \sqrt{1+x_0^T\left(X^T
+X\right)^{-1} x_0}\)</span></li>
 </ol>
-<h2 id="检验error-homoskedasticity">检验Error Homoskedasticity</h2>
+<h2 id="检验error-假设">检验Error 假设</h2>
+<p>independence，constant variance，normality - plot residual vs
+y,根据形状对y进行transform - In practice, you need to look at the plot
+of the residuals and fitted values and take a guess at the relationship.
+When looking at the plot, we see the change in <span class="math inline">\(S D(y)\)</span> rather than var <span class="math inline">\(y\)</span>, because the SD is in the units of the
+response. If your initial guess is wrong, you will find that the
+diagnostic plot in the transformed scale is unsatisfactory. You can
+simply try another transformation - some experimentation is sensible.
+——From linear regression with r P77 - square root
+对于count类的数据有用，因为poisson分布的mean和variance相等。 ### 正态性
+- QQ-plot: residual against quantile <span class="math inline">\(\Phi^{-1}\left(\frac{i}{n+1}\right)\)</span> -
+shapiro- wilk test</p>
+<h3 id="correlated-error">Correlated error</h3>
+<ul>
+<li>the Durbin-Watson test uses the statistic: <span class="math display">\[D
+W=\frac{\sum_{i=2}^n\left(\hat{\varepsilon}_i-\hat{\varepsilon}_{i-1}\right)^2}{\sum_{i=1}^n
+\hat{\varepsilon}_i^2}\]</span> Null hypothesis : errors are
+uncorrelated.</li>
+</ul>
+<h3 id="检验error-homoskedasticity">检验Error Homoskedasticity</h3>
 <p>异方差不影响参数的unbiasedness，但是这时，估计参数不再是BLUE，并且检验统计量用到的standard
 error不再是无偏的（即t检验中的分母）。</p>
 <ol type="1">
@@ -502,43 +531,398 @@ error不再是无偏的（即t检验中的分母）。</p>
 <li>Transformation，当发现残差具有显著趋势时</li>
 <li>WLS（Weighed Least Square）</li>
 </ol>
-<h2 id="multicollinearity">Multicollinearity</h2>
-<p>由于共线性变量的存在，有可能两个变量t
-检验统计量都不显著，但是删除某一个后，另一个变显著。只要不是perfectly
-dependent，就不影响BLUE</p>
+<h1 id="unusual-observation">Unusual Observation</h1>
+<h2 id="leverage">Leverage</h2>
+<p><span class="math inline">\(h_i=H_{i i}\)</span> are called leverages
+and are useful diagnostics. Since var <span class="math inline">\(\hat{\varepsilon}_i=\sigma^2\left(1-h_i\right)\)</span>,
+a large leverage, <span class="math inline">\(h_i\)</span>, will make
+var <span class="math inline">\(\hat{\varepsilon}_i\)</span> small. The
+fit will be attracted toward <span class="math inline">\(y_i\)</span>.
+Large values of <span class="math inline">\(h_i\)</span> are due to
+extreme values in the <span class="math inline">\(X\)</span>-space.
+<span class="math inline">\(h_i\)</span> corresponds to a (squared)
+Mahalanobis distance defined by <span class="math inline">\(X\)</span>
+which is <span class="math inline">\((x-\bar{x})^T
+\hat{\Sigma}^{-1}(x-\bar{x})\)</span> where <span class="math inline">\(\hat{\Sigma}\)</span> is the estimated covariance
+of <span class="math inline">\(X\)</span>. The value of <span class="math inline">\(h_i\)</span> depends only on <span class="math inline">\(X\)</span> and not <span class="math inline">\(y\)</span> so leverages contain only partial
+information about a case.</p>
+<p>Since <span class="math inline">\(\sum_i h_i=p\)</span>, an average
+value for <span class="math inline">\(h_i\)</span> is <span class="math inline">\(p / n\)</span>. A rough rule is that leverages of
+more than <span class="math inline">\(2 p / n\)</span> should be looked
+at more closely.</p>
+<p>Or one can use half normal plots: The steps are: 1. Sort the data:
+<span class="math inline">\(x_{[1]} \leq \ldots x_{[n]}\)</span>. 2.
+Compute <span class="math inline">\(u_i=\Phi^{-1}\left(\frac{n+i}{2
+n+1}\right)\)</span>. 3. Plot <span class="math inline">\(x_{[i]}\)</span> against <span class="math inline">\(u_i\)</span></p>
 <h2 id="outlier">Outlier</h2>
-<p>检验方法：</p>
-<ul>
-<li><p>Cook's distance: measure sensitivity of the fitted value in a
-regression to dropping a single observation j. <span class="math display">\[
+<p>An outlier is a point that does not fit the current model well. 1. To
+detect such points, we exclude point <span class="math inline">\(i\)</span> and recompute the estimates to get
+<span class="math inline">\(\hat{\beta}_{(i)}\)</span> and <span class="math inline">\(\hat{\sigma}_{(i)}^2\)</span> where <span class="math inline">\((i)\)</span> denotes that the <span class="math inline">\(i^{t h}\)</span> case has been excluded.
+Hence:<span class="math inline">\(\hat{y}_{(i)}=x_i^T
+\hat{\beta}_{(i)}\)</span>.</p>
+<p>If <span class="math inline">\(\hat{y}_{(i)}-y_i\)</span> is large,
+then case <span class="math inline">\(i\)</span> is an outlier. To judge
+the size of a potential outlier, we need an appropriate scaling. We
+find: <span class="math display">\[
+\operatorname{vâr}\left(y_i-\hat{y}_{(i)}\right)=\hat{\sigma}_{(i)}^2\left(1+x_i^T\left(X_{(i)}^T
+X_{(i)}\right)^{-1} x_i\right)
+\]</span> and so we define the studentized (sometimes called jackknife
+or crossvalidated) residuals as: <span class="math display">\[
+t_i=\frac{y_i-\hat{y}_{(i)}}{\hat{\sigma}_{(i)}\left(1+x_i^T\left(X_{(i)^T}^T
+X_{(i)}\right)^{-1} x_i\right)^{1 / 2}}
+\]</span> which are distributed <span class="math inline">\(t_{n-p-1}\)</span> if the model is correct and
+<span class="math inline">\(\varepsilon \sim N\left(0, \sigma^2
+I\right)\)</span>. Fortunately, there is an easier way to compute <span class="math inline">\(t_i\)</span> : <span class="math display">\[
+t_i=\frac{\hat{\varepsilon}_i}{\hat{\sigma}_{(i)}
+\sqrt{1-h_i}}=r_i\left(\frac{n-p-1}{n-p-r_i^2}\right)^{1 / 2}
+\]</span> which avoids doing <span class="math inline">\(n\)</span>
+regressions. Since <span class="math inline">\(t_i \sim
+t_{n-p-1}\)</span>, we can calculate a <span class="math inline">\(p\)</span>-value to test whether case <span class="math inline">\(i\)</span> is an outlier.</p>
+<ol start="2" type="1">
+<li><p><strong>Bonferroni correction</strong>: Suppose we want a level
+<span class="math inline">\(\alpha\)</span> test. Now <span class="math inline">\(P(\)</span> all tests accept <span class="math inline">\()=1-P(\)</span> at least one rejects <span class="math inline">\() \geq 1-\sum_i P\)</span> (test <span class="math inline">\(i\)</span> rejects <span class="math inline">\()=1-n \alpha\)</span>. So this suggests that if an
+overall level <span class="math inline">\(\alpha\)</span> test is
+required, then a level <span class="math inline">\(\alpha / n\)</span>
+should be used in each of the tests.</p></li>
+<li><p><strong>Cook's distance</strong>: measure sensitivity of the
+fitted value in a regression to dropping a single observation j. <span class="math display">\[
 D_{j}=\frac{\sum_{i=1}^{n}\left(\hat{Y}_{i}^{-j}-\hat{Y}_{i}\right)^{2}}{p
 S^{2}}
 \]</span> S is the estimate of error variance from the model using all
-observations.</p>
-<p>If Cook's distance &gt; 1, then j has large impact.</p></li>
+observations.If Cook's distance &gt; 1, then j has large
+impact.</p></li>
+</ol>
+<h2 id="influential-observations">Influential Observations</h2>
+<p>An influential point is one whose removal from the dataset would
+cause a large change in the fit.</p>
+<ol type="1">
+<li>Consider the change in the coefficients <span class="math inline">\(\hat{\beta}-\hat{\beta}_{(i)}\)</span>.</li>
+<li>Cook statistic against half-normal quantiles. The Cook statistics:
+<span class="math display">\[
+\begin{aligned}
+D_i
+&amp;=\frac{\left(\hat{y}-\hat{y}_{(i)}\right)^T\left(\hat{y}-\hat{y}_{(i)}\right)}{p
+\hat{\sigma}^2} \\
+&amp;=\frac{1}{p} r_i^2 \frac{h_i}{1-h_i}
+\end{aligned}
+\]</span></li>
+</ol>
+<h1 id="problems-with-predictors">Problems with Predictors</h1>
+<ol type="1">
+<li>改变x的scale不改变检验统计量和σ的估计。 ## 筛选自变量：</li>
+</ol>
+<p>注： 增加无关自变量会导致<span class="math inline">\(R^2\)</span>增加，但是<span class="math inline">\(Adj.R^2\)</span>减小</p>
+<ol type="1">
+<li>General to specific model selection:
+<ul>
+<li>先包括全部变量，然后逐个删除最小 t
+统计量的，直到没有不显著的统计量</li>
+</ul></li>
+<li>M-fold cross-validation:</li>
+</ol>
+<h2 id="multicollinearity">Multicollinearity</h2>
+<p>由于共线性变量的存在，有可能两个变量t
+检验统计量都不显著，但是删除某一个后，另一个变显著。只要不是perfectly
+dependent，就不影响BLUE。注：线性无关不代表基向量正交。</p>
+<ul>
+<li>完全共线性：矩阵无逆。剔除一些变量</li>
+<li>共线性导致对于β估计不准确，The signs of the coefficients can be the
+opposite of what intuition about the effect of the predictor might
+suggest. The standard errors are inflated so that t-tests may fail to
+reveal significant factors. 显著性检验失效
+<ul>
+<li>Imprecise estimate of <span class="math inline">\(\beta\)</span></li>
+<li><span class="math inline">\(t\)</span>-test fails to reveal
+significant predictors</li>
+<li>Sensitivity to measurement errors</li>
+<li>Numerical instability</li>
+</ul></li>
+<li>检验方法：
+<ol type="1">
+<li>看变量的corr matrix</li>
+<li>A regression of <span class="math inline">\(x_i\)</span> on all
+other predictors gives <span class="math inline">\(R_i^2 .
+R_i^2\)</span> close to one indicates a problem.</li>
+<li>Examine the eigenvalues of <span class="math inline">\(X^T X,
+\lambda_1 \geq \cdots \geq \lambda_p \geq 0\)</span>. Zero eigenvalues
+denote exact collinearity while the presence of some small eigenvalues
+indicates multicollinearity. The <strong>condition number</strong> <span class="math inline">\(\kappa\)</span> measures the relative sizes of the
+eigenvalues and is defined as:<span class="math inline">\(\kappa=\sqrt{\frac{\lambda_1}{\lambda_p}}\)</span>,
+where <span class="math inline">\(\kappa \geq 30\)</span> is considered
+large.</li>
+<li>The effect of collinearity can be seen by this expression for <span class="math inline">\(\operatorname{var} \hat{\beta}_j\)</span> :<span class="math inline">\(\operatorname{var}
+\hat{\beta}_j=\sigma^2\left(\frac{1}{1-R_j^2}\right)
+\frac{1}{\sum_i\left(x_{i j}-\bar{x}_j\right)^2}\)</span>. We can see
+that if the predictor <span class="math inline">\(x_j\)</span> does not
+vary much, then the variance of <span class="math inline">\(\hat{\beta}_j\)</span> will be large. If <span class="math inline">\(R_j^2\)</span> is close to one, then the
+<strong>variance inflation factor</strong> <span class="math inline">\(\left(1-R_j^2\right)^{-1}\)</span> will be large
+and so var <span class="math inline">\(\hat{\beta}_j\)</span> will also
+be large.</li>
+</ol></li>
 </ul>
-<h1 id="violation-and-misappropriation">Violation and
-Misappropriation</h1>
-<h2 id="errors-are-correlated">Errors are correlated</h2>
-<p>https://math.stackexchange.com/questions/2957686/explain-about-the-correlation-of-error-terms-in-linear-regression-models</p>
-<p>总结一下就是，如果error相关，那么估计出来的置信区间将会比正常更窄。</p>
-<h2 id="have-unequal-variance">have unequal variance</h2>
-<p>Generalized least squares</p>
-<h2 id="error-distribution-is-long-tailed">Error distribution is
-long-tailed</h2>
-<h2 id="predictors-are-highly-correlated-collinear">Predictors are
-highly correlated (collinear)</h2>
-<p>线性无关不代表基向量正交</p>
-<p>只有perfect multicolinearty才会没有矩阵的逆，从而无法求解</p>
-<p>X线性无关，并不代表没有相关性</p>
-<p>什么是无偏估计</p>
-<p>方差的无偏估计：</p>
-<p>引出自由度</p>
-<h1 id="如果违背了假设条件">如果违背了假设条件：</h1>
-<p>如果相关：</p>
-<p>如果异方差</p>
-<p>如果期望不为0</p>
-<p>如果不服从正态分布</p>
+<h1 id="problem-with-errors">Problem with Errors</h1>
+<p>Errors are
+correlated:https://math.stackexchange.com/questions/2957686/explain-about-the-correlation-of-error-terms-in-linear-regression-models.
+总结一下就是，如果error相关，那么估计出来的置信区间将会比正常更窄。 ##
+Errors are dependent: GLS We have assumed that <span class="math inline">\(\operatorname{var} \varepsilon=\sigma^2
+I\)</span>. Suppose instead that var <span class="math inline">\(\varepsilon=\sigma^2 \Sigma\)</span> where <span class="math inline">\(\sigma^2\)</span> is unknown but <span class="math inline">\(\Sigma\)</span> is known - in other words, we know
+the correlation and relative variance between the errors, but we do not
+know the absolute scale of the variation.</p>
+<p><span class="math inline">\(\Sigma=S S^T\)</span>, where <span class="math inline">\(S\)</span> is a triangular matrix using the
+Choleski decomposition. Then <span class="math display">\[
+\begin{aligned}
+S^{-1} y &amp;=S^{-1} X \beta+S^{-1} \varepsilon \\
+y^{\prime} &amp;=X^{\prime} \beta+\varepsilon^{\prime}
+\end{aligned}
+Now we find that:
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{var} \varepsilon^{\prime}=\operatorname{var}\left(S^{-1}
+\varepsilon\right)=S^{-1}(\operatorname{var} \varepsilon) S^{-T}=S^{-1}
+\sigma^2 S S^T S^{-T}=\sigma^2 I
+\]</span> So we can reduce GLS to ordinary least squares (OLS) by a
+regression of <span class="math inline">\(y^{\prime}=S^{-1} y\)</span>
+on <span class="math inline">\(X^{\prime}=S^{-1} X\)</span> which has
+error <span class="math inline">\(\varepsilon^{\prime}=S^{-1}
+\varepsilon\)</span> that is i.i.d. <span class="math display">\[
+\hat{\beta}=\left(X^T \Sigma^{-1} X\right)^{-1} X^T \Sigma^{-1} y
+\]</span> - Block Effect: compound symmetry assumption - Spatial
+data</p>
+<h2 id="independent-but-not-identically-distributed-wls">Independent but
+not identically distributed: WLS</h2>
+<p>Levene Test：检验方差齐性，并且不依赖正态假设。</p>
+<p>Sometimes the errors are uncorrelated, but have unequal variance
+where the form of the inequality is known. In such cases, <span class="math inline">\(\Sigma\)</span> is diagonal but the entries are
+not equal. Weighted least squares (WLS) is a special case of GLS and can
+be used in this situation. We set <span class="math inline">\(\Sigma=\operatorname{diag}\left(1 / w_1, \ldots, 1
+/ w_n\right)\)</span>, where the <span class="math inline">\(w_i\)</span> are the weights so <span class="math inline">\(S=\operatorname{diag}\left(\sqrt{1 / w_1}, \ldots,
+\sqrt{1 / w_n}\right)\)</span>. We then regress <span class="math inline">\(\sqrt{w_i} y_i\)</span> on <span class="math inline">\(\sqrt{w_i} x_i\)</span> (although the column of
+ones in the <span class="math inline">\(X\)</span>-matrix needs to be
+replaced with <span class="math inline">\(\sqrt{w_i}\)</span> ). When
+weights are used, the residuals must be modified to use <span class="math inline">\(\sqrt{w_i} \hat{\varepsilon}_i\)</span>. Some
+examples: 1. Errors proportional to a predictor: <span class="math inline">\(\operatorname{var}\left(\varepsilon_i\right)
+\propto x_i\)</span> suggests <span class="math inline">\(w_i=x_i^{-1}\)</span>. One might choose this
+option after observing a positive relationship in a plot of <span class="math inline">\(\left|\hat{\varepsilon}_i\right|\)</span> against
+<span class="math inline">\(x_i\)</span> 2. When the <span class="math inline">\(Y_i\)</span> are the averages of <span class="math inline">\(n_i\)</span> observations, then var <span class="math inline">\(y_i=\operatorname{var} \varepsilon_i=\sigma^2 /
+n_i\)</span>, which suggests <span class="math inline">\(w_i=n_i\)</span>. Responses that are averages
+arise quite commonly, but take care that the variance in the response
+really is proportional to the group size. 3. When the observed responses
+are known to be of varying quality, weights may be assigned <span class="math inline">\(w_i=1 / s d\left(y_i\right)\)</span>. 4.
+补充：constrained least squares
+problem，适合对于系数有限制条件的回归。</p>
+<h2 id="not-normal-robust-regression">Not Normal: Robust Regression</h2>
+<p>Jarque–Bera检验：是对样本数据是否具有符合正态分布的偏度和峰度的拟合优度的检验。</p>
+<p>When the errors are normally distributed, least squares regression is
+best. Short-tailed errors are not so much of a problem but long-tailed
+error distributions can cause difficulties because a few extreme cases
+can have a large effect on the fitted model.</p>
+<h3 id="m-estimation">M-estimation</h3>
+<p>M-estimates modify the least squares idea to choose <span class="math inline">\(\beta\)</span> to minimize: <span class="math display">\[
+\sum_{i=1}^n \rho\left(y_i-x_i^T \beta\right)
+\]</span> Some possible choices among many for <span class="math inline">\(\rho\)</span> are: 1. <span class="math inline">\(\rho(x)=x^2\)</span> is simply least squares. 2.
+<span class="math inline">\(\rho(x)=|x|\)</span> is called least
+absolute deviation (LAD) regression or <span class="math inline">\(L_1\)</span> regression. 3. <span class="math display">\[
+\rho(x)=\left\{\begin{array}{cc}
+x^2 / 2 &amp; \text { if }|x| \leq c \\
+c|x|-c^2 / 2 &amp; \text { otherwise }
+\end{array}\right.
+\]</span> is called Huber's method and is a compromise between least
+squares and LAD regression. <span class="math inline">\(c\)</span>
+should be a robust estimate of <span class="math inline">\(\sigma\)</span>. A value proportional to the
+median of <span class="math inline">\(|\hat{\varepsilon}|\)</span> is
+suitable. M-estimation is related to weighted least squares. The normal
+equations tell us that: <span class="math display">\[
+X^T(y-X \hat{\beta})=0
+\]</span> With weights and in non-matrix form this becomes: <span class="math display">\[
+\sum_{i=1}^n w_i x_{i j}\left(y_i-\sum_{j=1}^p x_{i j} \beta_j\right)=0
+\quad j=1, \ldots p
+\]</span> Now differentiating the M-estimate criterion with respect to
+<span class="math inline">\(\beta_j\)</span> and setting to zero we get:
+<span class="math display">\[
+\sum_{i=1}^n \rho^{\prime}\left(y_i-\sum_{j=1}^p x_{i j} \beta_j\right)
+x_{i j}=0 \quad j=1, \ldots p
+\]</span> Now let <span class="math inline">\(u_i=y_i-\sum_{j=1}^p x_{i
+j} \beta_j\)</span> to get: <span class="math display">\[
+\sum_{i=1}^n \frac{\rho^{\prime}\left(u_i\right)}{u_i} x_{i
+j}\left(y_i-\sum_{j=1}^p x_{i j} \beta_j\right)=0 \quad j=1, \ldots p
+\]</span> so we can make the identification of a weight function as
+<span class="math inline">\(w(u)=\rho^{\prime}(u) / u\)</span>. We find
+for our choices of <span class="math inline">\(\rho\)</span> above that:
+1. LS: <span class="math inline">\(w(u)\)</span> is constant and the
+estimator is simply ordinary least squares. 2. LAD: <span class="math inline">\(w(u)=1 /|u|\)</span>. We see how the weight goes
+down as <span class="math inline">\(u\)</span> moves away from zero so
+that more extreme observations get downweighted. Unfortunately, there is
+an asymptote at zero. This makes a weighting approach to fitting an LAD
+regression infeasible without some modification. 3. Huber: <span class="math display">\[
+w(u)=\left\{\begin{array}{cc}
+1 &amp; \text { if }|u| \leq c \\
+c /|u| &amp; \text { otherwise }
+\end{array}\right.
+\]</span> We can see that this sensibly combines the downweighting of
+extreme cases with equal weighting for the middle cases.</p>
+<p>There are many other choices for <span class="math inline">\(\rho\)</span> that have been proposed. Computing
+an Mestimate requires some iteration because the weights depend on the
+residuals. The fitting methods alternate between fitting a WLS and
+recomputing the weights based on the residuals until convergence. We can
+get standard errors via WLS by vâr <span class="math inline">\(\hat{\beta}=\)</span> <span class="math inline">\(\hat{\sigma}^2\left(X^T W X\right)^{-1}\)</span>
+but we need to use a robust estimate of <span class="math inline">\(\sigma^2\)</span></p>
+<h3 id="least-trimmed-squares">Least Trimmed Squares</h3>
+<p>LTS minimizes the sum of squares of the <span class="math inline">\(q\)</span> smallest residuals, <span class="math inline">\(\sum_{i=1}^q \hat{\varepsilon}_{(i)}^2\)</span>
+where <span class="math inline">\(q\)</span> is some number less than
+<span class="math inline">\(n\)</span> and (i) indicates sorting. This
+method has a high breakdown point because it can tolerate a large number
+of outliers depending on how <span class="math inline">\(q\)</span> is
+chosen。</p>
+<h1 id="transformation">Transformation</h1>
+<h2 id="box-cox-transformation">Box-Cox transformation</h2>
+<p>The Box-Cox method is designed for strictly positive responses and
+chooses the transformation to find the best fit to the data. The method
+transforms the response <span class="math inline">\(y \rightarrow
+g_\lambda(y)\)</span> where the family of transformations indexed by
+<span class="math inline">\(\lambda\)</span> is: <span class="math display">\[
+g_\lambda(y)= \begin{cases}\frac{y^\lambda-1}{\lambda} &amp; \lambda
+\neq 0 \\ \log y &amp; \lambda=0\end{cases}
+\]</span> For fixed <span class="math inline">\(y&gt;0,
+g_\lambda(y)\)</span> is continuous in <span class="math inline">\(\lambda\)</span>. Choose <span class="math inline">\(\lambda\)</span> using maximum likelihood. The
+profile log-likelihood assuming normality of the errors is: <span class="math display">\[
+L(\lambda)=-\frac{n}{2} \log \left(\operatorname{RSS}_\lambda /
+n\right)+(\lambda-1) \sum \log y_i
+\]</span> where <span class="math inline">\(\operatorname{RSS}_\lambda\)</span> is the
+residual sum of squares when <span class="math inline">\(g_\lambda(y)\)</span> is the response. You can
+compute <span class="math inline">\(\hat{\lambda}\)</span> numerically
+to maximize this. One way to check the necessery is to form a confidence
+interval for <span class="math inline">\(\lambda\)</span>. A <span class="math inline">\(100(1-\alpha) \%\)</span> confidence interval for
+<span class="math inline">\(\lambda\)</span> is: <span class="math display">\[
+\left\{\lambda: \quad L(\lambda)&gt;L(\hat{\lambda})-\frac{1}{2}
+\chi_1^{2(1-\alpha)}\right\}
+\]</span> This interval can be derived by inverting the likelihood ratio
+test of the hypothesis that <span class="math inline">\(H_0:
+\lambda=\lambda_0\)</span> which uses the statistic <span class="math inline">\(2\left(L(\hat{\lambda})-L\left(\lambda_0\right)\right)\)</span>
+having approximate null distribution <span class="math inline">\(\chi_1^2\)</span>. The confidence interval also
+tells you how much it is reasonable to round λ.</p>
+<p>Some general considerations concerning the Box-Cox method are: 1. The
+Box-Cox method gets upset by outliers - if you find <span class="math inline">\(\hat{\lambda}=5\)</span>, then this is probably
+the reason - there can be little justification for actually making such
+an extreme transformation. 2. If some <span class="math inline">\(y_i&lt;0\)</span>, we can add a constant to all
+the <span class="math inline">\(y\)</span>. This can work provided the
+constant is small, but this is an inelegant solution. 3. If <span class="math inline">\(\max _i y_i / \min _i y_i\)</span> is small, then
+the Box-Cox will not have much real effect because power transforms are
+well approximated by linear transformations over short intervals far
+from the origin. 4. There is some doubt whether the estimation of <span class="math inline">\(\lambda\)</span> counts as an extra parameter to
+be considered in the degrees of freedom. This is a difficult question
+since <span class="math inline">\(\lambda\)</span> is not a linear
+parameter and its estimation is not part of the least squares fit.</p>
+<p>The Box-Cox method is not the only way of transforming the
+predictors. Another family of transformations is given by <span class="math inline">\(g_\alpha(y)=\log (y+\alpha)\)</span>.</p>
+<p>For responses that are proportions (or percentages), the logit
+transformation, <span class="math inline">\(\log (y /(1-y))\)</span>, is
+often used, while for responses that are correlations, Fisher's z
+transform, <span class="math inline">\(y=0.5 \log ((1+y)
+/(1-y))\)</span>, is worth considering.</p>
+<h2 id="other-methods">Other Methods</h2>
+<ol type="1">
+<li>Broken Stick Regression</li>
+<li>Polynomials</li>
+<li>Splines</li>
+</ol>
+<h1 id="model-selection">Model Selection</h1>
+<p>It is sensitive to outliers. ## Test Based ### Backward Elimination
+(1) Start with all the predictors in the model (2) Remove the predictor
+with the highest <span class="math inline">\(p\)</span>-value greater
+than <span class="math inline">\(\alpha\)</span> (3) Refit the model and
+go to step 2 (4) Stop when all <span class="math inline">\(p\)</span>-values are less than <span class="math inline">\(\alpha\)</span> <span class="math inline">\(\alpha&gt;0.05\)</span> may be better if
+prediction is the goal .</p>
+<h3 id="forward-elimination">Forward Elimination</h3>
+<ol type="1">
+<li>Start with no predictor variables</li>
+<li>For all predictors not in the model, check the <span class="math inline">\(p\)</span>-value if they are added to the
+model</li>
+<li>Add the one with the smallest <span class="math inline">\(p\)</span>-value less than <span class="math inline">\(\alpha\)</span></li>
+<li>Refit the model and go to step 2</li>
+<li>Stop when no new predictors can be added ### Stepwise regression Is
+a combination of backward elimination and forward selection (allows to
+add variables back after they have been removed).</li>
+</ol>
+<h2 id="criterion-based">Criterion Based</h2>
+<p>General idea: choose the model that optimizes a criterion which
+balances goodness-of-fit and model size. - AIC and BIC - Akaike
+information criterion (AIC)<span class="math display">\[\mathrm{AIC}=n
+\ln (\mathrm{RSS} / n)+2(p+1)\]</span></p>
+<ul>
+<li>Bayes information criterion (BIC) <span class="math display">\[
+\mathrm{BIC}=n \ln (\mathrm{RSS} / n)+(p+1) \ln n
+\]</span> Pick a model that minimize AIC or BIC</li>
+<li>Adjusted <span class="math inline">\(R^2\)</span>
+<ul>
+<li>Add predictor will not necessarily increase adjusted <span class="math inline">\(R^2\)</span></li>
+<li>Maximizing <span class="math inline">\(R_a^2\)</span> is equivalent
+to minimizing <span class="math inline">\(\sigma^2\)</span></li>
+</ul></li>
+<li>Mallows' <span class="math inline">\(\mathrm{C}_{\mathrm{p}}\)</span>
+<ul>
+<li>Definition: <span class="math inline">\(C_p=\frac{R S
+S_p}{\hat{\sigma}^2}+2(p+1)-n\)</span></li>
+<li><span class="math inline">\(\hat{\sigma}^2\)</span> is estimated
+from the model with all predictors</li>
+<li><span class="math inline">\(R S S_p\)</span> is from the model with
+<span class="math inline">\(p\)</span> predictors</li>
+<li>Goal: minimize <span class="math inline">\(C_p\)</span>.</li>
+</ul></li>
+</ul>
+<h1 id="shrinkage-methods">Shrinkage Methods</h1>
+<ul>
+<li>PCA</li>
+<li>Partial Least Squares</li>
+<li>Ridge Regression</li>
+<li>Bias - Variance Trade-off <span class="math display">\[
+\mathbf{E}(\hat{\mathbf{y}}-\mathbf{E}(\mathbf{y}))^2={(E(\hat{y})-E(y))^2}+E(\hat{y}-E(\hat{y}))^2
+\]</span></li>
+<li>Lasso Regression</li>
+</ul>
+<h1 id="factor-model">Factor Model</h1>
+<p>Linear Model Analysis for one factor models can be interpreted as
+comparing within and between group variances.</p>
+<h2 id="welch-t-test">Welch t test:</h2>
+<p><span class="math display">\[
+t=\frac{m_A-m_B}{\sqrt{\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}}}
+\]</span></p>
+<ol type="1">
+<li><span class="math inline">\(S A\)</span> 和 <span class="math inline">\(S B\)</span> 分别是 <span class="math inline">\(A\)</span> 组和 <span class="math inline">\(B\)</span> 组的标准差 Welch' s
+t-test的自由度估计如下 <span class="math display">\[
+  d f=\left(\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}\right)^2
+/\left(\frac{s_A^4}{n_A^2\left(n_A-1\right)}+\frac{s_B^4}{n_B^2\left(n_B-1\right)}\right)
+\]</span></li>
+</ol>
+<p>分析步骤:</p>
+<ul>
+<li>导入数据</li>
+<li>Q-Q plot查看是否满足正态分布</li>
+<li>检查方差齐性</li>
+<li>方差齐用 Student's t-test，方差不齐用 Welch' s t-test</li>
+</ul>
+<h2 id="pairwise-comparisons">Pairwise Comparisons</h2>
+<p>Pairwise comparison: A pairwise comparison of level <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> can be made using a CI for <span class="math inline">\(\alpha_i-\alpha_j\)</span> using: <span class="math display">\[\hat{\alpha}_i-\hat{\alpha}_j \pm t_{d f}^{\alpha
+/ 2}
+\operatorname{se}\left(\hat{\alpha}_i-\hat{\alpha}_j\right)\]</span>
+where <span class="math inline">\(\operatorname{se}\left(\hat{\alpha}_i-\hat{\alpha}_j\right)=\hat{\sigma}
+\sqrt{1 / J_i+1 / J_j}\)</span> and <span class="math inline">\(\mathrm{df}=n-I\)</span> in this case. A test for
+<span class="math inline">\(\alpha_i=\alpha_j\)</span> amounts to seeing
+whether zero lies in this interval or not.</p>
+<h3 id="multiple-comparison">Multiple comparison</h3>
+<p>Tukey's honest significant difference (HSD): It depends on the
+studentized range distribution which arises as follows. Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be i.i.d. <span class="math inline">\(N\left(\mu, \sigma^2\right)\)</span> and let <span class="math inline">\(R=\)</span> <span class="math inline">\(\max _i
+X_i-\min _i X_i\)</span> be the range. Then <span class="math inline">\(R / \hat{\sigma}\)</span> has the studentized
+range distribution <span class="math inline">\(q_{n, v}\)</span> where
+<span class="math inline">\(\nu\)</span> is the number of degrees of
+freedom used in estimating <span class="math inline">\(\sigma\)</span>.
+The Tukey CIs are: <span class="math display">\[\hat{\alpha}_i-\hat{\alpha}_j \pm \frac{q_{I, d
+f}}{\sqrt{2}} \hat{\mathrm{o}}\left(1 / J_i+1 / J_j\right)\]</span> When
+the level sample sizes <span class="math inline">\(J_i\)</span> are very
+unequal, Tukey's HSD test may become too conservative. We compute the
+Tukey HSD bands for the B-A difference.</p>
+<p>注：方差不齐可以用 Tamhane Test</p>
+<h3 id="false-dicovery-rate">False Dicovery Rate</h3>
+<h3 id="bonferroni-test">Bonferroni Test</h3>
 
     </div>
 
@@ -623,14 +1007,14 @@ highly correlated (collinear)</h2>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">185k</span>
+    <span title="Symbols count total">201k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:48</span>
+    <span title="Reading time total">3:03</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
