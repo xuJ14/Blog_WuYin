@@ -32,7 +32,7 @@
 <meta property="og:description" content="Describe the assumption of Linear Regression and how to deal with the violation.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-10T17:50:11.000Z">
-<meta property="article:modified_time" content="2022-10-08T21:16:29.572Z">
+<meta property="article:modified_time" content="2022-10-08T21:23:28.469Z">
 <meta property="article:author" content="Jun XU">
 <meta property="article:tag" content="Mathematics">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,7 @@
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1least-squarels"><span class="nav-number">2.</span> <span class="nav-text">最小二乘估计Least Square（LS）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gauss-markov-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">古典线性回归模型的假设</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">一些基本性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E5%8F%8A%E5%88%86%E5%B8%83"><span class="nav-number">5.</span> <span class="nav-text">假设检验及分布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E5%8F%8A%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="nav-number">5.1.</span> <span class="nav-text">卡方分布及卡方检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t%E5%88%86%E5%B8%83%E5%8F%8At%E6%A3%80%E9%AA%8C"><span class="nav-number">5.2.</span> <span class="nav-text">t分布及t检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f%E5%88%86%E5%B8%83%E5%8F%8Af%E6%A3%80%E9%AA%8C"><span class="nav-number">5.3.</span> <span class="nav-text">F分布及F检验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#inference-and-diagnosis"><span class="nav-number">6.</span> <span class="nav-text">Inference and Diagnosis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E6%95%B0%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="nav-number">6.1.</span> <span class="nav-text">系数显著性检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E9%AA%8Cerror-%E5%81%87%E8%AE%BE"><span class="nav-number">6.2.</span> <span class="nav-text">检验Error 假设</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#correlated-error"><span class="nav-number">6.2.1.</span> <span class="nav-text">Correlated error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E9%AA%8Cerror-homoskedasticity"><span class="nav-number">6.2.2.</span> <span class="nav-text">检验Error Homoskedasticity</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unusual-observation"><span class="nav-number">7.</span> <span class="nav-text">Unusual Observation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#leverage"><span class="nav-number">7.1.</span> <span class="nav-text">Leverage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#outlier"><span class="nav-number">7.2.</span> <span class="nav-text">Outlier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#influential-observations"><span class="nav-number">7.3.</span> <span class="nav-text">Influential Observations</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problems-with-predictors"><span class="nav-number">8.</span> <span class="nav-text">Problems with Predictors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multicollinearity"><span class="nav-number">8.1.</span> <span class="nav-text">Multicollinearity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problem-with-errors"><span class="nav-number">9.</span> <span class="nav-text">Problem with Errors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#independent-but-not-identically-distributed-wls"><span class="nav-number">9.1.</span> <span class="nav-text">Independent but
-not identically distributed: WLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#not-normal-robust-regression"><span class="nav-number">9.2.</span> <span class="nav-text">Not Normal: Robust Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m-estimation"><span class="nav-number">9.2.1.</span> <span class="nav-text">M-estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#least-trimmed-squares"><span class="nav-number">9.2.2.</span> <span class="nav-text">Least Trimmed Squares</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#transformation"><span class="nav-number">10.</span> <span class="nav-text">Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#box-cox-transformation"><span class="nav-number">10.1.</span> <span class="nav-text">Box-Cox transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other-methods"><span class="nav-number">10.2.</span> <span class="nav-text">Other Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#model-selection"><span class="nav-number">11.</span> <span class="nav-text">Model Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-elimination"><span class="nav-number">11.0.1.</span> <span class="nav-text">Forward Elimination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#criterion-based"><span class="nav-number">11.1.</span> <span class="nav-text">Criterion Based</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinkage-methods"><span class="nav-number">12.</span> <span class="nav-text">Shrinkage Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#factor-model"><span class="nav-number">13.</span> <span class="nav-text">Factor Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#welch-t-test"><span class="nav-number">13.1.</span> <span class="nav-text">Welch t test:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pairwise-comparisons"><span class="nav-number">13.2.</span> <span class="nav-text">Pairwise Comparisons</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple-comparison"><span class="nav-number">13.2.1.</span> <span class="nav-text">Multiple comparison</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#false-dicovery-rate"><span class="nav-number">13.2.2.</span> <span class="nav-text">False Dicovery Rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bonferroni-test"><span class="nav-number">13.2.3.</span> <span class="nav-text">Bonferroni Test</span></a></li></ol></li></ol></li></ol></div>
+not identically distributed: WLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#not-normal-robust-regression"><span class="nav-number">9.2.</span> <span class="nav-text">Not Normal: Robust Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m-estimation"><span class="nav-number">9.2.1.</span> <span class="nav-text">M-estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#least-trimmed-squares"><span class="nav-number">9.2.2.</span> <span class="nav-text">Least Trimmed Squares</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#transformation"><span class="nav-number">10.</span> <span class="nav-text">Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#box-cox-transformation"><span class="nav-number">10.1.</span> <span class="nav-text">Box-Cox transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other-methods"><span class="nav-number">10.2.</span> <span class="nav-text">Other Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#model-selection"><span class="nav-number">11.</span> <span class="nav-text">Model Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#test-based"><span class="nav-number">11.1.</span> <span class="nav-text">Test Based</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-elimination"><span class="nav-number">11.1.1.</span> <span class="nav-text">Backward Elimination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-elimination"><span class="nav-number">11.1.2.</span> <span class="nav-text">Forward Elimination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stepwise-regression"><span class="nav-number">11.1.3.</span> <span class="nav-text">Stepwise regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#criterion-based"><span class="nav-number">11.2.</span> <span class="nav-text">Criterion Based</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#aic-and-bic"><span class="nav-number">11.2.1.</span> <span class="nav-text">AIC and BIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adjusted-r2"><span class="nav-number">11.2.2.</span> <span class="nav-text">Adjusted \(R^2\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mallows-mathrmc_mathrmp"><span class="nav-number">11.2.3.</span> <span class="nav-text">Mallows&#39; \(\mathrm{C}_{\mathrm{p}}\)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinkage-methods"><span class="nav-number">12.</span> <span class="nav-text">Shrinkage Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#factor-model"><span class="nav-number">13.</span> <span class="nav-text">Factor Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#welch-t-test"><span class="nav-number">13.1.</span> <span class="nav-text">Welch t test:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pairwise-comparisons"><span class="nav-number">13.2.</span> <span class="nav-text">Pairwise Comparisons</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple-comparison"><span class="nav-number">13.2.1.</span> <span class="nav-text">Multiple comparison</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#false-dicovery-rate"><span class="nav-number">13.2.2.</span> <span class="nav-text">False Dicovery Rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bonferroni-test"><span class="nav-number">13.2.3.</span> <span class="nav-text">Bonferroni Test</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -267,7 +267,7 @@ not identically distributed: WLS</span></a></li><li class="nav-item nav-level-2"
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-10-08 17:16:29" itemprop="dateModified" datetime="2022-10-08T17:16:29-04:00">2022-10-08</time>
+      <time title="Modified: 2022-10-08 17:23:28" itemprop="dateModified" datetime="2022-10-08T17:23:28-04:00">2022-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -555,11 +555,13 @@ at more closely.</p>
 Compute <span class="math inline">\(u_i=\Phi^{-1}\left(\frac{n+i}{2
 n+1}\right)\)</span>. 3. Plot <span class="math inline">\(x_{[i]}\)</span> against <span class="math inline">\(u_i\)</span></p>
 <h2 id="outlier">Outlier</h2>
-<p>An outlier is a point that does not fit the current model well. 1. To
-detect such points, we exclude point <span class="math inline">\(i\)</span> and recompute the estimates to get
+<p>An outlier is a point that does not fit the current model well.</p>
+<ol type="1">
+<li>To detect such points, we exclude point <span class="math inline">\(i\)</span> and recompute the estimates to get
 <span class="math inline">\(\hat{\beta}_{(i)}\)</span> and <span class="math inline">\(\hat{\sigma}_{(i)}^2\)</span> where <span class="math inline">\((i)\)</span> denotes that the <span class="math inline">\(i^{t h}\)</span> case has been excluded.
 Hence:<span class="math inline">\(\hat{y}_{(i)}=x_i^T
-\hat{\beta}_{(i)}\)</span>.</p>
+\hat{\beta}_{(i)}\)</span>.</li>
+</ol>
 <p>If <span class="math inline">\(\hat{y}_{(i)}-y_i\)</span> is large,
 then case <span class="math inline">\(i\)</span> is an outlier. To judge
 the size of a potential outlier, we need an appropriate scaling. We
@@ -826,12 +828,17 @@ transform, <span class="math inline">\(y=0.5 \log ((1+y)
 <li>Splines</li>
 </ol>
 <h1 id="model-selection">Model Selection</h1>
-<p>It is sensitive to outliers. ## Test Based ### Backward Elimination
-(1) Start with all the predictors in the model (2) Remove the predictor
-with the highest <span class="math inline">\(p\)</span>-value greater
-than <span class="math inline">\(\alpha\)</span> (3) Refit the model and
-go to step 2 (4) Stop when all <span class="math inline">\(p\)</span>-values are less than <span class="math inline">\(\alpha\)</span> <span class="math inline">\(\alpha&gt;0.05\)</span> may be better if
-prediction is the goal .</p>
+<p>It is sensitive to outliers.</p>
+<h2 id="test-based">Test Based</h2>
+<h3 id="backward-elimination">Backward Elimination</h3>
+<ol type="1">
+<li>Start with all the predictors in the model</li>
+<li>Remove the predictor with the highest <span class="math inline">\(p\)</span>-value greater than <span class="math inline">\(\alpha\)</span></li>
+<li>Refit the model and go to step 2</li>
+<li>Stop when all <span class="math inline">\(p\)</span>-values are less
+than <span class="math inline">\(\alpha\)</span> <span class="math inline">\(\alpha&gt;0.05\)</span> may be better if
+prediction is the goal .</li>
+</ol>
 <h3 id="forward-elimination">Forward Elimination</h3>
 <ol type="1">
 <li>Start with no predictor variables</li>
@@ -839,26 +846,30 @@ prediction is the goal .</p>
 model</li>
 <li>Add the one with the smallest <span class="math inline">\(p\)</span>-value less than <span class="math inline">\(\alpha\)</span></li>
 <li>Refit the model and go to step 2</li>
-<li>Stop when no new predictors can be added ### Stepwise regression Is
-a combination of backward elimination and forward selection (allows to
-add variables back after they have been removed).</li>
+<li>Stop when no new predictors can be added</li>
 </ol>
+<h3 id="stepwise-regression">Stepwise regression</h3>
+<p>Is a combination of backward elimination and forward selection
+(allows to add variables back after they have been removed).</p>
 <h2 id="criterion-based">Criterion Based</h2>
 <p>General idea: choose the model that optimizes a criterion which
-balances goodness-of-fit and model size. - AIC and BIC - Akaike
-information criterion (AIC)<span class="math display">\[\mathrm{AIC}=n
-\ln (\mathrm{RSS} / n)+2(p+1)\]</span></p>
+balances goodness-of-fit and model size.</p>
+<h3 id="aic-and-bic">AIC and BIC</h3>
 <ul>
-<li>Bayes information criterion (BIC) <span class="math display">\[
+<li><p>Akaike information criterion (AIC)<span class="math display">\[\mathrm{AIC}=n \ln (\mathrm{RSS} /
+n)+2(p+1)\]</span></p></li>
+<li><p>Bayes information criterion (BIC)</p></li>
+</ul>
+<p><span class="math display">\[
 \mathrm{BIC}=n \ln (\mathrm{RSS} / n)+(p+1) \ln n
-\]</span> Pick a model that minimize AIC or BIC</li>
-<li>Adjusted <span class="math inline">\(R^2\)</span>
+\]</span> Pick a model that minimize AIC or BIC</p>
+<h3 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h3>
 <ul>
 <li>Add predictor will not necessarily increase adjusted <span class="math inline">\(R^2\)</span></li>
 <li>Maximizing <span class="math inline">\(R_a^2\)</span> is equivalent
 to minimizing <span class="math inline">\(\sigma^2\)</span></li>
-</ul></li>
-<li>Mallows' <span class="math inline">\(\mathrm{C}_{\mathrm{p}}\)</span>
+</ul>
+<h3 id="mallows-mathrmc_mathrmp">Mallows' <span class="math inline">\(\mathrm{C}_{\mathrm{p}}\)</span></h3>
 <ul>
 <li>Definition: <span class="math inline">\(C_p=\frac{R S
 S_p}{\hat{\sigma}^2}+2(p+1)-n\)</span></li>
@@ -867,7 +878,6 @@ from the model with all predictors</li>
 <li><span class="math inline">\(R S S_p\)</span> is from the model with
 <span class="math inline">\(p\)</span> predictors</li>
 <li>Goal: minimize <span class="math inline">\(C_p\)</span>.</li>
-</ul></li>
 </ul>
 <h1 id="shrinkage-methods">Shrinkage Methods</h1>
 <ul>
