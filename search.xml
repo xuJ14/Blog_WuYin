@@ -253,8 +253,7 @@ X^{\top} X \hat{\beta}=X^{\top} y
 <li>如果error是独立同分布和正态分布，那么对β的估计与MLE（maximum
 likelihood
 estimation）的结果相同（结果可由MLE公式推导）。简单来说，MLE是让被观察数据出现的概率最大。</li>
-<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat
-\beta\)</span>是最优线性无偏估计（BLUE）。</li>
+<li>Gauss-Markov Theorem 保证了最小二乘估计的结果<span class="math inline">\(\hat \beta\)</span>是最优线性无偏估计（BLUE）。<a href="https://towardsdatascience.com/ols-linear-regression-gauss-markov-blue-and-understanding-the-math-453d7cc630a5">简单的数学推导</a></li>
 </ol>
 <blockquote>
 <p><strong>Gauss-Markov Theorem</strong> ：</p>
@@ -317,14 +316,15 @@ have the smallest variance.</p>
 estimation），最优线性无偏估计。</p>
 <h1 id="古典线性回归模型的假设">古典线性回归模型的假设</h1>
 <ol type="1">
-<li>线性模型</li>
-<li><span class="math inline">\(E[\varepsilon \mid
+<li>【Linearity】线性模型</li>
+<li>【Weak exogeneity】<span class="math inline">\(E[\varepsilon \mid
 X]=0\)</span>，由此可得X与ε是uncorrelated，并且error期望为0.
 Exogeneity</li>
-<li>X是linearly independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
+<li>【Lack of perfect multicolinearity】X是linearly
+independent线性无关，<span class="math inline">\(\operatorname{Pr}(\operatorname{rank}(X)=p)=1\)</span>。如果这个假设被违背，那么说明X线性相关（or
 perfectly multicollinear）. Not perfectly linearly dependent</li>
-<li><span class="math inline">\(\operatorname{Var}(\varepsilon \mid
-X)=\sigma^{2} I_{n}\)</span>，意味着
+<li>【Constant Variance， Independence】<span class="math inline">\(\operatorname{Var}(\varepsilon \mid X)=\sigma^{2}
+I_{n}\)</span>，意味着
 <ul>
 <li>方差齐性，<span class="math inline">\(E\left(\varepsilon_{i}^{2}
 \mid X\right)=\sigma^{2}\)</span></li>
@@ -371,6 +371,8 @@ X\right)_{j j}^{-1}
 /(n-p-1)}{T S S / n-1}\)</span></p></li>
 </ol>
 <h1 id="假设检验及分布">假设检验及分布</h1>
+<p>假设检验：p值是当原假设为真时，拒绝原假设的概率。</p>
+<p><strong>小概率原理</strong>：小概率事件在一次试验中是几乎不发生的。若H0为真，样本落在拒绝域W是小概率事件，不应发生。如发生，则拒绝原假设。</p>
 <p>如果仅仅是为了估计β，那么我们并不需要假设error的分布，但是当我们做假设检验时，分布就是很重要的。</p>
 <h2 id="卡方分布及卡方检验">卡方分布及卡方检验</h2>
 <p>假设自变量<span class="math inline">\(X_{1}, \ldots, X_{n} \sim
@@ -428,29 +430,48 @@ When looking at the plot, we see the change in <span class="math inline">\(S D(y
 response. If your initial guess is wrong, you will find that the
 diagnostic plot in the transformed scale is unsatisfactory. You can
 simply try another transformation - some experimentation is sensible.
-——From linear regression with r P77 - square root
-对于count类的数据有用，因为poisson分布的mean和variance相等。 ### 正态性
-- QQ-plot: residual against quantile <span class="math inline">\(\Phi^{-1}\left(\frac{i}{n+1}\right)\)</span> -
-shapiro- wilk test</p>
+——From linear regression with r P77 - - square root
+对于count类的数据有用，因为poisson分布的mean和variance相等。 ###
+正态性</p>
+<ul>
+<li>QQ-plot: residual against quantile <span class="math inline">\(\Phi^{-1}\left(\frac{i}{n+1}\right)\)</span></li>
+<li></li>
+<li>Shapiro- wilk test
+<ul>
+<li><span class="math inline">\(W = \frac{\Sigma a_ix_i}{\Sigma(x_i-\bar
+x)^2}\)</span></li>
+</ul></li>
+</ul>
 <h3 id="correlated-error">Correlated error</h3>
 <ul>
 <li>the Durbin-Watson test uses the statistic: <span class="math display">\[D
 W=\frac{\sum_{i=2}^n\left(\hat{\varepsilon}_i-\hat{\varepsilon}_{i-1}\right)^2}{\sum_{i=1}^n
 \hat{\varepsilon}_i^2}\]</span> Null hypothesis : errors are
 uncorrelated.</li>
+<li>如果DW约等于2，没有自相关性</li>
+<li>如果0&lt;DW&lt;1，positive 自相关性</li>
+<li>如果3&lt;DW&lt;4，negative 自相关性</li>
+<li>解决办法：include其他feature，可能是时间序列</li>
 </ul>
 <h3 id="检验error-homoskedasticity">检验Error Homoskedasticity</h3>
 <p>异方差不影响参数的unbiasedness，但是这时，估计参数不再是BLUE，并且检验统计量用到的standard
-error不再是无偏的（即t检验中的分母）。</p>
+error不再是无偏的（即t检验中的分母），<span class="math inline">\(Var(\hat\beta_i)\)</span>是不准确的，
+variance低估了，即置信区间的长度也低估了。</p>
 <ol type="1">
 <li>White Test</li>
-<li>Residual Plot （Residual - X）</li>
+<li>Residual Plot （Residual - Fitted value OR X）</li>
 </ol>
 <p><strong>Violation</strong> （Heteroskedasticity）处理方法：</p>
 <ol type="1">
 <li>Standard Error 代替为White's standard error</li>
-<li>Transformation，当发现残差具有显著趋势时</li>
+<li>Transformation，当发现残差具有显著趋势时
+<ol type="1">
+<li>Box-cox transformation，y变为<span class="math inline">\(f(y)=\frac{y^\lambda-1}{\lambda}\)</span>, <span class="math inline">\(\lambda=0\)</span>，用log y。</li>
+<li><span class="math inline">\(\lambda\)</span>
+让异方差最小，方差最趋近于常数</li>
+</ol></li>
 <li>WLS（Weighed Least Square）</li>
+<li>有自相关性。β的variance也会被低估。</li>
 </ol>
 <h1 id="unusual-observation">Unusual Observation</h1>
 <h2 id="leverage">Leverage</h2>
@@ -547,12 +568,17 @@ D_i
 <p>由于共线性变量的存在，有可能两个变量t
 检验统计量都不显著，但是删除某一个后，另一个变显著。只要不是perfectly
 dependent，就不影响BLUE。注：线性无关不代表基向量正交。</p>
+<p><span class="math inline">\(VIF_i(x_i)=\frac{1}{1-R_i^2}\)</span></p>
 <ul>
-<li>完全共线性：矩阵无逆。剔除一些变量</li>
-<li>共线性导致对于β估计不准确，The signs of the coefficients can be the
-opposite of what intuition about the effect of the predictor might
+<li><p>VIF &lt; 5 , OK ; VIF &gt; 10 , collinearity.</p></li>
+<li><p>feature selection</p></li>
+<li><p>合并为一个自变量</p></li>
+<li><p>ridge regression</p></li>
+<li><p>完全共线性：矩阵无逆。剔除一些变量</p></li>
+<li><p>共线性导致对于β估计不准确，The signs of the coefficients can be
+the opposite of what intuition about the effect of the predictor might
 suggest. The standard errors are inflated so that t-tests may fail to
-reveal significant factors. 显著性检验失效
+reveal significant factors. 显著性检验失效</p>
 <ul>
 <li>Imprecise estimate of <span class="math inline">\(\beta\)</span></li>
 <li><span class="math inline">\(t\)</span>-test fails to reveal
@@ -560,7 +586,7 @@ significant predictors</li>
 <li>Sensitivity to measurement errors</li>
 <li>Numerical instability</li>
 </ul></li>
-<li>检验方法：
+<li><p>检验方法：</p>
 <ol type="1">
 <li>看变量的corr matrix</li>
 <li>A regression of <span class="math inline">\(x_i\)</span> on all
@@ -11930,6 +11956,416 @@ Elements of Statistical Learning</li>
       </categories>
       <tags>
         <tag>Learning Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nonlinear Correlation</title>
+    <url>/Nonlinear-Correlation/</url>
+    <content><![CDATA[<h1 id="measure-nonlinear-correlation">Measure Nonlinear
+Correlation</h1>
+<ul>
+<li><p>distance correlation（rD）: 2007年的文章“Measuring and testing
+dependence by correlation of
+distances”提出的，它的定义与pearson相关系数有点类似，也是基于一种协方差，但是额外引入了每个点与其他所有点在各个方向上的“距离（distance）”的概念，把协方差衍生到“距离协方差”（Distance
+covariance），归一化之后得到distance correlation。</p></li>
+<li><p>Maximal Information Coefficient (MIC)： 2011年文章“Detecting
+Novel Associations in Large Datasets”提出了Maximal Information
+Coefficient
+(MIC)，是基于信息熵所定义的一个指标。更确切地说，是基于互信息（mutual
+information，
+MI），互信息的定义是联合概率分布P(X,Y)与边际概率乘积P(X)P(Y)之间的KL
+divergence，而MIC就是归一化后的互信息。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/53092905">MIC详解</a></p></li>
+</ul>
+<p>这两个指标，目的在与描述两个变量之间的相关关系，而不只是线性相关</p>
+<ul>
+<li>rD或MIC=0：不相关</li>
+<li>不等于0：相关，线性或者非线性相关都有可能。</li>
+</ul>
+<p>下面几个例子，可以看到不同相关系数的作用：</p>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Feature Engineering</title>
+    <url>/Feature-Engineering/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/bryan__/article/details/51607215">结合Scikit-learn介绍几种常用的特征选择方法</a></p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Temporal Network</title>
+    <url>/Temporal-Network/</url>
+    <content><![CDATA[<h1 id="temporal-network">Temporal Network</h1>
+<p>本文是Petter Holme综述的总结</p>
+<h2 id="时序拓扑结构的measure">时序拓扑结构的measure</h2>
+<p>首先时序网络有两种构造方式：(i, j, t) 和(i, j, (t0, t1))</p>
+<p>其次，measure可以有static网络的经典measure和结合时间的。</p>
+<ol type="1">
+<li><p>time-respecting paths and reachability</p>
+<ul>
+<li>时序图是另一种有向图</li>
+<li>the set of influence of i</li>
+<li>reachability ratio: 一段window内，node可达node的平均比例
+<ul>
+<li>个人想法：可以用过去一段时间某个node的ratio作为中心度衡量</li>
+</ul></li>
+<li>source count: i的source set</li>
+</ul></li>
+<li><p>time path with limits on waiting times</p>
+<ul>
+<li>不同的网络，waiting time大不同</li>
+</ul></li>
+<li><p>connectivity</p>
+<ul>
+<li>强连通(每两个node都有directed time path)和弱联通
+<ul>
+<li>定义需要定义time window</li>
+</ul></li>
+<li>transitive connectivity</li>
+</ul></li>
+<li><p>Distance, latency, fastest path</p>
+<ul>
+<li>空间上有shortest path</li>
+<li>时间上有latency（多久能从i到j）和duration（作用持续多长）
+<ul>
+<li>latency：age of info
+<ul>
+<li>vector clock: <span class="math inline">\(\left[\phi_{i, t}(1),
+\ldots, \phi_{i, t}(N)\right]\)</span></li>
+</ul></li>
+<li>forward latency:</li>
+<li>average latency: = velocity</li>
+</ul></li>
+<li>edge activation sequence v.s. vertex activation sequence</li>
+<li>个人想法：
+<ul>
+<li>信息传输效率</li>
+<li>对信息进行时间加权</li>
+</ul></li>
+</ul></li>
+<li><p>Diameter</p>
+<ol type="1">
+<li>diameter: largest distance</li>
+<li>network efficiency:
+<ul>
+<li>average over path length</li>
+<li>harmonic average of the latency: combines average latency and
+reachability ratio</li>
+</ul></li>
+</ol></li>
+<li><p>Minimum spanning tree</p>
+<ul>
+<li>time sub-interval minimum spanning tree: 最小average latency</li>
+</ul></li>
+<li><p>centrality</p>
+<ul>
+<li><p>closeness centrality <span class="math inline">\(C_C\)</span>:
+<span class="math inline">\(C_C(i)=\frac{N-1}{\sum_{j \neq i} d(i,
+j)}\)</span></p></li>
+<li><p>temporal closeness centrality <span class="math display">\[
+C_C(i, t)=\frac{N-1}{\sum_{j \neq i} \lambda_{i, t}(j)}
+\]</span></p></li>
+</ul></li>
+<li><p>efficiency <span class="math display">\[
+C_E(i, t)=\frac{1}{N-1} \sum_{j \neq i} \frac{1}{\lambda_{i, t}(j)}
+\]</span></p></li>
+<li><p>betweenness centrality <span class="math inline">\(C_B\)</span>:
+<span class="math inline">\(C_B(i)=\frac{\sum_{i \neq j \neq k} v_i(j,
+k)}{\sum_{i \neq j \neq k} v(j, k)}\)</span></p>
+<ul>
+<li>define temporal boundaries</li>
+<li>to use the whole observation period, or only consider the fastest
+time-respecting paths that begin at times closest to t at each vertex
+j.</li>
+</ul></li>
+<li><p>eigenvector centrality</p>
+<ul>
+<li><p>the algorithm of a generalization of the eigenvector
+centrality:</p>
+<ol type="1">
+<li>Start with a centrality value 1 at each vertex.</li>
+<li>At every contact between vertices <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, let the <span class="math inline">\(C_E\)</span> values after the contact at timestep
+<span class="math inline">\(t\)</span> be</li>
+</ol>
+<p><span class="math display">\[
+C_E^{t+1}(i)=\zeta C_E^t(i)+(1-\zeta) C_E^t(j)
+\]</span></p>
+<p>and <span class="math display">\[
+C_E^{t+1}(j)=\zeta C_E^t(j)+(1-\zeta) C_E^t(i)
+\]</span></p></li>
+<li><p>can stuck at vertices</p></li>
+<li><p>To make the contribution uniform over time, one can normalize the
+score after every timestep (or, equivalently, increase the added value
+so that it is a constant fraction of the total centrality
+score).</p></li>
+</ul></li>
+<li><p>Katz centrality</p></li>
+<li><p>PageRank</p></li>
+<li><p>Persistent patterns</p>
+<ul>
+<li>define subgraphs that are persistent in temporal networks. They
+define the support set <span class="math inline">\(S\left(G^{\prime}\right)\)</span> of a subgraph
+<span class="math inline">\(G^{\prime}\)</span> (where <span class="math inline">\(G^{\prime} \subseteq G_t\)</span> is a subgraph of
+<span class="math inline">\(G_t\)</span>-the graph of all edges active
+at time <span class="math inline">\(t\)</span> in a temporal graph) as
+the set of timesteps when <span class="math inline">\(G^{\prime}
+\subseteq G_t\)</span>. They go on to define a "frequent" subgraph that
+we rather call a persistent subgraph as a graph that has a support
+larger than a certain threshold value. The authors have subsequently
+developed a method of detecting periodic patterns among subgraphs using
+the support set concept.</li>
+<li>support set: <span class="math inline">\(G_t\)</span>的子集，要满足一个阈值。紧接着试图从中找出一些periodic
+pattern</li>
+<li>interval graph的特征往往和window有紧密的联系</li>
+<li>adjacency correlation function：</li>
+</ul></li>
+</ol>
+<p><span class="math display">\[
+\gamma_i(t)=\frac{\sum_{j \in \phi(i, t)} a(i, j, t) a(i, j,
+t+1)}{\sqrt{\sum_{j \in \phi(i, t)} a(i, j, t)} \sqrt{\sum_{j \in
+\phi(i, t)} a(i, j, t+1)}}
+\]</span></p>
+<ol start="14" type="1">
+<li><p>Motifs（检测网络中一些pattern）</p>
+<ul>
+<li><p>two contact events <span class="math inline">\(e_i\)</span> and
+<span class="math inline">\(e_j\)</span> are adjacent if they share a
+vertex, and they are <span class="math inline">\(\Delta
+t\)</span>-adjacent if additionally their time difference is no larger
+than <span class="math inline">\(\Delta t\)</span>.</p></li>
+<li><p>Further, two events <span class="math inline">\(e_i\)</span> and
+<span class="math inline">\(e_k\)</span> are <span class="math inline">\(\Delta\)</span>-connected, if there exists a
+sequence of <span class="math inline">\(\Delta t\)</span>-adjacent
+events joining <span class="math inline">\(e_i\)</span> and <span class="math inline">\(e_k\)</span>.</p></li>
+<li><p>similarity of the temporal order of events</p></li>
+<li><p>temporal subgraphs map to static directed graph</p></li>
+<li><p>时间网络 → 时间聚类网络</p></li>
+<li><p>temporal motifs have causal explanation: Kovanen et al.</p></li>
+<li><p>over- under- representation 导致信息丢失</p></li>
+<li><p>reoccurance for some vertexs set</p></li>
+</ul></li>
+<li><p>Mersuring inter-contact times and burstiness</p>
+<ul>
+<li><p>突发事件：Poisson process</p></li>
+<li><p>Nodes (edges) are binned according to their numbers of contacts,
+and the inter-contact time distributions are scaled by the average
+inter-contact time in each bin, <span class="math inline">\(P\left(\tau
+/ \tau^*\right)\)</span>. 并呈现厚尾形式</p></li>
+<li><p>Measure of burstness from sequence of inter-contact times.</p>
+<p>Coefficient of varition: defined as the ration of the standard
+deviation of the intercontact times to their mean, <span class="math inline">\(\sigma_\tau / m_\tau\)</span>. For a Poissonian
+contact sequence, <span class="math inline">\(\sigma_\tau /
+m_\tau=1\)</span>. Using this quantity, the burstiness of a sequence is
+then defined as <span class="math display">\[
+B=\frac{\left(\sigma_\tau / m_\tau-1\right)}{\left(\sigma_\tau /
+m_\tau+1\right)}=\frac{\left(\sigma_\tau-m_\tau\right)}{\left(\sigma_\tau+m_\tau\right)}
+\]</span> For finite contact sequences, the variance is always finite,
+and <span class="math inline">\(B \in(-1,1)\)</span>, such that <span class="math inline">\(B=1\)</span> indicates a most bursty sequence,
+<span class="math inline">\(B=0\)</span> a sequence with Poissonian
+inter-contact times, and <span class="math inline">\(B=-1\)</span> a
+completely periodic sequence.</p></li>
+</ul></li>
+<li><p>Entropies and other information-theoretic measures</p>
+<ul>
+<li>Blackmore and Hanlen’s entropy-based method to account for temporal
+uncertainties in communication networks</li>
+<li>“ascendency” to quantify how well a system process its environmental
+input</li>
+</ul></li>
+</ol>
+<h1 id="representing-temporal-data-as-static-graph">Representing
+Temporal Data as Static Graph</h1>
+<ol type="1">
+<li>map dynamic SIR model to static edge percolation model
+<ul>
+<li>takes into account the temporal correlations and infomogeneities of
+edges</li>
+</ul></li>
+<li>Reachability graph
+<ul>
+<li>directed graph
+<ul>
+<li>average degree k</li>
+</ul></li>
+<li>line graph of G
+<ul>
+<li>vertices are edges of G, if share vertex in G</li>
+<li>structure of concurrent partnership</li>
+</ul></li>
+</ul></li>
+<li>Transmission graph
+<ul>
+<li>A graph where an edge <span class="math inline">\(e\)</span> is
+active over an interval <span class="math inline">\(\left[t_{\text
+{start }}(e), t_{\text {stop }}(e)\right]\)</span>. There is a directed
+edge from <span class="math inline">\(e\)</span> to <span class="math inline">\(e^{\prime}\)</span> in the transmission graph if
+<span class="math inline">\(e\)</span> and <span class="math inline">\(e^{\prime}\)</span> share a vertex, <span class="math inline">\(t_{\text {start }}(e)&lt;t_{\text {start
+}}\left(e^{\prime}\right)+\delta\)</span> and <span class="math inline">\(t_{\text {start
+}}\left(e^{\prime}\right)&lt;t_{\text {start }}(e)\)</span>.</li>
+</ul></li>
+</ol>
+<h1 id="models-for-temporal-networks">Models for temporal networks</h1>
+<ol type="1">
+<li><p>Temporal exponential random graph</p>
+<ul>
+<li>probability of a contact to happen between a pair of vertices at a
+given time.</li>
+<li>measure quantities of topological and temporal structure</li>
+</ul></li>
+<li><p>Models of group dynamics</p>
+<ul>
+<li>区间图：基于master(or 'rate') equations，捕捉expected change in the
+number of people in a group of a certain size.</li>
+<li>时点图：find community of strong ties with weak links</li>
+</ul></li>
+<li><p>Contact network models</p>
+<ul>
+<li><p>model：</p>
+<ol type="1">
+<li><ol type="a">
+<li>A new partnership is formed with probability <span class="math inline">\(\rho\)</span>. The individuals participating in
+the pair are chosen according to the mixing function <span class="math inline">\(\phi\)</span> :</li>
+</ol>
+<ol type="i">
+<li>draw two random individuals <span class="math inline">\(i\)</span>
+and <span class="math inline">\(j\)</span>;</li>
+<li>decide whether they form a pair according to <span class="math inline">\(\phi(i, j)\)</span></li>
+<li>if yes, done; else go to <span class="math inline">\(i\)</span>.</li>
+</ol>
+<ol start="2" type="a">
+<li>Repeat step 1a $ N / 2-P$ times.</li>
+</ol></li>
+<li>In every pair consisting of a susceptible(易感者) and an
+infected(感染者), the disease is transmitted with probability <span class="math inline">\(\eta\)</span>.</li>
+<li>Every pair splits up with probability <span class="math inline">\(\sigma\)</span>.</li>
+</ol></li>
+<li><p>mixing function: (assortative 同源) high degree vertex tend to
+connect with high</p>
+<p><span class="math display">\[
+\phi(i, j)=1-\xi+\xi \frac{k_i k_j}{k_{\max }^2}
+\]</span></p></li>
+<li><p>mixing function: (disassortative) high degree vertex tend to
+connect with low <span class="math display">\[
+\phi(i, j)=1-\xi+\xi \frac{\left(k_i-k_j\right)^2}{k_{\max }^2}
+\]</span></p></li>
+<li><p>现代方法：draw degree from a distribution(power-law degree
+distribution) and connect them with a function like <span class="math inline">\(/phi\)</span></p></li>
+</ul></li>
+<li><p>Randomized reference models</p></li>
+</ol>
+<ul>
+<li><p>对于static network，评估importanceof topological
+features的方法：compare features with reference
+model（随机生成的）</p></li>
+<li><p>时序网络：设计temporal null
+model，看特征的贡献（随机生成或者remove某些特定correlation），下面介绍一些temporal
+null models</p>
+<ol type="1">
+<li><p>Randomized
+edges：研究拓扑结构的影响，保留了总的degree、时序的correlation、distribution。</p></li>
+<li><p>Go over all edges sequentially.</p></li>
+<li><p>For every edge <span class="math inline">\((i, j)\)</span>, pick
+another edge <span class="math inline">\(\left(i^{\prime},
+j^{\prime}\right)\)</span>.</p></li>
+<li><p>With a probability <span class="math inline">\(1 / 2\)</span>
+replace <span class="math inline">\((i, j)\)</span> and <span class="math inline">\(\left(i^{\prime}, j^{\prime}\right)\)</span> by
+<span class="math inline">\(\left(i, j^{\prime}\right)\)</span> and
+<span class="math inline">\(\left(i^{\prime}, j\right)\)</span>,
+otherwise replace them by <span class="math inline">\(\left(i,
+i^{\prime}\right)\)</span> and <span class="math inline">\(\left(j,
+j^{\prime}\right)\)</span>.</p></li>
+<li><p>If the move in step 3 created a self-edge or multiple edge, then
+undo it and start over from step 2 .</p></li>
+<li><p>Randomly permuted times (RP)：研究event
+order、distribution、correlation and effect</p>
+<p>Permute the contact times randomly while keeping the network
+structure and the numbers of contacts between all pairs of vertices
+fixed.</p></li>
+<li><p>Randomized edges with randomly permuted times (RE + RP)：</p>
+<p>先用RE randomize，再shuffle timestamps of all contacts</p></li>
+<li><p>Random times (RT)：每个contact of
+edge被分配时间窗口内的随机时间。generating from chosen
+distribution.</p></li>
+<li><p>Randomized contacts (RC)：keeps the graph topology fixed but
+redistributes the contacts randomly among the edges.
+每个edge的contact数量符合binomial
+distribution。可以研究这些分布。</p></li>
+<li><p>Equal-weight edge randomization
+(EWER)：再具有相同contact的边之间随机交换。消除相邻边的接触序列之间的时间相关性，同时保留与边相关的时间特征，包括单个边上的接触间时间分布。问题在于系统要足够大，足够多具有相同时间数量的边。</p></li>
+<li><p>Edge randomization (ER)：the sequences can be exchanged between
+edges that have any numbers of contacts.</p></li>
+<li><p>Time reversal (TR)：评估frequency和causal sequences of
+contacts</p></li>
+</ol></li>
+</ul>
+<h1 id="spreading-dynamics-and-compartmental-models-on-temporal-graphs">SPREADING
+DYNAMICS AND COMPARTMENTAL MODELS ON TEMPORAL GRAPHS</h1>
+<ol type="1">
+<li><p>SIR模型（Susceptible-Infective-Removed）显示了更丰富的动态变化。在这个模型中，受感染的个体在单位时间内以某种概率<span class="math inline">\(\beta\)</span>或在固定的时间段后恢复并变得对传播有免疫力。现在SIR动态的结果取决于两个速率（感染率<span class="math inline">\(\mu\)</span>和恢复率<span class="math inline">\(\beta\)</span>）以及网络结构之间的相互作用。</p></li>
+<li><p>传播的过程具有异质性，例如传播方式的不同，另外存在互动事件引起进一步事件的相关性。</p></li>
+<li><p>交流事件不一定符合Poisson或者uniform，可以用厚尾或者power
+law来描述。</p></li>
+<li><p>In the Poisson approximation泊松估计, the probability of one
+vertex to interact with another within a time interval <span class="math inline">\(d t\)</span> is <span class="math inline">\(d t
+/\langle\tau\rangle\)</span>, where <span class="math inline">\(\langle\tau\rangle\)</span> is the average
+interevent time. Thus, the time between consecutive contacts is
+exponentially distributed, <span class="math inline">\(P(\tau) \sim \exp
+(-t /\langle\tau\rangle)\)</span>. However, for the email data studied
+by Vazquez et al., after correcting for finite observation window, it
+was seen that <span class="math inline">\(P(\tau) \sim 1 /
+\tau\)</span>, followed by an exponential cutoff.</p></li>
+<li><p>broad inter-event time
+distribution，符合计算机蠕虫病毒的传播数据（prevalence dynamics of the
+SI model）</p></li>
+<li><p>Later, Min, Goh and Vazquez [106] studied the SI model with
+幂律时间间时间分布(<strong>power-law inter-event time
+distributions</strong>) using theoretical arguments that assume a
+<strong>tree-like network structure</strong>, as well as with simulated
+spreading with <strong>uncorrelated power-law activity patterns</strong>
+and the <strong>priority-queue network</strong> model. They concluded
+that a power-law waiting time distribution leads to a <strong>power-law
+decay</strong> in the number of new infections in the long time limit,
+with an exponent determined through the generation time distribution.
+这篇论文用树模型研究传播特征，不太适合股票网络，因为病毒感染基本是单向的，而股票网络的影响是双向的。</p></li>
+<li><p>Iribarren和Moro的营销模型中，响应时间（接收和转发之间的时间）被认为是遵循对数正态分布。</p></li>
+<li><p>Fernandez-Gracia et al. [46] studied the effect of broad
+inter-event time distributions on the ordering dynamics of the Voter
+model</p></li>
+<li><p>Burstiness and other temporal and structural inhomogeneities</p>
+<ul>
+<li>Karsai et al. [71] provided further insight into the effect of
+temporal heterogeneities on spreading dynamics by studying the behavior
+of the SI model. 电话呼叫数据库，3亿多数据。interevent times have broad
+distribution</li>
+<li>Miritello et al. [107]将SIR model map到静态网络，并且估计了dynamic
+transmissibility（二次感染平均值）</li>
+<li>SI传播的速度--特别是在确定的情况下，即感染者总是在接触后感染易感者--与时间路径的长度、延迟和可及性有关[59,
+120]</li>
+</ul></li>
+<li><p>Utilizing temporal structure for disease control</p>
+<ul>
+<li>随机抽取一个人，name一个人，然后打疫苗，直到理想比例的人被接种疫苗。首先是按照degree
+k的比例抽样，经典理论：这个人对疾病传播的importance是<span class="math inline">\(k^2\)</span>，感染其他人的于其数量也与k成正比。</li>
+<li>contact可以分为最近和最频繁的接触。</li>
+</ul></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Literature</category>
+      </categories>
+      <tags>
+        <tag>Literature</tag>
       </tags>
   </entry>
 </search>

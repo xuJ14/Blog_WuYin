@@ -2,9 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xuj14.github.io/Temporal-Network/</loc>
+    
+    <lastmod>2023-05-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xuj14.github.io/Assumption-of-Linear-Regression/</loc>
     
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-12-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/Nonlinear-Correlation/</loc>
+    
+    <lastmod>2022-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/Feature-Engineering/</loc>
+    
+    <lastmod>2022-10-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -265,7 +292,7 @@
 
   <url>
     <loc>https://xuj14.github.io/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -273,56 +300,63 @@
   
   <url>
     <loc>https://xuj14.github.io/tags/Mathematics/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Project/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Issues/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Learning-Tips/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Finance/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Python/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/tags/Essay/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/tags/Literature/</loc>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -331,35 +365,42 @@
   
   <url>
     <loc>https://xuj14.github.io/categories/Mathematics/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Project/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Machine-Learning/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Programming/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xuj14.github.io/categories/Other/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2023-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xuj14.github.io/categories/Literature/</loc>
+    <lastmod>2023-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
